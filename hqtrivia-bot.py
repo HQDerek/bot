@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import time
+import json
 import websocket
 import requests
 try:
@@ -30,29 +31,38 @@ def get_socket_url():
         return None
 
     # Return socket URL for websocket connection
-    return json.get('broadcast').get('socketUrl')
+    return json.get('broadcast').get('socketUrl').replace('https', 'wss')
 
+
+# Message handler
 def on_message(ws, message):
-    print(message)
+    print('MESSAGE: %s' % message)
 
+    # Find start of JSON data
+    data_start = message.find('{')
+    if data_start >= 0:
+
+        # Decode JSON data
+        data = json.loads(message[data_start:])
+        if data.get('type') == 'broadcastEnded' and not data.get('reason'):
+            ws.close()
+            print('Broadcast ended.')
+        elif data.get('type') == 'question':
+            if data.get('answers') and data.get('type') == 'question':
+                predict_answers(build_answers(data.get('answers')), data.get('question'))
+
+
+# Error handler
 def on_error(ws, error):
-    print(error)
+    print('ERROR: %s' % error)
 
+
+# Socket close handler
 def on_close(ws):
-    print("### closed ###")
+    print('SOCKET CLOSED')
 
-def on_open(ws):
-    def run(*args):
-        for i in range(3):
-            time.sleep(1)
-            ws.send("Hello %d" % i)
-        time.sleep(1)
-        ws.close()
-        print("thread terminating...")
-    thread.start_new_thread(run, ())
 
 if __name__ == "__main__":
-
     socket_url = get_socket_url()
 
     if socket_url:
@@ -62,5 +72,4 @@ if __name__ == "__main__":
             on_error = on_error,
             on_close = on_close
         )
-        ws.on_open = on_open
         ws.run_forever()
