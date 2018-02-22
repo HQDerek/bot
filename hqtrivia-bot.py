@@ -3,6 +3,7 @@ import time
 import json
 import websocket
 import requests
+import urllib.parse
 try:
     import thread
 except ImportError:
@@ -32,6 +33,78 @@ def get_socket_url():
 
     # Return socket URL for websocket connection
     return json.get('broadcast').get('socketUrl').replace('https', 'wss')
+
+
+# Build set of answers from raw data
+def build_answers(raw_answers):
+    answers = {
+        'A': raw_answers[1]['text'],
+        'B': raw_answers[2]['text'],
+        'C': raw_answers[3]['text']
+    }
+    return answers
+
+
+# Build query set from data and options
+def build_queries(question, answers, includeAnswers=False, change=False):
+    queries = [question]
+
+    if 'Which of these' in question and change is True:
+        question = question.replace('Which of these', 'what')
+        question = implode(' ', array_map('singularize', (array)str_word_count(question, 1)))
+        print(question)
+
+    if includeAnswers is True:
+        if change is False:
+            queries.append('%s "%s"' % (question, '"  "'.join(answers)))
+
+        for answer in answers:
+            queries.append('%s "%s"' % (question, answer))
+
+    return map(lambda v: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.urlencode(v)), queries)
+        + map(lambda v: grequests.get('https://ca.search.yahoo.com/search?ei=UTF-8&nojs=1&p=%s' % urllib.parse.urlencode(v)), queries)
+
+
+# Get answer predictions
+def predict_answers(answers, question):
+    print('--------------------------------------')
+    print(question)
+
+    # Check for NOT in question
+    if ' not ' in question:
+        print('--------------------------------------------------------')
+        print('"NOT" DETECTED. USE THE ANSWER THAT IS THE LEAST SUCCESSFUL')
+        print('--------------------------------------------------------')
+
+    # Use method 1
+    print ('METHOD 1')
+    queries = build_queries(
+        question,
+        answers
+    )
+    responses = grequests.map(queries)
+    handle_responses(responses, answers, question)
+
+    # Use method 2
+    print ('METHOD 2')
+    queries = build_queries(
+        question,
+        answers,
+        True
+    )
+    responses = grequests.map(queries)
+    handle_responses(responses, answers, question)
+
+    # Use method 3 (optional)
+    if 'Which of these' in question:
+        print ('Special METHOD 3')
+        queries = build_queries(
+            question,
+            answers,
+            False,
+            True
+        )
+        handle_responses(responses, answers, question)
 
 
 # Message handler
