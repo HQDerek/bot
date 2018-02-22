@@ -1,0 +1,106 @@
+[
+    {
+        "question": "Zebras are native to which continent?",
+        "answers": {
+            "A": "Africa",
+            "B": "Antarctica",
+            "C": "North America"
+        }
+    },
+    {
+        "question": "Which vitamin is naturally synthesized in the skin with exposure to the sun?",
+        "answers": {
+            "A": "B6",
+            "B": "D",
+            "C": "C"
+        }
+    },
+    {
+        "question": "What is this \"&\" symbol called?",
+        "answers": {
+            "A": "Ampersand",
+            "B": "Andition",
+            "C": "Caret"
+        }
+    },
+    {
+        "question": "Which European country boasts the largest population?",
+        "answers": {
+            "A": "United Kingdom",
+            "B": "France",
+            "C": "Germany"
+        }
+    },
+    {
+        "question": "Which cocktail contains cognac, Cointreau and lemon juice?",
+        "answers": {
+            "A": "Sidecar",
+            "B": "Long Island Iced Tea",
+            "C": "Manhattan"
+        }
+    },
+    {
+        "question": "What filmmaker has actually beat up some of his critics in a boxing ring?",
+        "answers": {
+            "A": "Michael Bay",
+            "B": "Uwe Boll",
+            "C": "Quentin Tarantino"
+        }
+    },
+    {
+        "question": "Pierre Cardin was born in what country?",
+        "answers": {
+            "A": "France",
+            "B": "Belgium",
+            "C": "Italy"
+        }
+    },
+    {
+        "question": "According to its creator, which of these games was secretly designed as a stage play?",
+        "answers": {
+            "A": "Super Mario Bros. 3",
+            "B": "Assassin's Creed",
+            "C": "Metroid Prime"
+        }
+    },
+    {
+        "question": "“The Gift,” “The Eye,” and “The Defense” are novels by which notable author?",
+        "answers": {
+            "A": "Vladimir Nabokov",
+            "B": "Herman Melville",
+            "C": "John Steinbeck"
+        }
+    },
+    {
+        "question": "The name of which common herb is taken from a Greek word connoting royalty?",
+        "answers": {
+            "A": "Cilantro",
+            "B": "Coriander",
+            "C": "Basil"
+        }
+    },
+    {
+        "question": "Which of these dictators was in office the longest?",
+        "answers": {
+            "A": "Muammar Gaddafi",
+            "B": "Robert Mugabe",
+            "C": "Saddam Hussein"
+        }
+    },
+    {
+        "question": "The \"izzle\" slang, made popular by Snoop Dogg, first appeared in which of these songs?",
+        "answers": {
+            "A": "Double Dutch Bus",
+            "B": "Who Am I/What's My Name",
+            "C": "Roxanne, Roxanne"
+        }
+    },
+    {
+        "question": "The First Transcontinental Railroad was previously known as what?",
+        "answers": {
+            "A": "Western Route Railroad",
+            "B": "Overland Route Railroad",
+            "C": "Great Pacific Railroad"
+        }
+    }
+]

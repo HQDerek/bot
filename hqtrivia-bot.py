@@ -1,9 +1,10 @@
 #!/usr/bin/python
+import sys
 import time
 import json
 import websocket
 import requests
-import sys
+import grequests
 import urllib.parse
 try:
     import thread
@@ -59,12 +60,12 @@ def build_queries(question, answers, includeAnswers=False, change=False):
 
     print(queries)
 
-    return map(lambda v: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.urlencode(v)), queries) + \
-        map(lambda v: grequests.get('https://ca.search.yahoo.com/search?ei=UTF-8&nojs=1&p=%s' % urllib.parse.urlencode(v)), queries)
+    return list(map(lambda q: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.quote_plus(q)), queries)) + \
+        list(map(lambda q: grequests.get('https://ca.search.yahoo.com/search?ei=UTF-8&nojs=1&p=%s' % urllib.parse.quote_plus(q)), queries))
 
 
 # Get answer predictions
-def predict_answers(answers, question):
+def predict_answers(question, answers):
     print('--------------------------------------')
     print(question)
 
@@ -81,7 +82,7 @@ def predict_answers(answers, question):
         answers
     )
     responses = grequests.map(queries)
-    handle_responses(responses, answers, question)
+    handle_responses(question, answers, responses)
 
     # Use method 2
     print ('METHOD 2')
@@ -91,7 +92,7 @@ def predict_answers(answers, question):
         True
     )
     responses = grequests.map(queries)
-    handle_responses(responses, answers, question)
+    handle_responses(question, answers, responses)
 
     # Use method 3 (optional)
     if 'Which of these' in question:
@@ -102,7 +103,12 @@ def predict_answers(answers, question):
             False,
             True
         )
-        handle_responses(responses, answers, question)
+        handle_responses(question, answers, responses)
+
+
+# Handle question responses
+def handle_responses(question, answers, responses):
+    print("Responses: %s" % responses)
 
 
 # Message handler
@@ -120,7 +126,7 @@ def on_message(ws, message):
             print('Broadcast ended.')
         elif data.get('type') == 'question':
             if data.get('answers') and data.get('type') == 'question':
-                predict_answers(build_answers(data.get('answers')), data.get('question'))
+                predict_answers(data.get('question'), build_answers(data.get('answers')))
 
 
 # Error handler
@@ -135,9 +141,7 @@ def on_close(ws):
 
 if __name__ == "__main__":
 
-    if "test" in sys.argv:
-        print("Running in Test Mode")
-    else:
+    if not "test" in sys.argv:
         socket_url = get_socket_url()
         if socket_url:
             websocket.enableTrace(True)
@@ -147,3 +151,14 @@ if __name__ == "__main__":
                 on_close = on_close
             )
             ws.run_forever()
+    else:
+        print("Running in Test Mode")
+
+        # Load questions from file
+        questions = json.load(open('questions.json'))
+
+        # Loop through questions
+        for question in questions:
+            predict_answers(question.get('question'), question.get('answers'))
+
+        print("Testing Complete")
