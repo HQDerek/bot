@@ -53,9 +53,9 @@ def build_queries(question, answers, includeAnswers=False, change=False):
 
     if includeAnswers is True:
         if change is False:
-            queries.append('%s "%s"' % (question, '"  "'.join(answers)))
+            queries.append('%s "%s"' % (question, '"  "'.join(str(answers[index]) for index in sorted(answers))))
 
-        for answer in answers:
+        for index, answer in answers.items():
             queries.append('%s "%s"' % (question, answer))
 
     print(queries)
