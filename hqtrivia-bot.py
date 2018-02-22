@@ -3,6 +3,7 @@ import time
 import json
 import websocket
 import requests
+import sys
 import urllib.parse
 try:
     import thread
@@ -49,11 +50,6 @@ def build_answers(raw_answers):
 def build_queries(question, answers, includeAnswers=False, change=False):
     queries = [question]
 
-    if 'Which of these' in question and change is True:
-        question = question.replace('Which of these', 'what')
-        question = implode(' ', array_map('singularize', (array)str_word_count(question, 1)))
-        print(question)
-
     if includeAnswers is True:
         if change is False:
             queries.append('%s "%s"' % (question, '"  "'.join(answers)))
@@ -61,8 +57,10 @@ def build_queries(question, answers, includeAnswers=False, change=False):
         for answer in answers:
             queries.append('%s "%s"' % (question, answer))
 
-    return map(lambda v: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.urlencode(v)), queries)
-        + map(lambda v: grequests.get('https://ca.search.yahoo.com/search?ei=UTF-8&nojs=1&p=%s' % urllib.parse.urlencode(v)), queries)
+    print(queries)
+
+    return map(lambda v: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.urlencode(v)), queries) + \
+        map(lambda v: grequests.get('https://ca.search.yahoo.com/search?ei=UTF-8&nojs=1&p=%s' % urllib.parse.urlencode(v)), queries)
 
 
 # Get answer predictions
@@ -136,13 +134,16 @@ def on_close(ws):
 
 
 if __name__ == "__main__":
-    socket_url = get_socket_url()
 
-    if socket_url:
-        websocket.enableTrace(True)
-        ws = websocket.WebSocketApp("ws://socket_url",
-            on_message = on_message,
-            on_error = on_error,
-            on_close = on_close
-        )
-        ws.run_forever()
+    if "test" in sys.argv:
+        print("Running in Test Mode")
+    else:
+        socket_url = get_socket_url()
+        if socket_url:
+            websocket.enableTrace(True)
+            ws = websocket.WebSocketApp("ws://%s" % socket_url,
+                on_message = on_message,
+                on_error = on_error,
+                on_close = on_close
+            )
+            ws.run_forever()

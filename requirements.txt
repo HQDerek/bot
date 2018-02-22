@@ -1,1 +1,2 @@
 websocket-client==0.46.0
+grequests==0.3.0
