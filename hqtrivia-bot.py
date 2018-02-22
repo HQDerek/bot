@@ -3,8 +3,8 @@ import sys
 import time
 import json
 import websocket
-import requests
 import grequests
+import requests
 import urllib.parse
 try:
     import thread
