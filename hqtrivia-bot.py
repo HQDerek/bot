@@ -92,7 +92,7 @@ if __name__ == "__main__":
         total_correct = 0
         for q in questions:
         #question = questions[0]
-            if q.get('round') and q.get('round') == 4:
+            if q.get('round') and q.get('round') <= 4:
                 prediction = utils.predict_answers(q.get('question'), q.get('answers'))
                 prediction_correct = prediction == q.get('correct')
                 print('Predicted: %s, Correct: %s' % (prediction, q.get('correct')))

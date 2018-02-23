@@ -28,19 +28,17 @@ def build_answers(raw_answers):
 def build_google_queries(question, answers):
     queries = [question]
 
-    #queries.append(get_text_nouns(question))
-    #queries.append('%s "%s"' % (question, '"  "'.join(str(answers[index]) for index in sorted(answers))))
     for n, answer in answers.items():
         queries.append('%s "%s"' % (question, answer))
 
-    return list(map(lambda q: grequests.get('https://www.google.co.uk/search?q=%s' % urllib.parse.quote_plus(q)), queries))
+    return list(map(lambda q: grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q)), queries))
 
 
 # Build wikipedia query set from data and options
 def build_wikipedia_queries(question, answers):
     queries = [get_text_nouns(answer) for answer in list(answers.values())]
 
-    return list(map(lambda q: grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=%s' % urllib.parse.quote_plus(q)), queries))
+    return list(map(lambda q: grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q)), queries))
 
 
 # Get answer predictions
@@ -62,24 +60,28 @@ def predict_answers(question, answers):
     wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers))
 
     # Loop through search results
-    for response in google_responses:
+    for n, response in enumerate(google_responses):
         results = ''
         soup = BeautifulSoup(response.text, 'lxml')
-        for g in soup.find_all(class_='st'):
-            results += " " + g.text
-        cleaned_results = results.strip().replace('\n','')
-        results_words = get_raw_words(cleaned_results)
-        #print('results_words: %s' % results_words)
 
-        # Find answer in result descriptions
-        for n, answer in answers.items():
-            answer_words = get_raw_words(answer)    
-            occurences = results_words.count(answer)
-            #print('answer_words: %s' % answer_words)
-            #print('occurences: %s' % occurences)
-            counts[n] += occurences
+        if n == 0:
+            # Find answer in result descriptions
+            for g in soup.find_all(class_='st'):
+                results += " " + g.text
+            cleaned_results = results.strip().replace('\n','')
+            results_words = get_raw_words(cleaned_results)
 
-        print("%s: %s" % (response.url, counts))
+            for n, answer in answers.items():
+                answer_words = get_raw_words(answer)
+                occurences = results_words.count(answer)
+                counts[n] += (occurences * 150)
+        else:
+            # Count number of results
+            results_count_text = soup.find(id='resultStats').text.replace(',', '')
+            results_count = re.findall(r'\d+', results_count_text)[0]
+            counts[chr(64 + n)] += int(results_count) / 1000
+
+        print("%s: Scores: %s" % (response.url, counts))
 
     question_words = get_raw_words(question)
     question_nouns = get_text_nouns(question_words).split(' ')
@@ -98,9 +100,9 @@ def predict_answers(question, answers):
         # Find question in result descriptions
         occurences_list = find_keywords(question_nouns, results_words)
         #print('occurences: %s' % sum(occurences_list))
-        counts[chr(65 + n)] += sum(occurences_list)
+        counts[chr(65 + n)] += sum(occurences_list) * 100
 
-        print("%s: %s" % (response.url, sum(occurences_list)))
+        print("%s: Score: %s" % (response.url, sum(occurences_list) * 100))
 
     prediction = min(counts, key=counts.get) if 'NOT' in question else max(counts, key=counts.get)
     total_occurences = sum(counts.values())
