@@ -933,6 +933,7 @@
             "B": "Chicken",
             "C": "Dog"
         },
+        "round": 12,
         "correct": "A"
     },
     {
@@ -942,6 +943,7 @@
             "B": "Microsoft",
             "C": "Apple"
         },
+        "round": 11,
         "correct": "C"
     },
     {
@@ -951,6 +953,7 @@
             "B": "Coloratura",
             "C": "Dramatic"
         },
+        "round": 10,
         "correct": "C"
     },
     {
@@ -960,6 +963,7 @@
             "B": "Slinky",
             "C": "Lego"
         },
+        "round": 9,
         "correct": "A"
     },
     {
@@ -969,6 +973,7 @@
             "B": "Lower than ten",
             "C": "Ten"
         },
+        "round": 8,
         "correct": "A"
     },
     {
@@ -978,6 +983,7 @@
             "B": "Trimming them",
             "C": "Plucking them"
         },
+        "round": 7,
         "correct": "A"
     },
     {
@@ -987,6 +993,7 @@
             "B": "Kombucha",
             "C": "Matcha"
         },
+        "round": 6,
         "correct": "C"
     },
     {
@@ -996,6 +1003,7 @@
             "B": "Google Doodles",
             "C": "Emoji"
         },
+        "round": 5,
         "correct": "A"
     },
     {
@@ -1005,6 +1013,7 @@
             "B": "Robomow",
             "C": "Roomba"
         },
+        "round": 4,
         "correct": "C"
     },
     {
@@ -1014,6 +1023,7 @@
             "B": "Black locust leaf",
             "C": "Fig leaf"
         },
+        "round": 3,
         "correct": "C"
     },
     {
@@ -1023,6 +1033,7 @@
             "B": "Surly Neighbor",
             "C": "Careless Whisper"
         },
+        "round": 2,
         "correct": "A"
     },
     {
@@ -1032,6 +1043,7 @@
             "B": "Tuffet",
             "C": "Blueberry muffin"
         },
+        "round": 1,
         "correct": "B"
     },
     {
@@ -1041,6 +1053,7 @@
             "B": "At a museum",
             "C": "In a restaurant"
         },
+        "round": 12,
         "correct": "A"
     },
     {
@@ -1050,6 +1063,7 @@
             "B": "Molokai",
             "C": "Cabras Island"
         },
+        "round": 11,
         "correct": "B"
     },
     {
@@ -1059,6 +1073,7 @@
             "B": "Pillow",
             "C": "Tissues"
         },
+        "round": 10,
         "correct": "C"
     },
     {
@@ -1068,6 +1083,7 @@
             "B": "Baby grand piano",
             "C": "Bulletin board"
         },
+        "round": 9,
         "correct": "C"
     },
     {
@@ -1077,6 +1093,7 @@
             "B": "Buzz",
             "C": "Mash"
         },
+        "round": 8,
         "correct": "A"
     },
     {
@@ -1086,6 +1103,7 @@
             "B": "Arthur Miller",
             "C": "F. Scott Fitzgerald"
         },
+        "round": 7,
         "correct": "C"
     },
     {
@@ -1095,6 +1113,7 @@
             "B": "Neck seam",
             "C": "Ruffle"
         },
+        "round": 6,
         "correct": "C"
     },
     {
@@ -1104,6 +1123,7 @@
             "B": "“Rafe”",
             "C": "“Ralf”"
         },
+        "round": 5,
         "correct": "B"
     },
     {
@@ -1113,6 +1133,7 @@
             "B": "Lemon",
             "C": "Cherry"
         },
+        "round": 4,
         "correct": "C"
     },
     {
@@ -1122,6 +1143,7 @@
             "B": "Pickleball",
             "C": "Handball"
         },
+        "round": 3,
         "correct": "B"
     },
     {
@@ -1131,6 +1153,7 @@
             "B": "Smell",
             "C": "Style"
         },
+        "round": 2,
         "correct": "B"
     },
     {
@@ -1140,6 +1163,7 @@
             "B": "Cedar salad",
             "C": "Scenic salad"
         },
+        "round": 1,
         "correct": "A"
     },
     {
@@ -1149,6 +1173,7 @@
             "B": "Secretary of the Army",
             "C": "Attorney General"
         },
+        "round": 12,
         "correct": "A"
     },
     {
@@ -1158,6 +1183,7 @@
             "B": "Primetime Emmy",
             "C": "SAG Award"
         },
+        "round": 11,
         "correct": "A"
     },
     {
@@ -1167,6 +1193,7 @@
             "B": "Madison Square Garden",
             "C": "Sistine Chapel"
         },
+        "round": 10,
         "correct": "B"
     },
     {
@@ -1176,6 +1203,7 @@
             "B": "Rudolf Diesel",
             "C": "George Eastman"
         },
+        "round": 9,
         "correct": "B"
     },
     {
@@ -1185,6 +1213,7 @@
             "B": "A Change Is Gonna Come",
             "C": "The Candy Man"
         },
+        "round": 8,
         "correct": "A"
     },
     {
@@ -1194,6 +1223,7 @@
             "B": "Play baseball",
             "C": "Drink whiskey"
         },
+        "round": 7,
         "correct": "C"
     },
     {
@@ -1203,6 +1233,7 @@
             "B": "Leviticus",
             "C": "Exodus"
         },
+        "round": 6,
         "correct": "A"
     },
     {
@@ -1212,6 +1243,7 @@
             "B": "Valentine's Day",
             "C": "Mother's Day"
         },
+        "round": 5,
         "correct": "A"
     },
     {
@@ -1221,6 +1253,7 @@
             "B": "The Hunger Games",
             "C": "Fahrenheit 451"
         },
+        "round": 4,
         "correct": "B"
     },
     {
@@ -1230,6 +1263,7 @@
             "B": "Fondue",
             "C": "Quiche"
         },
+        "round": 3,
         "correct": "B"
     },
     {
@@ -1239,6 +1273,7 @@
             "B": "Walk on the moon",
             "C": "Dunk a basketball"
         },
+        "round": 2,
         "correct": "B"
     },
     {
@@ -1248,6 +1283,7 @@
             "B": "Good Morning America",
             "C": "World News Tonight"
         },
+        "round": 1,
         "correct": "B"
     },
     {
@@ -2769,6 +2805,7 @@
             "B": "Policeman",
             "C": "Construction worker"
         },
+        "round": 12,
         "correct": "B"
     },
     {
@@ -2778,6 +2815,7 @@
             "B": "Both involve carbon",
             "C": "Both can occur in water"
         },
+        "round": 11,
         "correct": "A"
     },
     {
@@ -2787,6 +2825,7 @@
             "B": "The 1978 movie",
             "C": "Action Comics #64"
         },
+        "round": 10,
         "correct": "A"
     },
     {
@@ -2796,6 +2835,7 @@
             "B": "Joseph Conrad",
             "C": "William Faulkner"
         },
+        "round": 9,
         "correct": "B"
     },
     {
@@ -2805,6 +2845,7 @@
             "B": "Arthur",
             "C": "Wilson"
         },
+        "round": 8,
         "correct": "C"
     },
     {
@@ -2814,6 +2855,7 @@
             "B": "Aruba",
             "C": "Japan"
         },
+        "round": 7,
         "correct": "B"
     },
     {
@@ -2823,6 +2865,7 @@
             "B": "John Lithgow",
             "C": "Dan Aykroyd"
         },
+        "round": 6,
         "correct": "B"
     },
     {
@@ -2832,6 +2875,7 @@
             "B": "Poltroon",
             "C": "Quisling"
         },
+        "round": 5,
         "correct": "C"
     },
     {
@@ -2841,6 +2885,7 @@
             "B": "Google Shop",
             "C": "Microsoft Zip"
         },
+        "round": 4,
         "correct": "A"
     },
     {
@@ -2850,6 +2895,7 @@
             "B": "Ghostathlon",
             "C": "Frankensteining"
         },
+        "round": 3,
         "correct": "A"
     },
     {
@@ -2859,6 +2905,7 @@
             "B": "Pancreas",
             "C": "Eye"
         },
+        "round": 2,
         "correct": "C"
     },
     {
@@ -2868,6 +2915,7 @@
             "B": "+ / -",
             "C": "X / O"
         },
+        "round": 1,
         "correct": "C"
     },
     {

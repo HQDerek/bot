@@ -33,7 +33,7 @@ def build_google_queries(question, answers):
     for n, answer in answers.items():
         queries.append('%s "%s"' % (question, answer))
 
-    return list(map(lambda q: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.quote_plus(q)), queries))
+    return list(map(lambda q: grequests.get('https://www.google.co.uk/search?q=%s' % urllib.parse.quote_plus(q)), queries))
 
 
 # Build wikipedia query set from data and options
