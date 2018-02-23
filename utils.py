@@ -4,6 +4,16 @@ import grequests
 import urllib.parse
 from bs4 import BeautifulSoup
 
+class colors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 # Build set of answers from raw data
 def build_answers(raw_answers):
     answers = {
@@ -23,14 +33,16 @@ def build_queries(question, answers):
     for n, answer in answers.items():
         queries.append('%s "%s"' % (question, answer))
 
-    return list(map(lambda q: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.quote_plus(q)), queries))
+    google = list(map(lambda q: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.quote_plus(q)), queries))
+    wikipedia = list(map(lambda q: grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=%s' % urllib.parse.quote_plus(q)), list(answers.values())))
 
+    return google + wikipedia
 
 # Get answer predictions
 def predict_answers(question, answers):
 
     print('------------ %s ------------' % 'QUESTION')
-    print(question)
+    print(colors.BOLD + question + colors.ENDC)
     print('------------ %s ------------' % 'ANSWERS')
     print(answers)
     print('------------------------')
@@ -99,12 +111,12 @@ def handle_responses(question, answers, responses):
             #print('occurences: %s' % occurences)
             counts[n] += occurences
 
+    prediction = max(counts, key=counts.get)
     total_occurences = sum(counts.values())
-    sorted_counts = [(n, counts[n]) for n in sorted(counts, key=counts.get, reverse=True)]
-    prediction = sorted_counts[0][0]
 
-    for (n, count) in sorted_counts:
+    for n, count in counts.items():
         likelihood = int(count/total_occurences * 100) if total_occurences else 0
-        print('Answer %s: %s - %s%%' % (n, answers[n], likelihood))
+        result = 'Answer %s: %s - %s%%' % (n, answers[n], likelihood)
+        print(colors.BOLD + result + colors.ENDC if n == prediction else result)
 
-    return prediction if sorted_counts[0][1] else None
+    return prediction if counts[prediction] else None

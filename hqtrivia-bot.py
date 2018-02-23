@@ -90,16 +90,16 @@ if __name__ == "__main__":
         # Loop through questions
         total = 0
         total_correct = 0
-        for q in questions:
+        for q in questions[20:30]:
         #question = questions[0]
             prediction = utils.predict_answers(q.get('question'), q.get('answers'))
             prediction_correct = prediction == q.get('correct')
             print('Predicted: %s, Correct: %s' % (prediction, q.get('correct')))
-            print('Correct? %s' % ('Yes' if prediction_correct else 'No'))
+            if prediction_correct:
+                print(utils.colors.BOLD + utils.colors.OKGREEN + "Correct? Yes" + utils.colors.ENDC)
+            else:
+                print(utils.colors.BOLD + utils.colors.FAIL + "Correct? No" + utils.colors.ENDC)
             total += 1
             total_correct += 1 if prediction_correct else 0
-            if total == 20:
-                break;
-
         print("Testing Complete")
         print("Total Correct: %s/%s" % (total_correct, total))
