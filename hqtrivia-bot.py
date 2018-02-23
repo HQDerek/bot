@@ -90,7 +90,7 @@ if __name__ == "__main__":
         # Loop through questions
         total = 0
         total_correct = 0
-        for q in questions[20:30]:
+        for q in questions[75:85]:
         #question = questions[0]
             prediction = utils.predict_answers(q.get('question'), q.get('answers'))
             prediction_correct = prediction == q.get('correct')

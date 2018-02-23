@@ -24,19 +24,24 @@ def build_answers(raw_answers):
     return answers
 
 
-# Build query set from data and options
-def build_queries(question, answers):
+# Build google query set from data and options
+def build_google_queries(question, answers):
     queries = [question]
 
-    #queries.append(get_question_nouns(question))
+    #queries.append(get_text_nouns(question))
     #queries.append('%s "%s"' % (question, '"  "'.join(str(answers[index]) for index in sorted(answers))))
     for n, answer in answers.items():
         queries.append('%s "%s"' % (question, answer))
 
-    google = list(map(lambda q: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.quote_plus(q)), queries))
-    wikipedia = list(map(lambda q: grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=%s' % urllib.parse.quote_plus(q)), list(answers.values())))
+    return list(map(lambda q: grequests.get('https://www.google.ca/search?q=%s' % urllib.parse.quote_plus(q)), queries))
 
-    return google + wikipedia
+
+# Build wikipedia query set from data and options
+def build_wikipedia_queries(question, answers):
+    queries = [get_text_nouns(answer) for answer in list(answers.values())]
+
+    return list(map(lambda q: grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=%s' % urllib.parse.quote_plus(q)), queries))
+
 
 # Get answer predictions
 def predict_answers(question, answers):
@@ -47,54 +52,17 @@ def predict_answers(question, answers):
     print(answers)
     print('------------------------')
 
-    queries = build_queries(
-        question,
-        answers
-    )
-    responses = grequests.map(queries)
-    return handle_responses(question, answers, responses)
-
-
-# Find keywords in specified data
-def find_keywords(keywords, data):
-    words_found = []
-    for keyword in keywords:
-        if len(keyword) > 2:
-            if keyword in data and keyword not in words_found:
-                words_found.append(keyword)
-    return words_found
-
-
-# Get nouns from question
-def get_question_nouns(question):
-    response = ''
-    for (word, tag) in nltk.pos_tag(nltk.word_tokenize(question)):
-        if tag == 'NN' or tag == 'NNP':
-            response += word + ' '
-    return response.strip()
-
-
-# Extract raw words from data
-def get_raw_words(data):
-    data = re.sub('[^\w ]', '' , data)
-    words = data.replace('  ' , ' ')
-    return words
-
-
-# Handle question responses
-def handle_responses(question, answers, responses):
-
     counts = {
         'A': 0,
         'B': 0,
         'C': 0
     }
 
-    # Loop through search results
-    for response in responses:
-        print(response.url)
+    google_responses = grequests.map(build_google_queries(question, answers))
+    wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers))
 
-        # Extract search description text
+    # Loop through search results
+    for response in google_responses:
         results = ''
         soup = BeautifulSoup(response.text, 'lxml')
         for g in soup.find_all(class_='st'):
@@ -111,6 +79,29 @@ def handle_responses(question, answers, responses):
             #print('occurences: %s' % occurences)
             counts[n] += occurences
 
+        print("%s: %s" % (response.url, counts))
+
+    question_words = get_raw_words(question)
+    question_nouns = get_text_nouns(question_words).split(' ')
+    print('question_nouns: %s' % question_nouns)
+
+    # Loop through wikipedia results
+    for n, response in enumerate(wikipedia_responses):
+        results = ''
+        soup = BeautifulSoup(response.text, 'lxml')
+        for g in soup.find_all('p'):
+            results += " " + g.text
+        cleaned_results = results.strip().replace('\n','')
+        results_words = get_raw_words(cleaned_results)
+        #print('results_words: %s' % results_words)
+
+        # Find question in result descriptions
+        occurences_list = find_keywords(question_nouns, results_words)
+        #print('occurences: %s' % sum(occurences_list))
+        counts[chr(65 + n)] += sum(occurences_list)
+
+        print("%s: %s" % (response.url, sum(occurences_list)))
+
     prediction = max(counts, key=counts.get)
     total_occurences = sum(counts.values())
 
@@ -120,3 +111,29 @@ def handle_responses(question, answers, responses):
         print(colors.BOLD + result + colors.ENDC if n == prediction else result)
 
     return prediction if counts[prediction] else None
+
+
+# Find keywords in specified data
+def find_keywords(keywords, data):
+    words_found = []
+    for keyword in keywords:
+        if len(keyword) > 2:
+            if keyword in data and keyword not in words_found:
+                words_found.append(data.count(keyword))
+    return words_found
+
+
+# Get nouns from text
+def get_text_nouns(input):
+    response = ''
+    for (word, tag) in nltk.pos_tag(nltk.word_tokenize(input)):
+        if tag.startswith('NN') or tag.startswith('NNP'):
+            response += word + ' '
+    return response.strip()
+
+
+# Extract raw words from data
+def get_raw_words(data):
+    data = re.sub('[^\w ]', '' , data)
+    words = data.replace('  ' , ' ')
+    return words
