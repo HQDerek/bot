@@ -102,7 +102,7 @@ def predict_answers(question, answers):
 
         print("%s: %s" % (response.url, sum(occurences_list)))
 
-    prediction = max(counts, key=counts.get)
+    prediction = min(counts, key=counts.get) if 'NOT' in question else max(counts, key=counts.get)
     total_occurences = sum(counts.values())
 
     for n, count in counts.items():
