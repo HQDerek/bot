@@ -53,16 +53,15 @@ def on_message(ws, message):
             if data.get('answers') and data.get('type') == 'question':
                 utils.predict_answers(data.get('question'), utils.build_answers(data.get('answers')))
 
-
-# Error handler
 def on_error(ws, error):
     print('ERROR: %s' % error)
 
+def on_ping(ws, data):
+    print('RECEIVED PING: %s, SENDING PONG' % data)
+    ws.pong(data)
 
-# Socket close handler
 def on_close(ws):
     print('SOCKET CLOSED')
-
 
 if __name__ == "__main__":
 
