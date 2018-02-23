@@ -78,7 +78,7 @@ if __name__ == "__main__":
             )
             while not broadcastEnded:
                 try:
-                    ws.run_forever()
+                    ws.run_forever(ping_interval=5)
                 except:
                     print('RECONNECTING')
     else:
