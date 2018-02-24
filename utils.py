@@ -27,18 +27,16 @@ def build_answers(raw_answers):
 # Build google query set from data and options
 def build_google_queries(question, answers):
     queries = [question]
+    queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
 
-    for n, answer in answers.items():
-        queries.append('%s "%s"' % (question, answer))
-
-    return list(map(lambda q: grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q)), queries))
+    return [grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q)) for q in queries]
 
 
 # Build wikipedia query set from data and options
 def build_wikipedia_queries(question, answers):
     queries = [get_text_nouns(answer) for answer in list(answers.values())]
 
-    return list(map(lambda q: grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q)), queries))
+    return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q)) for q in queries]
 
 
 # Get answer predictions
@@ -75,7 +73,7 @@ def predict_answers(question, answers):
                 answer_words = get_raw_words(answer)
                 occurences = results_words.count(answer)
                 counts[n] += (occurences * 150)
-        else:
+        elif soup.find(id='resultStats'):
             # Count number of results
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
             results_count = re.findall(r'\d+', results_count_text)[0]
