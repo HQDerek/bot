@@ -100,8 +100,16 @@ def on_message(ws, message):
             questions_output = output.get('questions')
             question_index = next((n for (n, val) in enumerate(questions_output) if val["questionId"] == data.get('questionId')))
             correct_index = next((n for (n, val) in enumerate(data.get('answerCounts')) if val["correct"]))
+            prediction_correct = output['questions'][question_index]['prediction']['answer'] == chr(65 + correct_index)
+            print(utils.colors.BOLD + ('Correct Answer: %s - %s' % (chr(65 + correct_index), output['questions'][question_index])) + utils.colors.ENDC)
+            if prediction_correct:
+                print(utils.colors.BOLD + utils.colors.OKGREEN + "Prediction Correct? Yes" + utils.colors.ENDC)
+            else:
+                print(utils.colors.BOLD + utils.colors.FAIL + "Prediction Correct? No" + utils.colors.ENDC)
+
+            # Set correct answer in question object
             output['questions'][question_index]['correct'] = chr(65 + correct_index)
-            output['numCorrect'] += 1 if output['questions'][question_index]['prediction']['answer'] == chr(65 + correct_index) else 0
+            output['numCorrect'] += 1 if prediction_correct else 0
 
             # Update save game file
             with open('./games/%s.json' % currentGame, 'w') as file:
