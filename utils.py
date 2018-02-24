@@ -62,19 +62,19 @@ def predict_answers(question, answers):
         results = ''
         soup = BeautifulSoup(response.text, 'lxml')
 
+        # Find answer in result descriptions
         if n == 0:
-            # Find answer in result descriptions
             for g in soup.find_all(class_='st'):
                 results += " " + g.text
             cleaned_results = results.strip().replace('\n','')
             results_words = get_raw_words(cleaned_results)
-
             for n, answer in answers.items():
                 answer_words = get_raw_words(answer)
                 occurences = results_words.count(answer)
                 counts[n] += (occurences * 150)
+
+         # Count number of results
         elif soup.find(id='resultStats'):
-            # Count number of results
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
             results_count = re.findall(r'\d+', results_count_text)[0]
             counts[chr(64 + n)] += int(results_count) / 1000
@@ -93,13 +93,10 @@ def predict_answers(question, answers):
             results += " " + g.text
         cleaned_results = results.strip().replace('\n','')
         results_words = get_raw_words(cleaned_results)
-        #print('results_words: %s' % results_words)
 
         # Find question in result descriptions
         occurences_list = find_keywords(question_nouns, results_words)
-        #print('occurences: %s' % sum(occurences_list))
         counts[chr(65 + n)] += sum(occurences_list) * 100
-
         print("%s: Score: %s" % (response.url, sum(occurences_list) * 100))
 
     prediction = min(counts, key=counts.get) if 'NOT' in question else max(counts, key=counts.get)
@@ -107,10 +104,11 @@ def predict_answers(question, answers):
 
     for n, count in counts.items():
         likelihood = int(count/total_occurences * 100) if total_occurences else 0
+        counts[n] = '%d%%' % likelihood
         result = 'Answer %s: %s - %s%%' % (n, answers[n], likelihood)
         print(colors.BOLD + result + colors.ENDC if n == prediction else result)
 
-    return prediction if counts[prediction] else None
+    return (prediction if counts[prediction] else None, counts)
 
 
 # Find keywords in specified data
