@@ -40,19 +40,20 @@ def build_wikipedia_queries(question, answers):
 
 
 # Get answer predictions
-def predict_answers(question, answers):
-
-    print('------------ %s ------------' % 'QUESTION')
-    print(colors.BOLD + question + colors.ENDC)
-    print('------------ %s ------------' % 'ANSWERS')
-    print(answers)
-    print('------------------------')
+def predict_answers(data, answers):
 
     counts = {
         'A': 0,
         'B': 0,
         'C': 0
     }
+    question = data.get('question')
+
+    print('------------ %s %s ------------' % ('QUESTION', data.get('questionNumber')))
+    print(colors.BOLD + question + colors.ENDC)
+    print('------------ %s ------------' % 'ANSWERS')
+    print(answers)
+    print('------------------------')
 
     google_responses = grequests.map(build_google_queries(question, answers))
     wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers))
