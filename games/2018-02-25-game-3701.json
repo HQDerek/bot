@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "$6500",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Its underwear",
+                "B": "Its Facebook settings",
+                "C": "Its spots"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "1%",
+                    "B": "66%",
+                    "C": "32%"
+                }
+            },
+            "question": "According to the phrase, what can a leopard NOT change?",
+            "questionId": 28099,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Bruce Lee",
+                "B": "Eric Cantona",
+                "C": "Jackie Chan"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "48%",
+                    "B": "8%",
+                    "C": "42%"
+                }
+            },
+            "question": "Which of the following actors is NOT a martial arts movie star?",
+            "questionId": 28100,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Bass",
+                "B": "Tenor",
+                "C": "Baritone"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "46%",
+                    "B": "39%",
+                    "C": "13%"
+                }
+            },
+            "question": "Which of these male vocal ranges is the highest?",
+            "questionId": 28101,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Steak and Ale",
+                "B": "Meat and Potato",
+                "C": "Chicken and Ham"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "9%",
+                    "B": "81%",
+                    "C": "8%"
+                }
+            },
+            "question": "At the end of 2017, which of these flavours topped the PieRate website's list of best pies in Britain?",
+            "questionId": 28102,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Aberdeen",
+                "B": "Glasgow",
+                "C": "Edinburgh"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "24%",
+                    "C": "67%"
+                }
+            },
+            "question": "What is Scotland's busiest airport in terms of passenger numbers?",
+            "questionId": 28103,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Denzel Washington",
+                "B": "Gene Hackman",
+                "C": "Ed Harris"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "60%",
+                    "B": "15%",
+                    "C": "24%"
+                }
+            },
+            "question": "Which of these actors has won both a Tony and an Oscar?",
+            "questionId": 28104,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "15",
+                "B": "6",
+                "C": "65"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "22%",
+                    "B": "53%",
+                    "C": "24%"
+                }
+            },
+            "question": "How many countries boycotted the 1980 Summer Olympics?",
+            "questionId": 28105,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Vanessa Paradis",
+                "B": "Alec Baldwin",
+                "C": "Jude Law"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "21%",
+                    "C": "29%"
+                }
+            },
+            "question": "The model that recently topped Maxim Magazine's annual list is whose niece?",
+            "questionId": 28106,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Wisden Almanack",
+                "B": "James Bond novels",
+                "C": "Beano Annual"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "53%",
+                    "B": "46%",
+                    "C": "0%"
+                }
+            },
+            "question": "A complete set of which of these publications sold for £84,000 at auction in 2008?",
+            "questionId": 28107,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Kentucky Derby",
+                "B": "Crufts Best In Show",
+                "C": "Robot Wars"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "2%",
+                    "B": "96%",
+                    "C": "0%"
+                }
+            },
+            "question": "In 2017, which of these events was won by “Afterglow Miami Ink”?",
+            "questionId": 28108,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Benicio del Toro",
+                "B": "Antonio Banderas",
+                "C": "Pablo Picasso"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "2%",
+                    "B": "37%",
+                    "C": "59%"
+                }
+            },
+            "question": "Which of these famous figures did NOT choose to use his mother's surname?",
+            "questionId": 28109,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Tewkesbury",
+                "B": "Northampton",
+                "C": "Wakefield"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "6%",
+                    "B": "69%",
+                    "C": "24%"
+                }
+            },
+            "question": "In which battle did King Henry VI lose his only son?",
+            "questionId": 28110,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3701,
+    "ts": "2018-02-25T20:56:38.861Z"
+}

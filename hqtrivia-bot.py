@@ -2,6 +2,7 @@
 import os
 import sys
 import json
+import time
 import websocket
 import grequests
 import requests
@@ -21,7 +22,10 @@ currentGame = ''
 # Get broadcast socket URL
 def get_socket_url():
     resp = requests.get('https://api-quiz.hype.space/shows/now?type=hq&userId=%s' % USER_ID, headers=HEADERS)
-    json = resp.json()
+    try:
+        json = resp.json()
+    except Exception:
+        return None
 
     # Get next show time and prize
     nextShowTime = json.get('nextShowTime')
@@ -45,8 +49,14 @@ def on_message(ws, message):
     if data_start >= 0:
         data = json.loads(message[data_start:])
 
+        # Check for broadcast ended
+        if data.get('type') == 'broadcastEnded' and not data.get('reason'):
+            broadcastEnded = True
+            print('BROADCAST ENDED.')
+            ws.close()
+
         # Check for game status message
-        if data.get('type') == 'gameStatus':
+        elif data.get('type') == 'gameStatus':
             currentGame = '%s-game-%s' % (data.get('ts')[:10], data.get('showId'))
 
             # Create new save game file if not found
@@ -61,16 +71,10 @@ def on_message(ws, message):
                         'questions': [],
                     }, file, ensure_ascii=False, sort_keys=True, indent=4)
 
-        # Check for broadcast ended
-        if data.get('type') == 'broadcastEnded' and not data.get('reason'):
-            broadcastEnded = True
-            print('Broadcast ended.')
-            ws.close()
-
         # Check for question
-        if data.get('type') == 'question' and data.get('answers'):
+        elif data.get('type') == 'question' and data.get('answers'):
             parsed_answers = utils.build_answers(data.get('answers'))
-            (prediction, confidence) = utils.predict_answers(data.get('question'), parsed_answers)
+            (prediction, confidence) = utils.predict_answers(data, parsed_answers)
 
             # Load save game file and append question
             with open('./games/%s.json' % currentGame) as file:    
@@ -92,7 +96,7 @@ def on_message(ws, message):
                 json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
         # Check for question summary
-        if data.get('type') == 'questionSummary':
+        elif data.get('type') == 'questionSummary':
 
             # Load save game file and update correct answer
             with open('./games/%s.json' % currentGame) as file:    
@@ -101,7 +105,10 @@ def on_message(ws, message):
             question_index = next((n for (n, val) in enumerate(questions_output) if val["questionId"] == data.get('questionId')))
             correct_index = next((n for (n, val) in enumerate(data.get('answerCounts')) if val["correct"]))
             prediction_correct = output['questions'][question_index]['prediction']['answer'] == chr(65 + correct_index)
-            print(utils.colors.BOLD + ('Correct Answer: %s - %s' % (chr(65 + correct_index), output['questions'][question_index])) + utils.colors.ENDC)
+
+            # Print results to console
+            print(utils.colors.BOLD + ('Correct Answer: %s - %s' % \
+                (chr(65 + correct_index), output['questions'][question_index]['question'])) + utils.colors.ENDC)
             if prediction_correct:
                 print(utils.colors.BOLD + utils.colors.OKGREEN + "Prediction Correct? Yes" + utils.colors.ENDC)
             else:
@@ -133,23 +140,26 @@ def on_close(ws):
 if __name__ == "__main__":
 
     if not "test" in sys.argv:
-        socket_url = get_socket_url()
-        if socket_url:
-            print('CONNECTING TO %s' % socket_url)
-            websocket.enableTrace(True)
-            ws = websocket.WebSocketApp(socket_url,
-                on_message = on_message,
-                on_error = on_error,
-                on_close = on_close,
-                header = HEADERS
-            )
-            while not broadcastEnded:
-                try:
-                    ws.run_forever(ping_interval=5)
-                except:
-                    print('RECONNECTING')
-    else:
-        print("Running in Test Mode")
+        while not broadcastEnded:
+            socket_url = get_socket_url()
+            if socket_url:
+                print('CONNECTING TO %s' % socket_url)
+                ws = websocket.WebSocketApp(socket_url,
+                    on_message = on_message,
+                    on_error = on_error,
+                    on_close = on_close,
+                    header = HEADERS
+                )
+                while not broadcastEnded:
+                    try:
+                        ws.run_forever(ping_interval=5)
+                    except:
+                        print('CONNECTION LOST. RECONNECTING...')
+            else:
+                print('Sleeping for 2 minutes')
+                time.sleep(120)
+    elif len(sys.argv) == 3 and sys.argv[2].isdigit():
+        print("Running in Test Mode for Question Number%s" % (' 1' if sys.argv[2] == '1' else 's 1-' + sys.argv[2]))
 
         # Load questions from file
         questions = json.load(open('questions.json'))
@@ -159,8 +169,8 @@ if __name__ == "__main__":
         total_correct = 0
 
         for q in questions:
-            if q.get('round') and q.get('round') <= 4:
-                prediction = utils.predict_answers(q.get('question'), q.get('answers'))
+            if q.get('questionNumber') and q.get('questionNumber') <= int(sys.argv[2]):
+                (prediction, confidence) = utils.predict_answers(q, q.get('answers'))
                 prediction_correct = prediction == q.get('correct')
                 print('Predicted: %s, Correct: %s' % (prediction, q.get('correct')))
                 if prediction_correct:
@@ -172,3 +182,6 @@ if __name__ == "__main__":
 
         print("Testing Complete")
         print("Total Correct: %s/%s" % (total_correct, total))
+
+    else:
+        print('Error: Syntax is ./hqtrivia-bot.py test <question-number>')
