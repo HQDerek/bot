@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Easter Sunday",
+                "B": "Blue Monday",
+                "C": "Black Friday"
+            },
+            "category": "Business",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "1%",
+                    "C": "16%"
+                }
+            },
+            "question": "The fourth Friday in November is also known as which big shopping day?",
+            "questionId": 28195,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Guitar",
+                "B": "Flute",
+                "C": "Piano"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "49%",
+                    "B": "6%",
+                    "C": "43%"
+                }
+            },
+            "question": "Which musical instrument is often referred to as a “six string”?",
+            "questionId": 28196,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Sean Pertwee",
+                "B": "Hugh Grant",
+                "C": "Robert Carlyle"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "88%",
+                    "C": "11%"
+                }
+            },
+            "question": "Which of these actors played Daniel Cleaver in the film \"Bridget Jones's Diary\"?",
+            "questionId": 28197,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Seinfeld",
+                "B": "Frasier",
+                "C": "Curb Your Enthusiasm"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "31%",
+                    "B": "67%",
+                    "C": "0%"
+                }
+            },
+            "question": "Martin Crane was the father of the lead character in which TV programme?",
+            "questionId": 28199,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Croatia",
+                "B": "Serbia",
+                "C": "Hungary"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "25%",
+                    "B": "42%",
+                    "C": "32%"
+                }
+            },
+            "question": "Scientist Nikola Tesla has an airport named for him in which country?",
+            "questionId": 28198,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "James Callaghan",
+                "B": "Hugh Gaitskell",
+                "C": "Clement Attlee"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "28%",
+                    "B": "29%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which of these Leaders of the Opposition NEVER became U.K. Prime Minister?",
+            "questionId": 28201,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Pan's People",
+                "B": "Legs & Co",
+                "C": "Zoo"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "Which of these dance troupes were the latest to feature on ''Top of the Pops''?",
+            "questionId": 28202,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Bolivia",
+                "B": "Laos",
+                "C": "Mauritania"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "36%",
+                    "B": "35%",
+                    "C": "28%"
+                }
+            },
+            "question": "Which of these countries is NOT landlocked?",
+            "questionId": 28200,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Pomato",
+                "B": "Tomtato",
+                "C": "Topato"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "49%",
+                    "B": "50%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these names is usually NOT given to the fusion of a potato and a tomato?",
+            "questionId": 28203,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "United Kingdom",
+                "B": "Russia",
+                "C": "France"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "32%",
+                    "B": "36%",
+                    "C": "31%"
+                }
+            },
+            "question": "What was the first country in the world to recognise Parkour as an official sport?",
+            "questionId": 28204,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Snapchat",
+                "B": "Instagram",
+                "C": "Twitter"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "53%",
+                    "C": "44%"
+                }
+            },
+            "question": "Which of these platforms had the most users as of September 2017?",
+            "questionId": 28205,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Smell of water",
+                "B": "Loudest male voice",
+                "C": "Majority rule"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "41%",
+                    "C": "34%"
+                }
+            },
+            "question": "What does a herd of African buffalo follow when deciding which direction to travel?",
+            "questionId": 28206,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3709,
+    "ts": "2018-02-26T20:55:33.067Z"
+}

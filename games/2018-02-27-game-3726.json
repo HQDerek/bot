@@ -1,0 +1,249 @@
+{
+    "numCorrect": 4,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Spider-Man",
+                "B": "Tintin",
+                "C": "Eden Hazard"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "84%",
+                    "B": "14%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is a famous Belgian cartoon character?",
+            "questionId": 28402,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Eric Clapton",
+                "B": "Eric Bana",
+                "C": "Eric Cantona"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "28%",
+                    "B": "4%",
+                    "C": "67%"
+                }
+            },
+            "question": "Who played iconic footballer Eric Cantona in the movie “Looking for Eric”?",
+            "questionId": 28403,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Martin Luther King, Jr.",
+                "B": "Mahatma Gandhi",
+                "C": "Jesse Jackson"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "69%",
+                    "B": "21%",
+                    "C": "8%"
+                }
+            },
+            "question": "“I Have a Dream” is a speech delivered by which civil rights activist?",
+            "questionId": 28404,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "The Catch",
+                "B": "Pretenders",
+                "C": "The Tourists"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "2%",
+                    "B": "7%",
+                    "C": "90%"
+                }
+            },
+            "question": "Which of these bands did NOT include Annie Lennox as a member?",
+            "questionId": 28405,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Server",
+                "B": "Search",
+                "C": "Secure"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "50%",
+                    "B": "20%",
+                    "C": "29%"
+                }
+            },
+            "question": "Found at the start of many URLs, what does the “S” in https stand for?",
+            "questionId": 28406,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Sleep on it",
+                "B": "Read it",
+                "C": "Eat it"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "10%",
+                    "C": "89%"
+                }
+            },
+            "question": "What would you be most likely to do with a Rumbledethumps?",
+            "questionId": 28407,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Mica",
+                "B": "Fluorite",
+                "C": "PVC"
+            },
+            "category": "Science ",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "19%",
+                    "B": "46%",
+                    "C": "34%"
+                }
+            },
+            "question": "Which shiny mineral is typically found in makeup products?",
+            "questionId": 28408,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Kuna",
+                "B": "Pula",
+                "C": "Forint"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "4%",
+                    "B": "1%",
+                    "C": "93%"
+                }
+            },
+            "question": "Which of the following currencies is NOT from a European country?",
+            "questionId": 28409,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Colonel Brandon",
+                "B": "Edward Ferrars",
+                "C": "John Willoughby"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "26%",
+                    "B": "14%",
+                    "C": "58%"
+                }
+            },
+            "question": "In Jane Austen's “Sense and Sensibility” who marries middle sister Marianne?",
+            "questionId": 28410,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Alexander the Great",
+                "B": "Attila the Hun",
+                "C": "Genghis Khan"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "61%",
+                    "B": "1%",
+                    "C": "37%"
+                }
+            },
+            "question": "Which of these historical figures conquered the most territory?",
+            "questionId": 28411,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "The Play That Went Wrong",
+                "B": "One Man, Two Guvnors",
+                "C": "Nell Gwynn"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "99%"
+                }
+            },
+            "question": "Which of these award-winning plays is based on an 18th century Italian farce?",
+            "questionId": 28412,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Dwight Yorke",
+                "B": "Eric Cantona",
+                "C": "Bryan Robson"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "48%",
+                    "C": "37%"
+                }
+            },
+            "question": "Which of these players scored the most goals for Manchester United?",
+            "questionId": 28413,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3726,
+    "ts": "2018-02-27T14:55:45.678Z"
+}

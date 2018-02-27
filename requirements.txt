@@ -1,3 +1,5 @@
 websocket-client==0.46.0
+requests==2.18.4
 grequests==0.3.0
+requests_cache==0.4.13
 nltk==3.2.5

@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Badger",
+                "B": "Cheetah",
+                "C": "Giraffe"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "45%",
+                    "C": "43%"
+                }
+            },
+            "question": "What is the world's fastest land animal?",
+            "questionId": 28482,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Ragnarok",
+                "B": "Siesta Sunday",
+                "C": "Steve"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "93%",
+                    "B": "0%",
+                    "C": "6%"
+                }
+            },
+            "question": "In Norse mythology, what name is given to the final destruction of the world?",
+            "questionId": 28512,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Only Fools and Horses",
+                "B": "The Good Life",
+                "C": "Steptoe and Son"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "84%",
+                    "C": "15%"
+                }
+            },
+            "question": "From which classic TV programme does the catchphrase “You dirty old man!” originate?",
+            "questionId": 28537,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Twister",
+                "B": "Volcano",
+                "C": "Gravity"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "20%",
+                    "C": "78%"
+                }
+            },
+            "question": "Which natural force shares its name with a George Clooney film?",
+            "questionId": 28538,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Dinkum",
+                "B": "Crow Eater",
+                "C": "Larrikin"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "59%",
+                    "B": "0%",
+                    "C": "40%"
+                }
+            },
+            "question": "Which of these is an Australian term for a badly-behaved young man?",
+            "questionId": 28539,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Uruguay",
+                "B": "Italy",
+                "C": "Argentina"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "29%",
+                    "B": "44%",
+                    "C": "26%"
+                }
+            },
+            "question": "Which one of these countries has won the football World Cup the most?",
+            "questionId": 28544,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Netflix",
+                "B": "iPlayer",
+                "C": "4oD"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "74%",
+                    "B": "25%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these internet streaming services was the first to launch in the UK?",
+            "questionId": 28545,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "506",
+                "B": "206",
+                "C": "96"
+            },
+            "category": "Science ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "15%",
+                    "B": "63%",
+                    "C": "20%"
+                }
+            },
+            "question": "How many bones are there in an average adult human body?",
+            "questionId": 28546,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Princess Anne",
+                "B": "Princess Margaret",
+                "C": "Prince Andrew"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "33%",
+                    "B": "43%",
+                    "C": "22%"
+                }
+            },
+            "question": "In 1970, who was second-in-line to the British throne?",
+            "questionId": 28547,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Sebastian Barry",
+                "B": "Eleanor Catton",
+                "C": "J.M.Coetzee"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "17%",
+                    "B": "79%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of these authors has NOT won the Booker Prize?",
+            "questionId": 28548,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Dundee",
+                "B": "Southampton",
+                "C": "Cardiff"
+            },
+            "category": "Business",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "33%",
+                    "B": "28%",
+                    "C": "38%"
+                }
+            },
+            "question": "According to recent charity statistics, what is the most generous city in the UK?",
+            "questionId": 28549,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Frank Sinatra",
+                "B": "Ronald Reagan",
+                "C": "Marlon Brando"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "28%",
+                    "B": "7%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which of these icons had the same forename and surname as his father?",
+            "questionId": 28550,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3734,
+    "ts": "2018-02-27T20:56:58.168Z"
+}
