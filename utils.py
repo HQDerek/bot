@@ -1,5 +1,6 @@
 import re
 import nltk
+import requests_cache
 import grequests
 import urllib.parse
 from bs4 import BeautifulSoup
@@ -25,18 +26,18 @@ def build_answers(raw_answers):
 
 
 # Build google query set from data and options
-def build_google_queries(question, answers):
+def build_google_queries(question, answers, session):
     queries = [question]
     queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
 
-    return [grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q)) for q in queries]
+    return [grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q), session=session) for q in queries]
 
 
 # Build wikipedia query set from data and options
-def build_wikipedia_queries(question, answers):
+def build_wikipedia_queries(question, answers, session):
     queries = [get_text_nouns(answer) for answer in list(answers.values())]
 
-    return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q)) for q in queries]
+    return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q), session=session) for q in queries]
 
 
 # Get answer predictions
@@ -49,14 +50,15 @@ def predict_answers(data, answers):
     }
     question = data.get('question')
 
-    print('------------ %s %s ------------' % ('QUESTION', data.get('questionNumber')))
+    print('------------ %s %s | %s ------------' % ('QUESTION', data.get('questionNumber'), data.get('category')))
     print(colors.BOLD + question + colors.ENDC)
     print('------------ %s ------------' % 'ANSWERS')
     print(answers)
     print('------------------------')
 
-    google_responses = grequests.map(build_google_queries(question, answers))
-    wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers))
+    session = requests_cache.CachedSession('query_cache') if data.get('is_testing') else None
+    google_responses = grequests.map(build_google_queries(question, answers, session))
+    wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers, session))
 
     # Loop through search results
     for n, response in enumerate(google_responses):
@@ -100,7 +102,7 @@ def predict_answers(data, answers):
         counts[chr(65 + n)] += sum(occurences_list) * 100
         print("%s: Score: %s" % (response.url, sum(occurences_list) * 100))
 
-    prediction = min(counts, key=counts.get) if 'NOT' in question else max(counts, key=counts.get)
+    prediction = min(counts, key=counts.get) if 'NOT' in question or 'NEVER' in question else max(counts, key=counts.get)
     total_occurences = sum(counts.values())
 
     for n, count in counts.items():

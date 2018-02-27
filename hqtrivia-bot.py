@@ -108,7 +108,7 @@ def on_message(ws, message):
 
             # Print results to console
             print(utils.colors.BOLD + ('Correct Answer: %s - %s' % \
-                (chr(65 + correct_index), output['questions'][question_index]['question'])) + utils.colors.ENDC)
+                (chr(65 + correct_index), output['questions'][question_index]['answers'][chr(65 + correct_index)])) + utils.colors.ENDC)
             if prediction_correct:
                 print(utils.colors.BOLD + utils.colors.OKGREEN + "Prediction Correct? Yes" + utils.colors.ENDC)
             else:
@@ -121,11 +121,9 @@ def on_message(ws, message):
             # Update save game file
             with open('./games/%s.json' % currentGame, 'w') as file:
                 json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
-        
-        # Print message to console
-        hidden_messages = ['interaction', 'broadcastStats', 'kicked']
-        if data.get('type') not in hidden_messages:
-            print('MESSAGE: %s' % message)
+
+def on_open(ws):
+    print('CONNECTION SUCCESSFUL')
 
 def on_error(ws, error):
     print('ERROR: %s' % error)
@@ -145,6 +143,7 @@ if __name__ == "__main__":
             if socket_url:
                 print('CONNECTING TO %s' % socket_url)
                 ws = websocket.WebSocketApp(socket_url,
+                    on_open = on_open,
                     on_message = on_message,
                     on_error = on_error,
                     on_close = on_close,
@@ -170,6 +169,7 @@ if __name__ == "__main__":
 
         for q in questions:
             if q.get('questionNumber') and q.get('questionNumber') <= int(sys.argv[2]):
+                q['is_testing'] = True
                 (prediction, confidence) = utils.predict_answers(q, q.get('answers'))
                 prediction_correct = prediction == q.get('correct')
                 print('Predicted: %s, Correct: %s' % (prediction, q.get('correct')))
