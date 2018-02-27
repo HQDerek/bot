@@ -8,8 +8,8 @@ import grequests
 import requests
 import utils
 
-USER_ID = '***REMOVED***'
-BEARER_TOKEN = '***REMOVED***'
+USER_ID = os.environ.get('HQTRIVIA_USER_ID')
+BEARER_TOKEN = os.environ.get('HQTRIVIA_BEARER_TOKEN')
 HEADERS = {
     'User-Agent'    : 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
     'Authorization' : 'Bearer %s' % BEARER_TOKEN,
