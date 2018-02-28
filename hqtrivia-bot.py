@@ -14,7 +14,7 @@ HEADERS = {
     'User-Agent'    : 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
     'Authorization' : 'Bearer %s' % BEARER_TOKEN,
     'x-hq-stk'      : 'Mg==',
-    'x-hq-client'   : 'Android/1.2.0',
+    'x-hq-client'   : 'iOS/1.2.4 b59',
 }
 broadcastEnded = False
 currentGame = ''
