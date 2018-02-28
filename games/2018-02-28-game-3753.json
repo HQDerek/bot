@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Wooden horse",
+                "B": "Fidget spinner",
+                "C": "Glove puppet"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "91%",
+                    "B": "7%",
+                    "C": "0%"
+                }
+            },
+            "question": "What piece of equipment did the Greeks famously use to gain access to the city of Troy?",
+            "questionId": 28649,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Machine to microwave",
+                "B": "Processor to pan",
+                "C": "Field to fork"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "98%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these expressions is used to describe food that is freshly and locally sourced?",
+            "questionId": 28650,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "The Emperor",
+                "B": "The Genie",
+                "C": "Candlestick Maker"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "52%",
+                    "B": "42%",
+                    "C": "5%"
+                }
+            },
+            "question": "Whose “new” clothes indicate a fictional belief that people have been persuaded is real?",
+            "questionId": 28651,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Spanish",
+                "B": "Chinese",
+                "C": "German"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "53%",
+                    "B": "34%",
+                    "C": "12%"
+                }
+            },
+            "question": "According to a 2014 poll, what do most Britons consider the most useful second language to have?",
+            "questionId": 28652,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "1980s",
+                "B": "1960s",
+                "C": "1970s"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "20%",
+                    "B": "37%",
+                    "C": "42%"
+                }
+            },
+            "question": "The first doping controls at the Olympic Games took place in which decade?",
+            "questionId": 28739,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Nosferatu",
+                "B": "Scrooge",
+                "C": "Svengali"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "45%",
+                    "B": "18%",
+                    "C": "35%"
+                }
+            },
+            "question": "Which manipulative literary character first appeared in an 1890s novel?",
+            "questionId": 28740,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Lame Duck",
+                "B": "Wolf in sheep's clothing",
+                "C": "Stalking Horse"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "17%",
+                    "B": "8%",
+                    "C": "73%"
+                }
+            },
+            "question": "Which of these political expressions has its origins in a 16th century hunting tradition?",
+            "questionId": 28741,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Andy Serkis",
+                "B": "Terry Notary",
+                "C": "Ray Park"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "80%",
+                    "B": "17%",
+                    "C": "2%"
+                }
+            },
+            "question": "Whose body was used for the motion capture sequences for the title character in “Kong: Skull Island”?",
+            "questionId": 28742,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Italy",
+                "B": "U.S.A.",
+                "C": "France"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "20%",
+                    "C": "30%"
+                }
+            },
+            "question": "In 2016, which was the biggest wine-producing country in the world?",
+            "questionId": 28743,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Pirouette",
+                "B": "Pointe",
+                "C": "Arabesque"
+            },
+            "category": "Art & Design",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "24%",
+                    "B": "60%",
+                    "C": "14%"
+                }
+            },
+            "question": "Which ballet move was developed by Maria Taglioni in 1832 when she added support to her shoes?",
+            "questionId": 28744,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Fred Astaire",
+                "B": "Elvis Presley",
+                "C": "Lawrence of Arabia"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "5%",
+                    "B": "58%",
+                    "C": "36%"
+                }
+            },
+            "question": "Who does NOT appear on the cover of The Beatles' “Sgt Pepper's” album?",
+            "questionId": 28745,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Qatar",
+                "B": "Spain",
+                "C": "Angola"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "19%",
+                    "B": "66%",
+                    "C": "14%"
+                }
+            },
+            "question": "The national anthem of which of these countries has NO official words?",
+            "questionId": 28746,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3753,
+    "ts": "2018-02-28T21:00:19.487Z"
+}
