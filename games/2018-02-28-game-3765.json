@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "$2500",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Answering machine",
+                "B": "Washing machine",
+                "C": "Rage Against the Machine"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "51%",
+                    "B": "34%",
+                    "C": "14%"
+                }
+            },
+            "question": "Before voicemail, what was used to record messages from missed phone calls?",
+            "questionId": 28783,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Bone broth",
+                "B": "Cake",
+                "C": "Cronuts"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "98%",
+                    "C": "0%"
+                }
+            },
+            "question": "Marie Antoinette is infamous for allegedly saying, “Let them eat” what?",
+            "questionId": 28784,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Blue jay",
+                "B": "Magpie",
+                "C": "Albatross"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "52%",
+                    "B": "26%",
+                    "C": "20%"
+                }
+            },
+            "question": "Thanks to a classic poem, which of these birds symbolizes a burden?",
+            "questionId": 28785,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Sit",
+                "B": "Bark",
+                "C": "Salivate"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "34%",
+                    "B": "7%",
+                    "C": "58%"
+                }
+            },
+            "question": "What did Ivan Pavlov famously condition his dogs to do?",
+            "questionId": 28786,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Starbow",
+                "B": "Nightbow",
+                "C": "Moonbow"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "0%",
+                    "C": "91%"
+                }
+            },
+            "question": "Which of these words is a real weather phenomenon?",
+            "questionId": 28787,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Rooster",
+                "B": "Ox",
+                "C": "Dragon"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "59%",
+                    "B": "11%",
+                    "C": "28%"
+                }
+            },
+            "question": "The founder of Sriracha was born under what Vietnamese zodiac sign?",
+            "questionId": 28788,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Patrick Swayze",
+                "B": "Kurt Russell",
+                "C": "Kevin Costner"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "5%",
+                    "B": "50%",
+                    "C": "43%"
+                }
+            },
+            "question": "Wyatt Earp has NOT been portrayed by which of these actors?",
+            "questionId": 28789,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "India",
+                "B": "Turkey",
+                "C": "Spain"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "68%",
+                    "B": "15%",
+                    "C": "16%"
+                }
+            },
+            "question": "The key ingredient that gives “golden lattes” their color is native to which country?",
+            "questionId": 28790,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "United Kingdom",
+                "B": "Canada",
+                "C": "Australia"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "25%",
+                    "B": "51%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which of these countries first permanently stopped minting the penny?",
+            "questionId": 28791,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Rams",
+                "B": "Patriots",
+                "C": "Cowboys"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "41%",
+                    "B": "54%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which NFL team inscribed its name in diamonds on its Super Bowl rings?",
+            "questionId": 28792,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Tony Curtis",
+                "B": "Patrick Stewart",
+                "C": "Gerard Depardieu"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "38%",
+                    "B": "36%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which actor has a daughter who became British nobility?",
+            "questionId": 28793,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Crash Bandicoot",
+                "B": "Super Mario World",
+                "C": "Sonic the Hedgehog"
+            },
+            "category": "Games",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "14%",
+                    "B": "29%",
+                    "C": "56%"
+                }
+            },
+            "question": "In ’90s South Korea, which game would you have played on the Super Aladdin Boy?",
+            "questionId": 28794,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3765,
+    "ts": "2018-02-28T20:24:50.991Z"
+}
