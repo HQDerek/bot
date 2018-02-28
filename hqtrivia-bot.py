@@ -20,8 +20,8 @@ broadcastEnded = False
 currentGame = ''
 
 # Get broadcast socket URL
-def get_socket_url():
-    resp = requests.get('https://api-quiz.hype.space/shows/now?type=hq&userId=%s' % USER_ID, headers=HEADERS)
+def get_socket_url(headers):
+    resp = requests.get('https://api-quiz.hype.space/shows/now?type=hq&userId=%s' % USER_ID, headers=headers)
     try:
         json = resp.json()
     except Exception:
@@ -33,7 +33,7 @@ def get_socket_url():
 
     # Check if broadcast socket URL exists
     if  not json.get('broadcast') or not json.get('broadcast').get('socketUrl'):
-        print('Broadcast ended. Next show on %s for %s.' % (nextShowTime, nextShowPrize))
+        print('Error: Next %s show on %s for %s.' % ('UK' if headers else 'US', nextShowTime, nextShowPrize))
         return None
 
     # Return socket URL for websocket connection
@@ -122,6 +122,7 @@ def on_message(ws, message):
             with open('./games/%s.json' % currentGame, 'w') as file:
                 json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
+
 def on_open(ws):
     print('CONNECTION SUCCESSFUL')
 
@@ -138,10 +139,11 @@ def on_close(ws):
 if __name__ == "__main__":
 
     if not "test" in sys.argv:
-        while not broadcastEnded:
-            socket_url = get_socket_url()
+        while True:
+            socket_url_uk = get_socket_url(HEADERS)
+            socket_url = socket_url_uk if socket_url_uk else get_socket_url({})
             if socket_url:
-                print('CONNECTING TO %s' % socket_url)
+                print('CONNECTING TO %s SHOW: %s' % ('UK' if socket_url_uk else 'US', socket_url))
                 ws = websocket.WebSocketApp(socket_url,
                     on_open = on_open,
                     on_message = on_message,
