@@ -1,0 +1,229 @@
+{
+    "numCorrect": 6,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Boa Constrictor",
+                "B": "Sea cucumber",
+                "C": "Koala"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "78%",
+                    "B": "6%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which of these beings has legs?",
+            "questionId": 29089,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Spongebob Squarepants",
+                "B": "Harry Potter",
+                "C": "50 Shades..."
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "14%",
+                    "B": "80%",
+                    "C": "4%"
+                }
+            },
+            "question": "Platform 9 and 3/4 at London's King's Cross station is a tourist attraction for fans of which franchise?",
+            "questionId": 29090,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Tug-of-war",
+                "B": "Fencing",
+                "C": "Roller Hockey"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "14%",
+                    "B": "25%",
+                    "C": "60%"
+                }
+            },
+            "question": "Which one of these is currently an official Olympic sport?",
+            "questionId": 29092,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Peperami",
+                "B": "Scotch Eggs",
+                "C": "Pork Pies"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "22%",
+                    "B": "61%",
+                    "C": "16%"
+                }
+            },
+            "question": "An Indian dish known as “Narcissus Meatballs” was a forerunner of which popular British snack?",
+            "questionId": 29093,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Bologna",
+                "B": "al-Qarawiyyin",
+                "C": "Oxford"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "41%",
+                    "B": "17%",
+                    "C": "41%"
+                }
+            },
+            "question": "What is the world's oldest university?",
+            "questionId": 29095,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Radiohead",
+                "B": "The Doors",
+                "C": "Talking Heads"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "34%",
+                    "B": "61%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which of these bands took their name from a book about a mind-altering experience?",
+            "questionId": 29096,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Wells",
+                "B": "St. Davids",
+                "C": "Truro"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "46%",
+                    "B": "13%",
+                    "C": "40%"
+                }
+            },
+            "question": "In terms of population, which is the UK's smallest city?",
+            "questionId": 29097,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Paul Scholes",
+                "B": "Frank Lampard",
+                "C": "Steven Gerrard"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "36%",
+                    "B": "29%",
+                    "C": "33%"
+                }
+            },
+            "question": "Who did Wayne Rooney overtake to become the highest-scoring English player in the Champions League?",
+            "questionId": 29098,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Diorite",
+                "B": "Pumice",
+                "C": "Granite"
+            },
+            "category": "Science ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "18%",
+                    "B": "6%",
+                    "C": "75%"
+                }
+            },
+            "question": "Which of these is NOT an intrusive igneous rock?",
+            "questionId": 29099,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Carphone Warehouse",
+                "B": "EasyJet",
+                "C": "Burberry"
+            },
+            "category": "Business",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "35%",
+                    "C": "56%"
+                }
+            },
+            "question": "Which of these companies floated on the London Stock Exchange most recently?",
+            "questionId": 29112,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Poirot",
+                "B": "Wallander",
+                "C": "Maigret"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "50%",
+                    "B": "3%",
+                    "C": "46%"
+                }
+            },
+            "question": "The creation of which literary detective was inspired by a boat trip in the Netherlands?",
+            "questionId": 29113,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3793,
+    "ts": "2018-03-02T20:59:04.839Z"
+}

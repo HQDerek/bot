@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Domino's",
+                "B": "Home",
+                "C": "The Bank"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "9%",
+                    "B": "83%",
+                    "C": "7%"
+                }
+            },
+            "question": "In Spielberg’s 1982 sci-fi movie, where did E.T. want to phone?",
+            "questionId": 28868,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Arguments With Flatmates",
+                "B": "Words With Friends",
+                "C": "Jokes With Grandparents"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is a popular multi-player word game similar to Scrabble?",
+            "questionId": 28869,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Mayor of Glasgow",
+                "B": "Prince of Wales",
+                "C": "Archbishop of Canterbury"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "46%",
+                    "C": "53%"
+                }
+            },
+            "question": "Lambeth Palace is the official London residence of which public figure?",
+            "questionId": 28870,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Equilateral",
+                "B": "Isosceles",
+                "C": "Scalene"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "35%",
+                    "B": "40%",
+                    "C": "24%"
+                }
+            },
+            "question": "What kind of triangle has three unequal sides?",
+            "questionId": 28871,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Tyger Drew-Honey",
+                "B": "Hugh Dennis",
+                "C": "Ramona Marquez"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "31%",
+                    "B": "18%",
+                    "C": "49%"
+                }
+            },
+            "question": "Which actor from BBC's “Outnumbered” was also a host on CBBC's “Friday Download”?",
+            "questionId": 29022,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Nike",
+                "B": "Adidas",
+                "C": "Puma"
+            },
+            "category": "Art & Design",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "50%",
+                    "B": "40%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which clothing manufacturer's logo was designed by a Portland State University student?",
+            "questionId": 29024,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Twice around the equator",
+                "B": "To Pluto and back",
+                "C": "From London to Edinburgh"
+            },
+            "category": "",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "59%",
+                    "C": "40%"
+                }
+            },
+            "question": "If your DNA were laid out, how far would it stretch?",
+            "questionId": 29025,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Saddam Hussein",
+                "B": "Mikhail Gorbachev",
+                "C": "Colonel Gaddafi"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "55%",
+                    "B": "25%",
+                    "C": "18%"
+                }
+            },
+            "question": "Which of these people was given the Key to the city of Detroit in 1982?",
+            "questionId": 29026,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Cleopatra",
+                "B": "Juliet",
+                "C": "Rosalind"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "52%",
+                    "B": "31%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which female Shakespearean character has the most lines?",
+            "questionId": 29027,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "T in the Park",
+                "B": "Glastonbury",
+                "C": "Reading"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "34%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which music festival began life as the National Jazz and Blues Festival?",
+            "questionId": 29028,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Parachutist",
+                "B": "Ski Jumper",
+                "C": "Drone pilot"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "20%",
+                    "B": "79%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of the following is most likely to execute a “Telemark Landing”?",
+            "questionId": 29029,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Grassmarket, Edinburgh",
+                "B": "Ropewalks, Liverpool",
+                "C": "Shambles, York"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "14%",
+                    "B": "1%",
+                    "C": "84%"
+                }
+            },
+            "question": "Which of these historic British streets is named after the butchers that used to populate it?",
+            "questionId": 29030,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3773,
+    "ts": "2018-03-01T20:59:45.967Z"
+}

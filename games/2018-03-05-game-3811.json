@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Egg and spoon race",
+                "B": "Beauty contest",
+                "C": "Celebrity Big Brother"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "32%",
+                    "B": "36%",
+                    "C": "31%"
+                }
+            },
+            "question": "In Monopoly, a player sometimes receives money for coming second in what?",
+            "questionId": 29262,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "We Will Rock You",
+                "B": "Happy Birthday",
+                "C": "Despacito"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "7%",
+                    "B": "42%",
+                    "C": "50%"
+                }
+            },
+            "question": "The tune to which popular song was written by a pair of American sisters in the 1890s?",
+            "questionId": 29263,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Custard Cream",
+                "B": "Rich Tea",
+                "C": "Chocolate Digestive"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "36%",
+                    "B": "18%",
+                    "C": "45%"
+                }
+            },
+            "question": "What did 2,000 Britons vote for as their favourite biscuit in a 2015 poll?",
+            "questionId": 29264,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "China",
+                "B": "India",
+                "C": "Scotland"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "12%",
+                    "C": "79%"
+                }
+            },
+            "question": "Which team does England play in rugby's Calcutta Cup?",
+            "questionId": 29265,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Carving the turkey",
+                "B": "Pulling a cracker",
+                "C": "Putting up the tree"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "70%",
+                    "B": "23%",
+                    "C": "6%"
+                }
+            },
+            "question": "In 2008, 4 people in the UK broke their arms at Christmas while doing what?",
+            "questionId": 29268,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Bottom Knocker",
+                "B": "Knocker-Up",
+                "C": "Gong Farmer"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "5%",
+                    "B": "83%",
+                    "C": "11%"
+                }
+            },
+            "question": "Before the age of alarm clocks, which of these jobs involved waking people up in the morning?",
+            "questionId": 29266,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Brussels",
+                "B": "Paris",
+                "C": "Washington D.C."
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "25%",
+                    "B": "41%",
+                    "C": "33%"
+                }
+            },
+            "question": "The “Declaration of the Rights of Man” was drafted in which city in 1789?",
+            "questionId": 29267,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Sisters of Mercy",
+                "B": "Pointer Sisters",
+                "C": "Sister Sledge"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "41%",
+                    "B": "46%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which of these music acts' members are NOT actually related?",
+            "questionId": 29269,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Electric bike",
+                "B": "Mobility scooter",
+                "C": "Skateboard"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "33%",
+                    "B": "42%",
+                    "C": "24%"
+                }
+            },
+            "question": "8mph is the maximum speed for what mode of transport in the UK?",
+            "questionId": 29270,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Discovery",
+                "B": "Terra Nova",
+                "C": "Titanic"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "35%",
+                    "B": "19%",
+                    "C": "44%"
+                }
+            },
+            "question": "In 1912, which of these ship's voyages to the Antarctic ended in failure?",
+            "questionId": 29271,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Mrs. Beeton's Cookbook",
+                "B": "Oxford Engl. Dictionary",
+                "C": "A-Z of London"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "58%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which of these was first published in the 1880s?",
+            "questionId": 29272,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Grand Slam tennis match",
+                "B": "Cannes gran prix film",
+                "C": "Swimming the channel"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "17%",
+                    "B": "0%",
+                    "C": "82%"
+                }
+            },
+            "question": "6 hours and 55 minutes is the record time for which of these?",
+            "questionId": 29273,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3811,
+    "ts": "2018-03-05T13:56:13.398Z"
+}
