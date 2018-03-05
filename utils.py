@@ -81,7 +81,7 @@ def find_answer_words_google(question, answers, confidence, responses):
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
     response = responses[0]
-    soup = BeautifulSoup(response.text, 'lxml')
+    soup = BeautifulSoup(response.text, "html5lib")
 
     # Get search descriptions
     results = ''
@@ -113,7 +113,7 @@ def count_results_number_google(question, answers, confidence, responses):
 
     # Loop through search results
     for n, response in enumerate(responses):
-        soup = BeautifulSoup(response.text, 'lxml')
+        soup = BeautifulSoup(response.text, "html5lib")
         if soup.find(id='resultStats'):
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
             results_count = re.findall(r'\d+', results_count_text)[0]
@@ -145,7 +145,7 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
 
         # Get wikipedia page text elements
         results = ''
-        soup = BeautifulSoup(response.text, 'lxml')
+        soup = BeautifulSoup(response.text, "html5lib")
         for g in soup.find_all('p'):
             results += " " + g.text
         cleaned_results = results.strip().replace('\n','')
