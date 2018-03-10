@@ -1,7 +1,10 @@
 # hqtrivia-bot
 
 ### Install Bot
- * Install requirements `pip install requirements.txt`
+ * Install virtualenv `pip install virtualenv`
+ * Create virtual environment `virtualenv hqtrivia-bot`
+ * Start virtual environment `source hqtrivia-bot/bin/activate`
+ * Install bot dependencies `pip install -r requirements.txt`
  * Install NLTK corpora `python -m nltk.downloader punkt; python -m nltk.downloader averaged_perceptron_tagger`
 
 
@@ -13,7 +16,8 @@
 
 
 ### Run HQ Trivia Bot
-`python hqtrivia-bot.py`
+ * Ensure virtualenv is activated `source hqtrivia-bot/bin/activate`
+ * Run bot `python hqtrivia-bot.py`
 
 
 ### Test HQ Trivia Bot
