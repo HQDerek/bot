@@ -140,6 +140,8 @@ if __name__ == "__main__":
 
     if not "test" in sys.argv:
         while True:
+            currentGame = ''
+            broadcaseEnded = False
             socket_url_uk = get_socket_url(HEADERS)
             socket_url = socket_url_uk if socket_url_uk else get_socket_url({})
             if socket_url:
