@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "$2500",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Hot jazz",
+                "B": "Fiddlestick funk",
+                "C": "K-pop"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "Korean pop music is often called what?",
+            "questionId": 28941,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "WiFi",
+                "B": "Waffle House",
+                "C": "Wind"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "A classic 1936 book about the Civil War is called “Gone with the” what?",
+            "questionId": 28942,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "France",
+                "B": "Spain",
+                "C": "Germany"
+            },
+            "category": "Art & Design",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "38%",
+                    "B": "38%",
+                    "C": "23%"
+                }
+            },
+            "question": "Antoni Gaudí's famous Sagrada Família cathedral can be found in what country?",
+            "questionId": 28943,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Stomach",
+                "B": "Head",
+                "C": "Ankle"
+            },
+            "category": "Games",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "The classic version of the board game Operation asks players to remove a wrench from where?",
+            "questionId": 28944,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Fair, Isaac, and Company",
+                "B": "Fresh Investment Credit",
+                "C": "Factual Income Operation"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "In U.S. credit, what did FICO originally stand for?",
+            "questionId": 28952,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Amazon Music",
+                "B": "Amazon Mechanical Turk",
+                "C": "Amazon Prime"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "43%",
+                    "B": "16%",
+                    "C": "40%"
+                }
+            },
+            "question": "Which of these Amazon services was launched most recently?",
+            "questionId": 28949,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "9 to 5",
+                "B": "Shake It Off",
+                "C": "This Kiss"
+            },
+            "category": "Science ",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "The first cloned mammal was named for the writer of which of these songs?",
+            "questionId": 28953,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Iran",
+                "B": "Cambodia",
+                "C": "Ecuador"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "37%",
+                    "B": "44%",
+                    "C": "17%"
+                }
+            },
+            "question": "Which of these countries did NOT change its name in the 20th century?",
+            "questionId": 28951,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Chive",
+                "B": "Parsley",
+                "C": "Rosemary"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "Thanks to its looks, a common European frog shares a name with what herb?",
+            "questionId": 28950,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Princeton University",
+                "B": "University of Virginia",
+                "C": "Harvard University"
+            },
+            "category": "Educational",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "46%",
+                    "B": "0%",
+                    "C": "53%"
+                }
+            },
+            "question": "Which of these schools had a future U.S. president officially serve as its president?",
+            "questionId": 28945,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Bird",
+                "B": "Squirrel",
+                "C": "Snake"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "86%",
+                    "B": "13%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which animal does NOT appear on the St. Louis Cardinals' 2011 World Series rings?",
+            "questionId": 28946,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Detroit",
+                "B": "Washington, D.C.",
+                "C": "Chicago"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "55%",
+                    "B": "22%",
+                    "C": "22%"
+                }
+            },
+            "question": "What city’s official flag includes a Latin phrase referencing its historic fire?",
+            "questionId": 28954,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3779,
+    "ts": "2018-03-11T01:59:57.559Z"
+}
