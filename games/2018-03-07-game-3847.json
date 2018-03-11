@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Horse",
+                "B": "Three-legged chinchilla",
+                "C": "Emperor penguin"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "88%",
+                    "B": "10%",
+                    "C": "0%"
+                }
+            },
+            "question": "What kind of animal was Red Rum, the three-time Grand National winner?",
+            "questionId": 29625,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Bouncy castle",
+                "B": "Tree hammock",
+                "C": "Armchair"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "21%",
+                    "B": "33%",
+                    "C": "44%"
+                }
+            },
+            "question": "Someone who offers comments without personal experience is what type of critic?",
+            "questionId": 29626,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Tripod",
+                "B": "iPod",
+                "C": "Isopod"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "39%",
+                    "B": "60%",
+                    "C": "0%"
+                }
+            },
+            "question": "“Podcast” is a portmanteau that combines which word with “broadcast”?",
+            "questionId": 29627,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "The Inside Out",
+                "B": "The Flipside",
+                "C": "The Upside Down"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "27%",
+                    "C": "64%"
+                }
+            },
+            "question": "What is the name of the parallel universe in “Stranger Things”?",
+            "questionId": 29628,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Nutmeg",
+                "B": "Saffron",
+                "C": "Ginger"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "15%",
+                    "B": "66%",
+                    "C": "17%"
+                }
+            },
+            "question": "Which spice is derived from the Crocus sativus plant?",
+            "questionId": 29629,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Carpenter",
+                "B": "Plumber",
+                "C": "Artist"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "53%",
+                    "B": "3%",
+                    "C": "43%"
+                }
+            },
+            "question": "What was Mario's occupation in the original version of “Donkey Kong”?",
+            "questionId": 29630,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Krakatoa",
+                "B": "Katla",
+                "C": "Pinatubo"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "28%",
+                    "B": "5%",
+                    "C": "66%"
+                }
+            },
+            "question": "Which of these volcanoes is NOT in Asia?",
+            "questionId": 29631,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Seth Rollins",
+                "B": "Lance Storm",
+                "C": "Kevin Owens"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "29%",
+                    "B": "44%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which one of these pro wrestlers was NOT born in Canada?",
+            "questionId": 29633,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "As You Like It",
+                "B": "Hamlet",
+                "C": "The Tempest"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "59%",
+                    "B": "40%",
+                    "C": "0%"
+                }
+            },
+            "question": "In which Shakespearean play is the ''seven ages of man'' speech?",
+            "questionId": 29632,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Nikkei Dow",
+                "B": "Hang Seng",
+                "C": "Shenzhen"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "5%",
+                    "B": "64%",
+                    "C": "29%"
+                }
+            },
+            "question": "Which one of these Asian stock indexes was created first?",
+            "questionId": 29687,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Deltiologist",
+                "B": "Velologist",
+                "C": "Phalerist"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "96%",
+                    "B": "1%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which one of these hobbyists collects something that is NOT primarily paper-based?",
+            "questionId": 29688,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Julie Walters",
+                "B": "Helen Mirren",
+                "C": "Emma Thompson"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "41%",
+                    "B": "16%",
+                    "C": "41%"
+                }
+            },
+            "question": "Who was nominated for BAFTAs 10 years apart for playing both a dance student & a dance teacher?",
+            "questionId": 29689,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3847,
+    "ts": "2018-03-07T13:59:20.903Z"
+}
