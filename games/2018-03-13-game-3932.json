@@ -1,0 +1,249 @@
+{
+    "numCorrect": 5,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Birmingham Pentangle",
+                "B": "Bermuda Triangle",
+                "C": "Aruba's Acute Angle"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "2%",
+                    "B": "97%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is a mysterious place where planes are said to disappear?",
+            "questionId": 30375,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Twice a day",
+                "B": "When mother says so!",
+                "C": "Once in a blue moon"
+            },
+            "category": "Educational",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "83%",
+                    "B": "0%",
+                    "C": "16%"
+                }
+            },
+            "question": "According to the expression, how often is a stopped clock actually correct?",
+            "questionId": 30376,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Raw shellfish",
+                "B": "Extreme cold",
+                "C": "Boiling water"
+            },
+            "category": "Science ",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "31%",
+                    "C": "68%"
+                }
+            },
+            "question": "Chilblains are a condition caused by exposure to what?",
+            "questionId": 30377,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Traffic lights",
+                "B": "The BBC",
+                "C": "British Summer Time"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "27%",
+                    "B": "72%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these was introduced for the first time during World War I?",
+            "questionId": 30378,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Silver Shadow",
+                "B": "Gold Cap",
+                "C": "White Gloves"
+            },
+            "category": "Business",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "97%",
+                    "B": "1%",
+                    "C": "1%"
+                }
+            },
+            "question": "What does Rolls Royce call its chauffeur training programme?",
+            "questionId": 30379,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Stand with eyes closed",
+                "B": "Walk a straight line",
+                "C": "Put finger on nose"
+            },
+            "category": "Educational",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "52%",
+                    "B": "47%",
+                    "C": "0%"
+                }
+            },
+            "question": "If a policeman asked you to perform a Romberg Test, what would you have to do?",
+            "questionId": 30380,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Round of golf",
+                "B": "West End ticket",
+                "C": "Liverpool-Dublin ferry"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "85%",
+                    "B": "14%",
+                    "C": "0%"
+                }
+            },
+            "question": "£24 is the average spend by one person on which of these?",
+            "questionId": 30381,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Dream Chronicles",
+                "B": "Perfect Dark",
+                "C": "BioShock"
+            },
+            "category": "Games",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "8%",
+                    "B": "21%",
+                    "C": "70%"
+                }
+            },
+            "question": "Which of these video games does NOT have a female protagonist?",
+            "questionId": 30382,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Chardonnay",
+                "B": "Chianti",
+                "C": "Muscadet"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "65%",
+                    "B": "23%",
+                    "C": "11%"
+                }
+            },
+            "question": "Which one of these wines typically has the lowest alcohol content?",
+            "questionId": 30383,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Lilyhammer",
+                "B": "House of Cards",
+                "C": "Orange is the New Black"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "54%",
+                    "B": "2%",
+                    "C": "43%"
+                }
+            },
+            "question": "What was the first programme to be dubbed a “Netflix Original” by the streaming service?",
+            "questionId": 30384,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "British Pea Week",
+                "B": "Record Store Day",
+                "C": "Wrong Trousers Day"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "58%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which of these events happened for the first time in 1997?",
+            "questionId": 30385,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Richard Lester",
+                "B": "Jacques Cousteau",
+                "C": "Charlie Chaplin"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "11%",
+                    "B": "34%",
+                    "C": "54%"
+                }
+            },
+            "question": "Which of these people has NEVER won the Palme d'Or at Cannes?",
+            "questionId": 30386,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3932,
+    "ts": "2018-03-13T14:59:34.821Z"
+}
