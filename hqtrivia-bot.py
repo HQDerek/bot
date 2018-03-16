@@ -7,9 +7,15 @@ import websocket
 import grequests
 import requests
 import utils
+import configparser
 
-USER_ID = os.environ.get('HQTRIVIA_USER_ID')
-BEARER_TOKEN = os.environ.get('HQTRIVIA_BEARER_TOKEN')
+# Read config from config.ini
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+# Set global variables
+USER_ID = config['Auth']['user_id']
+BEARER_TOKEN = config['Auth']['bearer_token']
 HEADERS = {
     'User-Agent'    : 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
     'Authorization' : 'Bearer %s' % BEARER_TOKEN,
