@@ -12,7 +12,7 @@
  * Install [Packet Capture](https://play.google.com/store/apps/details?id=app.greyshirts.sslcapture) for Android
  * Sniff packets for HQ Trivia and look for requests to `api-quiz.hype.space`.
  * Find the request with `Authorization: Bearer` in the header and `"userId": 123` in the response.
- * Set auth values `user_id` and `bearer_token` in the file `config.ini`.
+ * Set auth values `user_id` and `bearer_token` in the file `config_example.ini` and rename to `config.ini`.
 
 
 ### Run HQ Trivia Bot
