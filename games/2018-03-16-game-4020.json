@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Easter",
+                "B": "Christmas",
+                "C": "Halloween"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "57%",
+                    "C": "30%"
+                }
+            },
+            "question": "Which time of the year is also referred to as “Yule”?",
+            "questionId": 31401,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Red",
+                "B": "Get well soon",
+                "C": "Tarot"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "45%",
+                    "B": "1%",
+                    "C": "53%"
+                }
+            },
+            "question": "What type of card is used by a referee in professional football when sending off a player?",
+            "questionId": 31402,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Unbreakable bones",
+                "B": "Invisibility",
+                "C": "Magnetism"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "31%",
+                    "B": "68%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these superpowers did Kevin Bacon's character have in the movie “Hollow Man”?",
+            "questionId": 31403,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Rome",
+                "B": "Milan",
+                "C": "Madrid"
+            },
+            "category": "Art & Design",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "8%",
+                    "B": "67%",
+                    "C": "24%"
+                }
+            },
+            "question": "The four most prominent Fashion Weeks are held in London, Paris, New York and which other city?",
+            "questionId": 31404,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Ricky Gervais",
+                "B": "Bob Mortimer",
+                "C": "Coolio"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "46%",
+                    "B": "42%",
+                    "C": "10%"
+                }
+            },
+            "question": "Who defeated Les Dennis in a 2002 Comic Relief celebrity boxing match?",
+            "questionId": 31405,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Odd",
+                "B": "Even",
+                "C": "Neither"
+            },
+            "category": "Science ",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "31%",
+                    "B": "25%",
+                    "C": "42%"
+                }
+            },
+            "question": "What type of number is zero?",
+            "questionId": 31406,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Venice",
+                "B": "Birmingham",
+                "C": "Amsterdam"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "35%",
+                    "B": "12%",
+                    "C": "52%"
+                }
+            },
+            "question": "Which of these cities has the FEWEST miles of canals?",
+            "questionId": 31407,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Dante Gabriel Rossetti",
+                "B": "John Everett Millais",
+                "C": "Gustave Courbet"
+            },
+            "category": "Art & Design",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "42%",
+                    "B": "34%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which of these painters did NOT belong to an artistic fraternity set up in 1848?",
+            "questionId": 31408,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Spencer Perceval",
+                "B": "Charles Grey",
+                "C": "George Canning"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "40%",
+                    "C": "47%"
+                }
+            },
+            "question": "Which of these Prime Ministers served the shortest time in office?",
+            "questionId": 31409,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "HTML",
+                "B": "Single Sign-On",
+                "C": "Emojis"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "87%",
+                    "B": "0%",
+                    "C": "12%"
+                }
+            },
+            "question": "What is regulated and overseen by Unicode Inc?",
+            "questionId": 31410,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "A Tale of Two Cities",
+                "B": "The Da Vinci Code",
+                "C": "Don Quixote"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "58%",
+                    "B": "17%",
+                    "C": "24%"
+                }
+            },
+            "question": "What is the name of the best-selling novel in history?",
+            "questionId": 31411,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Marathon",
+                "B": "Agincourt",
+                "C": "Thermopylae"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "95%",
+                    "B": "2%",
+                    "C": "2%"
+                }
+            },
+            "question": "What is the earliest battle mentioned in the “Modern Major-General's Song” ?",
+            "questionId": 31412,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4020,
+    "ts": "2018-03-16T14:58:58.774Z"
+}

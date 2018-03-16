@@ -1,0 +1,149 @@
+{
+    "numCorrect": 3,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Ted Heath",
+                "B": "Harold Wilson",
+                "C": "Harold Macmillan"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "39%",
+                    "C": "44%"
+                }
+            },
+            "question": "Who was British Prime Minister when man first landed on the moon?",
+            "questionId": 31148,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Berlin",
+                "B": "Asia",
+                "C": "Europe"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "8%",
+                    "B": "19%",
+                    "C": "72%"
+                }
+            },
+            "question": "Which of these bands does NOT come from Europe?",
+            "questionId": 31149,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Alice Munro",
+                "B": "Harper Lee",
+                "C": "Doris Lessing"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "69%",
+                    "B": "27%",
+                    "C": "3%"
+                }
+            },
+            "question": "Which of these female novelists has NOT won the Nobel Prize for Literature?",
+            "questionId": 31150,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Mesosphere",
+                "B": "Thermosphere",
+                "C": "Stratosphere"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "19%",
+                    "B": "11%",
+                    "C": "69%"
+                }
+            },
+            "question": "Which of these is the lowest layer of the world's atmosphere?",
+            "questionId": 31151,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Jakarta",
+                "B": "Riyadh",
+                "C": "Bangkok"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "33%",
+                    "B": "13%",
+                    "C": "53%"
+                }
+            },
+            "question": "The official name of which Asian city is 152 letters long, and believed to be the longest in the world?",
+            "questionId": 31152,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Munich",
+                "B": "Empire of the Sun",
+                "C": "Amistad"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "78%",
+                    "B": "9%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which of these Steven Spielberg movies earned the LEAST at the worldwide box office?",
+            "questionId": 31153,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Ireland",
+                "B": "Seychelles",
+                "C": "Lithuania"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "39%",
+                    "B": "14%",
+                    "C": "45%"
+                }
+            },
+            "question": "Of these countries, which drinks the most beer per person?",
+            "questionId": 31154,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 3993,
+    "ts": "2018-03-15T14:58:05.608Z"
+}
