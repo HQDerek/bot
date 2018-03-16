@@ -10,9 +10,17 @@
 
 ### Get Bearer Token and User ID
  * Install [Packet Capture](https://play.google.com/store/apps/details?id=app.greyshirts.sslcapture) for Android
- * Sniff packets for HQ Trivia and look for requests to `api-quiz.hype.space`.
- * Find the request with `Authorization: Bearer` in the header and `"userId": 123` in the response.
- * Set auth values `user_id` and `bearer_token` in the file `config_example.ini` and rename to `config.ini`.
+ * Sniff packets for HQ Trivia and look for requests to `api-quiz.hype.space`, namely the endpoint `GET /users/me`.
+ * Find the request with `Authorization: Bearer` in the header and `"userId"` in the response.
+
+### Add configuration file
+ * Create a file with the `userId` and `Bearer` values using the format below and save as `config.ini`.
+
+```
+[Auth]
+user_id = <userId>
+bearer_token = <Bearer>
+```
 
 
 ### Run HQ Trivia Bot
