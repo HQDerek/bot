@@ -3,6 +3,7 @@ import os
 import sys
 import json
 import time
+import glob
 import websocket
 import grequests
 import requests
@@ -144,7 +145,7 @@ def on_close(ws):
 
 if __name__ == "__main__":
 
-    if not "test" in sys.argv:
+    if len(sys.argv) == 1:
         while True:
             currentGame = ''
             broadcaseEnded = False
@@ -167,31 +168,32 @@ if __name__ == "__main__":
             else:
                 print('Sleeping for 2 minutes')
                 time.sleep(120)
-    elif len(sys.argv) == 3 and sys.argv[2].isdigit():
-        print("Running in Test Mode for Question Number%s" % (' 1' if sys.argv[2] == '1' else 's 1-' + sys.argv[2]))
+    elif len(sys.argv) > 1 and sys.argv[1] == "test":
+        print("Running in Test Mode")
+        path = 'games/*.json'
 
-        # Load questions from file
-        questions = json.load(open('questions.json'))
+        for filename in glob.glob(path):
+            if len(sys.argv) == 2 or (len(sys.argv) == 3 and sys.argv[2] in filename):
+                game = json.load(open(filename))
+                print("Testing Round %s" % game.get('showId'))
+                total = 0
+                total_correct = 0
+                for q in game.get('questions'):
+                    q['is_testing'] = True
 
-        # Loop through questions
-        total = 0
-        total_correct = 0
+                    (prediction, confidence) = utils.predict_answers(q, q.get('answers'))
+                    prediction_correct = prediction == q.get('correct')
+                    print('Predicted: %s, Correct: %s' % (prediction, q.get('correct')))
 
-        for q in questions:
-            if q.get('questionNumber') and q.get('questionNumber') <= int(sys.argv[2]):
-                q['is_testing'] = True
-                (prediction, confidence) = utils.predict_answers(q, q.get('answers'))
-                prediction_correct = prediction == q.get('correct')
-                print('Predicted: %s, Correct: %s' % (prediction, q.get('correct')))
-                if prediction_correct:
-                    print(utils.colors.BOLD + utils.colors.OKGREEN + "Correct? Yes" + utils.colors.ENDC)
-                else:
-                    print(utils.colors.BOLD + utils.colors.FAIL + "Correct? No" + utils.colors.ENDC)
-                total += 1
-                total_correct += 1 if prediction_correct else 0
+                    if prediction_correct:
+                        print(utils.colors.BOLD + utils.colors.OKGREEN + "Correct? Yes" + utils.colors.ENDC)
+                    else:
+                        print(utils.colors.BOLD + utils.colors.FAIL + "Correct? No" + utils.colors.ENDC)
+                    total += 1
+                    total_correct += 1 if prediction_correct else 0
 
-        print("Testing Complete")
-        print("Total Correct: %s/%s" % (total_correct, total))
+                print("Testing Complete")
+                print("Total Correct: %s/%s" % (total_correct, total))
 
     else:
-        print('Error: Syntax is ./hqtrivia-bot.py test <question-number>')
+        print('Error: Syntax is ./hqtrivia-bot.py [test] [<game-id>]')
