@@ -171,13 +171,14 @@ if __name__ == "__main__":
     elif len(sys.argv) > 1 and sys.argv[1] == "test":
         print("Running in Test Mode")
         path = 'games/*.json'
-
+        total = 0
+        total_correct = 0
         for filename in glob.glob(path):
-            if len(sys.argv) == 2 or (len(sys.argv) == 3 and sys.argv[2] in filename):
+            if len(sys.argv) == 2 or (len(sys.argv) == 3 and filename[22:26] in sys.argv[2].split(',')):
                 game = json.load(open(filename))
                 print("Testing Round %s" % game.get('showId'))
-                total = 0
-                total_correct = 0
+                num = 0
+                num_correct = 0
                 for q in game.get('questions'):
                     q['is_testing'] = True
 
@@ -189,11 +190,13 @@ if __name__ == "__main__":
                         print(utils.colors.BOLD + utils.colors.OKGREEN + "Correct? Yes" + utils.colors.ENDC)
                     else:
                         print(utils.colors.BOLD + utils.colors.FAIL + "Correct? No" + utils.colors.ENDC)
-                    total += 1
-                    total_correct += 1 if prediction_correct else 0
-
-                print("Testing Complete")
-                print("Total Correct: %s/%s" % (total_correct, total))
-
+                    num += 1
+                    num_correct += 1 if prediction_correct else 0
+                total += num
+                total_correct += num_correct
+                print("[ORIG] Correct: %s/%s" % (game.get('numCorrect'), len(game.get('questions'))))
+                print("Number Correct: %s/%s" % (num_correct, num))
+        print(utils.colors.BOLD + "Testing Complete" + utils.colors.ENDC)
+        print("Total Correct: %s/%s" % (total_correct, total))
     else:
         print('Error: Syntax is ./hqtrivia-bot.py [test] [<game-id>]')
