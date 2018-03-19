@@ -30,4 +30,4 @@ bearer_token = <Bearer>
 
 ### Test HQ Trivia Bot
  * The bot can be tested by running against a set of questions from saved games.
- * Run `python hqtrivia-bot.py test <game-id>` to test a specific game in the `games` directory.
+ * Run `python hqtrivia-bot.py test <game-id>[,<game-id>]` to test specific games in the `games` directory.

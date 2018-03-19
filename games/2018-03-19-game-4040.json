@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Leopard's lunch",
+                "B": "Dog's dinner",
+                "C": "Badger's breakfast"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "A situation that is messy or bungled is described as a what?",
+            "questionId": 31587,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "At a Royal wedding",
+                "B": "At Christmas",
+                "C": "On your birthday"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "When would you be most likely to hear the song “Good King Wenceslas”?",
+            "questionId": 31588,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Periscope",
+                "B": "Shazam",
+                "C": "Foursquare"
+            },
+            "category": "Business",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "51%",
+                    "C": "48%"
+                }
+            },
+            "question": "Which of these apps helps you to identify a piece of music?",
+            "questionId": 31589,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Cannula",
+                "B": "Otoscope",
+                "C": "Hydraulaphone"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "10%",
+                    "B": "89%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of the following is NOT a medical instrument?",
+            "questionId": 31590,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Yahtzee",
+                "B": "Beetle",
+                "C": "Makruk"
+            },
+            "category": "Games",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "28%",
+                    "B": "70%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these games is NOT a dice game?",
+            "questionId": 31591,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "David Beckham",
+                "B": "Kate Winslet",
+                "C": "Kanye West"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "34%",
+                    "B": "39%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which of these celebrities does NOT have a child named after a place?",
+            "questionId": 31592,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Shanghai",
+                "B": "Savings",
+                "C": "Santander"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "97%",
+                    "B": "2%",
+                    "C": "0%"
+                }
+            },
+            "question": "What does the letter “S” stand for in the name of the HSBC Bank?",
+            "questionId": 31593,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Pop Goes the Weasel",
+                "B": "See How They Run",
+                "C": "Zoo"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "1%",
+                    "C": "98%"
+                }
+            },
+            "question": "In which James Patterson novel does a chimpanzee destroy the protagonist's apartment?",
+            "questionId": 31594,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "The Silence of the Lambs",
+                "B": "The Godfather",
+                "C": "Unforgiven"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "16%",
+                    "B": "70%",
+                    "C": "13%"
+                }
+            },
+            "question": "Which Oscar-nominated script sat on a shelf for nearly 2 decades until its star was old enough for a lead role?",
+            "questionId": 31595,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Lesotho",
+                "B": "Benin",
+                "C": "Chad"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "8%",
+                    "B": "48%",
+                    "C": "42%"
+                }
+            },
+            "question": "In which of these African countries is French NOT an official language?",
+            "questionId": 31596,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Chico Slimani",
+                "B": "Steve Brookstein",
+                "C": "Joe McElderry"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "14%",
+                    "C": "73%"
+                }
+            },
+            "question": "Which of these music competition contestants married the sister of a Wimbledon champion?",
+            "questionId": 31597,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Eating mince pies",
+                "B": "Baking mince pies",
+                "C": "Selling mince pies"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "84%",
+                    "B": "13%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of the following was illegal in the UK on Christmas Day in 1644?",
+            "questionId": 31598,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4040,
+    "ts": "2018-03-19T15:03:12.598Z"
+}

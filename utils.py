@@ -35,7 +35,7 @@ def build_google_queries(question, answers, session):
 
 # Build wikipedia query set from data and options
 def build_wikipedia_queries(question, answers, session):
-    queries = [get_text_nouns(answer) for answer in list(answers.values())]
+    queries = list(answers.values())
 
     return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q), session=session) for q in queries]
 
@@ -100,7 +100,7 @@ def find_answer_words_google(question, answers, confidence, responses):
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
+        confidence[n] += int(count/total_occurrences * 200) if total_occurrences else 0
 
     print("METHOD 1 - Confidence: %s" % confidence)
     return confidence
