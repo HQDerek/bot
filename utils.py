@@ -1,4 +1,5 @@
 import re
+import sys
 import nltk
 import requests_cache
 import grequests
@@ -14,6 +15,11 @@ class colors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+class weights:
+    GOOGLE_SUMMARY_ANSWER_COUNT = 200
+    NUM_GOOGLE_RESULTS = 100
+    WIKIPEDIA_PAGE_QUESTION_COUNT = 50
 
 # Build set of answers from raw data
 def build_answers(raw_answers):
@@ -83,6 +89,10 @@ def find_answer_words_google(question, answers, confidence, responses):
     response = responses[0]
     soup = BeautifulSoup(response.text, "html5lib")
 
+    # Check for rate limiting page
+    if '/sorry/index?continue=' in response.url:
+        sys.exit('ERROR: Google rate limiting detected.')
+
     # Get search descriptions
     results = ''
     for g in soup.find_all(class_='st'):
@@ -100,7 +110,7 @@ def find_answer_words_google(question, answers, confidence, responses):
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * 200) if total_occurrences else 0
+        confidence[n] += int(count/total_occurrences * weights.GOOGLE_SUMMARY_ANSWER_COUNT) if total_occurrences else 0
 
     print("METHOD 1 - Confidence: %s" % confidence)
     return confidence
@@ -124,7 +134,7 @@ def count_results_number_google(question, answers, confidence, responses):
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
+        confidence[n] += int(count/total_occurrences * weights.NUM_GOOGLE_RESULTS) if total_occurrences else 0
 
     print("METHOD 1 + 2 - Confidence: %s" % confidence)
     return confidence
@@ -143,6 +153,11 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
     # Loop through wikipedia results
     for n, response in enumerate(responses):
 
+        # Check for unresolved Wikipedia link
+        if 'Special:Search' in response.url:
+            print('METHOD 3 - SKIPPED: Unresolved Wikipedia link')
+            return confidence
+
         # Get wikipedia page text elements
         results = ''
         soup = BeautifulSoup(response.text, "html5lib")
@@ -153,13 +168,13 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
 
         # Find question words on wikipedia page
         occurrences_list = find_keywords(question_nouns, results_words)
-        occurrences[chr(65 + n)] += sum(occurrences_list) * 100
-        print("%s: Score: %s" % (response.url, sum(occurrences_list) * 100))
+        occurrences[chr(65 + n)] += sum(occurrences_list)
+        print("%s: Score: %s" % (response.url, sum(occurrences_list)))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
+        confidence[n] += int(count/total_occurrences * weights.WIKIPEDIA_PAGE_QUESTION_COUNT) if total_occurrences else 0
 
     print("METHOD 1 + 2 + 3 - Confidence: %s" % confidence)
     return confidence
