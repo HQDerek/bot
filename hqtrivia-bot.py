@@ -173,6 +173,7 @@ if __name__ == "__main__":
         path = 'games/*.json'
         total = 0
         total_correct = 0
+        orig_total_correct = 0
         for filename in glob.glob(path):
             if len(sys.argv) == 2 or (len(sys.argv) == 3 and filename[22:26] in sys.argv[2].split(',')):
                 game = json.load(open(filename))
@@ -194,9 +195,11 @@ if __name__ == "__main__":
                     num_correct += 1 if prediction_correct else 0
                 total += num
                 total_correct += num_correct
+                orig_total_correct += game.get('numCorrect')
                 print("[ORIG] Correct: %s/%s" % (game.get('numCorrect'), len(game.get('questions'))))
                 print("Number Correct: %s/%s" % (num_correct, num))
         print(utils.colors.BOLD + "Testing Complete" + utils.colors.ENDC)
+        print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))
     else:
         print('Error: Syntax is ./hqtrivia-bot.py [test] [<game-id>]')

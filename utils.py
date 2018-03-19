@@ -19,7 +19,7 @@ class colors:
 class weights:
     GOOGLE_SUMMARY_ANSWER_COUNT = 200
     NUM_GOOGLE_RESULTS = 100
-    WIKIPEDIA_PAGE_QUESTION_COUNT = 50
+    WIKIPEDIA_PAGE_QUESTION_COUNT = 150
 
 # Build set of answers from raw data
 def build_answers(raw_answers):
