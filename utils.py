@@ -19,7 +19,7 @@ class colors:
 class weights:
     GOOGLE_SUMMARY_ANSWER_COUNT = 200
     NUM_GOOGLE_RESULTS = 100
-    WIKIPEDIA_PAGE_QUESTION_COUNT = 150
+    WIKIPEDIA_PAGE_QUESTION_COUNT = 100
 
 # Build set of answers from raw data
 def build_answers(raw_answers):
@@ -105,7 +105,8 @@ def find_answer_words_google(question, answers, confidence, responses):
         answer_words = get_raw_words(answer)
         occurrences[n] += results_words.count(answer)
 
-    print("%s: Scores: %s" % (response.url, occurrences))
+    print("%s" % response.url)
+    print("Count: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
@@ -129,7 +130,9 @@ def count_results_number_google(question, answers, confidence, responses):
             results_count = re.findall(r'\d+', results_count_text)[0]
             occurrences[chr(65 + n)] += int(results_count)
 
-        print("%s: Scores: %s" % (response.url, occurrences))
+        print("%s" % response.url)
+
+    print("Search Results: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
