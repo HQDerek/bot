@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Snooker",
+                "B": "Swimming",
+                "C": "Ping pong"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "17%",
+                    "B": "23%",
+                    "C": "59%"
+                }
+            },
+            "question": "Which of these sports is NOT contested on a table?",
+            "questionId": 31664,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Häagen-Dazs",
+                "B": "Baskin-Robbins",
+                "C": "Ben & Jerry's"
+            },
+            "category": "Business",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "20%",
+                    "B": "19%",
+                    "C": "59%"
+                }
+            },
+            "question": "Ben Cohen and Jerry Greenfield are the founders of which ice cream company?",
+            "questionId": 31665,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Amis",
+                "B": "Follett",
+                "C": "Archer"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "50%",
+                    "B": "3%",
+                    "C": "46%"
+                }
+            },
+            "question": "What is the family name of the father & son English novelists Kingsley and Martin?",
+            "questionId": 31666,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Jersey",
+                "B": "Lundy",
+                "C": "Alderney"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "65%",
+                    "B": "4%",
+                    "C": "29%"
+                }
+            },
+            "question": "Which of these is NOT one of the Channel Islands?",
+            "questionId": 31667,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Steven Universe",
+                "B": "Adventure Time",
+                "C": "Regular Show"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "15%",
+                    "B": "21%",
+                    "C": "63%"
+                }
+            },
+            "question": "Which animated series features the characters Mordecai and Rigby?",
+            "questionId": 31668,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Sheldonian Theatre",
+                "B": "Tom Tower",
+                "C": "Blenheim Palace"
+            },
+            "category": "Art & Design",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "29%",
+                    "B": "26%",
+                    "C": "44%"
+                }
+            },
+            "question": "Which of these buildings was NOT designed by Sir Christopher Wren?",
+            "questionId": 31669,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "New",
+                "B": "Keble",
+                "C": "Balliol"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "65%",
+                    "B": "33%",
+                    "C": "0%"
+                }
+            },
+            "question": "The founder of Winchester College founded which college in Oxford University?",
+            "questionId": 31670,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "South Downs",
+                "B": "Pembrokeshire Coast",
+                "C": "New Forest"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "36%",
+                    "B": "37%",
+                    "C": "26%"
+                }
+            },
+            "question": "Which of these was designated as a U.K. national park most recently?",
+            "questionId": 31671,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Nigel Mansell",
+                "B": "Nick Knowles",
+                "C": "Novak Djokovic"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "34%",
+                    "B": "12%",
+                    "C": "53%"
+                }
+            },
+            "question": "Which of these people has NOT written a cookbook?",
+            "questionId": 31672,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Ministry of Sound",
+                "B": "Fabric",
+                "C": "Hacienda"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "64%",
+                    "B": "20%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which influential British nightclub was located in the former home of a yachting warehouse showroom?",
+            "questionId": 31673,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Zettabyte",
+                "B": "Exabyte",
+                "C": "Yottabyte"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "63%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which of these is the biggest measure of data?",
+            "questionId": 31674,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "The Wizard of Oz",
+                "B": "The Shape of Water",
+                "C": "Mars Attacks!"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "20%",
+                    "B": "20%",
+                    "C": "59%"
+                }
+            },
+            "question": "Which of these movies was based on a set of trading cards?",
+            "questionId": 31675,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4047,
+    "ts": "2018-03-22T14:59:08.249Z"
+}

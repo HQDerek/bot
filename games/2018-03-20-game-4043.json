@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "$750",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Candy Crush Saga",
+                "B": "Candy Bubble Shooter",
+                "C": "Pirates and Pearls"
+            },
+            "category": "Games",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "97%",
+                    "B": "2%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which “match 3” puzzle game came out in 2012 on Facebook?",
+            "questionId": 31617,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "River Tam",
+                "B": "Tiber River",
+                "C": "River Phoenix"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "85%",
+                    "C": "7%"
+                }
+            },
+            "question": "Which of these rivers runs through Rome?",
+            "questionId": 31616,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Red",
+                "B": "Yellow",
+                "C": "White"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "59%",
+                    "B": "30%",
+                    "C": "9%"
+                }
+            },
+            "question": "Which of the following is NOT a primary colour?",
+            "questionId": 31618,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "England",
+                "B": "Man Utd",
+                "C": "Liverpool"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "56%",
+                    "B": "26%",
+                    "C": "16%"
+                }
+            },
+            "question": "Which football team's golden generation of players is known as the “Class of 92”?",
+            "questionId": 31619,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Drake",
+                "B": "Ed Sheeran",
+                "C": "Taylor Swift"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "61%",
+                    "C": "15%"
+                }
+            },
+            "question": "Who was the most listened to artist on Spotify in 2017?",
+            "questionId": 31620,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Philippine Goby",
+                "B": "Marlin",
+                "C": "Mola"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "23%",
+                    "C": "76%"
+                }
+            },
+            "question": "Which of these fish is the heaviest when fully grown?",
+            "questionId": 31621,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "MacBook",
+                "B": "iPhone",
+                "C": "iPad"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "6%",
+                    "B": "65%",
+                    "C": "27%"
+                }
+            },
+            "question": "Which Apple product was invented first despite being released last?",
+            "questionId": 31622,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Panda",
+                "B": "Leopard",
+                "C": "Wolf"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "26%",
+                    "B": "19%",
+                    "C": "54%"
+                }
+            },
+            "question": "In Netflix's GLOW what kind of animal is used for a wrestler's persona?",
+            "questionId": 31623,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Ahab's Foot",
+                "B": "The Sphynx",
+                "C": "The Spouter-Inn"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "23%",
+                    "C": "76%"
+                }
+            },
+            "question": "Which of these is NOT the title of a chapter of Herman Melville's novel “Moby Dick”?",
+            "questionId": 31624,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "The Shining",
+                "B": "Close Encounters",
+                "C": "Alien"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "71%",
+                    "B": "9%",
+                    "C": "19%"
+                }
+            },
+            "question": "Ridley Scott added unused footage to “Blade Runner” taken from which movie?",
+            "questionId": 31625,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Hackney cab stop",
+                "B": "Sewer lamp",
+                "C": "Roman drinking fountain"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "2%",
+                    "B": "1%",
+                    "C": "96%"
+                }
+            },
+            "question": "The last of which type of street feature is located in London's Carting Lane?",
+            "questionId": 31626,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Flower arranging",
+                "B": "Table tennis",
+                "C": "Cha-cha dancing"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "75%",
+                    "C": "1%"
+                }
+            },
+            "question": "In which of the following disciplines was Bruce Lee a decorated champion?",
+            "questionId": 31627,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4043,
+    "ts": "2018-03-20T15:00:14.140Z"
+}
