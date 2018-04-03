@@ -132,7 +132,7 @@ def on_message(ws, message):
         # Print messages to log file
         hidden_messages = ['interaction', 'broadcastStats', 'kicked']
         if data.get('type') not in hidden_messages:
-            with open('./games/messages.log', 'w') as file:
+            with open('./games/messages.log', 'a') as file:
                 if data.get('type') == 'gameStatus':
                     file.write('\nNEW GAME: %s\n' % currentGame)
                 file.write('MESSAGE: %s\n' % message)
