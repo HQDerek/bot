@@ -129,6 +129,14 @@ def on_message(ws, message):
             with open('./games/%s.json' % currentGame, 'w') as file:
                 json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
+        # Print messages to log file
+        hidden_messages = ['interaction', 'broadcastStats', 'kicked']
+        if data.get('type') not in hidden_messages:
+            with open('./games/messages.log', 'w') as file:
+                if data.get('type') == 'gameStatus':
+                    file.write('\nNEW GAME: %s\n' % currentGame)
+                file.write('MESSAGE: %s\n' % message)
+
 
 def on_open(ws):
     print('CONNECTION SUCCESSFUL')
