@@ -1,0 +1,309 @@
+{
+    "numCorrect": 8,
+    "prize": "$300,000",
+    "questionCount": 15,
+    "questions": [
+        {
+            "answers": {
+                "A": "Number of friends",
+                "B": "Age",
+                "C": "Love of fire"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "10%",
+                    "B": "89%",
+                    "C": "0%"
+                }
+            },
+            "question": "What do candles on a birthday cake traditionally represent?",
+            "questionId": 35068,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "George Washington",
+                "B": "George Jefferson",
+                "C": "George Clinton"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "92%",
+                    "B": "6%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these Georges was a US president?",
+            "questionId": 34822,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Arm Day",
+                "B": "Leg Day",
+                "C": "Rest Day"
+            },
+            "category": "Science ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "40%",
+                    "C": "35%"
+                }
+            },
+            "question": "On what “day” at the gym would you focus on your quadriceps muscles?",
+            "questionId": 35047,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Fingertips",
+                "B": "Knuckles",
+                "C": "Palms"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "29%",
+                    "C": "22%"
+                }
+            },
+            "question": "When gorillas walk, they put pressure most directly on what part of the hand?",
+            "questionId": 34449,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Illinois",
+                "B": "Iowa",
+                "C": "Wisconsin"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "34%",
+                    "B": "11%",
+                    "C": "53%"
+                }
+            },
+            "question": "The biggest lake in the US borders which of these states?",
+            "questionId": 35049,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Hippopotamus",
+                "B": "African elephant",
+                "C": "Bengal tiger"
+            },
+            "category": "Nature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "73%",
+                    "B": "11%",
+                    "C": "14%"
+                }
+            },
+            "question": "What land animal holds the Guinness World Record for the largest mouth?",
+            "questionId": 34832,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Montana",
+                "B": "Arkansas",
+                "C": "Florida"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "19%",
+                    "B": "15%",
+                    "C": "64%"
+                }
+            },
+            "question": "Where is the largest sawgrass prairie in North America?",
+            "questionId": 34829,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Margaret Mead",
+                "B": "Dian Fossey",
+                "C": "Jane Goodall"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "43%",
+                    "B": "35%",
+                    "C": "20%"
+                }
+            },
+            "question": "Which of these scientists is credited as the first to give her subjects names instead of numbers?",
+            "questionId": 35048,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Crossed forearms",
+                "B": "Index finger to nose",
+                "C": "Thumb under chin"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "98%",
+                    "B": "1%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these best describes the symbol for “NOT” in American Sign Language?",
+            "questionId": 34833,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "San Francisco, CA",
+                "B": "Los Angeles, CA",
+                "C": "Anchorage, AK"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "42%",
+                    "C": "8%"
+                }
+            },
+            "question": "Measured by magnitude, the largest recorded earthquake in US history hit what city hardest?",
+            "questionId": 34826,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Palindromic",
+                "B": "Repeats",
+                "C": "Sequence"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "44%",
+                    "B": "17%",
+                    "C": "38%"
+                }
+            },
+            "question": "Which of these is NOT a word in the gene-editing acronym CRISPR?",
+            "questionId": 34451,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Knowing her birthday",
+                "B": "Meeting a US president",
+                "C": "Keeping a pet"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "17%",
+                    "C": "0%"
+                }
+            },
+            "question": "Koko the gorilla is famous for doing which of these things?",
+            "questionId": 34834,
+            "questionNumber": 12
+        },
+        {
+            "answers": {
+                "A": "Gorilla",
+                "B": "Lizard",
+                "C": "Werewolf"
+            },
+            "category": "Games",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "65%",
+                    "B": "27%",
+                    "C": "7%"
+                }
+            },
+            "question": "In the original “Rampage” arcade game, which monster’s face is NOT featured on the title screen?",
+            "questionId": 35165,
+            "questionNumber": 13
+        },
+        {
+            "answers": {
+                "A": "Hercules",
+                "B": "Ulysses",
+                "C": "Achilles"
+            },
+            "category": "Educational",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "15%",
+                    "B": "1%",
+                    "C": "83%"
+                }
+            },
+            "question": "According to ancient Rome’s iconic epic, what hero was hidden inside the Trojan Horse?",
+            "questionId": 34824,
+            "questionNumber": 14
+        },
+        {
+            "answers": {
+                "A": "Behemoth",
+                "B": "Gargantuan",
+                "C": "Mammoth"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "Which of these synonyms for “big” traces its roots to the biggest country on Earth?",
+            "questionId": 34823,
+            "questionNumber": 15
+        }
+    ],
+    "showId": 4311,
+    "ts": "2018-04-11T20:03:32.895Z"
+}

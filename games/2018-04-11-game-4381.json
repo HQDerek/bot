@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "£550",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Rumble",
+                "B": "Bumble",
+                "C": "Mumble"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "90%",
+                    "B": "2%",
+                    "C": "7%"
+                }
+            },
+            "question": "Which of these words completes Michael Buffer’s trademarked catchphrase: ‘‘Let’s get ready to...’’",
+            "questionId": 35164,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Window shopping",
+                "B": "Plastic carrier bags",
+                "C": "Taking selfies"
+            },
+            "category": "Business",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "14%",
+                    "B": "82%",
+                    "C": "3%"
+                }
+            },
+            "question": "In 2015, a 5p charge was levied on large retailers in England for which of the following?",
+            "questionId": 35166,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Palaeontologist",
+                "B": "Geologist",
+                "C": "Osteologist"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "87%",
+                    "C": "0%"
+                }
+            },
+            "question": "What was Ross’ profession in ‘‘Friends’’?",
+            "questionId": 35167,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Jackie Kay",
+                "B": "Tony Harrison",
+                "C": "Carol Ann Duffy"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "15%",
+                    "C": "60%"
+                }
+            },
+            "question": "Which of these poets does NOT come from Scotland?",
+            "questionId": 35168,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Rheumatic experts",
+                "B": "ENT specialists",
+                "C": "Brain surgeons"
+            },
+            "category": "Science ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "57%",
+                    "C": "42%"
+                }
+            },
+            "question": "In the medical profession, otolaryngologists are commonly referred to as what?",
+            "questionId": 35169,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Denmark",
+                "B": "Spain",
+                "C": "Republic of Ireland"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "66%",
+                    "B": "20%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which country did NOT join the European Community at the same time as the U.K.?",
+            "questionId": 35170,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "David Bowie",
+                "B": "Elton John",
+                "C": "Sting"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "20%",
+                    "B": "70%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which of the following British artists famously performed live with Eminem in 2001?",
+            "questionId": 35171,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "British",
+                "B": "Japanese",
+                "C": "Spanish"
+            },
+            "category": "Educational",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "87%",
+                    "C": "1%"
+                }
+            },
+            "question": "What nationality is the fictional character Hello Kitty?",
+            "questionId": 35172,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Taekwondo",
+                "B": "Karate",
+                "C": "Greco-Roman wrestling"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "25%",
+                    "B": "63%",
+                    "C": "10%"
+                }
+            },
+            "question": "Which of the following combat sports did NOT feature in the 2016 Summer Olympics?",
+            "questionId": 35173,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Five",
+                "B": "Four",
+                "C": "Six"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "19%",
+                    "B": "62%",
+                    "C": "18%"
+                }
+            },
+            "question": "How many granddaughters does the Queen have?",
+            "questionId": 35174,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Colombia",
+                "B": "Mauritius",
+                "C": "Albania"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "74%",
+                    "B": "6%",
+                    "C": "19%"
+                }
+            },
+            "question": "Which of these countries is NOT named after a person?",
+            "questionId": 35175,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "The Royal Tenenbaums",
+                "B": "The Darjeeling Limited",
+                "C": "Bottle Rocket"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "22%",
+                    "B": "37%",
+                    "C": "40%"
+                }
+            },
+            "question": "In which of these Wes Anderson movies did Bill Murray NOT appear?",
+            "questionId": 35176,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4381,
+    "ts": "2018-04-11T14:02:15.345Z"
+}
