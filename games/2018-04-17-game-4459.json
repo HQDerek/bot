@@ -1,0 +1,249 @@
+{
+    "numCorrect": 5,
+    "prize": "£550",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Hot bother",
+                "B": "Crocodile-infested moat",
+                "C": "Sand pit"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "21%",
+                    "C": "78%"
+                }
+            },
+            "question": "In athletics, what do long-jumpers jump into in order for their distance to be measured?",
+            "questionId": 35960,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Tyres",
+                "B": "Screens",
+                "C": "Headphone jacks"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "20%",
+                    "B": "78%",
+                    "C": "1%"
+                }
+            },
+            "question": "What did Apple controversially remove from their phones recently?",
+            "questionId": 35961,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Gorilla",
+                "B": "Lemur",
+                "C": "Ape"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "10%",
+                    "B": "28%",
+                    "C": "60%"
+                }
+            },
+            "question": "What type of primate has Andy Serkis NOT played on screen?",
+            "questionId": 35962,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Vindaloo",
+                "B": "Balti",
+                "C": "Korma"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "37%",
+                    "B": "35%",
+                    "C": "26%"
+                }
+            },
+            "question": "Which of these curries is normally the hottest?",
+            "questionId": 35963,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Kim Cattrall",
+                "B": "Peter Andre",
+                "C": "Bradley Wiggins"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "88%",
+                    "B": "9%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of these celebrities was NOT born in the U.K.?",
+            "questionId": 35964,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Texas",
+                "B": "California",
+                "C": "Arizona"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "53%",
+                    "B": "27%",
+                    "C": "19%"
+                }
+            },
+            "question": "Which US state has the longest land border with Mexico?",
+            "questionId": 35965,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Ralph Lauren",
+                "B": "Tommy Hilfiger",
+                "C": "Ted Baker"
+            },
+            "category": "Art & Design",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "41%",
+                    "B": "55%",
+                    "C": "3%"
+                }
+            },
+            "question": "The founder of which fashion brand is known for not showing their full face in public?",
+            "questionId": 35966,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Stewie Griffin",
+                "B": "Professor Farnsworth",
+                "C": "Homer Simpson"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "14%",
+                    "B": "2%",
+                    "C": "82%"
+                }
+            },
+            "question": "Which of these cartoon characters typically has the most hairs on his head?",
+            "questionId": 35967,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "June",
+                "B": "October",
+                "C": "April"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "35%",
+                    "B": "15%",
+                    "C": "48%"
+                }
+            },
+            "question": "Which is most likely a pluviophile's favourite month in London?",
+            "questionId": 35968,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Brazil",
+                "B": "Canada",
+                "C": "Finland"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "64%",
+                    "C": "11%"
+                }
+            },
+            "question": "Which country consumes the most coffee per person?",
+            "questionId": 35969,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Uqbar",
+                "B": "Pokolistan",
+                "C": "Kahndaq"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "41%",
+                    "B": "10%",
+                    "C": "48%"
+                }
+            },
+            "question": "Which of these fictional places is NOT situated in the DC Comics universe?",
+            "questionId": 35970,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Idris Elba",
+                "B": "Rhys Ifans",
+                "C": "Ioan Gruffudd"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "22%",
+                    "C": "28%"
+                }
+            },
+            "question": "Which of these actors has the same first name as a medieval Welsh giant?",
+            "questionId": 35971,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4459,
+    "ts": "2018-04-17T20:02:08.599Z"
+}
