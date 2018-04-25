@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£550",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Vampire bat",
+                "B": "Blue whale",
+                "C": "Hippopotamus"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "3%",
+                    "B": "14%",
+                    "C": "82%"
+                }
+            },
+            "question": "Which animal's name means roughly “water horse”?",
+            "questionId": 37376,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Come Dine With Me",
+                "B": "I'm a Celebrity...",
+                "C": "Crimewatch"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "9%",
+                    "B": "90%",
+                    "C": "0%"
+                }
+            },
+            "question": "In which TV programme would contestants be most likely to spend “dingo dollars”?",
+            "questionId": 37377,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Biscuit eaters",
+                "B": "Dogwalkers",
+                "C": "Shopkeepers"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "Napoleon Bonaparte is often credited as referring to Britain as a nation of what?",
+            "questionId": 37378,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "10",
+                "B": "32",
+                "C": "250"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "76%",
+                    "B": "15%",
+                    "C": "8%"
+                }
+            },
+            "question": "Approximately how many people are born in the world every minute?",
+            "questionId": 37379,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "London Overground",
+                "B": "M25",
+                "C": "Cycle network"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "9%",
+                    "B": "85%",
+                    "C": "5%"
+                }
+            },
+            "question": "Which London feature corresponds the most to the Périphérique in Paris?",
+            "questionId": 37380,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "The Force Awakens",
+                "B": "Avengers Assemble",
+                "C": "Guardians of the Galaxy"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "25%",
+                    "B": "1%",
+                    "C": "73%"
+                }
+            },
+            "question": "Which movie was released in China as “Interplanetary Unusual Attacking Team”?",
+            "questionId": 37381,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Fear of a curse",
+                "B": "Lack of lifeboats",
+                "C": "Bats in the cargo hold"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "0%",
+                    "C": "91%"
+                }
+            },
+            "question": "Why did workers go on strike during the construction of the Titanic's older sister ship?",
+            "questionId": 37382,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Girls Aloud",
+                "B": "Adele",
+                "C": "All Saints"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "13%",
+                    "B": "29%",
+                    "C": "57%"
+                }
+            },
+            "question": "The richest woman in Britain is also the co-writer of a chart-topping hit for which act?",
+            "questionId": 37383,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Theresa May",
+                "B": "The King of Spain",
+                "C": "Rowan Atkinson"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "15%",
+                    "B": "75%",
+                    "C": "9%"
+                }
+            },
+            "question": "Who was NOT a guest at the wedding of the Duke and Duchess of Cambridge?",
+            "questionId": 37384,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Socks",
+                "B": "Ties",
+                "C": "Hats"
+            },
+            "category": "Art & Design",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "13%",
+                    "B": "17%",
+                    "C": "69%"
+                }
+            },
+            "question": "Which of these items did NOT feature in Albert Einstein’s wardrobe?",
+            "questionId": 37385,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Swansea",
+                "B": "Liverpool",
+                "C": "Edinburgh"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "36%",
+                    "B": "38%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which city's most visible clock is set a few minutes fast to ensure travellers don't miss their trains?",
+            "questionId": 37386,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Bryan Adams / Ryan Adams",
+                "B": "Gary Oldman / Gary Numan",
+                "C": "Ice-T / Ice Cube"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "72%",
+                    "C": "27%"
+                }
+            },
+            "question": "Which of these pairs of celebrities have the same birthday?",
+            "questionId": 37387,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4595,
+    "ts": "2018-04-25T20:00:25.298Z"
+}
