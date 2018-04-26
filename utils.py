@@ -4,6 +4,7 @@ import nltk
 import requests_cache
 import grequests
 import urllib.parse
+import webbrowser
 from bs4 import BeautifulSoup
 
 class colors:
