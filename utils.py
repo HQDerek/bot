@@ -55,6 +55,7 @@ def predict_answers(data, answers):
         'C': 0
     }
     question = data.get('question')
+    webbrowser.open("http://google.com/search?q="+question)
 
     print('------------ %s %s | %s ------------' % ('QUESTION', data.get('questionNumber'), data.get('category')))
     print(colors.BOLD + question + colors.ENDC)
