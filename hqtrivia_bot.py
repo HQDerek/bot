@@ -9,6 +9,11 @@ import grequests
 import requests
 import utils
 import configparser
+from tkinter import Tk
+from canvas import MainCanvas
+
+global bot_canvas
+bot_canvas = MainCanvas()
 
 # Read config from config.ini
 config = configparser.ConfigParser()
@@ -171,6 +176,8 @@ if __name__ == "__main__":
                 while not broadcastEnded:
                     try:
                         ws.run_forever(ping_interval=5)
+                        root = Tk()
+                        root.mainloop()
                     except:
                         print('CONNECTION LOST. RECONNECTING...')
             else:
