@@ -56,7 +56,9 @@ def predict_answers(data, answers):
         'C': 0
     }
     question = data.get('question')
-    webbrowser.open("http://google.com/search?q="+question)
+
+    if not data.get('is_testing', False):
+        webbrowser.open("http://google.com/search?q="+question)
 
     print('------------ %s %s | %s ------------' % ('QUESTION', data.get('questionNumber'), data.get('category')))
     print(colors.BOLD + question + colors.ENDC)
@@ -64,7 +66,7 @@ def predict_answers(data, answers):
     print(answers)
     print('------------------------')
 
-    session = requests_cache.CachedSession('query_cache') if data.get('is_testing') else None
+    session = requests_cache.CachedSession('query_cache') if data.get('is_testing', False) else None
     google_responses = grequests.map(build_google_queries(question, answers, session))
     wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers, session))
 
@@ -105,7 +107,7 @@ def find_answer_words_google(question, answers, confidence, responses):
     # Find answer words in search descriptions
     for n, answer in answers.items():
         answer_words = get_raw_words(answer)
-        occurrences[n] += results_words.count(answer)
+        occurrences[n] += results_words.count(answer_words)
 
     print("%s" % response.url)
     print("Count: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
@@ -207,5 +209,5 @@ def get_text_nouns(input):
 # Extract raw words from data
 def get_raw_words(data):
     data = re.sub('[^\w ]', '' , data)
-    words = data.replace('  ' , ' ')
+    words = data.replace('  ' , ' ').lower()
     return words
