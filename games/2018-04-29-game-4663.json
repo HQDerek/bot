@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "£8,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Chuckle brothers",
+                "B": "Neville brothers",
+                "C": "Blues brothers"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "20%",
+                    "C": "30%"
+                }
+            },
+            "question": "Which pair of brothers have represented England's national football team?",
+            "questionId": 37971,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "The BFG",
+                "B": "The YMCA",
+                "C": "The LOL"
+            },
+            "category": "Literature ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "89%",
+                    "B": "5%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which of these is the title of a popular Roald Dahl children's book?",
+            "questionId": 37972,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Yoghurt",
+                "B": "Double cream",
+                "C": "Prosecco"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "27%",
+                    "B": "54%",
+                    "C": "18%"
+                }
+            },
+            "question": "Mary Berry caused controversy when she suggested adding what to a spaghetti bolognese recipe?",
+            "questionId": 37973,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Tim McInnerny",
+                "B": "Miranda Richardson",
+                "C": "Hugh Laurie"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "24%",
+                    "B": "19%",
+                    "C": "56%"
+                }
+            },
+            "question": "Of these performers, who was the only one to appear in all four series of “BlackAdder”?",
+            "questionId": 37974,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "St John Ambulance",
+                "B": "St John's Ambulance",
+                "C": "St Johns Ambulance"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "51%",
+                    "B": "26%",
+                    "C": "21%"
+                }
+            },
+            "question": "Which of these is the correct name of the leading first aid charity?",
+            "questionId": 37977,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Giraffe",
+                "B": "Elephant",
+                "C": "Kangaroo"
+            },
+            "category": "Nature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "63%",
+                    "B": "30%",
+                    "C": "5%"
+                }
+            },
+            "question": "Which of these animals has the highest blood pressure?",
+            "questionId": 37975,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Kiefer Sutherland",
+                "B": "Amy Adams",
+                "C": "Nicole Kidman"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "21%",
+                    "B": "26%",
+                    "C": "52%"
+                }
+            },
+            "question": "Which of these celebrities was born in the United States?",
+            "questionId": 37976,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Indian robes",
+                "B": "Sailor suits",
+                "C": "Kilts"
+            },
+            "category": "Art & Design",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "6%",
+                    "C": "93%"
+                }
+            },
+            "question": "Which of these was NOT a fashion trend set by Queen Victoria's sons?",
+            "questionId": 37978,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "By riding bats",
+                "B": "By hiding under sheep",
+                "C": "By making pig noises"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "28%",
+                    "B": "41%",
+                    "C": "30%"
+                }
+            },
+            "question": "In Homer’s ‘‘Odyssey’’ how do Odysseus and his men elude the Cyclops?",
+            "questionId": 37979,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Die Hard",
+                "B": "Annie Hall",
+                "C": "Rocky"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "20%",
+                    "B": "35%",
+                    "C": "43%"
+                }
+            },
+            "question": "Which of these movies ends with the line ‘‘I love you’’?",
+            "questionId": 37980,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Travel by steamboat",
+                "B": "Remain unmarried",
+                "C": "Live in the White House"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "James Monroe was the first U.S. President to do which of these?",
+            "questionId": 37981,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Ricky Valance",
+                "B": "Mary Hopkin",
+                "C": "Tom Jones"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "18%",
+                    "B": "54%",
+                    "C": "26%"
+                }
+            },
+            "question": "After Shirley Bassey, who was the next solo Welsh artist to top the British singles' chart?",
+            "questionId": 37982,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4663,
+    "ts": "2018-04-29T14:00:24.097Z"
+}

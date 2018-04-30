@@ -6,6 +6,7 @@ import grequests
 import urllib.parse
 import webbrowser
 from bs4 import BeautifulSoup
+from hqtrivia_bot import bot_canvas
 
 class colors:
     HEADER = '\033[95m'
@@ -56,13 +57,17 @@ def predict_answers(data, answers):
         'C': 0
     }
     question = data.get('question')
-    webbrowser.open("http://google.com/search?q="+question)
+    if '--browser' in sys.argv:
+        webbrowser.open("http://google.com/search?q="+question)
 
     print('------------ %s %s | %s ------------' % ('QUESTION', data.get('questionNumber'), data.get('category')))
     print(colors.BOLD + question + colors.ENDC)
     print('------------ %s ------------' % 'ANSWERS')
     print(answers)
     print('------------------------')
+    global bot_canvas
+    bot_canvas.update_question(question)
+    bot_canvas.update_answers(answers)
 
     session = requests_cache.CachedSession('query_cache') if data.get('is_testing') else None
     google_responses = grequests.map(build_google_queries(question, answers, session))
@@ -116,6 +121,8 @@ def find_answer_words_google(question, answers, confidence, responses):
         confidence[n] += int(count/total_occurrences * weights.GOOGLE_SUMMARY_ANSWER_COUNT) if total_occurrences else 0
 
     print("METHOD 1 - Confidence: %s" % confidence)
+    global bot_canvas
+    bot_canvas.update_method_1(confidence)
     return confidence
 
 
@@ -142,6 +149,8 @@ def count_results_number_google(question, answers, confidence, responses):
         confidence[n] += int(count/total_occurrences * weights.NUM_GOOGLE_RESULTS) if total_occurrences else 0
 
     print("METHOD 1 + 2 - Confidence: %s" % confidence)
+    global bot_canvas
+    bot_canvas.update_method_2(confidence)
     return confidence
 
 
@@ -161,6 +170,8 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
         # Check for unresolved Wikipedia link
         if 'Special:Search' in response.url:
             print('METHOD 3 - SKIPPED: Unresolved Wikipedia link')
+            global bot_canvas
+            bot_canvas.update_method_3('SKIPPED: Unresolved Wikipedia link')
             return confidence
 
         # Get wikipedia page text elements
@@ -182,6 +193,7 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
         confidence[n] += int(count/total_occurrences * weights.WIKIPEDIA_PAGE_QUESTION_COUNT) if total_occurrences else 0
 
     print("METHOD 1 + 2 + 3 - Confidence: %s" % confidence)
+    bot_canvas.update_method_3(confidence)
     return confidence
 
 

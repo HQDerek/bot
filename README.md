@@ -25,9 +25,15 @@ bearer_token = <Bearer>
 
 ### Run HQ Trivia Bot
  * Ensure virtualenv is activated `source hqtrivia-bot/bin/activate`
- * Run bot `python hqtrivia-bot.py`
+ * Run bot `python hqtrivia_bot.py`
+
+##### Arguments
+
+|Argument|Function|
+|---|---|
+|`--browser`|Open browser with question search|
 
 
 ### Test HQ Trivia Bot
  * The bot can be tested by running against a set of questions from saved games.
- * Run `python hqtrivia-bot.py test <game-id>[,<game-id>]` to test specific games in the `games` directory.
+ * Run `python hqtrivia_bot.py test <game-id>[,<game-id>]` to test specific games in the `games` directory.
