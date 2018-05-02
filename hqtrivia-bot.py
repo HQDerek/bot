@@ -54,7 +54,10 @@ def on_message(ws, message):
      # Decode JSON data
     data_start = message.find('{')
     if data_start >= 0:
-        data = json.loads(message[data_start:])
+        try:
+            data = json.loads(message[data_start:])
+        except:
+            print('ERROR - bad json: %s' % message)
 
         # Check for broadcast ended
         if data.get('type') == 'broadcastEnded' and not data.get('reason'):
