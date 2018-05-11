@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "£550",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Alphabetti spaghetti",
+                "B": "Forbidden fruit",
+                "C": "Spicy peperami"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "According to general belief, what did Adam and Eve eat in the Garden of Eden?",
+            "questionId": 39729,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Jay-Z",
+                "B": "Josef K",
+                "C": "Mr. T"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "20%",
+                    "B": "65%",
+                    "C": "13%"
+                }
+            },
+            "question": "Who is the central character in Franz Kafka's book “The Trial”?",
+            "questionId": 39730,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Jamaica",
+                "B": "Canada",
+                "C": "New Zealand"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "20%",
+                    "B": "68%",
+                    "C": "11%"
+                }
+            },
+            "question": "Ottawa is the capital city of which country?",
+            "questionId": 39734,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "One",
+                "B": "None",
+                "C": "Two"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "32%",
+                    "B": "14%",
+                    "C": "53%"
+                }
+            },
+            "question": "How many English managers have guided a team to winning the Premier League?",
+            "questionId": 39747,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Russia",
+                "B": "France",
+                "C": "Spain"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "19%",
+                    "B": "65%",
+                    "C": "14%"
+                }
+            },
+            "question": "The political terms “left-wing” and “right-wing” have their origins in events in which country?",
+            "questionId": 39748,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Bassist’s moustache",
+                "B": "“Heart of Darkness” book",
+                "C": "Drummer’s mood swings"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "93%",
+                    "C": "6%"
+                }
+            },
+            "question": "What is the inspiration behind rock band The Darkness’ name?",
+            "questionId": 39749,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Howard Hughes",
+                "B": "J.P. Morgan",
+                "C": "John D. Rockefeller"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "6%",
+                    "B": "91%",
+                    "C": "2%"
+                }
+            },
+            "question": "The mustachioed “Uncle Pennybags” Monopoly mascot is believed to be based on which U.S. financier?",
+            "questionId": 39750,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Frozen",
+                "B": "Spongebob Squarepants",
+                "C": "Mean Girls"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "33%",
+                    "B": "50%",
+                    "C": "16%"
+                }
+            },
+            "question": "Which of these musicals had its opening night on Broadway most recently?",
+            "questionId": 39751,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Bristol, England",
+                "B": "Queenstown, New Zealand",
+                "C": "Cape Town, South Africa"
+            },
+            "category": "Educational",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "56%",
+                    "C": "30%"
+                }
+            },
+            "question": "Modern bungee jumping began in which of these places?",
+            "questionId": 39752,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Waze",
+                "B": "Foursquare",
+                "C": "Google Street View"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "42%",
+                    "B": "35%",
+                    "C": "21%"
+                }
+            },
+            "question": "Which of the following started off as an attempt to map the entirety of a Middle Eastern country?",
+            "questionId": 39753,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Snow White / Bashful",
+                "B": "Peter / Wendy",
+                "C": "Dumbo / Bambi"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "90%",
+                    "C": "9%"
+                }
+            },
+            "question": "In World War II, what names were given to the pipelines that supplied fuel between the U.K. and the continent?",
+            "questionId": 39754,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "NYPD Blue",
+                "B": "Sex and the City",
+                "C": "Cheers"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "7%",
+                    "B": "44%",
+                    "C": "47%"
+                }
+            },
+            "question": "Which of these did NOT feature one of the six lead actors from “Friends”?",
+            "questionId": 39755,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4840,
+    "ts": "2018-05-10T14:00:37.273Z"
+}

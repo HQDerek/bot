@@ -1,0 +1,248 @@
+{
+    "numCorrect": 8,
+    "prize": "£550",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Tickling Day",
+                "B": "Pinching Day",
+                "C": "Boxing Day"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "What holiday is celebrated in the U.K. on December 26th?",
+            "questionId": 39511,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Moon frisbee",
+                "B": "Oil wrestling",
+                "C": "Ice rugby"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is the national sport of Turkey?",
+            "questionId": 39512,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Oasis",
+                "B": "New Order",
+                "C": "The Beatles"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "15%",
+                    "B": "55%",
+                    "C": "29%"
+                }
+            },
+            "question": "Members of the music act Joy Division went on to form which band?",
+            "questionId": 39518,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Pennines",
+                "B": "Mendips",
+                "C": "Cheviots"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "59%",
+                    "B": "28%",
+                    "C": "11%"
+                }
+            },
+            "question": "In which series of English hills would you find Snake Pass?",
+            "questionId": 39516,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "100 million dollars",
+                "B": "100 billion dollars",
+                "C": "100 trillion dollars"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "47%",
+                    "B": "9%",
+                    "C": "42%"
+                }
+            },
+            "question": "Which of these was the highest value bank note ever issued in Zimbabwe?",
+            "questionId": 39517,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Labradoodle",
+                "B": "Maltipoo",
+                "C": "Goldador"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "68%",
+                    "B": "15%",
+                    "C": "16%"
+                }
+            },
+            "question": "Which of these breeds is NOT used as guide dogs in the U.K.?",
+            "questionId": 39519,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Hung parliament",
+                "B": "The time",
+                "C": "Bitcoin"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "19%",
+                    "B": "19%",
+                    "C": "61%"
+                }
+            },
+            "question": "What was the most common “What Is...” Google search in the U.K. in 2017?",
+            "questionId": 39520,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "First colour broadcast",
+                "B": "First Match of the Day",
+                "C": "Launch of BBC 2"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "98%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these British televisual events happened first?",
+            "questionId": 39521,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Kensington Palace",
+                "B": "St. James's Palace",
+                "C": "Clarence House"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "60%",
+                    "B": "20%",
+                    "C": "18%"
+                }
+            },
+            "question": "Which of the following was once called “Nottingham House”?",
+            "questionId": 39534,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Audible",
+                "B": "Twitch",
+                "C": "Zappos"
+            },
+            "category": "Business",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "18%",
+                    "C": "65%"
+                }
+            },
+            "question": "Which of these companies did Amazon purchase for the most money?",
+            "questionId": 39535,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "The way to dusty death",
+                "B": "Out, damned spot!",
+                "C": "Kindle fire with snow"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "61%",
+                    "B": "37%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these quotations does NOT come from Shakespeare's “Scottish” play?",
+            "questionId": 39536,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "True Grit",
+                "B": "The Big Lebowski",
+                "C": "Fargo"
+            },
+            "category": "Movies",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "61%",
+                    "C": "14%"
+                }
+            },
+            "question": "Which of these Coen Brothers movies has the highest “Tomatometers” score on Rotten Tomatoes?",
+            "questionId": 39537,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4813,
+    "ts": "2018-05-09T14:02:42.012Z"
+}
