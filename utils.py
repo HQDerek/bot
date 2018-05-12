@@ -208,6 +208,6 @@ def get_text_nouns(input):
 
 # Extract raw words from data
 def get_raw_words(data):
-    data = re.sub('[^\w ]', '' , data)
-    words = data.replace('  ' , ' ').lower().replace('and','')
+    data = re.sub('[^\w ]', '' , data).replace(' and ',' ')
+    words = data.replace('  ' , ' ').lower()
     return words
