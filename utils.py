@@ -1,6 +1,5 @@
 import re
 import sys
-import nltk
 from nltk.corpus import stopwords
 import requests_cache
 import grequests
@@ -194,15 +193,6 @@ def find_keywords(keywords, data):
             if keyword in data and keyword not in words_found:
                 words_found.append(data.count(keyword))
     return words_found
-
-
-# Get nouns from text
-def get_text_nouns(input):
-    response = ''
-    for (word, tag) in nltk.pos_tag(nltk.word_tokenize(input)):
-        if tag.startswith('NN') or tag.startswith('NNP'):
-            response += word + ' '
-    return response.strip()
 
 
 # Returns a list of the words from the input string that are not in NLTK's stopwords
