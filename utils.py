@@ -1,6 +1,6 @@
 import re
 import sys
-import nltk
+from nltk.corpus import stopwords
 import requests_cache
 import grequests
 import urllib.parse
@@ -60,11 +60,13 @@ def predict_answers(data, answers):
     if not data.get('is_testing', False):
         webbrowser.open("http://google.com/search?q="+question)
 
+    print('\n\n\n\n\n')
     print('------------ %s %s | %s ------------' % ('QUESTION', data.get('questionNumber'), data.get('category')))
     print(colors.BOLD + question + colors.ENDC)
     print('------------ %s ------------' % 'ANSWERS')
     print(answers)
     print('------------------------')
+    print('\n')
 
     session = requests_cache.CachedSession('query_cache') if data.get('is_testing', False) else None
     google_responses = grequests.map(build_google_queries(question, answers, session))
@@ -83,6 +85,7 @@ def predict_answers(data, answers):
         result = 'Answer %s: %s - %s%%' % (n, answers[n], likelihood)
         print(colors.BOLD + result + colors.ENDC if n == prediction else result)
 
+    print('\n')
     return (prediction if confidence[prediction] else None, confidence)
 
 
@@ -109,7 +112,6 @@ def find_answer_words_google(question, answers, confidence, responses):
         answer_words = get_raw_words(answer)
         occurrences[n] += results_words.count(answer_words)
 
-    print("%s" % response.url)
     print("Count: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
 
     # Calculate confidence
@@ -117,7 +119,7 @@ def find_answer_words_google(question, answers, confidence, responses):
     for n, count in occurrences.items():
         confidence[n] += int(count/total_occurrences * weights.GOOGLE_SUMMARY_ANSWER_COUNT) if total_occurrences else 0
 
-    print("METHOD 1 - Confidence: %s" % confidence)
+    print("METHOD 1 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -134,8 +136,6 @@ def count_results_number_google(question, answers, confidence, responses):
             results_count = re.findall(r'\d+', results_count_text)[0]
             occurrences[chr(65 + n)] += int(results_count)
 
-        print("%s" % response.url)
-
     print("Search Results: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
 
     # Calculate confidence
@@ -143,7 +143,7 @@ def count_results_number_google(question, answers, confidence, responses):
     for n, count in occurrences.items():
         confidence[n] += int(count/total_occurrences * weights.NUM_GOOGLE_RESULTS) if total_occurrences else 0
 
-    print("METHOD 1 + 2 - Confidence: %s" % confidence)
+    print("METHOD 1 + 2 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -154,15 +154,14 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
 
     # Get nouns from question words
     question_words = get_raw_words(question)
-    question_nouns = get_text_nouns(question_words).split(' ')
-    print('question_nouns: %s' % question_nouns)
+    question_nouns = get_significant_words(question_words)
 
     # Loop through wikipedia results
     for n, response in enumerate(responses):
 
         # Check for unresolved Wikipedia link
         if 'Special:Search' in response.url:
-            print('METHOD 3 - SKIPPED: Unresolved Wikipedia link')
+            print('METHOD 3 - SKIPPED: Unresolved Wikipedia link\n')
             return confidence
 
         # Get wikipedia page text elements
@@ -176,14 +175,13 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
         # Find question words on wikipedia page
         occurrences_list = find_keywords(question_nouns, results_words)
         occurrences[chr(65 + n)] += sum(occurrences_list)
-        print("%s: Score: %s" % (response.url, sum(occurrences_list)))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
         confidence[n] += int(count/total_occurrences * weights.WIKIPEDIA_PAGE_QUESTION_COUNT) if total_occurrences else 0
 
-    print("METHOD 1 + 2 + 3 - Confidence: %s" % confidence)
+    print("METHOD 1 + 2 + 3 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -197,13 +195,10 @@ def find_keywords(keywords, data):
     return words_found
 
 
-# Get nouns from text
-def get_text_nouns(input):
-    response = ''
-    for (word, tag) in nltk.pos_tag(nltk.word_tokenize(input)):
-        if tag.startswith('NN') or tag.startswith('NNP'):
-            response += word + ' '
-    return response.strip()
+# Returns a list of the words from the input string that are not in NLTK's stopwords
+def get_significant_words(input):
+    s=set(stopwords.words('english'))
+    return list(filter(lambda w: not w in s, input.split(' ')))
 
 
 # Extract raw words from data
