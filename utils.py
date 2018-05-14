@@ -4,7 +4,11 @@ import nltk
 import requests_cache
 import grequests
 import urllib.parse
+import os
+import json
+import glob
 import webbrowser
+from time import sleep
 from bs4 import BeautifulSoup
 
 class colors:
@@ -121,6 +125,42 @@ def find_answer_words_google(question, answers, confidence, responses):
     return confidence
 
 
+# METHOD 1: Find answer in Google search result descriptions
+def method_1(question, answers):
+
+    session = None
+    response = grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(question), session=session)
+
+    occurrences = {'A': 0, 'B': 0, 'C': 0}
+    confidence = {'A': 0, 'B': 0, 'C': 0}
+    soup = BeautifulSoup(response.text, "html5lib")
+
+    # Check for rate limiting page
+    if '/sorry/index?continue=' in response.url:
+        sys.exit('ERROR: Google rate limiting detected.')
+
+    # Get search descriptions
+    results = ''
+    for g in soup.find_all(class_='st'):
+        results += " " + g.text
+    cleaned_results = results.strip().replace('\n','')
+    results_words = get_raw_words(cleaned_results)
+
+    # Find answer words in search descriptions
+    for n, answer in answers.items():
+        answer_words = get_raw_words(answer)
+        occurrences[n] += results_words.count(answer_words)
+
+    print("Count: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
+
+    # Calculate confidence
+    total_occurrences = sum(occurrences.values())
+    for n, count in occurrences.items():
+        confidence[n] = int(count/total_occurrences) if total_occurrences else 0
+
+    return confidence
+
+
 # METHOD 2: Compare number of results found by Google
 def count_results_number_google(question, answers, confidence, responses):
 
@@ -185,6 +225,45 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
 
     print("METHOD 1 + 2 + 3 - Confidence: %s" % confidence)
     return confidence
+
+# Write all correct answers from games to correct_answers.json
+def update_correct_answers_json():
+    all_correct_answers = {}
+
+    path = 'games/*.json'
+    for filename in glob.glob(path):
+        game = json.load(open(filename))
+        id = game.get('showId')
+        game_correct_answers = {}
+        for q in game.get('questions'):
+            game_correct_answers[q.get('questionNumber')] = q.get('correct')
+
+        all_correct_answers[id] = game_correct_answers
+
+    if not os.path.isfile('./methods/correct_answers.json'):
+        with open('./methods/correct_answers.json', 'w') as file:
+            json.dump(all_correct_answers, file, ensure_ascii=False, sort_keys=True, indent=4)
+
+
+def create_method_json(method,method_name):
+    all_method_results = {}
+
+    path = 'games/*.json'
+    for filename in glob.glob(path):
+        game = json.load(open(filename))
+        id = game.get('showId')
+        game_method_results = {}
+        for q in game.get('questions'):
+            (a,b,c) = method(q.get('question'),q.get('answers'))
+            game_method_results[q.get('questionNumber')] = { 'A': a, 'B': b, 'C': c }
+            sleep(10)
+
+        all_method_results[id] = game_method_results
+
+    # Create new save game file if not found
+    if not os.path.isfile('./methods/%s.json' % method_name):
+        with open('./methods/%s.json' % method_name, 'w') as file:
+            json.dump(all_method_results, file, ensure_ascii=False, sort_keys=True, indent=4)
 
 
 # Find keywords in specified data
