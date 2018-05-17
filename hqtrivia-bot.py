@@ -9,6 +9,7 @@ import grequests
 import requests
 import utils
 import configparser
+from utils import create_method_json, method_1
 
 # Read config from config.ini
 config = configparser.ConfigParser()
@@ -70,7 +71,7 @@ def on_message(ws, message):
             currentGame = '%s-game-%s' % (data.get('ts')[:10], data.get('showId'))
 
             # Create new save game file if not found
-            if not os.path.isfile('./games/%s.json' % currentGame): 
+            if not os.path.isfile('./games/%s.json' % currentGame):
                 with open('./games/%s.json' % currentGame, 'w') as file:
                     json.dump({
                         'showId': data.get('showId'),
@@ -87,7 +88,7 @@ def on_message(ws, message):
             (prediction, confidence) = utils.predict_answers(data, parsed_answers)
 
             # Load save game file and append question
-            with open('./games/%s.json' % currentGame) as file:    
+            with open('./games/%s.json' % currentGame) as file:
                 output = json.load(file)
             output.get('questions').append({
                 'question': data.get('question'),
@@ -109,7 +110,7 @@ def on_message(ws, message):
         elif data.get('type') == 'questionSummary':
 
             # Load save game file and update correct answer
-            with open('./games/%s.json' % currentGame) as file:    
+            with open('./games/%s.json' % currentGame) as file:
                 output = json.load(file)
             questions_output = output.get('questions')
             question_index = next((n for (n, val) in enumerate(questions_output) if val["questionId"] == data.get('questionId')))
@@ -155,6 +156,8 @@ def on_close(ws):
     print('SOCKET CLOSED')
 
 if __name__ == "__main__":
+
+    create_method_json(method_1,'google_question')
 
     if len(sys.argv) == 1:
         while True:
