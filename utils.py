@@ -129,7 +129,8 @@ def find_answer_words_google(question, answers, confidence, responses):
 def method_1(question, answers):
 
     session = None
-    response = grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(question), session=session)
+    google_responses = grequests.map([grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(question), session=session)])
+    response = google_responses[:1][0]
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
     confidence = {'A': 0, 'B': 0, 'C': 0}
@@ -156,7 +157,7 @@ def method_1(question, answers):
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] = int(count/total_occurrences) if total_occurrences else 0
+        confidence[n] = int(count/total_occurrences * 100) if total_occurrences else 0
 
     return confidence
 
@@ -254,16 +255,23 @@ def create_method_json(method,method_name):
         id = game.get('showId')
         game_method_results = {}
         for q in game.get('questions'):
-            (a,b,c) = method(q.get('question'),q.get('answers'))
-            game_method_results[q.get('questionNumber')] = { 'A': a, 'B': b, 'C': c }
-            sleep(10)
+            confidence = method(q.get('question'),q.get('answers'))
+            game_method_results[q.get('questionNumber')] = confidence
+
+        # Load saved method results
+        with open('./methods/%s.json' % method_name) as file:
+            output = json.load(file)
+        output[str(id)] = game_method_results
+
+        # Update saved method results
+        print('Writing to game %s' % id)
+        with open('./methods/%s.json' % method_name, 'w') as file:
+            json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
+
+        sleep(2)
 
         all_method_results[id] = game_method_results
 
-    # Create new save game file if not found
-    if not os.path.isfile('./methods/%s.json' % method_name):
-        with open('./methods/%s.json' % method_name, 'w') as file:
-            json.dump(all_method_results, file, ensure_ascii=False, sort_keys=True, indent=4)
 
 
 # Find keywords in specified data
