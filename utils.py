@@ -163,6 +163,41 @@ def method_1(question, answers):
 
 
 # METHOD 2: Compare number of results found by Google
+def method_2(question, answers):
+
+    queries = ['%s "%s"' % (question, answer) for answer in answers.values()]
+    responses = grequests.map([grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q), session=None) for q in queries])
+
+    occurrences = {'A': 0, 'B': 0, 'C': 0}
+    confidence = {'A': 0, 'B': 0, 'C': 0}
+
+    # Loop through search results
+    for n, response in enumerate(responses):
+        soup = BeautifulSoup(response.text, "html5lib")
+
+        # Check for rate limiting page
+        if '/sorry/index?continue=' in response.url:
+            sys.exit('ERROR: Google rate limiting detected.')
+
+        if soup.find(id='resultStats'):
+            results_count_text = soup.find(id='resultStats').text.replace(',', '')
+            if len(results_count_text) != 0 and len(re.findall(r'\d+', results_count_text)) != 0:
+                results_count = re.findall(r'\d+', results_count_text)[0]
+                occurrences[chr(65 + n)] += int(results_count)
+
+        print("%s" % response.url)
+
+    print("Search Results: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
+
+    # Calculate confidence
+    total_occurrences = sum(occurrences.values())
+    for n, count in occurrences.items():
+        confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
+
+    return confidence
+
+
+# METHOD 2: Compare number of results found by Google
 def count_results_number_google(question, answers, confidence, responses):
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
@@ -227,50 +262,68 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
     print("METHOD 1 + 2 + 3 - Confidence: %s" % confidence)
     return confidence
 
-# Write all correct answers from games to correct_answers.json
-def update_correct_answers_json():
-    all_correct_answers = {}
-
+# print out accuracy
+def find_accuracy():
+    all_question_count = 0
+    all_correct_count = 0
     path = 'games/*.json'
     for filename in glob.glob(path):
+        question_count = 0
+        correct_count = 0
         game = json.load(open(filename))
         id = game.get('showId')
-        game_correct_answers = {}
         for q in game.get('questions'):
-            game_correct_answers[q.get('questionNumber')] = q.get('correct')
+            question_count = question_count + 1
 
-        all_correct_answers[id] = game_correct_answers
+            if q.get('correct') == q.get('prediction')['answer']:
+                correct_count = correct_count + 1
 
-    if not os.path.isfile('./methods/correct_answers.json'):
-        with open('./methods/correct_answers.json', 'w') as file:
-            json.dump(all_correct_answers, file, ensure_ascii=False, sort_keys=True, indent=4)
+        if question_count != 0:
+            print(correct_count/question_count*100)
+    if all_question_count != 0:
+        print(all_correct_count/all_question_count*100)
 
 
 def create_method_json(method,method_name):
     all_method_results = {}
 
     path = 'games/*.json'
-    for filename in glob.glob(path):
-        game = json.load(open(filename))
-        id = game.get('showId')
-        game_method_results = {}
-        for q in game.get('questions'):
-            confidence = method(q.get('question'),q.get('answers'))
-            game_method_results[q.get('questionNumber')] = confidence
 
-        # Load saved method results
-        with open('./methods/%s.json' % method_name) as file:
-            output = json.load(file)
-        output[str(id)] = game_method_results
+    my_arr = [3779, 3932, 4422, 4311, 4670, 4254, 4258, 4844, 3773, \
+                4784, 4716, 4047, 3726, 4050, 3701, 4961, 3952, 3811, \
+                4813, 4114, 4711, 4459, 4357, 4409, 4088, 3847, 4840, \
+                3793, 4020, 4116, 4381, 3788, 4040, 3734, 3829, 4441, \
+                4456, 4251, 4043, 4345, 4594, 3753, 3709, 3926, 4595, 3765]
 
-        # Update saved method results
-        print('Writing to game %s' % id)
-        with open('./methods/%s.json' % method_name, 'w') as file:
-            json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
+    # Load saved method results
+    with open('./methods/%s.json' % method_name) as file:
+        output = json.load(file)
 
-        sleep(2)
+    for num in my_arr:
+        for filename in glob.glob(path):
+            game = json.load(open(filename))
+            id = game.get('showId')
 
-        all_method_results[id] = game_method_results
+            if id != num:
+                continue
+
+            if output.get(str(id)):
+                print('already done %s' % id)
+                continue
+
+            if id == num:
+                game_method_results = {}
+                for q in game.get('questions'):
+                    confidence = method(q.get('question'),q.get('answers'))
+                    game_method_results[q.get('questionNumber')] = confidence
+
+                output[str(id)] = game_method_results
+
+                # Update saved method results
+                with open('./methods/%s.json' % method_name, 'w') as file:
+                    json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
+
+                print('Wrote to game %s' % id)
 
 
 
