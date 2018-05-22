@@ -197,6 +197,44 @@ def method_2(question, answers):
     return confidence
 
 
+# METHOD 3: Find question words in wikipedia pages
+def method_3(question, answers):
+
+    responses = grequests.map(build_wikipedia_queries(question, answers, None))
+    occurrences = {'A': 0, 'B': 0, 'C': 0}
+    confidence = {'A': 0, 'B': 0, 'C': 0}
+
+    # Get nouns from question words
+    question_words = get_raw_words(question)
+    question_nouns = get_text_nouns(question_words).split(' ')
+
+    # Loop through wikipedia results
+    for n, response in enumerate(responses):
+
+        # Check for unresolved Wikipedia link
+        if 'Special:Search' in response.url:
+            return confidence
+
+        # Get wikipedia page text elements
+        results = ''
+        soup = BeautifulSoup(response.text, "html5lib")
+        for g in soup.find_all('p'):
+            results += " " + g.text
+        cleaned_results = results.strip().replace('\n','')
+        results_words = get_raw_words(cleaned_results)
+
+        # Find question words on wikipedia page
+        occurrences_list = find_keywords(question_nouns, results_words)
+        occurrences[chr(65 + n)] += sum(occurrences_list)
+
+    # Calculate confidence
+    total_occurrences = sum(occurrences.values())
+    for n, count in occurrences.items():
+        confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
+
+    return confidence
+
+
 # METHOD 2: Compare number of results found by Google
 def count_results_number_google(question, answers, confidence, responses):
 
@@ -263,7 +301,7 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
     return confidence
 
 # print out accuracy
-def find_accuracy():
+def find_original_accuracy():
     all_question_count = 0
     all_correct_count = 0
     path = 'games/*.json'
@@ -283,47 +321,78 @@ def find_accuracy():
     if all_question_count != 0:
         print(all_correct_count/all_question_count*100)
 
+# print out accuracy
+def test_current_accuracy():
+    all_question_count = 0
+    all_correct_count = 0
+    path = 'games/*.json'
+
+
+    with open('./methods/google_question.json' % method_name) as file:
+        method_1_json = json.load(file)
+    with open('./methods/google_question_followed_by_answers.json' % method_name) as file:
+        method_2_json = json.load(file)
+    with open('./methods/find_question_words_on_answers_wikipedia_pages.json' % method_name) as file:
+        method_3_json = json.load(file)
+
+    for filename in glob.glob(path):
+        question_count = 0
+        correct_count = 0
+        game = json.load(open(filename))
+        id = game.get('showId')
+        for q in game.get('questions'):
+            question_count = question_count + 1
+
+            #Get prediction from method_1 json
+            method_1_json.get(str(id))
+
+            #Get prediction from method_2 json
+
+            #Get prediction from method_3 json
+
+            #Combine weightings to get overall prediction
+
+            if q.get('correct') == prediction:
+                correct_count = correct_count + 1
+
+        if question_count != 0:
+            print(correct_count/question_count*100)
+    if all_question_count != 0:
+        print(all_correct_count/all_question_count*100)
+
+
+
 
 def create_method_json(method,method_name):
     all_method_results = {}
 
     path = 'games/*.json'
 
-    my_arr = [3779, 3932, 4422, 4311, 4670, 4254, 4258, 4844, 3773, \
-                4784, 4716, 4047, 3726, 4050, 3701, 4961, 3952, 3811, \
-                4813, 4114, 4711, 4459, 4357, 4409, 4088, 3847, 4840, \
-                3793, 4020, 4116, 4381, 3788, 4040, 3734, 3829, 4441, \
-                4456, 4251, 4043, 4345, 4594, 3753, 3709, 3926, 4595, 3765]
-
     # Load saved method results
     with open('./methods/%s.json' % method_name) as file:
         output = json.load(file)
 
-    for num in my_arr:
-        for filename in glob.glob(path):
-            game = json.load(open(filename))
-            id = game.get('showId')
+    for filename in glob.glob(path):
+        game = json.load(open(filename))
+        id = game.get('showId')
 
-            if id != num:
-                continue
+        if output.get(str(id)):
+            print('already done %s' % id)
+            continue
 
-            if output.get(str(id)):
-                print('already done %s' % id)
-                continue
+        game_method_results = {}
+        for q in game.get('questions'):
+            print('Game %s: Question: %s' % (id,q.get('questionNumber')))
+            confidence = method(q.get('question'),q.get('answers'))
+            game_method_results[q.get('questionNumber')] = confidence
 
-            if id == num:
-                game_method_results = {}
-                for q in game.get('questions'):
-                    confidence = method(q.get('question'),q.get('answers'))
-                    game_method_results[q.get('questionNumber')] = confidence
+        output[str(id)] = game_method_results
 
-                output[str(id)] = game_method_results
+        # Update saved method results
+        with open('./methods/%s.json' % method_name, 'w') as file:
+            json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
-                # Update saved method results
-                with open('./methods/%s.json' % method_name, 'w') as file:
-                    json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
-
-                print('Wrote to game %s' % id)
+        print('Wrote to game %s' % id)
 
 
 

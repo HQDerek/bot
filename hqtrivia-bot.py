@@ -9,7 +9,7 @@ import grequests
 import requests
 import utils
 import configparser
-from utils import create_method_json, method_2
+from utils import create_method_json, method_3
 
 # Read config from config.ini
 config = configparser.ConfigParser()
@@ -157,7 +157,7 @@ def on_close(ws):
 
 if __name__ == "__main__":
 
-    create_method_json(method_2,'google_question_followed_by_answers')
+    create_method_json(method_3,'find_question_words_on_answers_wikipedia_pages')
 
     if len(sys.argv) == 1:
         while True:
