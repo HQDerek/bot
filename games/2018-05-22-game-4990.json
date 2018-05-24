@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "China",
+                "B": "France",
+                "C": "Italy"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "27%",
+                    "B": "39%",
+                    "C": "33%"
+                }
+            },
+            "question": "Which of these countries is NOT located in Europe?",
+            "questionId": 41215,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Pigeonwalk",
+                "B": "Goldfishwalk",
+                "C": "Catwalk"
+            },
+            "category": "Educational",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "Which of these is featured in fashion shows?",
+            "questionId": 41216,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Orange",
+                "B": "Mushroom",
+                "C": "Carrot"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "65%",
+                    "B": "23%",
+                    "C": "11%"
+                }
+            },
+            "question": "Marmalade is most often made using the juice and peel of which ingredient?",
+            "questionId": 41217,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Spice Girls",
+                "B": "Girls Aloud",
+                "C": "Destiny's Child"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "23%",
+                    "B": "16%",
+                    "C": "59%"
+                }
+            },
+            "question": "Which group of female singers was originally called Girls Tyme?",
+            "questionId": 41230,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Goal Winger",
+                "B": "Goal Keeper",
+                "C": "Goal Attack"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "36%",
+                    "C": "63%"
+                }
+            },
+            "question": "In netball, the only attacking players who are allowed in the goal circle are the Goal Shooter and which other?",
+            "questionId": 41231,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Big Ben",
+                "B": "Statue of Liberty",
+                "C": "Eiffel Tower"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "22%",
+                    "B": "41%",
+                    "C": "36%"
+                }
+            },
+            "question": "Which of the following landmarks was officially unveiled most recently?",
+            "questionId": 41232,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Netherlands",
+                "B": "England",
+                "C": "Italy"
+            },
+            "category": "Art & Design",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "32%",
+                    "B": "31%",
+                    "C": "35%"
+                }
+            },
+            "question": "The Pre-Raphaelite Brotherhood of painters was formed in which country?",
+            "questionId": 41233,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Helium",
+                "B": "Actinium",
+                "C": "Xenon"
+            },
+            "category": "Science ",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "72%",
+                    "B": "8%",
+                    "C": "19%"
+                }
+            },
+            "question": "Which of these elements was named after a mythological figure?",
+            "questionId": 41234,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Ashley Walters",
+                "B": "Hugh Quarshie",
+                "C": "David Oyelowo"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "2%",
+                    "B": "9%",
+                    "C": "88%"
+                }
+            },
+            "question": "Which actor plays Hortense's husband in the TV adaptation of Andrea Levy's 2004 novel?",
+            "questionId": 41235,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Langston Hughes",
+                "B": "Ralph Ellison",
+                "C": "James Baldwin"
+            },
+            "category": "Literature ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "80%",
+                    "B": "6%",
+                    "C": "13%"
+                }
+            },
+            "question": "Which of these authors was born in Harlem?",
+            "questionId": 41236,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Badoo",
+                "B": "Match.com",
+                "C": "Plenty of Fish"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "33%",
+                    "C": "17%"
+                }
+            },
+            "question": "Which dating website has the most registered users?",
+            "questionId": 41237,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "CIA Director",
+                "B": "Senator",
+                "C": "Mayor"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "9%",
+                    "B": "18%",
+                    "C": "72%"
+                }
+            },
+            "question": "Which of these was NOT a screen role played by James Gandolfini?",
+            "questionId": 41238,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 4990,
+    "ts": "2018-05-22T14:05:03.560Z"
+}
