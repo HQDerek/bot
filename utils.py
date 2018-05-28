@@ -100,9 +100,12 @@ def find_answer_words_google(question, answers, confidence, responses):
     if '/sorry/index?continue=' in response.url:
         sys.exit('ERROR: Google rate limiting detected.')
 
-    # Get search descriptions
     results = ''
+    # Get search descriptions
     for g in soup.find_all(class_='st'):
+        results += " " + g.text
+    # Get search titles
+    for g in soup.find_all(class_='r'):
         results += " " + g.text
     cleaned_results = results.strip().replace('\n','')
     results_words = get_raw_words(cleaned_results)
