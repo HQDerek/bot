@@ -107,6 +107,9 @@ def find_answer_words_google(question, answers, confidence, responses):
     # Get search titles
     for g in soup.find_all(class_='r'):
         results += " " + g.text
+    # Get search result card
+    for g in soup.find_all(class_='mod'):
+        results += " " + g.text
     cleaned_results = results.strip().replace('\n','')
     results_words = get_raw_words(cleaned_results)
 
