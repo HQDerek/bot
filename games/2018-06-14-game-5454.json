@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Kipper tie",
+                "B": "Mankini",
+                "C": "Shoe"
+            },
+            "category": "Fashion",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "Which of these items of clothing typically contains an insole?",
+            "questionId": 45192,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Bourton-on-the-Water",
+                "B": "Compton, Los Angeles",
+                "C": "Canterbury"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "Which of these places has famously produced a series of influential hip-hop artists?",
+            "questionId": 45274,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Burgers",
+                "B": "Crayons",
+                "C": "Toothpaste"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "40%",
+                    "B": "47%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which of the following are adults most likely to eat at a barbecue?",
+            "questionId": 45193,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "The Chase",
+                "B": "Pointless",
+                "C": "Eggheads"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "16%",
+                    "B": "81%",
+                    "C": "2%"
+                }
+            },
+            "question": "The American presidential car shares a nickname with a quizzer from which programme?",
+            "questionId": 45275,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "A fridge",
+                "B": "A hazmat suit",
+                "C": "An aeroplane"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "71%",
+                    "B": "1%",
+                    "C": "27%"
+                }
+            },
+            "question": "In the fourth ‘‘Indiana Jones’’ movie, Harrison Ford’s character escapes a nuclear explosion in which of these?",
+            "questionId": 45276,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Aquarenae",
+                "B": "Natatorium",
+                "C": "Hydroplaza"
+            },
+            "category": "Language",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is a term for a swimming pool?",
+            "questionId": 45277,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Wantage",
+                "B": "Banbury",
+                "C": "Newbury"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "75%",
+                    "C": "11%"
+                }
+            },
+            "question": "Where is there a statue of a lady on horseback who features in a noted nursery rhyme?",
+            "questionId": 45278,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "St John Lateran",
+                "B": "St Maria Maggiore",
+                "C": "St Peter's"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "57%",
+                    "B": "1%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which papal basilica is the cathedral church of Rome?",
+            "questionId": 45279,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Kazakhstan",
+                "B": "Portugal",
+                "C": "North Korea"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "26%",
+                    "B": "42%",
+                    "C": "30%"
+                }
+            },
+            "question": "Usain Bolt has won more gold medals at the Summer Olympics than which of these countries?",
+            "questionId": 45280,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Paul Gauguin",
+                "B": "Wassily Kandinsky",
+                "C": "Katsushika Hokusai"
+            },
+            "category": "Fine Arts",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "32%",
+                    "B": "31%",
+                    "C": "36%"
+                }
+            },
+            "question": "Which of these artists changed their name multiple times?",
+            "questionId": 45281,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Belgium",
+                "B": "Panama",
+                "C": "Tunisia"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "73%",
+                    "B": "14%",
+                    "C": "12%"
+                }
+            },
+            "question": "Following a general election in 2010, which country took a world record of 19 months to form a government?",
+            "questionId": 45282,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Powerpoint",
+                "B": "Excel",
+                "C": "Word"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "56%",
+                    "B": "14%",
+                    "C": "28%"
+                }
+            },
+            "question": "The first external company that Microsoft purchased enabled them to offer which service?",
+            "questionId": 45283,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5454,
+    "ts": "2018-06-14T14:02:15.863Z"
+}
