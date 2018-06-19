@@ -20,8 +20,11 @@ BEARER_TOKEN = config['Auth']['bearer_token']
 HEADERS = {
     'User-Agent'    : 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
     'Authorization' : 'Bearer %s' % BEARER_TOKEN,
-    'x-hq-stk'      : 'Mg==',
-    'x-hq-client'   : 'iOS/1.2.4 b59',
+    'x-hq-stk'      : '',
+    'x-hq-client'   : 'Android/1.11.2',
+    'x-hq-country'  : 'IE',
+    'x-hq-lang'     : 'en',
+    'x-hq-timezone' : 'Europe/Dublin',
 }
 broadcastEnded = False
 currentGame = ''
