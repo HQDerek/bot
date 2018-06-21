@@ -135,6 +135,17 @@ def on_message(ws, message):
             with open('./games/%s.json' % currentGame, 'w') as file:
                 json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
+
+        # Check for question summary
+        elif data.get('type') == 'gameSummary':
+
+            print('GAME ENDED. %s WINNERS. AVG PAYOUT %s.\n' % (data.get('numWinners'), next(iter(data.get('winners', [])), {}).get('prize', 'Unknown')))
+
+            # Print results to console
+            print('Top 20 Winners:')
+            for winner in sorted(data.get('winners'), key=lambda k: k['wins'], reverse=True)[:20]:
+                print(utils.colors.BOLD + winner.get('name') + utils.colors.ENDC + " (Wins: %s)" % winner.get('wins'))
+
         # Print messages to log file
         hidden_messages = ['interaction', 'broadcastStats', 'kicked']
         if data.get('type') not in hidden_messages:
