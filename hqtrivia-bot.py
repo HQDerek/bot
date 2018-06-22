@@ -50,6 +50,16 @@ def get_socket_url(headers):
     return json.get('broadcast').get('socketUrl').replace('https', 'wss')
 
 
+# Make it rain
+def make_it_rain(headers):
+    resp = requests.post('https://api-quiz.hype.space/easter-eggs/%s' % 'makeItRain', headers=headers)
+    try:
+        json = resp.json()
+        print('Make it rain: %s' % json)
+    except Exception:
+        return None
+
+
 # Message handler
 def on_message(ws, message):
     global currentGame, broadcastEnded
@@ -169,10 +179,10 @@ def on_close(ws):
     print('SOCKET CLOSED')
 
 if __name__ == "__main__":
-
     if len(sys.argv) == 1:
         while True:
             currentGame = ''
+            make_it_rain(HEADERS)
             broadcaseEnded = False
             socket_url_uk = get_socket_url(HEADERS)
             socket_url = socket_url_uk if socket_url_uk else get_socket_url({})
