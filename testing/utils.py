@@ -55,9 +55,9 @@ def test_current_accuracy(methods):
     path = 'games/*.json'
 
     # Open each method json
-    method_jsons = []
-    for m, method in methods:
-        with open('./methods/%s.json' % method.name) as file:
+    method_jsons = [None] * len(methods)
+    for m, method in enumerate(methods):
+        with open('./methods/%s.json' % method.get('name')) as file:
             method_jsons[m] = json.load(file)
 
     # Find the accuracy for every question of every game
@@ -71,10 +71,10 @@ def test_current_accuracy(methods):
 
             try:
                 # Get confidence of each method
-                confidences = []
-                for m, method_json in method_json.items():
+                confidences = [None] * len(methods)
+                for m, method_json in enumerate(method_jsons):
                     confidences[m] = method_json.get(str(id)).get(str(n+1))
-                    confidences[m] = {k: v*methods[m].weight for k, v in confidences[m].items()}
+                    confidences[m] = {k: v*methods[m].get('weight') for k, v in confidences[m].items()}
 
                 # Combine weightings to get overall confidence
                 total_occurrences = 0
@@ -103,14 +103,18 @@ def test_current_accuracy(methods):
                     correct_count = correct_count + 1
 
             except Exception as e:
+                print("Error while running game %s, question %s: %s" % (id,n,e))
                 pass
 
+        print("Game %s: %s/%s" % (id,correct_count,question_count))
         all_question_count = all_question_count + question_count
         all_correct_count = all_correct_count + correct_count
 
-    return int(all_correct_count/all_question_count*100)
     if all_question_count != 0:
         print('Total: %s%%' % (int(all_correct_count/all_question_count*100)))
+        return int(all_correct_count/all_question_count*100)
+    else:
+        return 0
 
 
 # Creates a json of confidence results for a method
