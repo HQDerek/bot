@@ -48,6 +48,9 @@ def find_best_weights(max_ratio):
 
     return best_result_weights
 
+#TODO: 3793 is missing question 5 and 4251 is missing 11 in the google_question.json file :(
+
+
 # Returns the current accuracy
 def test_current_accuracy(methods):
     all_question_count = 0
@@ -103,7 +106,7 @@ def test_current_accuracy(methods):
                     correct_count = correct_count + 1
 
             except Exception as e:
-                print("Error while running game %s, question %s: %s" % (id,n,e))
+                print("Error while running game %s, question %s: %s" % (id,n+1,e))
                 pass
 
         print("Game %s: %s/%s" % (id,correct_count,question_count))
