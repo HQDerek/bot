@@ -12,12 +12,12 @@ def find_lifetime_game_accuracy():
         game = json.load(open(filename))
         id = game.get('showId')
         for q in game.get('questions'):
-            question_count = question_count + 1
-            all_question_count = all_question_count + 1
+            question_count += 1
+            all_question_count += 1
 
             if q.get('correct') == q.get('prediction')['answer']:
-                correct_count = correct_count + 1
-                all_correct_count = all_correct_count + 1
+                correct_count += 1
+                all_correct_count += 1
 
         # To print out accuracy of each game:
         #if question_count != 0:
@@ -68,7 +68,7 @@ def test_current_accuracy(methods):
         game = json.load(open(filename))
         id = game.get('showId')
         for n, question in enumerate(game.get('questions')):
-            question_count = question_count + 1
+            question_count += 1
 
             try:
                 # Get confidence of each method
@@ -101,14 +101,14 @@ def test_current_accuracy(methods):
                 #Calculate prediction
                 prediction = min(overall_confidence, key=overall_confidence.get) if 'NOT' in question or 'NEVER' in question else max(overall_confidence, key=overall_confidence.get)
                 if question.get('correct') == prediction:
-                    correct_count = correct_count + 1
+                    correct_count += 1
 
             except Exception as e:
                 pass
 
         print("Game %s: %s/%s" % (id,correct_count,question_count))
-        all_question_count = all_question_count + question_count
-        all_correct_count = all_correct_count + correct_count
+        all_question_count += question_count
+        all_correct_count += correct_count
 
     if all_question_count != 0:
         print('Total: %s%%' % (int(all_correct_count/all_question_count*100)))
