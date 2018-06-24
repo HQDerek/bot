@@ -1,4 +1,6 @@
 __pycache__/
+.cache/
+.pytest_cache/
 *.sqlite
 *.pyc
 *.ini

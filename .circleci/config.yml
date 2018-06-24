@@ -11,22 +11,26 @@ jobs:
     steps:
       - checkout # check out source code to the working directory
 
-      - restore_cache: # restore dependency cache if requirements.txt has not changed since last run
-          key: deps-{{ checksum "requirements.txt" }}
+      - restore_cache: # restore cache if dependencies have not changed since last run in this branch
+          key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
 
       - run: # install and activate virtual environment with pip
+          name: Install Pipenv
           command: |
             sudo pip install pipenv
             pipenv install
 
       - save_cache: # save dependency cache
-          key: deps-{{ checksum "requirements.txt" }}
+          key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
+            - "/usr/local/bin"
+            - "/usr/local/lib/python3.6/site-packages"
 
       - run: # run tests
+          name: Run Tests
           command: |
-            pipenv run "python manage.py test"
+            pipenv run "pytest"
 
       - store_test_results: # store test reports
           path: test-results
