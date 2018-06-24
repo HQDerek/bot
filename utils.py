@@ -38,6 +38,13 @@ def build_answers(raw_answers):
     }
     return answers
 
+# Build wikipedia query set from data and options
+def build_wikipedia_queries(question, answers, session):
+    queries = list(answers.values())
+
+    return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q), session=session) for q in queries]
+
+
 # Get answer predictions
 def predict_answers(data, answers):
 
