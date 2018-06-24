@@ -175,7 +175,6 @@ def on_close(ws):
 
 if __name__ == "__main__":
 
-    # create_method_json(method_3,'find_question_words_on_answers_wikipedia_pages')
 
     if len(sys.argv) == 1:
         while True:
