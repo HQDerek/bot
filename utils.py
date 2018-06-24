@@ -73,8 +73,11 @@ def predict_answers(data, answers):
 
     # Apply weights to confidences
     confidence_1 = {k: v*weights.W1 for k, v in confidence_1.items()}
+    print("METHOD 1 - Confidence: %s\n" % confidence_1)
     confidence_2 = {k: v*weights.W2 for k, v in confidence_2.items()}
+    print("METHOD 2 - Confidence: %s\n" % confidence_2)
     confidence_3 = {k: v*weights.W3 for k, v in confidence_3.items()}
+    print("METHOD 3 - Confidence: %s\n" % confidence_3)
 
     #Combine weightings to get overall confidence
     total_occurrences = sum(confidence_1.values()) + sum(confidence_2.values()) + sum(confidence_3.values())
@@ -136,7 +139,6 @@ def method_1(question, answers):
     for n, count in occurrences.items():
         confidence[n] = int(count/total_occurrences * 100) if total_occurrences else 0
 
-    print("METHOD 1 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -171,7 +173,6 @@ def method_2(question, answers):
     for n, count in occurrences.items():
         confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
 
-    print("METHOD 1 + 2 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -212,7 +213,6 @@ def method_3(question, answers):
     for n, count in occurrences.items():
         confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
 
-    print("METHOD 1 + 2 + 3 - Confidence: %s\n" % confidence)
     return confidence
 
 
