@@ -1,0 +1,36 @@
+version: 2 # use CircleCI 2.0
+
+jobs:
+  build:
+
+    working_directory: ~/hqtrivia-bot
+
+    docker:
+      - image: circleci/python:3.6.4
+
+    steps:
+      - checkout # check out source code to the working directory
+
+      - restore_cache: # restore dependency cache if requirements.txt has not changed since last run
+          key: deps-{{ checksum "requirements.txt" }}
+
+      - run: # install and activate virtual environment with pip
+          command: |
+            sudo pip install pipenv
+            pipenv install
+
+      - save_cache: # save dependency cache
+          key: deps-{{ checksum "requirements.txt" }}
+          paths:
+            - ".venv"
+
+      - run: # run tests
+          command: |
+            pipenv run "python manage.py test"
+
+      - store_test_results: # store test reports
+          path: test-results
+
+      - store_artifacts: # store artifacts
+          path: test-results
+          destination: tr1
