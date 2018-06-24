@@ -106,7 +106,6 @@ def test_current_accuracy(methods):
                     correct_count = correct_count + 1
 
             except Exception as e:
-                print("Error while running game %s, question %s: %s" % (id,n+1,e))
                 pass
 
         print("Game %s: %s/%s" % (id,correct_count,question_count))
@@ -135,13 +134,13 @@ def create_method_json(method,method_name):
         id = game.get('showId')
 
         if output.get(str(id)):
-            print('already done %s' % id)
+            print('Already added game %s.' % id)
             continue
 
         game_method_results = {}
         for q in game.get('questions'):
-            print('Game %s: Question: %s' % (id,q.get('questionNumber')))
             confidence = method(q.get('question'),q.get('answers'))
+            print('Game %s, Question %s: %s' % (id,q.get('questionNumber'),confidence))
             game_method_results[q.get('questionNumber')] = confidence
 
         output[str(id)] = game_method_results
