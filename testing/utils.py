@@ -48,8 +48,6 @@ def find_best_weights(max_ratio):
 
     return best_result_weights
 
-#TODO: 3793 is missing question 5 and 4251 is missing 11 in the google_question.json file :(
-
 
 # Returns the current accuracy
 def test_current_accuracy(methods):
