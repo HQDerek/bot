@@ -24,8 +24,6 @@ jobs:
           key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "/usr/local/bin"
-            - "/usr/local/lib/python3.6/site-packages"
 
       - run: # run tests
           name: Run Tests
