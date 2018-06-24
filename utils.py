@@ -22,12 +22,9 @@ class colors:
     UNDERLINE = '\033[4m'
 
 class weights:
-    GOOGLE_SUMMARY_ANSWER_COUNT = 200
-    NUM_GOOGLE_RESULTS = 100
-    WIKIPEDIA_PAGE_QUESTION_COUNT = 100
-    W1 = 200
-    W2 = 100
-    W3 = 100
+    W1 = 22
+    W2 = 1
+    W3 = 3
 
 # Build set of answers from raw data
 def build_answers(raw_answers):

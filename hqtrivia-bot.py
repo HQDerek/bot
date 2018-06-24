@@ -15,17 +15,17 @@ methods = [
     {
         'method': utils.method_1,
         'name': 'google_question',
-        'weight': 200
+        'weight': utils.weights.W1
     },
     {
         'method': utils.method_2,
         'name': 'google_question_followed_by_answers',
-        'weight':100
+        'weight':utils.weights.W2
     },
     {
         'method': utils.method_3,
         'name': 'find_question_words_on_answers_wikipedia_pages',
-        'weight':100
+        'weight':utils.weights.W3
     }
 ]
 
