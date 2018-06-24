@@ -1,5 +1,6 @@
 import json
 import glob
+import os
 
 # print out accuracy
 def find_lifetime_game_accuracy():
@@ -28,17 +29,20 @@ def find_lifetime_game_accuracy():
 
 # TODO: fix this to be scalable for more methods
 # Cycles through various weight combinations (0->max x 0->max... x 0->max) and returns the best
-def find_best_weights(max_ratio):
+def find_best_weights(methods):
     best_result = 0
     best_result_weights = [0,0,0]
 
     # Cycle through various weight combinations (0->300 x 0->300 x 0->300) to find the best
     for x in range(0,30):
+        methods[0]['weight'] = x*10
         print('%s: best_result %s' % (x,best_result))
         for y in range(0,30):
+            methods[1]['weight'] = y*10
             print('y Round %s' % y)
             for z in range(0,30):
-                result = test_current_accuracy(x*10, y*10, z*10)
+                methods[2]['weight'] = z*10
+                result = test_current_accuracy(methods)
                 if result > best_result:
                     best_result = result
                     best_result_weights = [x,y,z]
@@ -68,7 +72,6 @@ def test_current_accuracy(methods):
         game = json.load(open(filename))
         id = game.get('showId')
         for n, question in enumerate(game.get('questions')):
-            question_count += 1
 
             try:
                 # Get confidence of each method
@@ -76,6 +79,8 @@ def test_current_accuracy(methods):
                 for m, method_json in enumerate(method_jsons):
                     confidences[m] = method_json.get(str(id)).get(str(n+1))
                     confidences[m] = {k: v*methods[m].get('weight') for k, v in confidences[m].items()}
+
+                question_count += 1
 
                 # Combine weightings to get overall confidence
                 total_occurrences = 0
@@ -104,17 +109,44 @@ def test_current_accuracy(methods):
                     correct_count += 1
 
             except Exception as e:
+                #print("Error while testing Game %s, Q%s:\n%s" % (id,n+1,e))
                 pass
 
-        print("Game %s: %s/%s" % (id,correct_count,question_count))
+        if question_count == 0:
+            print("Please run update_method_jsons() to update the method files.")
+            return 0
+
         all_question_count += question_count
         all_correct_count += correct_count
 
     if all_question_count != 0:
-        print('Total: %s%%' % (int(all_correct_count/all_question_count*100)))
         return int(all_correct_count/all_question_count*100)
     else:
         return 0
+
+
+def update_method_jsons(methods):
+    for method in methods:
+        create_method_json(method.get('method'), method.get('name'))
+
+
+# Write all correct answers from games to correct_answers.json
+def update_correct_answers_json():
+    all_correct_answers = {}
+
+    path = 'games/*.json'
+    for filename in glob.glob(path):
+        game = json.load(open(filename))
+        id = game.get('showId')
+        game_correct_answers = {}
+        for q in game.get('questions'):
+            game_correct_answers[q.get('questionNumber')] = q.get('correct')
+
+        all_correct_answers[id] = game_correct_answers
+
+    if not os.path.isfile('/methods/correct_answers.json'):
+        with open('./methods/correct_answers.json', 'w') as file:
+            json.dump(all_correct_answers, file, ensure_ascii=False, sort_keys=True, indent=4)
 
 
 # Creates a json of confidence results for a method
@@ -132,8 +164,7 @@ def create_method_json(method,method_name):
         id = game.get('showId')
 
         if output.get(str(id)):
-            print('Already added game %s.' % id)
-            continue
+            continue # This game has already been saved for this method
 
         game_method_results = {}
         for q in game.get('questions'):
@@ -147,4 +178,4 @@ def create_method_json(method,method_name):
         with open('./methods/%s.json' % method_name, 'w') as file:
             json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
-        print('Wrote to game %s' % id)
+        print('Wrote game %s to %s.json' % (id,method_name))
