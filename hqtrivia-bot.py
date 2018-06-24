@@ -9,21 +9,21 @@ import grequests
 import requests
 import utils
 import configparser
-from testing.utils import test_current_accuracy
+from testing.utils import test_current_accuracy, update_method_jsons, update_correct_answers_json
 
 methods = [
     {
-        'method': 'method_1',
+        'method': utils.method_1,
         'name': 'google_question',
         'weight': 200
     },
     {
-        'method': 'method_2',
+        'method': utils.method_2,
         'name': 'google_question_followed_by_answers',
         'weight':100
     },
     {
-        'method': 'method_3',
+        'method': utils.method_3,
         'name': 'find_question_words_on_answers_wikipedia_pages',
         'weight':100
     }
@@ -175,6 +175,9 @@ def on_message(ws, message):
             for winner in sorted(data.get('winners'), key=lambda k: k['wins'], reverse=True)[:20]:
                 print(utils.colors.BOLD + winner.get('name') + utils.colors.ENDC + " (Wins: %s)" % winner.get('wins'))
 
+            update_correct_answers_json()
+            update_method_jsons(methods)
+
         # Print messages to log file
         hidden_messages = ['interaction', 'broadcastStats', 'kicked']
         if data.get('type') not in hidden_messages:
@@ -198,11 +201,6 @@ def on_close(ws):
     print('SOCKET CLOSED')
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
     if len(sys.argv) == 1:
         while True:
             currentGame = ''
@@ -228,7 +226,7 @@ if __name__ == "__main__":
                 print('Sleeping for 2 minutes')
                 time.sleep(120)
     elif len(sys.argv) > 1 and sys.argv[1] == "test_overall_accuracy":
-        test_current_accuracy(methods)
+        print("Current accuracy: %s%%." % test_current_accuracy(methods))
     elif len(sys.argv) > 1 and sys.argv[1] == "test":
         print("Running in Test Mode")
         path = 'games/*.json'
