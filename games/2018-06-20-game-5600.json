@@ -1,0 +1,229 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Eleventy-first",
+                "B": "Millionth",
+                "C": "Twelfth"
+            },
+            "category": "Literature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "2%",
+                    "C": "97%"
+                }
+            },
+            "question": "Which “night” completes the title of Shakespeare's 17th century play?",
+            "questionId": 46474,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Mouse",
+                "B": "Mule",
+                "C": "Mole"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "14%",
+                    "B": "77%",
+                    "C": "7%"
+                }
+            },
+            "question": "What is the name of the offspring of a male donkey and a female horse?",
+            "questionId": 46476,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Hustle",
+                "B": "Hush",
+                "C": "Husky"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "62%",
+                    "B": "10%",
+                    "C": "26%"
+                }
+            },
+            "question": "What does the Hus in rapper J Hus's name stand for?",
+            "questionId": 46477,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Pavilion",
+                "B": "Bridge",
+                "C": "Harbour wall"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "24%",
+                    "B": "73%",
+                    "C": "2%"
+                }
+            },
+            "question": "The Cobb in Lyme Regis is what type of construction?",
+            "questionId": 46479,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Iceland",
+                "B": "Finland",
+                "C": "Faroe Islands"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "68%",
+                    "B": "23%",
+                    "C": "7%"
+                }
+            },
+            "question": "Which of these Nordic countries does NOT have red in its national flag?",
+            "questionId": 46480,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Christian Bale",
+                "B": "Michael Caine",
+                "C": "Tom Hardy"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "43%",
+                    "B": "17%",
+                    "C": "39%"
+                }
+            },
+            "question": "Which of these actors appeared in every movie directed by Christopher Nolan between 2005 and 2014?",
+            "questionId": 46481,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Crank",
+                "B": "Discus",
+                "C": "Cassette"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "15%",
+                    "B": "20%",
+                    "C": "64%"
+                }
+            },
+            "question": "What do you call the set of sprockets on the rear wheel of a bike?",
+            "questionId": 46488,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Paolo Nutini",
+                "B": "Emeli Sandé",
+                "C": "KT Tunstall"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "69%",
+                    "B": "7%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which of these musicians was NOT born in Scotland?",
+            "questionId": 46489,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Gawain",
+                "B": "Galahad",
+                "C": "Lancelot"
+            },
+            "category": "Literature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "14%",
+                    "B": "50%",
+                    "C": "35%"
+                }
+            },
+            "question": "Which of these characters from Arthurian legend retrieves the Holy Grail?",
+            "questionId": 46490,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Popeye",
+                "B": "Hulk",
+                "C": "He-Man"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "38%",
+                    "B": "27%",
+                    "C": "33%"
+                }
+            },
+            "question": "“Rocky” is the nickname of the real-life inspiration behind which of the following?",
+            "questionId": 46491,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Pizza",
+                "B": "Chips",
+                "C": "Hamburger"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "31%",
+                    "B": "19%",
+                    "C": "48%"
+                }
+            },
+            "question": "Which of the following shares its name with a Java-based programming language?",
+            "questionId": 46493,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5600,
+    "ts": "2018-06-20T14:01:18.924Z"
+}

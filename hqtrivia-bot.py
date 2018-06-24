@@ -39,8 +39,11 @@ BEARER_TOKEN = config['Auth']['bearer_token']
 HEADERS = {
     'User-Agent'    : 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
     'Authorization' : 'Bearer %s' % BEARER_TOKEN,
-    'x-hq-stk'      : 'Mg==',
-    'x-hq-client'   : 'iOS/1.2.4 b59',
+    'x-hq-stk'      : '',
+    'x-hq-client'   : 'Android/1.11.2',
+    'x-hq-country'  : 'IE',
+    'x-hq-lang'     : 'en',
+    'x-hq-timezone' : 'Europe/Dublin',
 }
 broadcastEnded = False
 currentGame = ''
@@ -64,6 +67,16 @@ def get_socket_url(headers):
 
     # Return socket URL for websocket connection
     return json.get('broadcast').get('socketUrl').replace('https', 'wss')
+
+
+# Make it rain
+def make_it_rain(headers):
+    resp = requests.post('https://api-quiz.hype.space/easter-eggs/%s' % 'makeItRain', headers=headers)
+    try:
+        json = resp.json()
+        print('Make it rain: %s' % json)
+    except Exception:
+        return None
 
 
 # Message handler
@@ -151,6 +164,17 @@ def on_message(ws, message):
             with open('./games/%s.json' % currentGame, 'w') as file:
                 json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
+
+        # Check for question summary
+        elif data.get('type') == 'gameSummary':
+
+            print('GAME ENDED. %s WINNERS. AVG PAYOUT %s.\n' % (data.get('numWinners'), next(iter(data.get('winners', [])), {}).get('prize', 'Unknown')))
+
+            # Print results to console
+            print('Top 20 Winners:')
+            for winner in sorted(data.get('winners'), key=lambda k: k['wins'], reverse=True)[:20]:
+                print(utils.colors.BOLD + winner.get('name') + utils.colors.ENDC + " (Wins: %s)" % winner.get('wins'))
+
         # Print messages to log file
         hidden_messages = ['interaction', 'broadcastStats', 'kicked']
         if data.get('type') not in hidden_messages:
@@ -174,11 +198,15 @@ def on_close(ws):
     print('SOCKET CLOSED')
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
     if len(sys.argv) == 1:
         while True:
             currentGame = ''
+            make_it_rain(HEADERS)
             broadcaseEnded = False
             socket_url_uk = get_socket_url(HEADERS)
             socket_url = socket_url_uk if socket_url_uk else get_socket_url({})

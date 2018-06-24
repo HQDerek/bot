@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Guitar",
+                "B": "Stethoscope",
+                "C": "Bongo drums"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "97%",
+                    "B": "0%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of the following instruments can be plucked or strummed to play a musical chord?",
+            "questionId": 41560,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Roman poets",
+                "B": "Rugby stars",
+                "C": "Chickens"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "10%",
+                    "C": "78%"
+                }
+            },
+            "question": "Foghorn Leghorn, Chanticleer and Ginger were all known for being what?",
+            "questionId": 41561,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Covent Garden",
+                "B": "Mayfair",
+                "C": "Vine Street"
+            },
+            "category": "Games",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "10%",
+                    "B": "38%",
+                    "C": "51%"
+                }
+            },
+            "question": "Which of these locations is NOT featured on the standard U.K. Monopoly board?",
+            "questionId": 41562,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Project Runway",
+                "B": "Rupaul's Drag Race",
+                "C": "Britain's Next Top Model"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "87%",
+                    "C": "0%"
+                }
+            },
+            "question": "Alaska, Detox and Roxxxy found fame as performers on which TV programme?",
+            "questionId": 41581,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Target panic",
+                "B": "Shanghai",
+                "C": "Robin Hood"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "5%",
+                    "B": "44%",
+                    "C": "50%"
+                }
+            },
+            "question": "Which of these terms is NOT typically used in darts?",
+            "questionId": 41582,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Alicia Keys",
+                "B": "Joaquin Phoenix",
+                "C": "Iggy Azalea"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "56%",
+                    "B": "14%",
+                    "C": "28%"
+                }
+            },
+            "question": "Which celebrity's original first name was a type of gemstone?",
+            "questionId": 41583,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Ted Heath",
+                "B": "James Callaghan",
+                "C": "Harold Wilson"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "10%",
+                    "B": "39%",
+                    "C": "49%"
+                }
+            },
+            "question": "Who was British Prime Minister when the U.K. decimalised its currency?",
+            "questionId": 41584,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Pendennis Castle",
+                "B": "Dover Castle",
+                "C": "Fort Cumberland"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "47%",
+                    "B": "39%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which of these was constructed by Henry VIII as defence against potential invasions in the 1500s?",
+            "questionId": 41585,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Scorpion",
+                "B": "Box jellyfish",
+                "C": "Scallop"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "50%",
+                    "B": "10%",
+                    "C": "39%"
+                }
+            },
+            "question": "Which of these typically has the most eyes?",
+            "questionId": 41586,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Tom river",
+                "B": "Poprad river",
+                "C": "Aldan river"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "76%",
+                    "B": "2%",
+                    "C": "21%"
+                }
+            },
+            "question": "Which of these rivers is NOT located in Russia?",
+            "questionId": 41587,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Land of the Giants",
+                "B": "The Phil Silvers Show",
+                "C": "Till Death Us Do Part"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "44%",
+                    "B": "16%",
+                    "C": "38%"
+                }
+            },
+            "question": "Which of these classic TV programmes has NOT been adapted into a movie?",
+            "questionId": 41588,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Cigar Galaxy",
+                "B": "Pinwheel Galaxy",
+                "C": "Cartwheel Galaxy"
+            },
+            "category": "Science ",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "39%",
+                    "B": "38%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which of these galaxies is the farthest from Earth?",
+            "questionId": 41589,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5024,
+    "ts": "2018-05-23T14:02:02.370Z"
+}

@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "A bee in one's bonnet",
+                "B": "A wasp in one's wig",
+                "C": "A hornet in one's hat"
+            },
+            "category": "Language",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "5%",
+                    "C": "94%"
+                }
+            },
+            "question": "Which of these is the term for an obsession?",
+            "questionId": 42725,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Apples",
+                "B": "Acrobats",
+                "C": "Acorns"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "86%",
+                    "B": "0%",
+                    "C": "13%"
+                }
+            },
+            "question": "Which of the following do NOT grow on trees?",
+            "questionId": 42726,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Under The Sea",
+                "B": "Shark Attack",
+                "C": "I Like Sushi"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "99%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is a song from Disney's “The Little Mermaid”?",
+            "questionId": 42727,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Game of Thrones",
+                "B": "The Office",
+                "C": "House of Cards"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "66%",
+                    "C": "10%"
+                }
+            },
+            "question": "Which of the following programmes is classed as a “mockumentary”?",
+            "questionId": 42728,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Hoodies",
+                "B": "Ugg boots",
+                "C": "Onesies"
+            },
+            "category": "Fashion",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "40%",
+                    "B": "4%",
+                    "C": "54%"
+                }
+            },
+            "question": "The entrepreneur and musician Steve Pandi is credited as popularising which item of clothing?",
+            "questionId": 42729,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Battleships",
+                "B": "Call of Duty",
+                "C": "Dungeons & Dragons"
+            },
+            "category": "Games",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "18%",
+                    "C": "79%"
+                }
+            },
+            "question": "The miniature wargame “Chainmail” inspired which game?",
+            "questionId": 42730,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Jacksonville",
+                "B": "Phoenix",
+                "C": "Port Angeles"
+            },
+            "category": "Literature ",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "47%",
+                    "B": "47%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which city does Bella move from in the beginning of the “Twilight“ series?",
+            "questionId": 42731,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "2001",
+                "B": "1999",
+                "C": "2003"
+            },
+            "category": "Business",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "76%",
+                    "C": "11%"
+                }
+            },
+            "question": "When was online check-in for flights first introduced?",
+            "questionId": 42732,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Italian",
+                "B": "French",
+                "C": "Spanish"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "28%",
+                    "B": "45%",
+                    "C": "25%"
+                }
+            },
+            "question": "In which of these languages are bats roughly translated as “hairless rodents”?",
+            "questionId": 42733,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Armageddon",
+                "B": "Bottle Rocket",
+                "C": "Anaconda"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "10%",
+                    "B": "76%",
+                    "C": "12%"
+                }
+            },
+            "question": "Owen Wilson made his cinematic debut in which of these movies?",
+            "questionId": 42734,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Hyde Park",
+                "B": "Windsor Castle",
+                "C": "Great Yarmouth"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "26%",
+                    "B": "42%",
+                    "C": "30%"
+                }
+            },
+            "question": "At which of these locations was Britain's first ever ice cream served?",
+            "questionId": 42735,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Le Mans",
+                "B": "French Open tennis",
+                "C": "Tour de France"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "17%",
+                    "B": "11%",
+                    "C": "71%"
+                }
+            },
+            "question": "Which of these sporting events is named after a pioneering World War I fighter pilot?",
+            "questionId": 42782,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5155,
+    "ts": "2018-05-31T14:02:54.014Z"
+}

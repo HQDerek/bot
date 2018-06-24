@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Brazil",
+                "B": "England",
+                "C": "Canada"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "15%",
+                    "B": "71%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which country lies just south of Scotland and east of Wales?",
+            "questionId": 41839,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Artful Dodger",
+                "B": "Amstrad",
+                "C": "Shut it!"
+            },
+            "category": "Business",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "4%",
+                    "B": "73%",
+                    "C": "22%"
+                }
+            },
+            "question": "What was the name of the electronics business founded by Alan Sugar in the 1960's?",
+            "questionId": 41842,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Jazz",
+                "B": "Grime",
+                "C": "Electro-funk"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "95%",
+                    "B": "2%",
+                    "C": "2%"
+                }
+            },
+            "question": "The London club Ronnie Scott's, which opened in 1959, is best known for which type of music?",
+            "questionId": 41843,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "June",
+                "B": "April",
+                "C": "May"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "34%",
+                    "B": "20%",
+                    "C": "44%"
+                }
+            },
+            "question": "The 2017 U.K. general election took place in which month?",
+            "questionId": 41845,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Scary Movie 4",
+                "B": "Scary Movie 5",
+                "C": "Scary Movie 2"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "41%",
+                    "B": "34%",
+                    "C": "24%"
+                }
+            },
+            "question": "Which movie from the “Scary Movie” franchise was the first to be shot in HD?",
+            "questionId": 41848,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Trouser leg",
+                "B": "Spider web",
+                "C": "Little worms"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "2%",
+                    "B": "88%",
+                    "C": "9%"
+                }
+            },
+            "question": "Which of these is NOT an English translation of an Italian food?",
+            "questionId": 41851,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Chimpanzee",
+                "B": "Salmon",
+                "C": "Hummingbird"
+            },
+            "category": "Nature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "21%",
+                    "B": "44%",
+                    "C": "33%"
+                }
+            },
+            "question": "Which of these animals CANNOT see ultraviolet light?",
+            "questionId": 41853,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Japan Airlines",
+                "B": "Qantas",
+                "C": "British Airways"
+            },
+            "category": "Business",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "28%",
+                    "B": "51%",
+                    "C": "19%"
+                }
+            },
+            "question": "Which of these airlines claims to have invented business class?",
+            "questionId": 41858,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Sherlock",
+                "B": "Doctor Who",
+                "C": "Downton Abbey"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "56%",
+                    "C": "30%"
+                }
+            },
+            "question": "Which of these non-U.S. shows has the most Emmy nominations to date?",
+            "questionId": 41859,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Fernando Torres",
+                "B": "Fernando Morientes",
+                "C": "Dirk Kuyt"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "69%",
+                    "B": "9%",
+                    "C": "20%"
+                }
+            },
+            "question": "Which of these former Liverpool players has NOT scored in a Champions League final?",
+            "questionId": 41860,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Caroline Lucas",
+                "B": "Sajid Javid",
+                "C": "Emily Thornberry"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "40%",
+                    "B": "40%",
+                    "C": "18%"
+                }
+            },
+            "question": "Which of these politicians was NOT educated at Exeter University?",
+            "questionId": 41861,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Orlando",
+                "B": "Osaka",
+                "C": "Hollywood"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "61%",
+                    "B": "3%",
+                    "C": "34%"
+                }
+            },
+            "question": "Which Universal Studios theme park attracted the fewest visitors in 2017?",
+            "questionId": 41862,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5053,
+    "ts": "2018-05-25T14:03:03.213Z"
+}

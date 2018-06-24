@@ -5,7 +5,7 @@
  * Create virtual environment `virtualenv hqtrivia-bot`
  * Start virtual environment `source hqtrivia-bot/bin/activate`
  * Install bot dependencies `pip install -r requirements.txt`
- * Install NLTK corpora `python -m nltk.downloader punkt; python -m nltk.downloader averaged_perceptron_tagger`
+ * Install NLTK corpora `python -m nltk.downloader stopwords`
 
 
 ### Get Bearer Token and User ID

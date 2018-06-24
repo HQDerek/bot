@@ -1,0 +1,229 @@
+{
+    "numCorrect": 8,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "University",
+                "B": "Outer space",
+                "C": "Uganda"
+            },
+            "category": "Culture",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "78%",
+                    "B": "3%",
+                    "C": "18%"
+                }
+            },
+            "question": "The organisation UCAS helps people get into where?",
+            "questionId": 44436,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Lennox Lewis",
+                "B": "Leona Lewis",
+                "C": "Huey Lewis"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "83%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of these is a former winner of “The X Factor”?",
+            "questionId": 44437,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Shard",
+                "B": "Leadenhall",
+                "C": "Brompton"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "27%",
+                    "C": "55%"
+                }
+            },
+            "question": "Which folding bikes manufacturer is named after a London landmark?",
+            "questionId": 44439,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Joan of Arc",
+                "B": "Eleanor of Aquitaine",
+                "C": "Catherine of Aragon"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "86%",
+                    "B": "8%",
+                    "C": "5%"
+                }
+            },
+            "question": "Which of these figures was also known as the Maid of Orléans?",
+            "questionId": 44440,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Glasgow",
+                "B": "The East End",
+                "C": "Cardiff"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "18%",
+                    "B": "40%",
+                    "C": "40%"
+                }
+            },
+            "question": "Which of these has NOT been one of Channel 4's “Educating” series?",
+            "questionId": 44441,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Gala pie",
+                "B": "Fish pie",
+                "C": "Cottage pie"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "16%",
+                    "B": "29%",
+                    "C": "54%"
+                }
+            },
+            "question": "Which of these pies does NOT typically contain potato?",
+            "questionId": 44442,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Tim Cook",
+                "B": "Bill Gates",
+                "C": "James Dyson"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "9%",
+                    "B": "74%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which tech figure said in a speech to students that now was the \"best time to be alive\"?",
+            "questionId": 44443,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Newcastle",
+                "B": "Hull",
+                "C": "Sunderland"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "32%",
+                    "B": "10%",
+                    "C": "57%"
+                }
+            },
+            "question": "Between 1992 and 2015, which place was the first to declare its vote on general election night?",
+            "questionId": 44444,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Juventus",
+                "B": "Liverpool",
+                "C": "Bayern Munich"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "21%",
+                    "B": "60%",
+                    "C": "18%"
+                }
+            },
+            "question": "Which of these was the last team to beat Real Madrid in a European Cup final?",
+            "questionId": 44445,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "A Flock of Seagulls",
+                "B": "Eagles",
+                "C": "The Byrds"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "54%",
+                    "C": "32%"
+                }
+            },
+            "question": "Which of these acts has the most U.K. Top 10 singles?",
+            "questionId": 44446,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Cat",
+                "B": "Ferret",
+                "C": "Dog"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "73%",
+                    "B": "2%",
+                    "C": "23%"
+                }
+            },
+            "question": "Of these three animals, which typically sleeps the LEAST amount of time per day?",
+            "questionId": 44447,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5359,
+    "ts": "2018-06-11T13:59:55.729Z"
+}

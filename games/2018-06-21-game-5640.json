@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Clowns",
+                "B": "Confusion",
+                "C": "Care"
+            },
+            "category": "Language",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "26%",
+                    "B": "7%",
+                    "C": "65%"
+                }
+            },
+            "question": "The abbreviation TLC usually stands for “Tender, loving” what?",
+            "questionId": 46791,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Yoda",
+                "B": "Harry Potter",
+                "C": "Gandalf"
+            },
+            "category": "Literature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "2%",
+                    "B": "36%",
+                    "C": "60%"
+                }
+            },
+            "question": "‘‘The Lord of the Rings’’ books feature which of these wizards?",
+            "questionId": 46794,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Piano tuning",
+                "B": "Video games",
+                "C": "Chocolate manufacturing"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "Ubisoft and Electronic Arts are major companies in which industry?",
+            "questionId": 46810,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Anthropology",
+                "B": "Archaeology",
+                "C": "Paleontology"
+            },
+            "category": "Science",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "22%",
+                    "B": "14%",
+                    "C": "62%"
+                }
+            },
+            "question": "What is another name for the study of fossils?",
+            "questionId": 46811,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Green eggs and ham",
+                "B": "Sam I am",
+                "C": "I am Sam"
+            },
+            "category": "Literature",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "81%",
+                    "B": "9%",
+                    "C": "9%"
+                }
+            },
+            "question": "What is the last line in Dr. Seuss's “Green Eggs and Ham”?",
+            "questionId": 46812,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "The doughnut",
+                "B": "The Christmas tree",
+                "C": "The wedding cake"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "5%",
+                    "B": "11%",
+                    "C": "83%"
+                }
+            },
+            "question": "The Victor Emmanuel Monument in Rome is usually given which nickname?",
+            "questionId": 46813,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Quinoa",
+                "B": "Spelt",
+                "C": "Buckwheat"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "35%",
+                    "B": "29%",
+                    "C": "35%"
+                }
+            },
+            "question": "Which of these grains is NOT gluten-free?",
+            "questionId": 46814,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Janet Jackson",
+                "B": "Lauryn Hill",
+                "C": "Erykah Badu"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "29%",
+                    "B": "11%",
+                    "C": "59%"
+                }
+            },
+            "question": "The OutKast song “Ms Jackson” was written as an apology to which singer's mother?",
+            "questionId": 46815,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "The King's Speech",
+                "B": "Shakespeare in Love",
+                "C": "American Hustle"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "40%",
+                    "B": "22%",
+                    "C": "37%"
+                }
+            },
+            "question": "Which of these movies was nominated for an Oscar in all four acting categories?",
+            "questionId": 46816,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Bahrain",
+                "B": "Kuwait",
+                "C": "Qatar"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "42%",
+                    "B": "14%",
+                    "C": "42%"
+                }
+            },
+            "question": "Which is the smallest country in the Middle East without a river?",
+            "questionId": 46817,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Barry",
+                "B": "Becker",
+                "C": "Benson"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "53%",
+                    "B": "26%",
+                    "C": "20%"
+                }
+            },
+            "question": "In which of these U.S. television programmes is the title character a doctor?",
+            "questionId": 46818,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Meerkat",
+                "B": "Periscope",
+                "C": "Twitch"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "30%",
+                    "B": "9%",
+                    "C": "60%"
+                }
+            },
+            "question": "Which of these services originated when the founder decided to livestream his life 24/7?",
+            "questionId": 46831,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5640,
+    "ts": "2018-06-21T14:00:15.570Z"
+}
