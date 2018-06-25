@@ -62,7 +62,7 @@ def test_current_accuracy(methods):
     # Open each method json
     method_jsons = [None] * len(methods)
     for m, method in enumerate(methods):
-        with open('./methods/%s.json' % method.get('name')) as file:
+        with open('testing/methods/%s.json' % method.get('name')) as file:
             method_jsons[m] = json.load(file)
 
     # Find the accuracy for every question of every game
@@ -144,8 +144,8 @@ def update_correct_answers_json():
 
         all_correct_answers[id] = game_correct_answers
 
-    if not os.path.isfile('/methods/correct_answers.json'):
-        with open('./methods/correct_answers.json', 'w') as file:
+    if not os.path.isfile('testing/methods/correct_answers.json'):
+        with open('testing/methods/correct_answers.json', 'w') as file:
             json.dump(all_correct_answers, file, ensure_ascii=False, sort_keys=True, indent=4)
 
 
@@ -156,7 +156,7 @@ def create_method_json(method,method_name):
     path = 'games/*.json'
 
     # Load saved method results
-    with open('./methods/%s.json' % method_name) as file:
+    with open('testing/methods/%s.json' % method_name) as file:
         output = json.load(file)
 
     for filename in glob.glob(path):
@@ -175,7 +175,7 @@ def create_method_json(method,method_name):
         output[str(id)] = game_method_results
 
         # Update saved method results
-        with open('./methods/%s.json' % method_name, 'w') as file:
+        with open('testing/methods/%s.json' % method_name, 'w') as file:
             json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
         print('Wrote game %s to %s.json' % (id,method_name))
