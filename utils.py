@@ -4,7 +4,11 @@ from nltk.corpus import stopwords
 import requests_cache
 import grequests
 import urllib.parse
+import os
+import json
+import glob
 import webbrowser
+from time import sleep
 from bs4 import BeautifulSoup
 
 class colors:
@@ -18,9 +22,9 @@ class colors:
     UNDERLINE = '\033[4m'
 
 class weights:
-    GOOGLE_SUMMARY_ANSWER_COUNT = 200
-    NUM_GOOGLE_RESULTS = 100
-    WIKIPEDIA_PAGE_QUESTION_COUNT = 100
+    W1 = 22
+    W2 = 1
+    W3 = 3
 
 # Build set of answers from raw data
 def build_answers(raw_answers):
@@ -30,15 +34,6 @@ def build_answers(raw_answers):
         'C': raw_answers[2]['text']
     }
     return answers
-
-
-# Build google query set from data and options
-def build_google_queries(question, answers, session):
-    queries = [question]
-    queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
-
-    return [grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q), session=session) for q in queries]
-
 
 # Build wikipedia query set from data and options
 def build_wikipedia_queries(question, answers, session):
@@ -68,32 +63,45 @@ def predict_answers(data, answers):
     print('------------------------')
     print('\n')
 
-    session = requests_cache.CachedSession('query_cache') if data.get('is_testing', False) else None
-    google_responses = grequests.map(build_google_queries(question, answers, session))
-    wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers, session))
+    # Run confidence finding methods
+    confidence_1 = method_1(question, answers)
+    confidence_2 = method_2(question, answers)
+    confidence_3 = method_3(question, answers)
 
-    confidence = find_answer_words_google(question, answers, confidence, google_responses[:1])
-    confidence = count_results_number_google(question, answers, confidence, google_responses[1:])
-    confidence = find_question_words_wikipedia(question, answers, confidence, wikipedia_responses)
+    # Apply weights to confidences
+    confidence_1 = {k: v*weights.W1 for k, v in confidence_1.items()}
+    print("METHOD 1 - Confidence: %s\n" % confidence_1)
+    confidence_2 = {k: v*weights.W2 for k, v in confidence_2.items()}
+    print("METHOD 2 - Confidence: %s\n" % confidence_2)
+    confidence_3 = {k: v*weights.W3 for k, v in confidence_3.items()}
+    print("METHOD 3 - Confidence: %s\n" % confidence_3)
 
-    # Calculate prediction
-    prediction = min(confidence, key=confidence.get) if 'NOT' in question or 'NEVER' in question else max(confidence, key=confidence.get)
-    total_occurrences = sum(confidence.values())
-    for n, count in confidence.items():
-        likelihood = int(count/total_occurrences * 100) if total_occurrences else 0
-        confidence[n] = '%d%%' % likelihood
+    #Combine weightings to get overall confidence
+    total_occurrences = sum(confidence_1.values()) + sum(confidence_2.values()) + sum(confidence_3.values())
+    overall_confidence = {"A":0,"B":0,"C":0}
+    for n in overall_confidence.items():
+        overall_confidence[n[0]] = int((confidence_1[n[0]]+confidence_2[n[0]]+confidence_3[n[0]])/total_occurrences * 100) if total_occurrences else 0
+
+    #Calculate prediction
+    prediction = min(overall_confidence, key=overall_confidence.get) if 'NOT' in question or 'NEVER' in question else max(overall_confidence, key=overall_confidence.get)
+    total_occurrences = sum(overall_confidence.values())
+    for n, likelihood in overall_confidence.items():
         result = 'Answer %s: %s - %s%%' % (n, answers[n], likelihood)
         print(colors.BOLD + result + colors.ENDC if n == prediction else result)
 
     print('\n')
-    return (prediction if confidence[prediction] else None, confidence)
+    return (prediction if overall_confidence[prediction] else None, overall_confidence)
 
 
 # METHOD 1: Find answer in Google search result descriptions
-def find_answer_words_google(question, answers, confidence, responses):
+def method_1(question, answers):
+
+    session = requests_cache.CachedSession('query_cache')
+    google_responses = grequests.map([grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(question), session=session)])
+    response = google_responses[:1][0]
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
-    response = responses[0]
+    confidence = {'A': 0, 'B': 0, 'C': 0}
     soup = BeautifulSoup(response.text, "html5lib")
 
     # Check for rate limiting page
@@ -126,40 +134,52 @@ def find_answer_words_google(question, answers, confidence, responses):
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * weights.GOOGLE_SUMMARY_ANSWER_COUNT) if total_occurrences else 0
+        confidence[n] = int(count/total_occurrences * 100) if total_occurrences else 0
 
-    print("METHOD 1 - Confidence: %s\n" % confidence)
     return confidence
 
 
 # METHOD 2: Compare number of results found by Google
-def count_results_number_google(question, answers, confidence, responses):
+def method_2(question, answers):
+
+    session = requests_cache.CachedSession('query_cache')
+    queries = ['%s "%s"' % (question, answer) for answer in answers.values()]
+    responses = grequests.map([grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q), session=session) for q in queries])
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
+    confidence = {'A': 0, 'B': 0, 'C': 0}
 
     # Loop through search results
     for n, response in enumerate(responses):
         soup = BeautifulSoup(response.text, "html5lib")
+
+        # Check for rate limiting page
+        if '/sorry/index?continue=' in response.url:
+            sys.exit('ERROR: Google rate limiting detected.')
+
         if soup.find(id='resultStats'):
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
-            results_count = re.findall(r'\d+', results_count_text)[0]
-            occurrences[chr(65 + n)] += int(results_count)
+            if len(results_count_text) != 0 and len(re.findall(r'\d+', results_count_text)) != 0:
+                results_count = re.findall(r'\d+', results_count_text)[0]
+                occurrences[chr(65 + n)] += int(results_count)
 
     print("Search Results: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * weights.NUM_GOOGLE_RESULTS) if total_occurrences else 0
+        confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
 
-    print("METHOD 1 + 2 - Confidence: %s\n" % confidence)
     return confidence
 
 
 # METHOD 3: Find question words in wikipedia pages
-def find_question_words_wikipedia(question, answers, confidence, responses):
+def method_3(question, answers):
 
+    session = requests_cache.CachedSession('query_cache')
+    responses = grequests.map(build_wikipedia_queries(question, answers, session=session))
     occurrences = {'A': 0, 'B': 0, 'C': 0}
+    confidence = {'A': 0, 'B': 0, 'C': 0}
 
     # Get nouns from question words
     question_words = get_raw_words(question)
@@ -188,9 +208,8 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * weights.WIKIPEDIA_PAGE_QUESTION_COUNT) if total_occurrences else 0
+        confidence[n] += int(count/total_occurrences * 100) if total_occurrences else 0
 
-    print("METHOD 1 + 2 + 3 - Confidence: %s\n" % confidence)
     return confidence
 
 
