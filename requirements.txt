@@ -6,3 +6,4 @@ nltk==3.2.5
 bs4==0.0.1
 html5lib==1.0.1
 configparser==3.5.0
+pylint==1.9.2

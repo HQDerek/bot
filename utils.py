@@ -1,13 +1,14 @@
 import re
 import sys
-from nltk.corpus import stopwords
-import requests_cache
-import grequests
 import urllib.parse
 import webbrowser
+import grequests
+import requests_cache
+from nltk.corpus import stopwords
 from bs4 import BeautifulSoup
 
-class colors:
+
+class Colours:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -17,10 +18,12 @@ class colors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-class weights:
+
+class Weights:
     GOOGLE_SUMMARY_ANSWER_COUNT = 200
     NUM_GOOGLE_RESULTS = 100
     WIKIPEDIA_PAGE_QUESTION_COUNT = 100
+
 
 # Build set of answers from raw data
 def build_answers(raw_answers):
@@ -41,7 +44,7 @@ def build_google_queries(question, answers, session):
 
 
 # Build wikipedia query set from data and options
-def build_wikipedia_queries(question, answers, session):
+def build_wikipedia_queries(_question, answers, session):
     queries = list(answers.values())
 
     return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q), session=session) for q in queries]
@@ -62,7 +65,7 @@ def predict_answers(data, answers):
 
     print('\n\n\n\n\n')
     print('------------ %s %s | %s ------------' % ('QUESTION', data.get('questionNumber'), data.get('category')))
-    print(colors.BOLD + question + colors.ENDC)
+    print(Colours.BOLD + question + Colours.ENDC)
     print('------------ %s ------------' % 'ANSWERS')
     print(answers)
     print('------------------------')
@@ -83,14 +86,14 @@ def predict_answers(data, answers):
         likelihood = int(count/total_occurrences * 100) if total_occurrences else 0
         confidence[n] = '%d%%' % likelihood
         result = 'Answer %s: %s - %s%%' % (n, answers[n], likelihood)
-        print(colors.BOLD + result + colors.ENDC if n == prediction else result)
+        print(Colours.BOLD + result + Colours.ENDC if n == prediction else result)
 
     print('\n')
-    return (prediction if confidence[prediction] else None, confidence)
+    return prediction if confidence[prediction] else None, confidence
 
 
 # METHOD 1: Find answer in Google search result descriptions
-def find_answer_words_google(question, answers, confidence, responses):
+def find_answer_words_google(_question, answers, confidence, responses):
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
     response = responses[0]
@@ -113,7 +116,7 @@ def find_answer_words_google(question, answers, confidence, responses):
     # Get related search results card
     for g in soup.find_all(class_='brs_col'):
         results += " " + g.text
-    cleaned_results = results.strip().replace('\n','')
+    cleaned_results = results.strip().replace('\n', '')
     results_words = get_raw_words(cleaned_results)
 
     # Find answer words in search descriptions
@@ -121,19 +124,19 @@ def find_answer_words_google(question, answers, confidence, responses):
         answer_words = get_raw_words(answer)
         occurrences[n] += results_words.count(answer_words)
 
-    print("Count: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
+    print("Count: %s%s%s" % (Colours.BOLD, occurrences, Colours.ENDC))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * weights.GOOGLE_SUMMARY_ANSWER_COUNT) if total_occurrences else 0
+        confidence[n] += int(count / total_occurrences * Weights.GOOGLE_SUMMARY_ANSWER_COUNT) if total_occurrences else 0
 
     print("METHOD 1 - Confidence: %s\n" % confidence)
     return confidence
 
 
 # METHOD 2: Compare number of results found by Google
-def count_results_number_google(question, answers, confidence, responses):
+def count_results_number_google(_question, _answers, confidence, responses):
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
 
@@ -145,19 +148,19 @@ def count_results_number_google(question, answers, confidence, responses):
             results_count = re.findall(r'\d+', results_count_text)[0]
             occurrences[chr(65 + n)] += int(results_count)
 
-    print("Search Results: %s%s%s" % (colors.BOLD, occurrences, colors.ENDC))
+    print("Search Results: %s%s%s" % (Colours.BOLD, occurrences, Colours.ENDC))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * weights.NUM_GOOGLE_RESULTS) if total_occurrences else 0
+        confidence[n] += int(count / total_occurrences * Weights.NUM_GOOGLE_RESULTS) if total_occurrences else 0
 
     print("METHOD 1 + 2 - Confidence: %s\n" % confidence)
     return confidence
 
 
 # METHOD 3: Find question words in wikipedia pages
-def find_question_words_wikipedia(question, answers, confidence, responses):
+def find_question_words_wikipedia(question, _answers, confidence, responses):
 
     occurrences = {'A': 0, 'B': 0, 'C': 0}
 
@@ -178,7 +181,7 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
         soup = BeautifulSoup(response.text, "html5lib")
         for g in soup.find_all('p'):
             results += " " + g.text
-        cleaned_results = results.strip().replace('\n','')
+        cleaned_results = results.strip().replace('\n', '')
         results_words = get_raw_words(cleaned_results)
 
         # Find question words on wikipedia page
@@ -188,7 +191,7 @@ def find_question_words_wikipedia(question, answers, confidence, responses):
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
     for n, count in occurrences.items():
-        confidence[n] += int(count/total_occurrences * weights.WIKIPEDIA_PAGE_QUESTION_COUNT) if total_occurrences else 0
+        confidence[n] += int(count / total_occurrences * Weights.WIKIPEDIA_PAGE_QUESTION_COUNT) if total_occurrences else 0
 
     print("METHOD 1 + 2 + 3 - Confidence: %s\n" % confidence)
     return confidence
@@ -206,12 +209,12 @@ def find_keywords(keywords, data):
 
 # Returns a list of the words from the input string that are not in NLTK's stopwords
 def get_significant_words(input):
-    s=set(stopwords.words('english'))
-    return list(filter(lambda w: not w in s, input.split(' ')))
+    s = set(stopwords.words('english'))
+    return list(filter(lambda w: w not in s, input.split(' ')))
 
 
 # Extract raw words from data
 def get_raw_words(data):
-    data = re.sub('[^\w ]', '' , data).replace(' and ',' ')
-    words = data.replace('  ' , ' ').lower()
+    data = re.sub('[^\w ]', '', data).replace(' and ', ' ')
+    words = data.replace('  ', ' ').lower()
     return words
