@@ -1,0 +1,249 @@
+{
+    "numCorrect": 10,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Little fingers",
+                "B": "Hips",
+                "C": "Ears"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "67%",
+                    "C": "31%"
+                }
+            },
+            "question": "Shakira claimed that which of these body parts ‘‘don’t lie’’ in a 2006 single?",
+            "questionId": 47832,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Leonard Laments",
+                "B": "Simon Says",
+                "C": "Doris Declares"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of the following is a children's game in which players must imitate the lead?",
+            "questionId": 47833,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Bubbly",
+                "B": "Deuce",
+                "C": "Orange"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "32%",
+                    "B": "51%",
+                    "C": "15%"
+                }
+            },
+            "question": "In tennis, what word is used to describe a tied score at 40-40?",
+            "questionId": 47847,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "The Da Vinci Code",
+                "B": "Nineteen Eighty-Four",
+                "C": "Fifty Shades of Grey"
+            },
+            "category": "Literature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "5%",
+                    "B": "69%",
+                    "C": "25%"
+                }
+            },
+            "question": "The TV programme ‘‘Big Brother’’ takes its name from which of these novels?",
+            "questionId": 47846,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Jason Statham",
+                "B": "Daniel Craig",
+                "C": "Jonny Lee Miller"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "81%",
+                    "B": "12%",
+                    "C": "6%"
+                }
+            },
+            "question": "Which of these actors competed in the diving competition at the 1990 Commonwealth Games?",
+            "questionId": 47848,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Planter’s Punch",
+                "B": "Mai Tai",
+                "C": "Gunfire"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "20%",
+                    "B": "66%",
+                    "C": "13%"
+                }
+            },
+            "question": "Which of these cocktails is made using black tea?",
+            "questionId": 47849,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Boyz II Men",
+                "B": "Boyzone",
+                "C": "Backstreet Boys"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "34%",
+                    "B": "31%",
+                    "C": "33%"
+                }
+            },
+            "question": "Which of these bands was originally known as ‘‘Unique Attraction’’?",
+            "questionId": 47850,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Phoenix",
+                "B": "Pegasus",
+                "C": "Griffin"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "22%",
+                    "B": "29%",
+                    "C": "47%"
+                }
+            },
+            "question": "Which of these mythological creatures gives it name to a type of road crossing in the U.K.?",
+            "questionId": 47851,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Menorca",
+                "B": "Ibiza",
+                "C": "La Palma"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "23%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which of these Spanish islands lies the furthest south?",
+            "questionId": 47852,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Gerald McRaney",
+                "B": "Garret Dillahunt",
+                "C": "Brad Dourif"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "16%",
+                    "B": "70%",
+                    "C": "12%"
+                }
+            },
+            "question": "Who played two completely different roles in ‘‘Deadwood’’?",
+            "questionId": 47853,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Cottonopolis",
+                "B": "Tinopolis",
+                "C": "Copperopolis"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "33%",
+                    "B": "23%",
+                    "C": "42%"
+                }
+            },
+            "question": "Which of the following was a popular nickname for Swansea prior to the 20th century?",
+            "questionId": 47854,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Almost Famous",
+                "B": "The School of Rock",
+                "C": "The Boat That Rocked"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "64%",
+                    "B": "0%",
+                    "C": "35%"
+                }
+            },
+            "question": "The opening credits of which of these noughties movies are written using a pencil?",
+            "questionId": 47855,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5733,
+    "ts": "2018-06-27T14:00:37.215Z"
+}

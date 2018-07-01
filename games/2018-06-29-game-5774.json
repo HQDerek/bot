@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Carpool Karaoke",
+                "B": "Tricycle Talk",
+                "C": "Double Decker Disco"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "100%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is often presented by James Corden?",
+            "questionId": 48337,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Flares",
+                "B": "Torches",
+                "C": "Lamps"
+            },
+            "category": "Fashion & Design",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "70%",
+                    "B": "14%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which of these is a type of trouser?",
+            "questionId": 48338,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Iron",
+                "B": "Francium",
+                "C": "Phosphorus"
+            },
+            "category": "Science",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "7%",
+                    "C": "10%"
+                }
+            },
+            "question": "“Fe” is the periodic symbol for which of these chemical elements?",
+            "questionId": 48339,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Ghostbusters",
+                "B": "Saturday Night Fever",
+                "C": "Rocky"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "15%",
+                    "B": "4%",
+                    "C": "80%"
+                }
+            },
+            "question": "The 2015 movie “Creed” was a spin-off and sequel to which series?",
+            "questionId": 48340,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Japan",
+                "B": "Indonesia",
+                "C": "Sweden"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "42%",
+                    "B": "20%",
+                    "C": "37%"
+                }
+            },
+            "question": "Which of these countries' flags does NOT share the same colours as the flag of England?",
+            "questionId": 48341,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "1970s",
+                "B": "1950s",
+                "C": "1960s"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "47%",
+                    "B": "22%",
+                    "C": "29%"
+                }
+            },
+            "question": "In which decade were women first allowed on the trading floor of the London Stock Exchange?",
+            "questionId": 48342,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Myanmar",
+                "B": "Malta",
+                "C": "Rwanda"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "13%",
+                    "B": "69%",
+                    "C": "17%"
+                }
+            },
+            "question": "Which of these countries is NOT a member of the Commonwealth?",
+            "questionId": 48343,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "The Peak District",
+                "B": "Cornwall",
+                "C": "The Cotswolds"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "12%",
+                    "B": "27%",
+                    "C": "59%"
+                }
+            },
+            "question": "The BBC comedy series ‘‘This Country’’ is set in which rural area of the U.K.?",
+            "questionId": 48344,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Yvette Cooper",
+                "B": "Liz Kendall",
+                "C": "Owen Smith"
+            },
+            "category": "Civics",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "32%",
+                    "B": "14%",
+                    "C": "53%"
+                }
+            },
+            "question": "Which of these people did NOT run against Jeremy Corbyn in 2015’s Labour leadership election?",
+            "questionId": 48345,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Cluedo",
+                "B": "Monopoly",
+                "C": "Articulate!"
+            },
+            "category": "Games",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "64%",
+                    "C": "23%"
+                }
+            },
+            "question": "In late 2017, what did Amazon U.K. announce as the bestselling boardgame of the previous 12 months?",
+            "questionId": 48346,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Papillon",
+                "B": "Sea The Stars",
+                "C": "Nijinksy"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "47%",
+                    "B": "51%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these horses was NOT a winner of the Epsom Derby?",
+            "questionId": 48347,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Aiden Gillen",
+                "B": "Charles Dance",
+                "C": "Diana Rigg"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "17%",
+                    "B": "40%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which actor did NOT feature on one of the Royal Mail's special ‘‘Game Of Thrones’’ stamps?",
+            "questionId": 48348,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5774,
+    "ts": "2018-06-29T14:00:08.508Z"
+}
