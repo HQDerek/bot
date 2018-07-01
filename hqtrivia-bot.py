@@ -20,8 +20,7 @@ BEARER_TOKEN = config['Auth']['bearer_token']
 HEADERS = {
     'User-Agent'    : 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
     'Authorization' : 'Bearer %s' % BEARER_TOKEN,
-    'x-hq-stk'      : '',
-    'x-hq-client'   : 'Android/1.11.2',
+    'x-hq-client'   : 'Android/1.5.1',
     'x-hq-country'  : 'IE',
     'x-hq-lang'     : 'en',
     'x-hq-timezone' : 'Europe/Dublin',
@@ -182,11 +181,21 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         while True:
             currentGame = ''
-            make_it_rain(HEADERS)
-            broadcaseEnded = False
+            broadcastEnded = False
             socket_url_uk = get_socket_url(HEADERS)
             socket_url = socket_url_uk if socket_url_uk else get_socket_url({})
             if socket_url:
+                # Make it rain for me
+                print("Making it rain for me:")
+                make_it_rain(HEADERS)
+
+                # Make it rain for others
+                for token in json.loads(config['Auth'].get('other_tokens', [])):
+                    other_headers = HEADERS.copy()
+                    other_headers.update({'Authorization':'Bearer %s' % token.get('token')})
+                    print("Making it rain for %s:" % token.get('name'))
+                    make_it_rain(other_headers)
+
                 print('CONNECTING TO %s SHOW: %s' % ('UK' if socket_url_uk else 'US', socket_url))
                 ws = websocket.WebSocketApp(socket_url,
                     on_open = on_open,
