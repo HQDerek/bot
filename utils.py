@@ -36,7 +36,7 @@ def build_answers(raw_answers):
 
 
 # Build google query set from data and options
-def build_google_queries(question, answers, session):
+def build_google_queries(question, answers, session=None):
     queries = [question]
     queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
 
@@ -44,7 +44,7 @@ def build_google_queries(question, answers, session):
 
 
 # Build wikipedia query set from data and options
-def build_wikipedia_queries(_question, answers, session):
+def build_wikipedia_queries(_question, answers, session=None):
     queries = list(answers.values())
 
     return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q), session=session) for q in queries]

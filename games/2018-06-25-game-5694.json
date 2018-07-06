@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Judi Dench",
+                "B": "Lassie",
+                "C": "Arnold Schwarzenegger"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "13%",
+                    "B": "3%",
+                    "C": "83%"
+                }
+            },
+            "question": "Which actor is famously associated with the catchphrase “I'll be back”?",
+            "questionId": 47375,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Lychee",
+                "B": "Lovehearts",
+                "C": "Lockets"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "83%",
+                    "B": "0%",
+                    "C": "16%"
+                }
+            },
+            "question": "Which of these is a fruit mainly produced in Southeast Asia?",
+            "questionId": 47377,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Spiders",
+                "B": "Fairies",
+                "C": "Dinosaurs"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "9%",
+                    "B": "9%",
+                    "C": "81%"
+                }
+            },
+            "question": "Which creatures are the primary threat in the “Jurassic Park” series?",
+            "questionId": 47376,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Gold",
+                "B": "Violet",
+                "C": "Bronze"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "46%",
+                    "B": "1%",
+                    "C": "51%"
+                }
+            },
+            "question": "Which colour medal is presented to an athlete who comes third in an Olympic event?",
+            "questionId": 47513,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Halo",
+                "B": "Call of Duty",
+                "C": "Grand Theft Auto"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "69%",
+                    "C": "19%"
+                }
+            },
+            "question": "“Ghosts” is the tenth instalment of which popular video games series?",
+            "questionId": 47514,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Six pence",
+                "B": "Ten pence",
+                "C": "Five pence"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "76%",
+                    "B": "11%",
+                    "C": "12%"
+                }
+            },
+            "question": "In old English money, how many pennies was a “tanner” worth?",
+            "questionId": 47515,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Matilda Wormwood",
+                "B": "Winnie-the-Pooh",
+                "C": "Monty Burns"
+            },
+            "category": "Literature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "4%",
+                    "B": "75%",
+                    "C": "20%"
+                }
+            },
+            "question": "Which of these fictional characters takes their name from a city in Canada?",
+            "questionId": 47516,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Montenegro",
+                "B": "Slovakia",
+                "C": "Hungary"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "66%",
+                    "B": "11%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which of these countries is part of the Balkan Peninsula?",
+            "questionId": 47517,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Jane",
+                "B": "Stacey",
+                "C": "Katie"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "3%",
+                    "C": "82%"
+                }
+            },
+            "question": "Which of these names is NOT mentioned in The Ting Tings ‘‘That’s Not My Name’’?",
+            "questionId": 47518,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Brunei",
+                "B": "Botswana",
+                "C": "Bahrain"
+            },
+            "category": "Math",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "31%",
+                    "B": "25%",
+                    "C": "42%"
+                }
+            },
+            "question": "In which of these former British protectorates do they drive on the right?",
+            "questionId": 47519,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Turkish bath",
+                "B": "Bowling alley",
+                "C": "Squash court"
+            },
+            "category": "Math",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "14%",
+                    "B": "19%",
+                    "C": "65%"
+                }
+            },
+            "question": "Which of the following was NOT a First Class facility on board the Titanic?",
+            "questionId": 47520,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Adrian Chiles",
+                "B": "Ray Winstone",
+                "C": "Bill Nighy"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "31%",
+                    "B": "34%",
+                    "C": "34%"
+                }
+            },
+            "question": "Which of these people has never appeared in a movie with the word “Potato” in the title?",
+            "questionId": 47521,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5694,
+    "ts": "2018-06-25T14:01:38.606Z"
+}

@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£8,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Avengers",
+                "B": "Chipmunks",
+                "C": "New Kids on the Block"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "74%",
+                    "B": "0%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which of the following is a team of superheroes created by Marvel comics?",
+            "questionId": 48602,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Alton Towers",
+                "B": "Snowdon",
+                "C": "Gareth Bale"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "74%",
+                    "C": "17%"
+                }
+            },
+            "question": "What is the name of the highest mountain in Wales?",
+            "questionId": 48603,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Instagram",
+                "B": "Facebook",
+                "C": "Twitter"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "60%",
+                    "C": "32%"
+                }
+            },
+            "question": "The movie “The Social Network” is about which of these?",
+            "questionId": 48606,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Homer",
+                "B": "Groundskeeper Willie",
+                "C": "Santa's Little Helper"
+            },
+            "category": "Literature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "100%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "The ‘‘Iliad’’ and the ‘‘Odyssey’’ are attributed to which of these authors?",
+            "questionId": 48612,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Paste",
+                "B": "Copy",
+                "C": "Cut"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "23%",
+                    "B": "28%",
+                    "C": "48%"
+                }
+            },
+            "question": "In Microsoft computer systems, holding \"control\" and \"V\" performs which of these operations?",
+            "questionId": 48614,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Three towers",
+                "B": "Crooked spire",
+                "C": "Chapel of skulls"
+            },
+            "category": "Culture",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "92%",
+                    "C": "0%"
+                }
+            },
+            "question": "What is unusual about St Mary and All Saints Church in Chesterfield?",
+            "questionId": 48617,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Grand National",
+                "B": "University Boat Race",
+                "C": "Open Championship"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "54%",
+                    "B": "10%",
+                    "C": "35%"
+                }
+            },
+            "question": "Which of these annual sporting events began first?",
+            "questionId": 48619,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Pussycat Dolls",
+                "B": "Atomic Kitten",
+                "C": "Def Leppard"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "64%",
+                    "B": "13%",
+                    "C": "21%"
+                }
+            },
+            "question": "Which of these acts had the most U.K. Top 40 singles?",
+            "questionId": 48633,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Peggy Olson",
+                "B": "Pete Campbell",
+                "C": "Joan Holloway"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "16%",
+                    "B": "44%",
+                    "C": "39%"
+                }
+            },
+            "question": "Which character in “Mad Men” was NEVER a partner in the ad firm where it was set?",
+            "questionId": 48638,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Wallaby",
+                "B": "Koala",
+                "C": "Platypus"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "3%",
+                    "B": "36%",
+                    "C": "60%"
+                }
+            },
+            "question": "What kind of stuffed animal – sent from Australia – did Winston Churchill have on his desk?",
+            "questionId": 48639,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Cambridge",
+                "B": "East Anglia",
+                "C": "Dundee"
+            },
+            "category": "Culture",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "72%",
+                    "B": "3%",
+                    "C": "23%"
+                }
+            },
+            "question": "Which of these universities awarded the highest proportion of first-class degrees in 2017?",
+            "questionId": 48640,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Mr. Benn",
+                "B": "Ivor The Engine",
+                "C": "Bagpuss"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "18%",
+                    "B": "19%",
+                    "C": "62%"
+                }
+            },
+            "question": "Which of these kids' TV programmes had the most episodes made?",
+            "questionId": 48641,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5808,
+    "ts": "2018-07-01T20:00:45.317Z"
+}
