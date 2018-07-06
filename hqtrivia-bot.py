@@ -4,11 +4,10 @@ import sys
 import json
 import time
 import glob
+import configparser
 import websocket
-import grequests
 import requests
 import utils
-import configparser
 
 # Read config from config.ini
 config = configparser.ConfigParser()
@@ -18,15 +17,17 @@ config.read('config.ini')
 USER_ID = config['Auth']['user_id']
 BEARER_TOKEN = config['Auth']['bearer_token']
 HEADERS = {
-    'User-Agent'    : 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
-    'Authorization' : 'Bearer %s' % BEARER_TOKEN,
-    'x-hq-client'   : 'Android/1.5.1',
-    'x-hq-country'  : 'IE',
-    'x-hq-lang'     : 'en',
-    'x-hq-timezone' : 'Europe/Dublin',
+    'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
+    'Authorization': 'Bearer %s' % BEARER_TOKEN,
+    'x-hq-stk': '',
+    'x-hq-client': 'Android/1.11.2',
+    'x-hq-country': 'IE',
+    'x-hq-lang': 'en',
+    'x-hq-timezone': 'Europe/Dublin',
 }
 broadcastEnded = False
 currentGame = ''
+
 
 # Get broadcast socket URL
 def get_socket_url(headers):
@@ -63,7 +64,7 @@ def make_it_rain(headers):
 def on_message(ws, message):
     global currentGame, broadcastEnded
 
-     # Decode JSON data
+    # Decode JSON data
     data_start = message.find('{')
     if data_start >= 0:
         try:
@@ -82,7 +83,7 @@ def on_message(ws, message):
             currentGame = '%s-game-%s' % (data.get('ts')[:10], data.get('showId'))
 
             # Create new save game file if not found
-            if not os.path.isfile('./games/%s.json' % currentGame): 
+            if not os.path.isfile('./games/%s.json' % currentGame):
                 with open('./games/%s.json' % currentGame, 'w') as file:
                     json.dump({
                         'showId': data.get('showId'),
@@ -99,7 +100,7 @@ def on_message(ws, message):
             (prediction, confidence) = utils.predict_answers(data, parsed_answers)
 
             # Load save game file and append question
-            with open('./games/%s.json' % currentGame) as file:    
+            with open('./games/%s.json' % currentGame) as file:
                 output = json.load(file)
             output.get('questions').append({
                 'question': data.get('question'),
@@ -121,7 +122,7 @@ def on_message(ws, message):
         elif data.get('type') == 'questionSummary':
 
             # Load save game file and update correct answer
-            with open('./games/%s.json' % currentGame) as file:    
+            with open('./games/%s.json' % currentGame) as file:
                 output = json.load(file)
             questions_output = output.get('questions')
             question_index = next((n for (n, val) in enumerate(questions_output) if val["questionId"] == data.get('questionId')))
@@ -129,12 +130,11 @@ def on_message(ws, message):
             prediction_correct = output['questions'][question_index]['prediction']['answer'] == chr(65 + correct_index)
 
             # Print results to console
-            print(utils.colors.BOLD + ('Correct Answer: %s - %s' % \
-                (chr(65 + correct_index), output['questions'][question_index]['answers'][chr(65 + correct_index)])) + utils.colors.ENDC)
+            print(utils.Colours.BOLD + ('Correct Answer: %s - %s' % (chr(65 + correct_index), output['questions'][question_index]['answers'][chr(65 + correct_index)])) + utils.Colours.ENDC)
             if prediction_correct:
-                print(utils.colors.BOLD + utils.colors.OKGREEN + "Prediction Correct? Yes" + utils.colors.ENDC)
+                print(utils.Colours.BOLD + utils.Colours.OKGREEN + "Prediction Correct? Yes" + utils.Colours.ENDC)
             else:
-                print(utils.colors.BOLD + utils.colors.FAIL + "Prediction Correct? No" + utils.colors.ENDC)
+                print(utils.Colours.BOLD + utils.Colours.FAIL + "Prediction Correct? No" + utils.Colours.ENDC)
 
             # Set correct answer in question object
             output['questions'][question_index]['correct'] = chr(65 + correct_index)
@@ -144,7 +144,6 @@ def on_message(ws, message):
             with open('./games/%s.json' % currentGame, 'w') as file:
                 json.dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
-
         # Check for question summary
         elif data.get('type') == 'gameSummary':
 
@@ -153,7 +152,7 @@ def on_message(ws, message):
             # Print results to console
             print('Top 20 Winners:')
             for winner in sorted(data.get('winners'), key=lambda k: k['wins'], reverse=True)[:20]:
-                print(utils.colors.BOLD + winner.get('name') + utils.colors.ENDC + " (Wins: %s)" % winner.get('wins'))
+                print(utils.Colours.BOLD + winner.get('name') + utils.Colours.ENDC + " (Wins: %s)" % winner.get('wins'))
 
         # Print messages to log file
         hidden_messages = ['interaction', 'broadcastStats', 'kicked']
@@ -164,18 +163,22 @@ def on_message(ws, message):
                 file.write('MESSAGE: %s\n' % message)
 
 
-def on_open(ws):
+def on_open(_ws):
     print('CONNECTION SUCCESSFUL')
 
-def on_error(ws, error):
+
+def on_error(_ws, error):
     print('ERROR: %s' % error)
+
 
 def on_ping(ws, data):
     print('RECEIVED PING: %s, SENDING PONG' % data)
     ws.pong(data)
 
-def on_close(ws):
+
+def on_close(_ws):
     print('SOCKET CLOSED')
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
@@ -198,12 +201,11 @@ if __name__ == "__main__":
 
                 print('CONNECTING TO %s SHOW: %s' % ('UK' if socket_url_uk else 'US', socket_url))
                 ws = websocket.WebSocketApp(socket_url,
-                    on_open = on_open,
-                    on_message = on_message,
-                    on_error = on_error,
-                    on_close = on_close,
-                    header = HEADERS
-                )
+                                            on_open=on_open,
+                                            on_message=on_message,
+                                            on_error=on_error,
+                                            on_close=on_close,
+                                            header=HEADERS)
                 while not broadcastEnded:
                     try:
                         ws.run_forever(ping_interval=5)
@@ -232,9 +234,9 @@ if __name__ == "__main__":
                     print('Predicted: %s, Correct: %s' % (prediction, q.get('correct')))
 
                     if prediction_correct:
-                        print(utils.colors.BOLD + utils.colors.OKGREEN + "Correct? Yes" + utils.colors.ENDC)
+                        print(utils.Colours.BOLD + utils.Colours.OKGREEN + "Correct? Yes" + utils.Colours.ENDC)
                     else:
-                        print(utils.colors.BOLD + utils.colors.FAIL + "Correct? No" + utils.colors.ENDC)
+                        print(utils.Colours.BOLD + utils.Colours.FAIL + "Correct? No" + utils.Colours.ENDC)
                     num += 1
                     num_correct += 1 if prediction_correct else 0
                 total += num
@@ -242,7 +244,7 @@ if __name__ == "__main__":
                 orig_total_correct += game.get('numCorrect')
                 print("[ORIG] Correct: %s/%s" % (game.get('numCorrect'), len(game.get('questions'))))
                 print("Number Correct: %s/%s" % (num_correct, num))
-        print(utils.colors.BOLD + "Testing Complete" + utils.colors.ENDC)
+        print(utils.Colours.BOLD + "Testing Complete" + utils.Colours.ENDC)
         print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))
     else:
