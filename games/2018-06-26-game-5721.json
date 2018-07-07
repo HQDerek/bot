@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Chicken or the egg?",
+                "B": "Milk or the cow?",
+                "C": "Savage or the sausage?"
+            },
+            "category": "Language",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": 23,
+                    "B": 0,
+                    "C": 76
+                }
+            },
+            "question": "Which of these pairs typically follows the question ‘‘what came first’’?",
+            "questionId": 47694,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Plum",
+                "B": "Phish",
+                "C": "Pixel"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": 1,
+                    "B": 2,
+                    "C": 96
+                }
+            },
+            "question": "What is the name of the smallest unit of a digital image or graphic?",
+            "questionId": 47695,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Drag Race",
+                "B": "Human race",
+                "C": "Underwater marathon"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": 96,
+                    "B": 3,
+                    "C": 0
+                }
+            },
+            "question": "What kind of race is typically contested over a quarter of a mile?",
+            "questionId": 47696,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Chris Moyles",
+                "B": "Chris Evans",
+                "C": "Chris Tarrant"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": 8,
+                    "B": 0,
+                    "C": 90
+                }
+            },
+            "question": "Which Chris was the first host of ITV's “Who Wants to be a Millionaire”?",
+            "questionId": 47697,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Cool Hand Luke",
+                "B": "Apollo 13",
+                "C": "All The President's Men"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": 95,
+                    "B": 4,
+                    "C": 0
+                }
+            },
+            "question": "Which movie features the quote, \"What we've got here is failure to communicate\"?",
+            "questionId": 47698,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Education",
+                "B": "Economics",
+                "C": "English"
+            },
+            "category": "Civics",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": 15,
+                    "B": 82,
+                    "C": 1
+                }
+            },
+            "question": "What does the ''e'' stand for in the Oxford University degree course PPE?",
+            "questionId": 47699,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Newcastle",
+                "B": "Glasgow",
+                "C": "Edinburgh"
+            },
+            "category": "Math",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": 5,
+                    "B": 48,
+                    "C": 45
+                }
+            },
+            "question": "Which of these airports recorded the highest total number of passengers in 2017?",
+            "questionId": 47758,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Ralph Fiennes",
+                "B": "Mark Rylance",
+                "C": "Benedict Cumberbatch"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": 3,
+                    "B": 90,
+                    "C": 6
+                }
+            },
+            "question": "Who is the only British actor to have won a Tony Award for playing Hamlet on Broadway?",
+            "questionId": 47759,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Nicolas Sarkozy",
+                "B": "Jacques Chirac",
+                "C": "François Mitterrand"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": 91,
+                    "B": 4,
+                    "C": 4
+                }
+            },
+            "question": "Who was French president when the euro began circulation?",
+            "questionId": 47760,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Inspector Gadget",
+                "B": "Mission: Impossible",
+                "C": "Thunderbirds"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": 35,
+                    "B": 51,
+                    "C": 13
+                }
+            },
+            "question": "Which TV programme’s theme tune is thought to be based on a composition by Edvard Grieg?",
+            "questionId": 47761,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Golf",
+                "B": "Bowling",
+                "C": "Darts"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": 52,
+                    "B": 13,
+                    "C": 34
+                }
+            },
+            "question": "According to an archaeological discovery, which of these can be traced back to 5200 BC?",
+            "questionId": 47762,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "World Bank",
+                "B": "World Trade Organisation",
+                "C": "World Health Org."
+            },
+            "category": "Civics",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": 62,
+                    "B": 0,
+                    "C": 37
+                }
+            },
+            "question": "Which of these organisations was founded the earliest?",
+            "questionId": 47763,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5721,
+    "ts": "2018-06-26T20:01:02.374Z"
+}

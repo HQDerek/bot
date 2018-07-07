@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Midwife",
+                "B": "Magician",
+                "C": "Magistrate"
+            },
+            "category": "Culture",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "14%",
+                    "B": "60%",
+                    "C": "25%"
+                }
+            },
+            "question": "Who traditionally uses the term “Abracadabra!” after completing a routine?",
+            "questionId": 49151,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Bruce Springsteen",
+                "B": "Fiona Bruce",
+                "C": "Bruce Forsyth"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "50%",
+                    "B": "35%",
+                    "C": "14%"
+                }
+            },
+            "question": "Which of the following has NOT hosted a long-running programme on the BBC?",
+            "questionId": 49152,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "The Escargot",
+                "B": "The French Franc",
+                "C": "The Camembert"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "84%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of these was a French currency replaced by the euro?",
+            "questionId": 49153,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Gin",
+                "B": "Whisky",
+                "C": "Rum"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "38%",
+                    "B": "49%",
+                    "C": "11%"
+                }
+            },
+            "question": "Which of these spirits shares its name with a Scottish isle?",
+            "questionId": 49154,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Pyrite",
+                "B": "Rose quartz",
+                "C": "Graphite"
+            },
+            "category": "Science",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "81%",
+                    "B": "10%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which of these minerals is more commonly known as \"fool's gold\"?",
+            "questionId": 49155,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Approaching Menace",
+                "B": "The Chain",
+                "C": "College Boy"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "85%",
+                    "C": "14%"
+                }
+            },
+            "question": "Which of these is NOT the name of a theme tune to a British TV quiz show?",
+            "questionId": 49156,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Dog",
+                "B": "Cat",
+                "C": "Rabbit"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "41%",
+                    "B": "38%",
+                    "C": "19%"
+                }
+            },
+            "question": "What kind of creature is Lola, a finalist in the 2017 National Pet Slimming competition?",
+            "questionId": 49157,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "1940s",
+                "B": "1910s",
+                "C": "1920s"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "54%",
+                    "B": "8%",
+                    "C": "37%"
+                }
+            },
+            "question": "In which decade were women over the age of 21 first permitted to vote in the U.K.?",
+            "questionId": 49158,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Pulp Fiction",
+                "B": "The Devil Wears Prada",
+                "C": "Breakfast at Tiffany's"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "9%",
+                    "C": "8%"
+                }
+            },
+            "question": "Chanel's Vamp nail polish was made iconic by an actress from which movie?",
+            "questionId": 49159,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Weisshorn",
+                "B": "Hochwanner",
+                "C": "Merkur"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "13%",
+                    "B": "25%",
+                    "C": "61%"
+                }
+            },
+            "question": "Which of these mountains is NOT located in Germany?",
+            "questionId": 49160,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Richard I",
+                "B": "Charles II",
+                "C": "Henry V"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "46%",
+                    "B": "13%",
+                    "C": "39%"
+                }
+            },
+            "question": "The wife of which English king reportedly NEVER set foot in England?",
+            "questionId": 49161,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Halle Berry",
+                "B": "Michael Douglas",
+                "C": "Charlize Theron"
+            },
+            "category": "Culture",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "14%",
+                    "B": "16%",
+                    "C": "69%"
+                }
+            },
+            "question": "Which of these Oscar winners has NOT also been a U.N. Messenger of Peace?",
+            "questionId": 49162,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5863,
+    "ts": "2018-07-04T14:01:38.977Z"
+}

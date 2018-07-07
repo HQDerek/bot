@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Hungry Dino",
+                "B": "High Definition",
+                "C": "Hilarious Dreams"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "What do the letters “HD” stand for on an HD TV?",
+            "questionId": 48998,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Under the weather",
+                "B": "Slightly disappointed",
+                "C": "Happy"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "3%",
+                    "B": "0%",
+                    "C": "96%"
+                }
+            },
+            "question": "Which of these was a worldwide hit for Pharrell Williams?",
+            "questionId": 48999,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Minotaur",
+                "B": "Cyclops",
+                "C": "Argonaut"
+            },
+            "category": "Culture",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "82%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which of these mythological figures is a giant with one eye?",
+            "questionId": 49000,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Play a Spotify playlist",
+                "B": "Curve and turn",
+                "C": "Shuffle cards"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "100%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "James Plimpton invented the first roller skate that could do what?",
+            "questionId": 49001,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Adventures in 5D",
+                "B": "Jurassic Shark",
+                "C": "Global Swarming"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "21%",
+                    "B": "1%",
+                    "C": "77%"
+                }
+            },
+            "question": "The fifth movie in the “Sharknado” series has which subtitle?",
+            "questionId": 49002,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Glove",
+                "B": "Spatula",
+                "C": "Screwdriver"
+            },
+            "category": "Science",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "48%",
+                    "B": "11%",
+                    "C": "39%"
+                }
+            },
+            "question": "Which of these items was lost on the first spacewalk by a U.S. astronaut?",
+            "questionId": 49003,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Bland, New South Wales",
+                "B": "Dismal, North Carolina",
+                "C": "Boring, Oregon"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "99%"
+                }
+            },
+            "question": "Which of these places is NOT associated with the Scottish village of Dull?",
+            "questionId": 49004,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "No, I am your father",
+                "B": "Luke, I am your father",
+                "C": "I am your father, Luke"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "25%",
+                    "B": "47%",
+                    "C": "26%"
+                }
+            },
+            "question": "Which of these is the correct “Empire Strikes Back” quote?",
+            "questionId": 49005,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Catherine Howard",
+                "B": "Catherine of Aragon",
+                "C": "Catherine Parr"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "10%",
+                    "B": "76%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which of Henry VIII's wives married the most times?",
+            "questionId": 49006,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Brontobyte",
+                "B": "Zettabyte",
+                "C": "Yottabyte"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "63%",
+                    "C": "35%"
+                }
+            },
+            "question": "Which of these is the largest unit of data?",
+            "questionId": 49007,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Bangkok",
+                "B": "Tokyo",
+                "C": "Jakarta"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "22%",
+                    "B": "4%",
+                    "C": "72%"
+                }
+            },
+            "question": "What was the most geotagged Asian city on Instagram in 2017?",
+            "questionId": 49008,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Yale",
+                "B": "Harvard",
+                "C": "Cornell"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "19%",
+                    "C": "63%"
+                }
+            },
+            "question": "The co-founder of which Ivy League university made his fortune in the telegraph business?",
+            "questionId": 49009,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5848,
+    "ts": "2018-07-02T15:02:46.763Z"
+}
