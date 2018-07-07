@@ -59,6 +59,28 @@ def make_it_rain(headers):
     except Exception:
         return None
 
+# Get the amount of times a specific user has won
+def get_wins(user,headers):
+    resp = requests.get('https://api-quiz.hype.space/users?q={"username":"%s"}' % user, headers=headers)
+    try:
+        json = resp.json()
+        users = json.get('data')
+        if users is not None:
+            for u in users:
+                if u.get('username') == user:
+                    id = u.get('userId')
+                    resp = requests.get('https://api-quiz.hype.space/users/%s' % id, headers=headers)
+                    user = resp.json()
+                    print('User:\t\t%s' % user.get('username'))
+                    print('Total Earnings:\t%s' % user.get('leaderboard').get('total'))
+                    print('Games Played:\t%s' % user.get('gamesPlayed'))
+                    print('Wins:\t\t%s' % user.get('winCount'))
+                    return True
+        print('%s is not a user.' % user)
+    except Exception as e:
+        print(e)
+        return None
+
 
 # Message handler
 def on_message(ws, message):
@@ -247,5 +269,10 @@ if __name__ == "__main__":
         print(utils.Colours.BOLD + "Testing Complete" + utils.Colours.ENDC)
         print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))
+    elif len(sys.argv) > 1 and sys.argv[1] == "get-wins":
+        if len(sys.argv) == 3:
+            get_wins(sys.argv[2], HEADERS)
+        else:
+            print('Error: Syntax is ./hqtrivia-bot.py get-wins <username>')
     else:
         print('Error: Syntax is ./hqtrivia-bot.py [test] [<game-id>]')
