@@ -1,17 +1,17 @@
 # hqtrivia-bot
 
 ### Install Bot
- * Install virtualenv `pip install virtualenv`
- * Create virtual environment `virtualenv hqtrivia-bot`
- * Start virtual environment `source hqtrivia-bot/bin/activate`
- * Install bot dependencies `pip install -r requirements.txt`
- * Install NLTK corpora `python -m nltk.downloader stopwords`
+ * Install Pipenv `sudo pip install pipenv`
+ * Create Pipenv virtual environment `pipenv --three install`
+ * Activate virtual environment `pipenv shell`
+ * Install NLTK corpora `python3 -m nltk.downloader stopwords`
 
 
 ### Get Bearer Token and User ID
  * Install [Packet Capture](https://play.google.com/store/apps/details?id=app.greyshirts.sslcapture) for Android
  * Sniff packets for HQ Trivia and look for requests to `api-quiz.hype.space`, namely the endpoint `GET /users/me`.
  * Find the request with `Authorization: Bearer` in the header and `"userId"` in the response.
+
 
 ### Add configuration file
  * Create a file with the `userId` and `Bearer` values using the format below and save as `config.ini`.
@@ -24,8 +24,8 @@ bearer_token = <Bearer>
 
 
 ### Run HQ Trivia Bot
- * Ensure virtualenv is activated `source hqtrivia-bot/bin/activate`
- * Run bot `python hqtrivia-bot.py`
+ * Ensure pipenv is activated `pipenv shell`
+ * Run bot `python3 hqtrivia-bot.py`
 
 
 ### Test HQ Trivia Bot

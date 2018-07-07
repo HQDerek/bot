@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Atlantis",
+                "B": "Land of the Houhyhnhnms",
+                "C": "Essex"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "4%",
+                    "B": "0%",
+                    "C": "95%"
+                }
+            },
+            "question": "TOWIE is set in which county?",
+            "questionId": 48142,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Monopoly",
+                "B": "Tag",
+                "C": "Mind Games"
+            },
+            "category": "Games",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "70%",
+                    "B": "10%",
+                    "C": "18%"
+                }
+            },
+            "question": "In which game do players select from a deck of cards titled “Chance” and “Community Chest”?",
+            "questionId": 48143,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Fiction",
+                "B": "Action",
+                "C": "Fraction"
+            },
+            "category": "Literature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "49%",
+                    "B": "48%",
+                    "C": "2%"
+                }
+            },
+            "question": "The literary genre “faction” is a combination of “fact” and which other word?",
+            "questionId": 48144,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Theory of biscuity",
+                "B": "Theory of hilarity",
+                "C": "Theory of relativity"
+            },
+            "category": "Science",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "7%",
+                    "B": "0%",
+                    "C": "92%"
+                }
+            },
+            "question": "Which of these is a famous theory developed by Einstein?",
+            "questionId": 48145,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Approved",
+                "B": "Alcohol",
+                "C": "Aperitif"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "86%",
+                    "C": "1%"
+                }
+            },
+            "question": "In bars and restaurants, what does the \"A\" represent in the term \"ABV\"?",
+            "questionId": 48146,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Ty Dolla $ign",
+                "B": "Andre 3000",
+                "C": "Pharrell Williams"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "11%",
+                    "B": "26%",
+                    "C": "61%"
+                }
+            },
+            "question": "Who is NOT credited as a songwriter on the Beyoncé / Jay-Z album “Everything is Love”?",
+            "questionId": 48147,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Outside a McDonald's",
+                "B": "At a castle",
+                "C": "In a scrapyard"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "100%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "Where was the Weasleys' Ford Anglia found by police after it was stolen from film studios?",
+            "questionId": 48148,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Ben Stiller",
+                "B": "Sean Penn",
+                "C": "Edward Norton"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "46%",
+                    "B": "34%",
+                    "C": "19%"
+                }
+            },
+            "question": "Which of these actors did NOT appear in an episode of ‘‘Friends’’?",
+            "questionId": 48149,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Get married",
+                "B": "Have a child",
+                "C": "Split up"
+            },
+            "category": "Civics",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "74%",
+                    "B": "23%",
+                    "C": "2%"
+                }
+            },
+            "question": "Between 1995 and 2013, what did an average of five English couples do on Christmas Day?",
+            "questionId": 48150,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "N'Djamena",
+                "B": "Khartoum",
+                "C": "Asmara"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "11%",
+                    "B": "23%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which of these capitals is NOT found in the Greater Horn of Africa?",
+            "questionId": 48151,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Frost/Nixon",
+                "B": "12 Years a Slave",
+                "C": "War Horse"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "20%",
+                    "B": "69%",
+                    "C": "10%"
+                }
+            },
+            "question": "Which of these movie soundtracks was NOT composed by Hans Zimmer?",
+            "questionId": 48152,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Cardiff",
+                "B": "Manchester",
+                "C": "Edinburgh"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "25%",
+                    "B": "46%",
+                    "C": "27%"
+                }
+            },
+            "question": "Of these three cities, which has the highest number of CCTV cameras?",
+            "questionId": 48153,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5763,
+    "ts": "2018-06-28T14:01:33.182Z"
+}

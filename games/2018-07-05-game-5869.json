@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Elephant",
+                "B": "Electronic",
+                "C": "Exciting"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "32%",
+                    "B": "62%",
+                    "C": "5%"
+                }
+            },
+            "question": "What does the letter “e” stand for in email?",
+            "questionId": 49205,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Brighton",
+                "B": "Cloud cuckoo land",
+                "C": "Spain"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "29%",
+                    "B": "1%",
+                    "C": "69%"
+                }
+            },
+            "question": "Where is the main setting for the sitcom “Benidorm”?",
+            "questionId": 49206,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Chinese takeaway",
+                "B": "Lemon meringue",
+                "C": "Carrots"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "Eating which of these supposedly helps people see better in the dark?",
+            "questionId": 49207,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "The Last of Us",
+                "B": "Fortnite",
+                "C": "Rocket League"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "60%",
+                    "B": "25%",
+                    "C": "14%"
+                }
+            },
+            "question": "A storm wipes out most of the earth’s population in which of these games?",
+            "questionId": 49208,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Stand up for Something",
+                "B": "Remember Me",
+                "C": "Everything is Awesome"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "7%",
+                    "C": "81%"
+                }
+            },
+            "question": "Which of these Oscar-nominated songs was sung by twin sisters?",
+            "questionId": 49209,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Mexican",
+                "B": "Spanish",
+                "C": "British"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "73%",
+                    "B": "10%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which of these flags has never been used as the state flag of Texas?",
+            "questionId": 49210,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "The Twits",
+                "B": "My Uncle Oswald",
+                "C": "The BFG"
+            },
+            "category": "Literature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "71%",
+                    "B": "6%",
+                    "C": "21%"
+                }
+            },
+            "question": "Which Roald Dahl book was inspired by the author's dislike of beards?",
+            "questionId": 49211,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "George I",
+                "B": "James II",
+                "C": "William the Conqueror"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "58%",
+                    "B": "17%",
+                    "C": "23%"
+                }
+            },
+            "question": "Who was 52nd in line to the throne when he became king of England?",
+            "questionId": 49212,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "London",
+                "B": "Durham",
+                "C": "Edinburgh"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "74%",
+                    "B": "2%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which was the first British city to introduce a congestion charge for motorists?",
+            "questionId": 49213,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "That he was taller",
+                "B": "That he had a rabbit",
+                "C": "That he was Batman"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "0%",
+                    "B": "65%",
+                    "C": "34%"
+                }
+            },
+            "question": "What did rapper Skee-Lo NOT wish for in the lyrics of his 90s hit?",
+            "questionId": 49214,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Edward Snowden",
+                "B": "Ross Kemp",
+                "C": "Brian Cox"
+            },
+            "category": "Civics",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "91%",
+                    "B": "6%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of these people has NOT been a Rector of Glasgow University?",
+            "questionId": 49215,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Martina Hingis",
+                "B": "Heather Watson",
+                "C": "Jelena Jankovic"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "60%",
+                    "B": "21%",
+                    "C": "17%"
+                }
+            },
+            "question": "Which of these players has NOT partnered Jamie Murray in a Wimbledon mixed doubles title win?",
+            "questionId": 49216,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5869,
+    "ts": "2018-07-05T14:01:42.664Z"
+}

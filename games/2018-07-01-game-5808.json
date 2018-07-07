@@ -55,8 +55,8 @@
                 "answer": "B",
                 "confidence": {
                     "A": "7%",
-                    "B": "62%",
-                    "C": "29%"
+                    "B": "60%",
+                    "C": "32%"
                 }
             },
             "question": "The movie “The Social Network” is about which of these?",
@@ -175,8 +175,8 @@
                 "answer": "A",
                 "confidence": {
                     "A": "16%",
-                    "B": "60%",
-                    "C": "22%"
+                    "B": "44%",
+                    "C": "39%"
                 }
             },
             "question": "Which character in “Mad Men” was NEVER a partner in the ad firm where it was set?",
@@ -236,7 +236,7 @@
                 "confidence": {
                     "A": "18%",
                     "B": "19%",
-                    "C": "61%"
+                    "C": "62%"
                 }
             },
             "question": "Which of these kids' TV programmes had the most episodes made?",
@@ -245,5 +245,5 @@
         }
     ],
     "showId": 5808,
-    "ts": "2018-07-01T20:01:42.280Z"
+    "ts": "2018-07-01T20:00:45.317Z"
 }
