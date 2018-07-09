@@ -34,7 +34,6 @@ jobs:
       - run: # run lint
           name: Run Lint
           command: |
-            mkdir test-reports
             pipenv run lint 2>&1 > test-reports/pylint.xml
 
       - store_test_results: # store test reports
