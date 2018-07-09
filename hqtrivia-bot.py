@@ -8,6 +8,7 @@ import configparser
 import websocket
 import requests
 import utils
+from compare import main as compare_main
 
 # Read config from config.ini
 config = configparser.ConfigParser()
@@ -214,7 +215,7 @@ if __name__ == "__main__":
             else:
                 print('Sleeping for 2 minutes')
                 time.sleep(120)
-    elif len(sys.argv) > 1 and sys.argv[1] == "test":
+    elif len(sys.argv) > 1 and sys.argv[1].lower() == "test":
         print("Running in Test Mode")
         path = 'games/*.json'
         total = 0
@@ -247,5 +248,7 @@ if __name__ == "__main__":
         print(utils.Colours.BOLD + "Testing Complete" + utils.Colours.ENDC)
         print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))
+    elif len(sys.argv) > 1 and sys.argv[1].lower() == "compare":
+        compare_main(sys.argv)
     else:
         print('Error: Syntax is ./hqtrivia-bot.py [test] [<game-id>]')
