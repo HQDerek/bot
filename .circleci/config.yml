@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/hqtrivia-bot
 
     docker:
-      - image: circleci/python:3.6.6-stretch
+      - image: circleci/python:3.6-stretch
 
     steps:
       - checkout # check out source code to the working directory
