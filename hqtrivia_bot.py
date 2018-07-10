@@ -229,20 +229,20 @@ class HqTriviaBot(object):
                 sleep(120)
 
     @staticmethod
-    def test(arguments):
-        """ test mode """
-        print("Running in Test Mode")
+    def replay(arguments):
+        """ replay mode """
+        print("Running in Replay Mode")
         total = 0
         total_correct = 0
         orig_total_correct = 0
         for filename in glob('games/*.json'):
             if len(arguments) == 2 or (len(arguments) == 3 and filename[22:26] in arguments[2].split(',')):
                 game = load(open(filename))
-                print("Testing Round %s" % game.get('showId'))
+                print("Replaying Round %s" % game.get('showId'))
                 num = 0
                 num_correct = 0
                 for question in game.get('questions'):
-                    question['is_testing'] = True
+                    question['is_replay'] = True
 
                     (prediction, _confidence) = predict_answers(question, question.get('answers'))
                     correct = prediction == question.get('correct')
@@ -259,7 +259,7 @@ class HqTriviaBot(object):
                 orig_total_correct += game.get('numCorrect')
                 print("[ORIG] Correct: %s/%s" % (game.get('numCorrect'), len(game.get('questions'))))
                 print("Number Correct: %s/%s" % (num_correct, num))
-        print(Colours.BOLD.value + "Testing Complete" + Colours.ENDC.value)
+        print(Colours.BOLD.value + "Replay Complete" + Colours.ENDC.value)
         print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))
 
@@ -268,7 +268,7 @@ if __name__ == "__main__":
     BOT = HqTriviaBot()
     if len(argv) == 1:
         BOT.run()
-    elif len(argv) > 1 and argv[1] == "test":
-        BOT.test(argv)
+    elif len(argv) > 1 and argv[1] == "replay":
+        BOT.replay(argv)
     else:
-        print('Error: Syntax is ./hqtrivia-bot.py [test] [<game-id>]')
+        print('Error: Syntax is ./hqtrivia-bot.py [replay] [<game-id>]')

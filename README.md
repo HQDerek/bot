@@ -7,12 +7,12 @@
 
 
 ### Run HQ Trivia Bot
- * Run bot `pipenv run python3 hqtrivia_bot.py`
+ * Run bot `pipenv run bot`
 
 
 ### Replay HQ Trivia Round
- * The bot can be tested by running against a set of questions from saved games.
- * Run `pipenv run python3 hqtrivia_bot.py test <game-id>[,<game-id>]` to test specific games in the `games` directory.
+ * The bot can be tested by replaying a set of questions from saved games.
+ * Run `pipenv run replay <game-id>[,<game-id>]` to test specific games in the `games` directory.
 
 
 ### Run Pytest Unit Tests

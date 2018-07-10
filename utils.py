@@ -63,7 +63,7 @@ def predict_answers(data, answers):
     }
     question = data.get('question')
 
-    if not data.get('is_testing', False):
+    if not data.get('is_replay', False):
         webbrowser.open("http://google.com/search?q="+question)
 
     print('\n\n\n\n\n')
@@ -74,7 +74,7 @@ def predict_answers(data, answers):
     print('------------------------')
     print('\n')
 
-    session = CachedSession('query_cache') if data.get('is_testing', False) else None
+    session = CachedSession('query_cache') if data.get('is_replay', False) else None
     google_responses = grequests.map(build_google_queries(question, answers, session))
     wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers, session))
 
