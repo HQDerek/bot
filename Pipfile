@@ -25,5 +25,7 @@ configparser = "==3.5.0"
 python_version = "3.6"
 
 [scripts]
+bot = "python3 hqtrivia_bot.py"
+replay = "python3 hqtrivia_bot.py replay"
 test = "py.test"
 lint = "pylint hqtrivia_bot"
