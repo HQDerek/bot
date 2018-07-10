@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Prince",
+                "B": "Pal",
+                "C": "Principal"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "42%",
+                    "B": "30%",
+                    "C": "26%"
+                }
+            },
+            "question": "Which of the following is another title for a school headmaster?",
+            "questionId": 50223,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Asda",
+                "B": "England",
+                "C": "Iceland"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "6%",
+                    "B": "15%",
+                    "C": "78%"
+                }
+            },
+            "question": "Reykjavik is the capital and largest city of which country?",
+            "questionId": 50226,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Daddy's Home",
+                "B": "The Mummy",
+                "C": "Paddington"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "70%",
+                    "C": "29%"
+                }
+            },
+            "question": "Egyptian high priest “Imhotep” is the name of the title character in which movie franchise?",
+            "questionId": 50229,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Statue of Liberty",
+                "B": "Mount Rushmore",
+                "C": "Grand Canyon"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "75%",
+                    "B": "3%",
+                    "C": "21%"
+                }
+            },
+            "question": "Which of these was gifted to America by the French?",
+            "questionId": 50235,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Sheffield",
+                "B": "Newcastle",
+                "C": "Bristol"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "72%",
+                    "B": "7%",
+                    "C": "20%"
+                }
+            },
+            "question": "Which English city contains parliamentary constituencies called Hallam and Heeley?",
+            "questionId": 50236,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Daisy",
+                "B": "Forget-me-not",
+                "C": "Snapdragon"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "12%",
+                    "C": "79%"
+                }
+            },
+            "question": "What is the more common name of the flower antirrhinum?",
+            "questionId": 50237,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Comic Sans",
+                "B": "Times New Roman",
+                "C": "Arial"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "64%",
+                    "B": "11%",
+                    "C": "23%"
+                }
+            },
+            "question": "Which font was partly inspired by the lettering in the “Watchmen” comics?",
+            "questionId": 50238,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Jada Pinkett Smith",
+                "B": "Geena Davis",
+                "C": "Renée Zellweger"
+            },
+            "category": "TV",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "45%",
+                    "B": "9%",
+                    "C": "45%"
+                }
+            },
+            "question": "Which of these actresses has NOT played a TV doctor or nurse?",
+            "questionId": 50239,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Phil Collins",
+                "B": "Duran Duran",
+                "C": "Culture Club"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "43%",
+                    "B": "37%",
+                    "C": "19%"
+                }
+            },
+            "question": "Which act had the very first track on the very first NOW album?",
+            "questionId": 50240,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Costa Rica",
+                "B": "Colombia",
+                "C": "Nicaragua"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "50%",
+                    "B": "31%",
+                    "C": "18%"
+                }
+            },
+            "question": "Which of these countries does NOT have a border with Panama?",
+            "questionId": 50241,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Frozen",
+                "B": "Big Hero 6",
+                "C": "Brave"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "45%",
+                    "B": "4%",
+                    "C": "50%"
+                }
+            },
+            "question": "The original director of which of these animations was replaced during its production process?",
+            "questionId": 50242,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Her wedding",
+                "B": "Her 40th birthday",
+                "C": "Her Caribbean holiday"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "87%",
+                    "B": "12%",
+                    "C": "0%"
+                }
+            },
+            "question": "What did Hello! magazine readers choose as their favourite cover featuring Princess Diana?",
+            "questionId": 50243,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5969,
+    "ts": "2018-07-10T13:58:55.901Z"
+}
