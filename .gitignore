@@ -7,3 +7,4 @@ __pycache__/
 *.log
 hqtrivia-bot/
 .idea/
+/test-reports/
