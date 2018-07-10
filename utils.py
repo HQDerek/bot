@@ -42,15 +42,15 @@ def build_google_queries(question, answers, session=None):
     """" Build google query set from data and options """
     queries = [question]
     queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
-    return ['https://www.google.co.uk/search?q=' \
-        + urllib.parse.quote_plus(q) for q in queries]
+    return list(map(session.get, ['https://www.google.co.uk/search?q=' \
+        + urllib.parse.quote_plus(q) for q in queries]))
 
 
 def build_wikipedia_queries(_question, answers, session=None):
     """ Build wikipedia query set from data and options """
     queries = list(answers.values())
-    return ['https://en.wikipedia.org/wiki/Special:Search?search=' \
-        + urllib.parse.quote_plus(q) for q in queries]
+    return list(map(session.get, ['https://en.wikipedia.org/wiki/Special:Search?search=' \
+        + urllib.parse.quote_plus(q) for q in queries]))
 
 
 def predict_answers(data, answers):
@@ -74,8 +74,8 @@ def predict_answers(data, answers):
     print('\n')
 
     session = FuturesSession()
-    google_resp_futures = list(map(session.get, build_google_queries(question, answers, session)))
-    wikipedia_resp_futures = list(map(session.get, build_wikipedia_queries(question, answers, session)))
+    google_resp_futures = build_google_queries(question, answers, session)
+    wikipedia_resp_futures = build_wikipedia_queries(question, answers, session)
 
     confidence = find_answer_words_google(question, answers, confidence, google_resp_futures[:1])
     confidence = count_results_number_google(question, answers, confidence, google_resp_futures[1:])
@@ -120,8 +120,7 @@ def find_answer_words_google(_question, answers, confidence, futures):
     # Get related search results card
     for element in soup.find_all(class_='brs_col'):
         results += " " + element.text
-    cleaned_results = results.strip().replace('\n', '')
-    results_words = get_raw_words(cleaned_results)
+    results_words = get_raw_words(results)
 
     # Find answer words in search descriptions
     for index, answer in answers.items():
@@ -170,7 +169,6 @@ def find_question_words_wikipedia(question, _answers, confidence, futures):
     occurrences = {'A': 0, 'B': 0, 'C': 0}
 
     # Get nouns from question words
-
     question_nouns = get_significant_words(get_raw_words(question))
 
     # Loop through wikipedia results
@@ -188,8 +186,7 @@ def find_question_words_wikipedia(question, _answers, confidence, futures):
         soup = BeautifulSoup(response.text, "html5lib")
         for element in soup.find_all('p'):
             results += " " + element.text
-        cleaned_results = results.strip().replace('\n', '')
-        results_words = get_raw_words(cleaned_results)
+        results_words = get_raw_words(results)
 
         # Find question words on wikipedia page
         occurrences_list = find_keywords(question_nouns, results_words)
@@ -223,6 +220,6 @@ def get_significant_words(question_words):
 
 def get_raw_words(data):
     """ Extract raw words from data """
-    data = re.sub(r'[^\w ]', '', data).replace(' and ', ' ')
+    data = re.sub(r'[^\w ]', '', data).replace(' and ', ' ').strip()
     words = data.replace('  ', ' ').lower()
     return words
