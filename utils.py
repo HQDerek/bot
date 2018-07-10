@@ -1,13 +1,12 @@
 """ utilities for the HQ Trivia bot project """
 import re
 import sys
-from enum import Enum
-import urllib.parse
 import webbrowser
-import grequests
-from requests_cache import CachedSession
-from nltk.corpus import stopwords
+import urllib.parse
+from enum import Enum
 from bs4 import BeautifulSoup
+from nltk.corpus import stopwords
+from requests_futures.sessions import FuturesSession
 
 
 class Colours(Enum):
@@ -43,15 +42,15 @@ def build_google_queries(question, answers, session=None):
     """" Build google query set from data and options """
     queries = [question]
     queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
-    return [grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q),
-                          session=session) for q in queries]
+    return ['https://www.google.co.uk/search?q=' \
+        + urllib.parse.quote_plus(q) for q in queries]
 
 
 def build_wikipedia_queries(_question, answers, session=None):
     """ Build wikipedia query set from data and options """
     queries = list(answers.values())
-    return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q),
-                          session=session) for q in queries]
+    return ['https://en.wikipedia.org/wiki/Special:Search?search=' \
+        + urllib.parse.quote_plus(q) for q in queries]
 
 
 def predict_answers(data, answers):
@@ -74,13 +73,13 @@ def predict_answers(data, answers):
     print('------------------------')
     print('\n')
 
-    session = CachedSession('query_cache') if data.get('is_replay', False) else None
-    google_responses = grequests.map(build_google_queries(question, answers, session))
-    wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers, session))
+    session = FuturesSession()
+    google_resp_futures = list(map(session.get, build_google_queries(question, answers, session)))
+    wikipedia_resp_futures = list(map(session.get, build_wikipedia_queries(question, answers, session)))
 
-    confidence = find_answer_words_google(question, answers, confidence, google_responses[:1])
-    confidence = count_results_number_google(question, answers, confidence, google_responses[1:])
-    confidence = find_question_words_wikipedia(question, answers, confidence, wikipedia_responses)
+    confidence = find_answer_words_google(question, answers, confidence, google_resp_futures[:1])
+    confidence = count_results_number_google(question, answers, confidence, google_resp_futures[1:])
+    confidence = find_question_words_wikipedia(question, answers, confidence, wikipedia_resp_futures)
 
     # Calculate prediction
     if 'NOT' in question or 'NEVER' in question:
@@ -98,10 +97,10 @@ def predict_answers(data, answers):
     return prediction if confidence[prediction] else None, confidence
 
 
-def find_answer_words_google(_question, answers, confidence, responses):
+def find_answer_words_google(_question, answers, confidence, futures):
     """ METHOD 1: Find answer in Google search result descriptions """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
-    response = responses[0]
+    response = futures[0].result()
     soup = BeautifulSoup(response.text, "html5lib")
 
     # Check for rate limiting page
@@ -141,12 +140,13 @@ def find_answer_words_google(_question, answers, confidence, responses):
     return confidence
 
 
-def count_results_number_google(_question, _answers, confidence, responses):
+def count_results_number_google(_question, _answers, confidence, futures):
     """ METHOD 2: Compare number of results found by Google """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
 
     # Loop through search results
-    for index, response in enumerate(responses):
+    for index, future in enumerate(futures):
+        response = future.result()
         soup = BeautifulSoup(response.text, "html5lib")
         if soup.find(id='resultStats'):
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
@@ -165,7 +165,7 @@ def count_results_number_google(_question, _answers, confidence, responses):
     return confidence
 
 
-def find_question_words_wikipedia(question, _answers, confidence, responses):
+def find_question_words_wikipedia(question, _answers, confidence, futures):
     """ METHOD 3: Find question words in wikipedia pages """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
 
@@ -174,7 +174,9 @@ def find_question_words_wikipedia(question, _answers, confidence, responses):
     question_nouns = get_significant_words(get_raw_words(question))
 
     # Loop through wikipedia results
-    for index, response in enumerate(responses):
+    for index, future in enumerate(futures):
+
+        response = future.result()
 
         # Check for unresolved Wikipedia link
         if 'Special:Search' in response.url:
