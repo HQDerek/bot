@@ -2,13 +2,14 @@
 """ Implementing a bot for HQ Trivia """
 from os import path
 from sys import argv
-from json import load, loads, dump, JSONDecodeError
-from time import sleep
 from glob import glob
+from time import sleep
 from configparser import ConfigParser
-from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
+from json import load, loads, dump, JSONDecodeError
 from requests import get, post
-from utils import Colours, build_answers, predict_answers
+from requests_cache import CachedSession
+from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
+from utils import Colours, build_answers, predict_answers, build_google_queries
 
 
 class HqTriviaBot(object):
@@ -262,12 +263,49 @@ class HqTriviaBot(object):
         print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))
 
+    @staticmethod
+    def cache(command):
+        """ cache mode """
+        session = CachedSession('query_cache', allowable_codes=[200, 302])
+        cache = session.cache
+
+        if command == 'prune':
+            urls = []
+            for filename in glob('games/*.json'):
+                game = load(open(filename))
+                for turn in game.get('questions'):
+                    urls.extend(build_google_queries(turn.get('question'), turn.get('answers')))
+            stale_entries = [(key, resp.url) for key, (resp, _) in cache.responses.items() if resp.url not in urls]
+            print('Found %s/%s stale cache entries' % (len(stale_entries), len(cache.responses.keys())))
+            for key, url in stale_entries:
+                print('Deleting stale entry: %s' % url)
+                cache.delete(key)
+
+        if command == 'refresh':
+            urls = []
+            for filename in glob('games/*.json'):
+                game = load(open(filename))
+                for turn in game.get('questions'):
+                    urls.extend(build_google_queries(turn.get('question'), turn.get('answers')))
+            cache_misses = [url for url in urls if not cache.has_url(url)]
+            print('Found %s/%s URLs not in cache' % (len(cache_misses), len(urls)))
+            for url in cache_misses:
+                print('Adding cached entry: %s' % url)
+                response = session.get(url)
+                if '/sorry/index?continue=' in response.url:
+                    exit('ERROR: Google rate limiting detected.')
+
 
 if __name__ == "__main__":
     BOT = HqTriviaBot()
-    if len(argv) == 1:
+    if len(argv) == 2 and argv[1] == "run":
         BOT.run()
-    elif len(argv) > 1 and argv[1] == "replay":
+    elif len(argv) == 3 and argv[1] == "cache":
+        BOT.cache(argv[2])
+    elif len(argv) >= 2 and argv[1] == "replay":
         BOT.replay(argv)
     else:
-        print('Error: Syntax is ./hqtrivia-bot.py [replay] [<game-id>]')
+        print('Error: Invalid syntax. Valid commands:')
+        print('hqtrivia-bot.py run')
+        print('hqtrivia-bot.py replay <game-id>[,<game-id>]')
+        print('hqtrivia-bot.py cache <refresh|prune>')

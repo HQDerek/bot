@@ -23,12 +23,10 @@ def test_find_answer_words_google(question_api_response):  # pylint: disable=red
     mock_result.url = "/"
     mock_result.text = "Example Response"
 
-    mock_session = Mock()
-    mock_session.get.return_value.result.return_value = mock_result
+    mock_future = Mock()
+    mock_future.result.return_value = mock_result
 
     question, answers = question_api_response
-    google_responses = utils.build_google_queries(question, answers, mock_session)
-
-    confidence = utils.find_answer_words_google(question, answers, {'A': 0, 'B': 0, 'C': 0}, google_responses[:1])
+    confidence = utils.find_answer_words_google(question, answers, {'A': 0, 'B': 0, 'C': 0}, [mock_future])
 
     assert confidence == {'A': 0, 'B': 0, 'C': 0}

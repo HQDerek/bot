@@ -1,10 +1,8 @@
 __pycache__/
 .cache/
 .pytest_cache/
-*.sqlite
+test-reports/
 *.pyc
 *.ini
 *.log
-hqtrivia-bot/
 .idea/
-/test-reports/

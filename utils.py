@@ -38,19 +38,19 @@ def build_answers(raw_answers):
     return answers
 
 
-def build_google_queries(question, answers, session=None):
+def build_google_queries(question, answers):
     """" Build google query set from data and options """
     queries = [question]
     queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
-    return list(map(session.get, ['https://www.google.co.uk/search?q=' \
-        + urllib.parse.quote_plus(q) for q in queries]))
+    return ['https://www.google.co.uk/search?q=' \
+        + urllib.parse.quote_plus(q) for q in queries]
 
 
-def build_wikipedia_queries(_question, answers, session=None):
+def build_wikipedia_queries(_question, answers):
     """ Build wikipedia query set from data and options """
     queries = list(answers.values())
-    return list(map(session.get, ['https://en.wikipedia.org/wiki/Special:Search?search=' \
-        + urllib.parse.quote_plus(q) for q in queries]))
+    return ['https://en.wikipedia.org/wiki/Special:Search?search=' \
+        + urllib.parse.quote_plus(q) for q in queries]
 
 
 def predict_answers(data, answers):
@@ -74,8 +74,8 @@ def predict_answers(data, answers):
     print('\n')
 
     session = FuturesSession()
-    google_resp_futures = build_google_queries(question, answers, session)
-    wikipedia_resp_futures = build_wikipedia_queries(question, answers, session)
+    google_resp_futures = list(map(session.get, build_google_queries(question, answers)))
+    wikipedia_resp_futures = list(map(session.get, build_wikipedia_queries(question, answers)))
 
     confidence = find_answer_words_google(question, answers, confidence, google_resp_futures[:1])
     confidence = count_results_number_google(question, answers, confidence, google_resp_futures[1:])
