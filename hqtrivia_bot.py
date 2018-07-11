@@ -4,12 +4,13 @@ from os import path
 from sys import argv
 from glob import glob
 from time import sleep
+from sqlite3 import connect
 from configparser import ConfigParser
 from json import load, loads, dump, JSONDecodeError
 from requests import get, post
 from requests_cache import CachedSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
-from utils import Colours, build_answers, predict_answers, build_google_queries, build_wikipedia_queries
+from utils import Colours, build_answers, predict_answers, answer_words_queries, count_results_queries, wikipedia_queries
 
 
 class HqTriviaBot(object):
@@ -266,39 +267,62 @@ class HqTriviaBot(object):
     @staticmethod
     def cache(command):
         """ cache mode """
-        session = CachedSession('query_cache', allowable_codes=(200, 302, 304))
-        cache = session.cache
-
+        methods = [
+            {
+                'name': 'answer_words_google',
+                'queries': answer_words_queries,
+                'session': CachedSession('db/answer_words_google', allowable_codes=(200, 302, 304))
+            },
+            {
+                'name': 'count_results_google',
+                'queries': count_results_queries,
+                'session': CachedSession('db/count_results_google', allowable_codes=(200, 302, 304))
+            },
+            {
+                'name': 'question_words_wikipedia',
+                'queries': wikipedia_queries,
+                'session': CachedSession('db/question_words_wikipedia', allowable_codes=(200, 302, 304))
+            }
+        ]
         if command == 'prune':
-            urls = []
-            for filename in glob('games/*.json'):
-                game = load(open(filename))
-                for turn in game.get('questions'):
-                    urls.extend(build_google_queries(turn.get('question'), turn.get('answers')))
-                    urls.extend(build_wikipedia_queries(turn.get('question'), turn.get('answers')))
-            stale_entries = []
-            for key, (resp, _) in cache.responses.items():
-                if resp.url not in urls and not any(step.url in urls for step in resp.history):
-                    stale_entries.append((key, resp))
-            print('Found %s/%s stale cache entries' % (len(stale_entries), len(cache.responses.keys())))
-            for key, resp in stale_entries:
-                print('Deleting stale entry: %s' % resp.url)
-                cache.delete(key)
+            for method in methods:
+                cache = method['session'].cache
+                urls = []
+                for filename in glob('games/*.json'):
+                    game = load(open(filename))
+                    for turn in game.get('questions'):
+                        urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
+                stale_entries = []
+                for key, (resp, _) in cache.responses.items():
+                    if resp.url not in urls and not any(step.url in urls for step in resp.history):
+                        stale_entries.append((key, resp))
+                print('[%s] Found %s/%s stale cache entries' % (method['name'], len(stale_entries), len(cache.responses.keys())))
+                for key, resp in stale_entries:
+                    print('[%s] Deleting stale entry: %s' % (method['name'], resp.url))
+                    cache.delete(key)
 
         if command == 'refresh':
-            urls = []
-            for filename in glob('games/*.json'):
-                game = load(open(filename))
-                for turn in game.get('questions'):
-                    urls.extend(build_google_queries(turn.get('question'), turn.get('answers')))
-                    urls.extend(build_wikipedia_queries(turn.get('question'), turn.get('answers')))
-            cache_misses = [url for url in urls if not cache.has_url(url)]
-            print('Found %s/%s URLs not in cache' % (len(cache_misses), len(urls)))
-            for url in cache_misses:
-                print('Adding cached entry: %s' % url)
-                response = session.get(url)
-                if '/sorry/index?continue=' in response.url:
-                    exit('ERROR: Google rate limiting detected.')
+            for method in methods:
+                cache = method['session'].cache
+                urls = []
+                for filename in glob('games/*.json'):
+                    game = load(open(filename))
+                    for turn in game.get('questions'):
+                        urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
+                cache_misses = [url for url in urls if not cache.has_url(url)]
+                print('[%s] Found %s/%s URLs not in cache' % (method['name'], len(cache_misses), len(urls)))
+                for url in cache_misses:
+                    print('[%s] Adding cached entry: %s' % (method['name'], url))
+                    response = method['session'].get(url)
+                    if '/sorry/index?continue=' in response.url:
+                        exit('ERROR: Google rate limiting detected.')
+
+        if command == 'vacuum':
+            for method in methods:
+                print('[%s] Running sqlite vacuum' % method['name'])
+                conn = connect("%s.sqlite" % method['session']._cache_name)
+                conn.execute("VACUUM")
+                conn.close()
 
 
 if __name__ == "__main__":
@@ -313,4 +337,4 @@ if __name__ == "__main__":
         print('Error: Invalid syntax. Valid commands:')
         print('hqtrivia-bot.py run')
         print('hqtrivia-bot.py replay <game-id>[,<game-id>]')
-        print('hqtrivia-bot.py cache <refresh|prune>')
+        print('hqtrivia-bot.py cache <refresh|prune|vacuum>')

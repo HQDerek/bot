@@ -38,15 +38,21 @@ def build_answers(raw_answers):
     return answers
 
 
-def build_google_queries(question, answers):
+def answer_words_queries(question, answers):
     """" Build google query set from data and options """
     queries = [question]
-    queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
-    return ['https://www.google.co.uk/search?q=' \
+    return ['https://www.google.co.uk/search?pws=0&q=' \
         + urllib.parse.quote_plus(q) for q in queries]
 
 
-def build_wikipedia_queries(_question, answers):
+def count_results_queries(question, answers):
+    """" Build google query set from data and options """
+    queries = ['%s "%s"' % (question, answer) for answer in answers.values()]
+    return ['https://www.google.co.uk/search?pws=0&q=' \
+        + urllib.parse.quote_plus(q) for q in queries]
+
+
+def wikipedia_queries(_question, answers):
     """ Build wikipedia query set from data and options """
     queries = list(answers.values())
     return ['https://en.wikipedia.org/wiki/Special:Search?search=' \
@@ -74,12 +80,14 @@ def predict_answers(data, answers):
     print('\n')
 
     session = FuturesSession()
-    google_responses = [future.result() for future in map(session.get, build_google_queries(question, answers))]
-    wiki_responses = [future.result() for future in map(session.get, build_wikipedia_queries(question, answers))]
 
-    confidence = find_answer_words_google(question, answers, confidence, google_responses[0])
-    confidence = count_results_number_google(question, answers, confidence, google_responses[1:])
-    confidence = find_question_words_wikipedia(question, answers, confidence, wiki_responses)
+    answer_words_resp = [future.result() for future in map(session.get, answer_words_queries(question, answers))]
+    count_results_resp = [future.result() for future in map(session.get, count_results_queries(question, answers))]
+    wikipedia_resp = [future.result() for future in map(session.get, wikipedia_queries(question, answers))]
+
+    confidence = find_answer_words_google(question, answers, confidence, answer_words_resp)
+    confidence = count_results_number_google(question, answers, confidence, count_results_resp)
+    confidence = find_question_words_wikipedia(question, answers, confidence, wikipedia_resp)
 
     # Calculate prediction
     if 'NOT' in question or 'NEVER' in question:

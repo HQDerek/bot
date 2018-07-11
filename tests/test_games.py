@@ -6,13 +6,13 @@ from requests_cache import CachedSession
 
 def cached_get(url):
     """ cached session """
-    session = CachedSession('query_cache', allowable_codes=(200, 302, 304))
+    session = CachedSession('db/answer_words_google', allowable_codes=(200, 302, 304))
     response = Mock()
     response.result.return_value = session.get(url)
     return response
 
 @patch('utils.FuturesSession.get', side_effect=cached_get)
-def test_games():
+def test_games(mock_futures):
     """ testing games """
 
     for filename in glob('games/*.json'):
