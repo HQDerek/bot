@@ -312,6 +312,9 @@ class HqTriviaBot(object):
                 cache_misses = [url for url in urls if not cache.has_url(url)]
                 print('[%s] Found %s/%s URLs not in cache' % (method['name'], len(cache_misses), len(urls)))
                 for url in cache_misses:
+                    if method['name'] == 'question_words_wikipedia' and 'wiki/Special:Search' in get(url).url:
+                        print('[%s] Skipping: %s (Unresolved)' % (method['name'], url))
+                        continue
                     print('[%s] Adding cached entry: %s' % (method['name'], url))
                     response = method['session'].get(url)
                     if '/sorry/index?continue=' in response.url:
