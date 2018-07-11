@@ -105,9 +105,11 @@ def predict_answers(data, answers):
     return prediction if confidence[prediction] else None, confidence
 
 
-def find_answer_words_google(_question, answers, confidence, response):
+def find_answer_words_google(_question, answers, confidence, responses):
     """ METHOD 1: Find answer in Google search result descriptions """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
+    response = responses[0]
+
     soup = BeautifulSoup(response.text, "html5lib")
 
     # Check for rate limiting page
