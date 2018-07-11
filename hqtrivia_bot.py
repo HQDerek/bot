@@ -4,6 +4,7 @@ from os import path
 from sys import argv
 from glob import glob
 from time import sleep
+from random import randint
 from sqlite3 import connect
 from configparser import ConfigParser
 from json import load, loads, dump, JSONDecodeError
@@ -284,6 +285,7 @@ class HqTriviaBot(object):
                 'session': CachedSession('db/question_words_wikipedia', allowable_codes=(200, 302, 304))
             }
         ]
+
         if command == 'prune':
             for method in methods:
                 cache = method['session'].cache
@@ -311,14 +313,11 @@ class HqTriviaBot(object):
                         urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
                 cache_misses = [url for url in urls if not cache.has_url(url)]
                 print('[%s] Found %s/%s URLs not in cache' % (method['name'], len(cache_misses), len(urls)))
-                for url in cache_misses:
-                    if method['name'] == 'question_words_wikipedia' and 'wiki/Special:Search' in get(url).url:
-                        print('[%s] Skipping: %s (Unresolved)' % (method['name'], url))
-                        continue
+                for idx, url in enumerate(cache_misses):
                     print('[%s] Adding cached entry: %s' % (method['name'], url))
                     response = method['session'].get(url)
                     if '/sorry/index?continue=' in response.url:
-                        exit('ERROR: Google rate limiting detected.')
+                        exit('ERROR: Google rate limiting detected. Cached %s pages.' % idx)
 
         if command == 'vacuum':
             for method in methods:
