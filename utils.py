@@ -54,36 +54,35 @@ def build_wikipedia_queries(_question, answers, session=None):
                           session=session) for q in queries]
 
 
-def predict_answers(data, answers):
+def predict_answers(question):
     """ Get answer predictions """
     confidence = {
         'A': 0,
         'B': 0,
         'C': 0
     }
-    question = data.get('question')
 
-    if not data.get('is_replay', False):
-        webbrowser.open("http://google.com/search?q="+question)
+    if not question.is_replay:
+        webbrowser.open("http://google.com/search?q="+question.text)
 
     print('\n\n\n\n\n')
-    print('------------ %s %s | %s ------------' % ('QUESTION', data.get('questionNumber'), data.get('category')))
-    print(Colours.BOLD.value + question + Colours.ENDC.value)
+    print('------------ %s %s | %s ------------' % ('QUESTION', question.number, question.category))
+    print(Colours.BOLD.value + question.text + Colours.ENDC.value)
     print('------------ %s ------------' % 'ANSWERS')
-    print(answers)
+    print(question.answers)
     print('------------------------')
     print('\n')
 
-    session = CachedSession('query_cache') if data.get('is_replay', False) else None
-    google_responses = grequests.map(build_google_queries(question, answers, session))
-    wikipedia_responses = grequests.map(build_wikipedia_queries(question, answers, session))
+    session = CachedSession('query_cache') if question.is_replay else None
+    google_responses = grequests.map(build_google_queries(question.text, question.answers, session))
+    wikipedia_responses = grequests.map(build_wikipedia_queries(question.text, question.answers, session))
 
-    confidence = find_answer_words_google(question, answers, confidence, google_responses[:1])
-    confidence = count_results_number_google(question, answers, confidence, google_responses[1:])
-    confidence = find_question_words_wikipedia(question, answers, confidence, wikipedia_responses)
+    confidence = find_answer_words_google(question.text, question.answers, confidence, google_responses[:1])
+    confidence = count_results_number_google(question.text, question.answers, confidence, google_responses[1:])
+    confidence = find_question_words_wikipedia(question.text, question.answers, confidence, wikipedia_responses)
 
     # Calculate prediction
-    if 'NOT' in question or 'NEVER' in question:
+    if 'NOT' in question.text or 'NEVER' in question.text:
         prediction = min(confidence, key=confidence.get)
     else:
         prediction = max(confidence, key=confidence.get)
@@ -91,7 +90,7 @@ def predict_answers(data, answers):
     for index, count in confidence.items():
         likelihood = int(count/total_occurrences * 100) if total_occurrences else 0
         confidence[index] = '%d%%' % likelihood
-        result = 'Answer %s: %s - %s%%' % (index, answers[index], likelihood)
+        result = 'Answer %s: %s - %s%%' % (index, question.answers[index], likelihood)
         print(Colours.BOLD.value + result + Colours.ENDC.value if index == prediction else result)
 
     print('\n')
