@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/hqtrivia-bot
 
     docker:
-      - image: circleci/python:3.6.4
+      - image: circleci/python:3.6.6-stretch
 
     steps:
       - checkout # check out source code to the working directory
@@ -17,8 +17,8 @@ jobs:
       - run: # install and activate virtual environment with pip
           name: Install Pipenv
           command: |
-            sudo pip install pipenv
-            pipenv install
+            sudo pip install pipenv --upgrade
+            pipenv install --dev
 
       - save_cache: # save dependency cache
           key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -29,7 +29,12 @@ jobs:
           name: Run Tests
           command: |
             mkdir test-reports
-            pipenv run "pytest --junitxml=test-reports/junit.xml"
+            pipenv run test --junitxml=test-reports/junit.xml
+
+      - run: # run lint
+          name: Run Lint
+          command: |
+            pipenv run lint
 
       - store_test_results: # store test reports
           path: test-reports
