@@ -10,6 +10,7 @@ from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutExceptio
 import grequests
 from requests import get, post
 from utils import Colours, build_answers, predict_answers
+from question import Question
 
 
 class HqTriviaBot(object):
@@ -79,18 +80,19 @@ class HqTriviaBot(object):
 
     def prediction_time(self, data):
         """ build up answers and make predictions """
-        parsed_answers = build_answers(data.get('answers'))
-        (prediction, confidence) = predict_answers(data, parsed_answers)
+        data['answers'] = build_answers(data.get('answers'))
+        question = Question(is_replay=False, **data)
+        (prediction, confidence) = predict_answers(question)
 
         # Load save game file and append question
         with open('./games/%s.json' % self.current_game) as file:
             output = load(file)
         output.get('questions').append({
-            'question': data.get('question'),
-            'category': data.get('category'),
-            'questionId': data.get('questionId'),
-            'questionNumber': data.get('questionNumber'),
-            'answers': parsed_answers,
+            'question': question.text,
+            'category': question.category,
+            'questionId': question.questionId,
+            'questionNumber': question.number,
+            'answers': question.answers,
             'prediction': {
                 'answer': prediction,
                 'confidence': confidence
