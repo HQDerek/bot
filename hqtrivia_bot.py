@@ -268,63 +268,60 @@ class HqTriviaBot(object):
     @staticmethod
     def cache(command):
         """ cache mode """
+        session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
         methods = [
             {
                 'name': 'answer_words_google',
-                'queries': answer_words_queries,
-                'session': CachedSession('db/answer_words_google', allowable_codes=(200, 302, 304))
+                'queries': answer_words_queries
             },
             {
                 'name': 'count_results_google',
-                'queries': count_results_queries,
-                'session': CachedSession('db/count_results_google', allowable_codes=(200, 302, 304))
+                'queries': count_results_queries
             },
             {
                 'name': 'question_words_wikipedia',
-                'queries': wikipedia_queries,
-                'session': CachedSession('db/question_words_wikipedia', allowable_codes=(200, 302, 304))
+                'queries': wikipedia_queries
             }
         ]
 
         if command == 'prune':
+            cache = session.cache
+            urls = []
             for method in methods:
-                cache = method['session'].cache
-                urls = []
                 for filename in glob('games/*.json'):
                     game = load(open(filename))
                     for turn in game.get('questions'):
                         urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
-                stale_entries = []
-                for key, (resp, _) in cache.responses.items():
-                    if resp.url not in urls and not any(step.url in urls for step in resp.history):
-                        stale_entries.append((key, resp))
-                print('[%s] Found %s/%s stale cache entries' % (method['name'], len(stale_entries), len(cache.responses.keys())))
-                for key, resp in stale_entries:
-                    print('[%s] Deleting stale entry: %s' % (method['name'], resp.url))
-                    cache.delete(key)
+            stale_entries = []
+            for key, (resp, _) in cache.responses.items():
+                if resp.url not in urls and not any(step.url in urls for step in resp.history):
+                    stale_entries.append((key, resp))
+            print('[%s] Found %s/%s stale cache entries' % (method['name'], len(stale_entries), len(cache.responses.keys())))
+            for key, resp in stale_entries:
+                print('[%s] Deleting stale entry: %s' % (method['name'], resp.url))
+                cache.delete(key)
 
         if command == 'refresh':
+            cache = session.cache
+            urls = []
             for method in methods:
-                cache = method['session'].cache
-                urls = []
                 for filename in glob('games/*.json'):
                     game = load(open(filename))
                     for turn in game.get('questions'):
                         urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
-                cache_misses = [url for url in urls if not cache.has_url(url)]
-                print('[%s] Found %s/%s URLs not in cache' % (method['name'], len(cache_misses), len(urls)))
-                for idx, url in enumerate(cache_misses):
-                    print('[%s] Adding cached entry: %s' % (method['name'], url))
-                    response = method['session'].get(url)
-                    if '/sorry/index?continue=' in response.url:
-                        exit('ERROR: Google rate limiting detected. Cached %s pages.' % idx)
+            cache_misses = [url for url in urls if not cache.has_url(url)]
+            print('[%s] Found %s/%s URLs not in cache' % (method['name'], len(cache_misses), len(urls)))
+            for idx, url in enumerate(cache_misses):
+                print('[%s] Adding cached entry: %s' % (method['name'], url))
+                response = session.get(url)
+                if '/sorry/index?continue=' in response.url:
+                    exit('ERROR: Google rate limiting detected. Cached %s pages.' % idx)
 
         if command == 'vacuum':
-            for method in methods:
-                print('[%s] Running sqlite vacuum' % method['name'])
-                conn = connect("%s.sqlite" % method['session']._cache_name)
-                conn.execute("VACUUM")
-                conn.close()
+            print('[%s] Running sqlite vacuum' % session._cache_name)
+            conn = connect("%s.sqlite" % session._cache_name)
+            conn.execute("VACUUM")
+            conn.close()
 
 
 if __name__ == "__main__":
