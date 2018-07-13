@@ -24,6 +24,6 @@ def test_find_answer_words_google(question_api_response):  # pylint: disable=red
     mock_response.text = "Example Response"
 
     question, answers = question_api_response
-    confidence = utils.find_answer_words_google(question, answers, {'A': 0, 'B': 0, 'C': 0}, mock_response)
+    confidence = utils.find_answer_words_google(question, answers, {'A': 0, 'B': 0, 'C': 0}, [mock_response])
 
     assert confidence == {'A': 0, 'B': 0, 'C': 0}

@@ -5,4 +5,5 @@ test-reports/
 *.pyc
 *.ini
 *.log
+*.sqlite
 .idea/

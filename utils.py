@@ -38,7 +38,7 @@ def build_answers(raw_answers):
     return answers
 
 
-def answer_words_queries(question, answers):
+def answer_words_queries(question, _answers):
     """" Build google query set from data and options """
     queries = [question]
     return ['https://www.google.co.uk/search?pws=0&q=' \
