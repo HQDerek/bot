@@ -3,7 +3,7 @@
 ### Install Bot
  * Install Pipenv `sudo pip install pipenv`
  * Install NLTK corpora `python3 -m nltk.downloader stopwords`
- * Create Pipenv virtual environment `pipenv --three install`
+ * Create Pipenv virtual environment `pipenv --three install --dev`
 
 
 ### Run HQ Trivia Bot
