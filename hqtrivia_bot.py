@@ -7,7 +7,6 @@ from time import sleep
 from glob import glob
 from configparser import ConfigParser
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
-import grequests
 from requests import get, post
 from utils import Colours, build_answers, predict_answers
 
