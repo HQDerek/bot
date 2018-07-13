@@ -157,8 +157,9 @@ def count_results_number_google(_question, _answers, confidence, responses):
         soup = BeautifulSoup(response.text, "html5lib")
         if soup.find(id='resultStats'):
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
-            results_count = re.findall(r'\d+', results_count_text)[0]
-            occurrences[chr(65 + index)] += int(results_count)
+            results_count = re.findall(r'\d+', results_count_text)
+            if results_count:
+                occurrences[chr(65 + index)] += int(results_count[0])
 
     print("Search Results: %s%s%s" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
 

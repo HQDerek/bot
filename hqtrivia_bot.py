@@ -321,7 +321,11 @@ class HqTriviaBot(object):
                 game = load(open(filename))
                 for turn in game.get('questions'):
                     urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
-        cache_misses = [url for url in urls if not session.cache.has_url(url)]
+        cache_misses = [
+            url for url in urls if not session.cache.create_key(
+                session.prepare_request(Request('GET', url))
+            ) in session.cache.responses
+        ]
         print('Found %s/%s URLs not in cache' % (len(cache_misses), len(urls)))
         for idx, url in enumerate(cache_misses):
             print('Adding cached entry: %s' % url)
