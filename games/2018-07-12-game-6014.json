@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Afternoon tea",
+                "B": "Happy meal",
+                "C": "Lunch"
+            },
+            "category": "Language",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "17%",
+                    "B": "1%",
+                    "C": "80%"
+                }
+            },
+            "question": "The word brunch is a combination of breakfast and what?",
+            "questionId": 50676,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "The iPhone",
+                "B": "Jar Jar Binks",
+                "C": "Dynamite"
+            },
+            "category": "Science",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "2%",
+                    "C": "88%"
+                }
+            },
+            "question": "Swedish chemist and engineer Alfred Nobel invented which of these?",
+            "questionId": 50677,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Dave Chapelle",
+                "B": "Will Ferrell",
+                "C": "Sacha Baron Cohen"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "12%",
+                    "B": "21%",
+                    "C": "65%"
+                }
+            },
+            "question": "Which of these comedians appeared in the video for Madonna’s 2000 song ‘‘Music’’?",
+            "questionId": 50678,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Two",
+                "B": "Eight",
+                "C": "Five"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "67%",
+                    "B": "27%",
+                    "C": "5%"
+                }
+            },
+            "question": "How many bits are there in a byte?",
+            "questionId": 50679,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Open Season",
+                "B": "Chicken Run",
+                "C": "Madagascar"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "24%",
+                    "B": "60%",
+                    "C": "15%"
+                }
+            },
+            "question": "The tagline “Escape or die frying” is from which movie?",
+            "questionId": 50680,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Turkey",
+                "B": "Egypt",
+                "C": "Peru"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "17%",
+                    "C": "65%"
+                }
+            },
+            "question": "Mali is an anagram of the capital city of which of these countries?",
+            "questionId": 50681,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Sebastian Vettel",
+                "B": "Dominic Thiem",
+                "C": "Marko Arnautovic"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "38%",
+                    "B": "26%",
+                    "C": "34%"
+                }
+            },
+            "question": "Which of these is NOT an Austrian sportsman?",
+            "questionId": 50682,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Draughts",
+                "B": "Jenga",
+                "C": "Ludo"
+            },
+            "category": "Games",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "49%",
+                    "B": "33%",
+                    "C": "17%"
+                }
+            },
+            "question": "Which of these games' origins traces back to India?",
+            "questionId": 50683,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Red ink",
+                "B": "Green custard",
+                "C": "Purple flour"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "33%",
+                    "B": "66%",
+                    "C": "0%"
+                }
+            },
+            "question": "In 2009, what substance was the U.K. Business Secretary covered in by a protestor?",
+            "questionId": 50684,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "United Kingdom",
+                "B": "France",
+                "C": "Germany"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "31%",
+                    "B": "36%",
+                    "C": "31%"
+                }
+            },
+            "question": "According to 2017 statistics, of these three countries which has the fastest mobile network?",
+            "questionId": 50685,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Burpy",
+                "B": "Tickly",
+                "C": "Scrappy"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "50%",
+                    "B": "28%",
+                    "C": "20%"
+                }
+            },
+            "question": "Which of these was NOT one of the 47 potential names drawn up by Disney for the Seven Dwarfs?",
+            "questionId": 50686,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Be kind to policemen",
+                "B": "Do not roll on the grass",
+                "C": "Wash early and often"
+            },
+            "category": "Literature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "25%",
+                    "B": "37%",
+                    "C": "37%"
+                }
+            },
+            "question": "What was Rudyard Kipling's second rule for living in London?",
+            "questionId": 50687,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6014,
+    "ts": "2018-07-12T14:02:14.292Z"
+}
