@@ -29,7 +29,7 @@ jobs:
           name: Run Tests
           command: |
             mkdir test-reports
-            pipenv run test --junitxml=test-reports/junit.xml
+            pipenv run test -s --junitxml=test-reports/junit.xml
 
       - run: # run lint
           name: Run Lint
