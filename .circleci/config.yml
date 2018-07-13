@@ -18,8 +18,8 @@ jobs:
           name: Install Pipenv
           command: |
             sudo pip install pipenv --upgrade
-            python3 -m nltk.downloader stopwords
             pipenv install --dev
+            pipenv python3 -m nltk.downloader stopwords
 
       - save_cache: # save dependency cache
           key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
