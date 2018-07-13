@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Noses",
+                "B": "Ears",
+                "C": "Feet"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "4%",
+                    "B": "18%",
+                    "C": "77%"
+                }
+            },
+            "question": "On which part of the body are slippers usually worn?",
+            "questionId": 50244,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Inspector Gadget",
+                "B": "James Bond",
+                "C": "Inspector Morse"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "16%",
+                    "B": "80%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of these special agents is known for requesting his drink to be “shaken, not stirred”?",
+            "questionId": 50245,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Polaris",
+                "B": "Asterisk",
+                "C": "Pluto"
+            },
+            "category": "Language",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "18%",
+                    "B": "65%",
+                    "C": "16%"
+                }
+            },
+            "question": "The punctuation mark that resembles a little star is known by which name?",
+            "questionId": 50246,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Basmati",
+                "B": "Balsamic",
+                "C": "Balderdash"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "96%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these is the name of a classic Italian vinegar?",
+            "questionId": 50247,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Locke",
+                "B": "127 Hours",
+                "C": "Moon"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "30%",
+                    "C": "68%"
+                }
+            },
+            "question": "Which of these movies shows only the main character on screen?",
+            "questionId": 50248,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "May",
+                "B": "April",
+                "C": "June"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "31%",
+                    "B": "38%",
+                    "C": "29%"
+                }
+            },
+            "question": "What is the name of the female protagonist from the “Teenage Mutant Ninja Turtles” franchise?",
+            "questionId": 50249,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Amazon Appstore",
+                "B": "Apple App Store",
+                "C": "Google Play"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "6%",
+                    "B": "30%",
+                    "C": "63%"
+                }
+            },
+            "question": "Which of these app stores has the highest number of apps for download?",
+            "questionId": 50250,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Miami International",
+                "B": "Madeira International",
+                "C": "Munich International"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "2%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which of these airports is named after a sporting personality?",
+            "questionId": 50251,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Lee McQueen",
+                "B": "Yasmina Siadatan",
+                "C": "Ricky Martin"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "19%",
+                    "B": "15%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which Apprentice winner's final task involved marketing confectionery?",
+            "questionId": 50252,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Steffi Graf",
+                "B": "Martina Navratilova",
+                "C": "Serena Williams"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "6%",
+                    "B": "7%",
+                    "C": "86%"
+                }
+            },
+            "question": "Which of these players has won the MOST consecutive Wimbledon singles titles?",
+            "questionId": 50253,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Backstreet Boys",
+                "B": "Madonna",
+                "C": "Destiny's Child"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "38%",
+                    "B": "19%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which act rejected the chance to record “...Baby One More Time” before it was a hit for Britney Spears?",
+            "questionId": 50254,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Henry VIII",
+                "B": "Abraham Lincoln",
+                "C": "Queen Victoria"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "28%",
+                    "B": "52%",
+                    "C": "18%"
+                }
+            },
+            "question": "Which of these figures is NOT represented by a statue in Manchester?",
+            "questionId": 50255,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 5971,
+    "ts": "2018-07-10T20:01:54.416Z"
+}
