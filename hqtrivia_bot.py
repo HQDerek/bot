@@ -10,7 +10,6 @@ from json import load, loads, dump, JSONDecodeError
 from requests import get, post, Request
 from requests_cache import CachedSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
-from requests import get, post
 from utils import Colours, build_answers, predict_answers, \
     answer_words_queries, count_results_queries, wikipedia_queries
 
