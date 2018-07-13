@@ -105,10 +105,10 @@ def predict_answers(data, answers):
     return prediction if confidence[prediction] else None, confidence
 
 
-def find_answer_words_google(_question, answers, confidence, futures):
+def find_answer_words_google(_question, answers, confidence, responses):
     """ METHOD 1: Find answer in Google search result descriptions """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
-    response = futures[0]
+    response = responses[0]
 
     soup = BeautifulSoup(response.text, "html5lib")
 
@@ -148,13 +148,12 @@ def find_answer_words_google(_question, answers, confidence, futures):
     return confidence
 
 
-def count_results_number_google(_question, _answers, confidence, futures):
+def count_results_number_google(_question, _answers, confidence, responses):
     """ METHOD 2: Compare number of results found by Google """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
 
     # Loop through search results
-    for index, future in enumerate(futures):
-        response = future.result()
+    for index, response in enumerate(responses):
         soup = BeautifulSoup(response.text, "html5lib")
         if soup.find(id='resultStats'):
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
@@ -173,7 +172,7 @@ def count_results_number_google(_question, _answers, confidence, futures):
     return confidence
 
 
-def find_question_words_wikipedia(question, _answers, confidence, futures):
+def find_question_words_wikipedia(question, _answers, confidence, responses):
     """ METHOD 3: Find question words in wikipedia pages """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
 
@@ -181,9 +180,8 @@ def find_question_words_wikipedia(question, _answers, confidence, futures):
     question_nouns = get_significant_words(get_raw_words(question))
 
     # Loop through wikipedia results
-    for index, future in enumerate(futures):
+    for index, response in enumerate(responses):
 
-        response = future.result()
 
         # Check for unresolved Wikipedia link
         if 'Special:Search' in response.url:

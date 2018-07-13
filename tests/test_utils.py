@@ -2,7 +2,6 @@
 import pytest
 from mock import Mock, patch
 import utils
-from requests_cache import CachedSession
 
 
 @pytest.fixture
@@ -22,7 +21,7 @@ def api_response():
     }
 
 
-def mock_future_get(url):
+def mock_future_get(_url):
     """ mocked get response """
     mock_response = Mock()
     mock_response.url = "/"
@@ -45,7 +44,7 @@ def test_predict_answers(_mock_session_get, api_response):  # pylint: disable=re
     assert confidence == {'A': '0%', 'B': '0%', 'C': '0%'}
 
 
-def test_find_answer_words_google(api_response):  # pylint: disable=redefined-outer-name
+def test_answer_words_google(api_response):  # pylint: disable=redefined-outer-name
     """ testing basic behaviour in find_answer_words_google """
 
     mock_response = Mock()
@@ -60,7 +59,7 @@ def test_find_answer_words_google(api_response):  # pylint: disable=redefined-ou
     assert confidence == {'A': 0, 'B': 0, 'C': 0}
 
 
-def test_count_results_number_google(api_response):  # pylint: disable=redefined-outer-name
+def test_results_number_google(api_response):  # pylint: disable=redefined-outer-name
     """ testing basic behaviour in count_results_number_google """
 
     mock_response = Mock()
@@ -75,7 +74,7 @@ def test_count_results_number_google(api_response):  # pylint: disable=redefined
     assert confidence == {'A': 0, 'B': 0, 'C': 0}
 
 
-def test_find_question_words_wikipedia(api_response):  # pylint: disable=redefined-outer-name
+def test_question_words_wikipedia(api_response):  # pylint: disable=redefined-outer-name
     """ testing basic behaviour in find_question_words_wikipedia """
 
     mock_response = Mock()
