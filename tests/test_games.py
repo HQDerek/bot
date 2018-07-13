@@ -3,7 +3,6 @@ from glob import glob
 from json import load
 from mock import Mock, patch
 from requests_cache import CachedSession
-import utils
 
 def cached_get(url):
     """ cached session """
