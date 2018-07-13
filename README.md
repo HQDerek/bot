@@ -10,6 +10,12 @@
  * Run bot `pipenv run bot`
 
 
+### Add a Round to Cache
+ * Run cache refresh `pipenv run cache refresh`
+ * Run cache prune `pipenv run cache prune`
+ * Run cache export `pipenv run cache export`
+
+
 ### Replay HQ Trivia Round
  * The bot can be tested by replaying a set of questions from saved games.
  * Run `pipenv run replay <game-id>[,<game-id>]` to test specific games in the `games` directory.
