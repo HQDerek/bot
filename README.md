@@ -2,9 +2,31 @@
 
 ### Install Bot
  * Install Pipenv `sudo pip install pipenv`
- * Create Pipenv virtual environment `pipenv --three install`
- * Activate virtual environment `pipenv shell`
  * Install NLTK corpora `python3 -m nltk.downloader stopwords`
+ * Create Pipenv virtual environment `pipenv --three install --dev`
+
+
+### Run HQ Trivia Bot
+ * Run bot `pipenv run bot`
+
+
+### Add a Round to Cache
+ * Run cache refresh `pipenv run cache refresh`
+ * Run cache prune `pipenv run cache prune`
+ * Run cache export `pipenv run cache export`
+
+
+### Replay HQ Trivia Round
+ * The bot can be tested by replaying a set of questions from saved games.
+ * Run `pipenv run replay <game-id>[,<game-id>]` to test specific games in the `games` directory.
+
+
+### Run Pytest Unit Tests
+ * Run pytest `pipenv run test`
+
+
+### Run Pylint PEP8 Linting
+ * Run pylint `pipenv run lint`
 
 
 ### Get Bearer Token and User ID
@@ -21,13 +43,3 @@
 user_id = <userId>
 bearer_token = <Bearer>
 ```
-
-
-### Run HQ Trivia Bot
- * Ensure pipenv is activated `pipenv shell`
- * Run bot `python3 hqtrivia-bot.py`
-
-
-### Test HQ Trivia Bot
- * The bot can be tested by running against a set of questions from saved games.
- * Run `python hqtrivia-bot.py test <game-id>[,<game-id>]` to test specific games in the `games` directory.
