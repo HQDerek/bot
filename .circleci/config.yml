@@ -30,6 +30,7 @@ jobs:
           name: Run Tests
           command: |
             mkdir test-reports
+            pipenv run cache import
             pipenv run test -s --junitxml=test-reports/junit.xml
 
       - run: # run lint

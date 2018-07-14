@@ -25,7 +25,6 @@ class Weights(Enum):
     """ weights for each algorithm """
     GOOGLE_SUMMARY_ANSWER_COUNT = 200
     GOOGLE_RESULTS_NUMBER = 100
-    WIKIPEDIA_PAGE_QUESTION_COUNT = 100
 
 
 def build_answers(raw_answers):
@@ -49,13 +48,6 @@ def count_results_queries(question, answers):
     """" Build google query set from data and options """
     queries = ['%s "%s"' % (question, answer) for answer in answers.values()]
     return ['https://www.google.co.uk/search?pws=0&q=' \
-        + urllib.parse.quote_plus(q) for q in queries]
-
-
-def wikipedia_queries(_question, answers):
-    """ Build wikipedia query set from data and options """
-    queries = list(answers.values())
-    return ['https://en.wikipedia.org/wiki/Special:Search?search=' \
         + urllib.parse.quote_plus(q) for q in queries]
 
 
@@ -83,11 +75,9 @@ def predict_answers(data, answers):
 
     answer_words_resp = [future.result() for future in map(session.get, answer_words_queries(question, answers))]
     count_results_resp = [future.result() for future in map(session.get, count_results_queries(question, answers))]
-    wikipedia_resp = [future.result() for future in map(session.get, wikipedia_queries(question, answers))]
 
     confidence = find_answer_words_google(question, answers, confidence, answer_words_resp)
     confidence = count_results_number_google(question, answers, confidence, count_results_resp)
-    confidence = find_question_words_wikipedia(question, answers, confidence, wikipedia_resp)
 
     # Calculate prediction
     if 'NOT' in question or 'NEVER' in question:
@@ -170,43 +160,6 @@ def count_results_number_google(_question, _answers, confidence, responses):
             confidence[index] += int(count / total_occurrences * Weights.GOOGLE_RESULTS_NUMBER.value)
 
     print("METHOD 1 + 2 - Confidence: %s\n" % confidence)
-    return confidence
-
-
-def find_question_words_wikipedia(question, _answers, confidence, responses):
-    """ METHOD 3: Find question words in wikipedia pages """
-    occurrences = {'A': 0, 'B': 0, 'C': 0}
-
-    # Get nouns from question words
-    question_nouns = get_significant_words(get_raw_words(question))
-
-    # Loop through wikipedia results
-    for index, response in enumerate(responses):
-
-
-        # Check for unresolved Wikipedia link
-        if 'Special:Search' in response.url:
-            print('METHOD 3 - SKIPPED: Unresolved Wikipedia link\n')
-            return confidence
-
-        # Get wikipedia page text elements
-        results = ''
-        soup = BeautifulSoup(response.text, "html5lib")
-        for element in soup.find_all('p'):
-            results += " " + element.text
-        results_words = get_raw_words(results)
-
-        # Find question words on wikipedia page
-        occurrences_list = find_keywords(question_nouns, results_words)
-        occurrences[chr(65 + index)] += sum(occurrences_list)
-
-    # Calculate confidence
-    total_occurrences = sum(occurrences.values())
-    for index, count in occurrences.items():
-        if total_occurrences:
-            confidence[index] += int(count / total_occurrences * Weights.WIKIPEDIA_PAGE_QUESTION_COUNT.value)
-
-    print("METHOD 1 + 2 + 3 - Confidence: %s\n" % confidence)
     return confidence
 
 
