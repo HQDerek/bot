@@ -21,6 +21,15 @@ class HqTriviaBot(object):
         self.config.read('config.ini')
         self.broadcast_ended = False
         self.current_game = ''
+        self.headers = {
+            'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
+            'Authorization': 'Bearer %s' % self.config.get('Auth', {}).get('bearer_token', ''),
+            'x-hq-stk': '',
+            'x-hq-client': 'Android/1.11.2',
+            'x-hq-country': 'IE',
+            'x-hq-lang': 'en',
+            'x-hq-timezone': 'Europe/Dublin',
+        }
 
     def get_socket_url(self, headers):
         """ Get broadcast socket URL """
@@ -186,12 +195,6 @@ class HqTriviaBot(object):
         print('ERROR: %s' % error)
 
     @staticmethod
-    def on_ping(web_socket, data):
-        """" ping callback """
-        print('RECEIVED PING: %s, SENDING PONG' % data)
-        web_socket.pong(data)
-
-    @staticmethod
     def on_close(_web_socket):
         """" close callback """
         print('SOCKET CLOSED')
@@ -201,26 +204,17 @@ class HqTriviaBot(object):
         while True:
             self.current_game = ''
             self.broadcast_ended = False
-            headers = {
-                'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
-                'Authorization': 'Bearer %s' % self.config['Auth']['bearer_token'],
-                'x-hq-stk': '',
-                'x-hq-client': 'Android/1.11.2',
-                'x-hq-country': 'IE',
-                'x-hq-lang': 'en',
-                'x-hq-timezone': 'Europe/Dublin',
-            }
-            socket_url_uk = self.get_socket_url(headers)
+            socket_url_uk = self.get_socket_url(self.headers)
             socket_url = socket_url_uk if socket_url_uk else self.get_socket_url({})
             if socket_url:
-                self.make_it_rain_for_all(headers)
+                self.make_it_rain_for_all(self.headers)
                 print('CONNECTING TO %s SHOW: %s' % ('UK' if socket_url_uk else 'US', socket_url))
                 web_socket = WebSocketApp(socket_url,
                                           on_open=self.on_open,
                                           on_message=self.on_message,
                                           on_error=self.on_error,
                                           on_close=self.on_close,
-                                          header=headers)
+                                          header=self.headers)
                 while not self.broadcast_ended:
                     try:
                         web_socket.run_forever(ping_interval=5)
@@ -229,6 +223,27 @@ class HqTriviaBot(object):
             else:
                 print('Sleeping for 2 minutes')
                 sleep(120)
+
+    def get_wins(self, username):
+        """ get the amount of times a specific user has won """
+        resp = get('https://api-quiz.hype.space/users?q={"username":"%s"}' % username, headers=self.headers)
+        try:
+            json = resp.json()
+            users = json.get('data', [])
+            if users is not None:
+                for user in users:
+                    if user.get('username') == username:
+                        user_id = user.get('userId')
+                        resp = get('https://api-quiz.hype.space/users/%s' % user_id, headers=self.headers)
+                        user = resp.json()
+                        print('User:\t\t%s' % user.get('username'))
+                        print('Total Earnings:\t%s' % user.get('leaderboard').get('total'))
+                        print('Games Played:\t%s' % user.get('gamesPlayed'))
+                        print('Wins:\t\t%s' % user.get('winCount'))
+            else:
+                print('%s is not a user.' % username)
+        except JSONDecodeError:
+            pass
 
     @staticmethod
     def replay(arguments):
@@ -394,8 +409,11 @@ if __name__ == "__main__":
         BOT.cache(argv[2])
     elif len(argv) >= 2 and argv[1] == "replay":
         BOT.replay(argv)
+    elif len(argv) == 2 and argv[1] == "get-wins":
+        BOT.get_wins(argv[2])
     else:
         print('Error: Invalid syntax. Valid commands:')
         print('hqtrivia-bot.py run')
+        print('hqtrivia-bot.py get-wins <username>')
         print('hqtrivia-bot.py replay <game-id>[,<game-id>]')
         print('hqtrivia-bot.py cache <refresh|prune|vacuum>')
