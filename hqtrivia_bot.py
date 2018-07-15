@@ -23,13 +23,14 @@ class HqTriviaBot(object):
         self.current_game = ''
         self.headers = {
             'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
-            'Authorization': 'Bearer %s' % self.config.get('Auth', {}).get('bearer_token', ''),
             'x-hq-stk': '',
             'x-hq-client': 'Android/1.11.2',
             'x-hq-country': 'IE',
             'x-hq-lang': 'en',
             'x-hq-timezone': 'Europe/Dublin',
         }
+        if self.config.has_section('Auth'):
+            self.headers['Authorization'] = 'Bearer %s' % self.config.get('Auth', 'bearer_token')
 
     def get_socket_url(self, headers):
         """ Get broadcast socket URL """
@@ -72,6 +73,7 @@ class HqTriviaBot(object):
                 self.make_it_rain(other_headers)
         except TypeError:
             pass
+
     def game_status(self, data):
         """ status of the game """
         self.current_game = '%s-game-%s' % (data.get('ts')[:10], data.get('showId'))
@@ -184,23 +186,10 @@ class HqTriviaBot(object):
             except JSONDecodeError:
                 print('ERROR - bad json: %s' % message)
 
-    @staticmethod
-    def on_open(_web_socket):
-        """" open callback """
-        print('CONNECTION SUCCESSFUL')
-
-    @staticmethod
-    def on_error(_web_socket, error):
-        """" error callback """
-        print('ERROR: %s' % error)
-
-    @staticmethod
-    def on_close(_web_socket):
-        """" close callback """
-        print('SOCKET CLOSED')
-
     def run(self):
         """ functional loop(s) """
+        if not self.config.has_section('Auth'):
+            exit('Error: Config file \'config.ini\' with [Auth] section not found. Please run generate-token.')
         while True:
             self.current_game = ''
             self.broadcast_ended = False
@@ -210,10 +199,10 @@ class HqTriviaBot(object):
                 self.make_it_rain_for_all(self.headers)
                 print('CONNECTING TO %s SHOW: %s' % ('UK' if socket_url_uk else 'US', socket_url))
                 web_socket = WebSocketApp(socket_url,
-                                          on_open=self.on_open,
+                                          on_open=lambda _ws: print('CONNECTION SUCCESSFUL'),
                                           on_message=self.on_message,
-                                          on_error=self.on_error,
-                                          on_close=self.on_close,
+                                          on_error=lambda _ws, err: print('ERROR: %s' % err),
+                                          on_close=lambda _ws: print('SOCKET CLOSED'),
                                           header=self.headers)
                 while not self.broadcast_ended:
                     try:
@@ -223,6 +212,34 @@ class HqTriviaBot(object):
             else:
                 print('Sleeping for 2 minutes')
                 sleep(120)
+
+    def generate_token(self, phone):
+        """ generate a JWT for a particular phone """
+        unauth_headers = self.headers.copy()
+        unauth_headers.pop('Authorization', None)
+        phone_resp = post('https://api-quiz.hype.space/verifications', headers=unauth_headers, data={
+            'method': 'sms',
+            'phone': phone
+        }).json()
+        verification_id = phone_resp.get('verificationId')
+        if not verification_id:
+            print('Something went wrong. %s' % phone_resp.get('error', ''))
+        else:
+            print('Verification sent to %s.' % phone)
+            code = input("Please enter the code: ")
+            code_resp = post('https://api-quiz.hype.space/verifications/%s' % verification_id, \
+                headers=unauth_headers, data={'code': code}).json()
+            if not code_resp.get('auth'):
+                print('Something went wrong. %s' % code_resp.get('error', ''))
+            else:
+                verify_file = 'config-%s-%s.ini' % (code_resp.get('auth').get('username'), code)
+                with open(verify_file, 'w') as out:
+                    out.write('%s\n%s\n%s' % (
+                        '[Auth]',
+                        'user_id = %s' % code_resp.get('auth').get('userId'),
+                        'bearer_token = %s' % code_resp.get('auth').get('accessToken')
+                    ))
+                print('Verification successful. Details stored in %s' % verify_file)
 
     def get_wins(self, username):
         """ get the amount of times a specific user has won """
@@ -411,9 +428,12 @@ if __name__ == "__main__":
         BOT.replay(argv)
     elif len(argv) == 2 and argv[1] == "get-wins":
         BOT.get_wins(argv[2])
+    elif len(argv) == 3 and argv[1] == "generate-token":
+        BOT.generate_token(argv[2])
     else:
         print('Error: Invalid syntax. Valid commands:')
         print('hqtrivia-bot.py run')
         print('hqtrivia-bot.py get-wins <username>')
+        print('hqtrivia-bot.py generate-token <phone>')
         print('hqtrivia-bot.py replay <game-id>[,<game-id>]')
         print('hqtrivia-bot.py cache <refresh|prune|vacuum>')
