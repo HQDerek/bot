@@ -186,11 +186,6 @@ class HqTriviaBot(object):
             except JSONDecodeError:
                 print('ERROR - bad json: %s' % message)
 
-    @staticmethod
-    def on_error(_web_socket, error):
-        """" error callback """
-        print('ERROR: %s' % error)
-
     def run(self):
         """ functional loop(s) """
         if not self.config.has_section('Auth'):
@@ -204,10 +199,10 @@ class HqTriviaBot(object):
                 self.make_it_rain_for_all(self.headers)
                 print('CONNECTING TO %s SHOW: %s' % ('UK' if socket_url_uk else 'US', socket_url))
                 web_socket = WebSocketApp(socket_url,
-                                          on_open=lambda: print('CONNECTION SUCCESSFUL'),
+                                          on_open=lambda _ws: print('CONNECTION SUCCESSFUL'),
                                           on_message=self.on_message,
-                                          on_error=self.on_error,
-                                          on_close=lambda: print('SOCKET CLOSED'),
+                                          on_error=lambda _ws, err: print('ERROR: %s' % err),
+                                          on_close=lambda _ws: print('SOCKET CLOSED'),
                                           header=self.headers)
                 while not self.broadcast_ended:
                     try:
