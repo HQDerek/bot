@@ -11,7 +11,7 @@ from requests import get, post, Request
 from requests_cache import CachedSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
 from utils import Colours, build_answers, predict_answers, \
-    answer_words_queries, count_results_queries, wikipedia_queries
+    answer_words_queries, count_results_queries
 
 
 class HqTriviaBot(object):
@@ -269,7 +269,7 @@ class HqTriviaBot(object):
         total = 0
         total_correct = 0
         orig_total_correct = 0
-        for filename in glob('games/*.json'):
+        for filename in sorted(glob('games/*.json')):
             if len(arguments) == 2 or (len(arguments) == 3 and filename[22:26] in arguments[2].split(',')):
                 game = load(open(filename))
                 print("Replaying Round %s" % game.get('showId'))
@@ -308,10 +308,6 @@ class HqTriviaBot(object):
             {
                 'name': 'count_results_google',
                 'queries': count_results_queries
-            },
-            {
-                'name': 'question_words_wikipedia',
-                'queries': wikipedia_queries
             }
         ]
         print('Running cache %s' % command)
@@ -331,7 +327,7 @@ class HqTriviaBot(object):
         """ cache prune mode """
         urls = []
         for method in methods:
-            for filename in glob('games/*.json'):
+            for filename in sorted(glob('games/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
                     urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
@@ -349,7 +345,7 @@ class HqTriviaBot(object):
         """ cache refresh mode """
         urls = []
         for method in methods:
-            for filename in glob('games/*.json'):
+            for filename in sorted(glob('games/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
                     urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
@@ -376,7 +372,7 @@ class HqTriviaBot(object):
     def cache_import(_session, _methods):
         """ cache import mode """
         conn = connect("db/cache.sqlite")
-        for filename in glob('db/*.sql'):
+        for filename in sorted(glob('db/*.sql')):
             print('Importing SQL %s' % filename)
             sql = open(filename, 'r').read()
             cur = conn.cursor()
@@ -386,7 +382,7 @@ class HqTriviaBot(object):
     @staticmethod
     def cache_export(session, methods):
         """ cache export mode """
-        for filename in glob('games/*.json'):
+        for filename in sorted(glob('games/*.json')):
             game = load(open(filename))
             show_id = path.basename(filename).split('.')[0]
             if not path.isfile('./db/%s.sql' % show_id):

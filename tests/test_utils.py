@@ -72,18 +72,3 @@ def test_results_number_google(api_response):  # pylint: disable=redefined-outer
     )
 
     assert confidence == {'A': 0, 'B': 0, 'C': 0}
-
-
-def test_question_words_wikipedia(api_response):  # pylint: disable=redefined-outer-name
-    """ testing basic behaviour in find_question_words_wikipedia """
-
-    mock_response = Mock()
-    mock_response.url = "/"
-    mock_response.text = "Example Response"
-
-    confidence = utils.find_question_words_wikipedia(
-        api_response.get('question'), api_response.get('answers'), \
-        {'A': 0, 'B': 0, 'C': 0}, [mock_response]
-    )
-
-    assert confidence == {'A': 0, 'B': 0, 'C': 0}
