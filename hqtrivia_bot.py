@@ -64,12 +64,13 @@ class HqTriviaBot(object):
 
     def make_it_rain_for_all(self, headers):
         """ make it rain for me and then others"""
-        self.make_it_rain(headers)
         try:
-            for token in loads(self.config['Auth'].get('other_tokens', [])):
+            for filename in sorted(glob('config*.ini')):
+                config = ConfigParser()
+                config.read(filename)
                 other_headers = headers.copy()
-                other_headers.update({'Authorization': 'Bearer %s' % token.get('token')})
-                print("Making it rain for %s:" % token.get('name'))
+                other_headers.update({'Authorization': 'Bearer %s' %  config.get('Auth', 'bearer_token')})
+                print("Making it rain for %s:" % (filename.split('-')[1] if len(filename.split('-')) > 1 else 'me'))
                 self.make_it_rain(other_headers)
         except TypeError:
             pass
