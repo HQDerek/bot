@@ -15,22 +15,29 @@ def cached_get(url):
 @patch('utils.FuturesSession.get', side_effect=cached_get)
 def test_games(_mock_futures):
     """ testing games """
-    total_correct = 0
-    total_questions = 0
-    original_correct = 0
-    for filename in glob('games/*.json'):
+    correct = {}
+    num_questions = {}
+    orig_correct = {}
+    for filename in sorted(glob('games/*.json')):
         game = load(open(filename))
-        correct = 0
         for turn in game.get('questions'):
             turn['is_replay'] = True
+            number = turn.get('questionNumber')
             with patch('builtins.print'):
                 (prediction, _confidence) = utils.predict_answers(turn, turn.get('answers'))
-            if prediction == turn.get('correct'):
-                correct += 1
-            total_questions += 1
-        total_correct += correct
-        original_correct += game.get('numCorrect')
-        print('Game %s: %s/%s correct (Original: %s)' % \
-            (game.get('showId'), correct, len(game.get('questions')), game.get('numCorrect')))
-    print('Total correct: %s/%s (Original: %s)' % \
-        (total_correct, total_questions, original_correct))
+            correct[number] = correct.get(number, 0) + \
+                (1 if prediction == turn.get('correct') else 0)
+            orig_correct[number] = orig_correct.get(number, 0) + \
+                (1 if turn.get('correct') == turn.get('prediction').get('answer') else 0)
+            num_questions[number] = num_questions.get(number, 0) + 1
+        print('Game %s: correct: %s' % \
+            (game.get('showId'), correct))
+    count_correct = sum(correct.values())
+    count_orig_correct = sum(orig_correct.values())
+    count_num_questions = sum(num_questions.values())
+    print('Total correct: %d/%d | %.2f%% | %s' % (count_correct, count_num_questions, \
+        (count_correct / count_num_questions) * 100, correct))
+    print('Original correct: %d/%d | %.2f%% | %s' % (count_orig_correct, count_num_questions, \
+        (count_orig_correct / count_num_questions) * 100, orig_correct))
+    print('Num Questions: %d | %s' % (count_num_questions, num_questions))
+    assert (count_correct / count_num_questions) * 100 > 65
