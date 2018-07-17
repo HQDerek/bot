@@ -53,6 +53,15 @@ class Question(object):
         with open(file_path, 'w') as file:
             dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
+    def display_summary(self):
+        pass
+
+    def add_prediction(self):
+        pass
+
+    def add_correct(self):
+        pass
+
     def _dict_for_json(self):
         """ Convert instance to dict with correct keys in preparation for saving to JSON """
         output = vars(self)

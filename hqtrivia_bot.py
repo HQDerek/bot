@@ -82,8 +82,10 @@ class HqTriviaBot(object):
         """ build up answers and make predictions """
         data['answers'] = build_answers(data.get('answers'))
         question = Question(is_replay=False, **data)
+        # TODO: add predict_answers to Question class which updates prediction attribute
         (prediction, confidence) = predict_answers(question)
 
+        # TODO: replace with question.save
         # Load save game file and append question
         with open('./games/%s.json' % self.current_game) as file:
             output = load(file)
@@ -160,6 +162,9 @@ class HqTriviaBot(object):
                     self.prediction_time(data)
                 # Check for question summary
                 elif data.get('type') == 'questionSummary':
+                    # make question from data
+                    # call Question().summary()
+                    # call Question().save()
                     self.question_summary(data)
                 # Check for question summary
                 elif data.get('type') == 'gameSummary':
