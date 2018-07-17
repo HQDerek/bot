@@ -5,7 +5,7 @@ from json import load, dump
 class Question(object):
     """ An instance of a HQ Trivia question """
 
-    def __init__(self, is_replay=True, **kwargs):
+    def __init__(self, is_replay=False, **kwargs):
         self.id = kwargs.get('questionId', None)
         self.number = kwargs.get('questionNumber', None)
         self.text = kwargs.get('question', None)
@@ -27,8 +27,7 @@ class Question(object):
     def save(self):
         """
         Checks most recently created results file, checks it for question with same id.
-        If present, updates. If not, appends itself. File path used depends on
-        whether is_replay is True or False
+        If present, updates. If not, appends itself.
         """
         file_path = self.get_output_path()
         output_key = -1 if self.is_replay else 'questions' # last list in replay games or 'questions' key in live saved games
