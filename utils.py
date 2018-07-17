@@ -6,6 +6,7 @@ import urllib.parse
 from enum import Enum
 from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
+from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
 
 
@@ -41,7 +42,7 @@ def answer_words_queries(question, _answers):
     """" Build google query set from data and options """
     queries = [question]
     return ['https://www.google.co.uk/search?pws=0&q=' \
-        + urllib.parse.quote_plus(q) for q in queries]
+        + urllib.parse.quote_plus(question) for q in queries]
 
 
 def count_results_queries(question, answers):
@@ -71,10 +72,19 @@ def predict_answers(data, answers):
     print('------------------------')
     print('\n')
 
-    session = FuturesSession()
+    if not data.get('is_replay', False):
+        session = FuturesSession()
+    else:
+        session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
 
-    answer_words_resp = [future.result() for future in map(session.get, answer_words_queries(question, answers))]
-    count_results_resp = [future.result() for future in map(session.get, count_results_queries(question, answers))]
+    answer_words_resp = [
+        (resp.result() if hasattr(resp, 'result') else resp) \
+        for resp in map(session.get, answer_words_queries(question, answers))
+    ]
+    count_results_resp = [
+        (resp.result() if hasattr(resp, 'result') else resp) \
+        for resp in map(session.get, count_results_queries(question, answers))
+    ]
 
     confidence = find_answer_words_google(question, answers, confidence, answer_words_resp)
     confidence = count_results_number_google(question, answers, confidence, count_results_resp)
@@ -126,6 +136,7 @@ def find_answer_words_google(_question, answers, confidence, responses):
         answer_words = get_raw_words(answer)
         occurrences[index] += results_words.count(answer_words)
 
+    print("METHOD 1")
     print("Count: %s%s%s" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
 
     # Calculate confidence
@@ -134,7 +145,6 @@ def find_answer_words_google(_question, answers, confidence, responses):
         if total_occurrences:
             confidence[index] += int(count / total_occurrences * Weights.GOOGLE_SUMMARY_ANSWER_COUNT.value)
 
-    print("METHOD 1 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -151,6 +161,7 @@ def count_results_number_google(_question, _answers, confidence, responses):
             if results_count:
                 occurrences[chr(65 + index)] += int(results_count[0])
 
+    print("METHOD 2")
     print("Search Results: %s%s%s" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
 
     # Calculate confidence
@@ -159,7 +170,6 @@ def count_results_number_google(_question, _answers, confidence, responses):
         if total_occurrences:
             confidence[index] += int(count / total_occurrences * Weights.GOOGLE_RESULTS_NUMBER.value)
 
-    print("METHOD 1 + 2 - Confidence: %s\n" % confidence)
     return confidence
 
 
