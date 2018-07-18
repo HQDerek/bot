@@ -82,28 +82,9 @@ class HqTriviaBot(object):
         """ build up answers and make predictions """
         data['answers'] = build_answers(data.get('answers'))
         question = Question(is_replay=False, **data)
-        # TODO: add predict_answers to Question class which updates prediction attribute
         (prediction, confidence) = predict_answers(question)
+        question.add_prediction(prediction, confidence)
 
-        # TODO: replace with question.save
-        # Load save game file and append question
-        with open('./games/%s.json' % self.current_game) as file:
-            output = load(file)
-        output.get('questions').append({
-            'question': question.text,
-            'category': question.category,
-            'questionId': question.questionId,
-            'questionNumber': question.number,
-            'answers': question.answers,
-            'prediction': {
-                'answer': prediction,
-                'confidence': confidence
-            }
-        })
-
-        # Update save game file
-        with open('./games/%s.json' % self.current_game, 'w') as file:
-            dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
     def question_summary(self, data):
         """" display the summary of a question """

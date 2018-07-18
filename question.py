@@ -12,6 +12,7 @@ class Question(object):
         self.answers = kwargs.get('answers', None)
         self.correct = kwargs.get("correct", None)
         self.category = kwargs.get("category", None)
+        self.prediction = kwargs.get("prediction", {})
         self.is_replay = is_replay
 
     def get_output_path(self):
@@ -56,8 +57,13 @@ class Question(object):
     def display_summary(self):
         pass
 
-    def add_prediction(self):
-        pass
+    def add_prediction(self, prediction, confidence):
+        """ Add the prediction dict to the Question """
+        self.prediction = {
+            'answer': prediction,
+            'confidence': confidence
+        }
+        self.save()
 
     def add_correct(self):
         pass
