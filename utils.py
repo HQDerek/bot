@@ -136,7 +136,7 @@ def find_answer_words_google(_question, answers, confidence, responses):
         answer_words = get_raw_words(answer)
         occurrences[index] += results_words.count(answer_words)
 
-    print("METHOD 1")
+    print("\nMETHOD 1")
     print("Count: %s%s%s" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
 
     # Calculate confidence
@@ -161,8 +161,8 @@ def count_results_number_google(_question, _answers, confidence, responses):
             if results_count:
                 occurrences[chr(65 + index)] += int(results_count[0])
 
-    print("METHOD 2")
-    print("Search Results: %s%s%s" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
+    print("\nMETHOD 2")
+    print("Search Results: %s%s%s\n" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
