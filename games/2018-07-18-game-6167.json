@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "A week",
+                "B": "A fortnight",
+                "C": "A day"
+            },
+            "category": "Language",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "81%",
+                    "B": "0%",
+                    "C": "17%"
+                }
+            },
+            "question": "Which of these time periods lasts the longest?",
+            "questionId": 52031,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Raleigh",
+                "B": "Genesis",
+                "C": "Evans"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "85%",
+                    "B": "7%",
+                    "C": "6%"
+                }
+            },
+            "question": "Which UK cycling manufacturer is noted for iconic bikes such as the Chopper and the Grifter?",
+            "questionId": 52032,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "The Legend of Zelda",
+                "B": "Mass Effect",
+                "C": "Pokemon"
+            },
+            "category": "Games",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "77%",
+                    "B": "10%",
+                    "C": "12%"
+                }
+            },
+            "question": "Link is the central protagonist in which video game series?",
+            "questionId": 52033,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Climbed the giraffe",
+                "B": "Jumped the shark",
+                "C": "Rounded the elephant"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "93%",
+                    "B": "6%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these phrases is used to describe a TV programme that is past its best?",
+            "questionId": 52034,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Norse",
+                "B": "Babylonian",
+                "C": "Egyptian"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "84%",
+                    "B": "2%",
+                    "C": "12%"
+                }
+            },
+            "question": "Asgard is central to which of these mythological systems?",
+            "questionId": 52035,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Owls",
+                "B": "Woodpeckers",
+                "C": "Lapwings"
+            },
+            "category": "Language",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "90%",
+                    "B": "7%",
+                    "C": "2%"
+                }
+            },
+            "question": "A group of which of these birds shares a name with a political institution?",
+            "questionId": 52036,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Valentine's Brook",
+                "B": "Foinavon",
+                "C": "Becher's Brook"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "5%",
+                    "B": "65%",
+                    "C": "28%"
+                }
+            },
+            "question": "In the Grand National, which of these fences is named after a horse in the 1967 race?",
+            "questionId": 52037,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Tom and Jerry",
+                "B": "Goofy",
+                "C": "Speedy Gonzales"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "41%",
+                    "B": "56%",
+                    "C": "2%"
+                }
+            },
+            "question": "The mayor of Springfield from “The Simpsons” shares a surname with a producer of which cartoon?",
+            "questionId": 52038,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Pact of Iron",
+                "B": "Pact of Steel",
+                "C": "Pact of Stone"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "3%",
+                    "C": "96%"
+                }
+            },
+            "question": "What was the name given to an early 20th century alliance signed by Germany and Italy?",
+            "questionId": 52039,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Jeff Koons",
+                "B": "David Hockney",
+                "C": "Jasper Johns"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "35%",
+                    "B": "31%",
+                    "C": "32%"
+                }
+            },
+            "question": "Which artist appeared in the movie “Milk” alongside Sean Penn?",
+            "questionId": 52040,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Europa",
+                "B": "Callisto",
+                "C": "Io"
+            },
+            "category": "Science",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "36%",
+                    "B": "19%",
+                    "C": "44%"
+                }
+            },
+            "question": "Which of these moons of Jupiter is NOT bigger than the earth's moon?",
+            "questionId": 52041,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Broadband",
+                "B": "Solar energy panel",
+                "C": "Smart meter"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "97%",
+                    "B": "0%",
+                    "C": "2%"
+                }
+            },
+            "question": "In 1995, a household in Oxford became Britain's first to have which of these installed?",
+            "questionId": 52042,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6167,
+    "ts": "2018-07-18T20:03:00.961Z"
+}
