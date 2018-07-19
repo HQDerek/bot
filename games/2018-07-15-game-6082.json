@@ -1,0 +1,229 @@
+{
+    "numCorrect": 7,
+    "prize": "£8,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Rotten Tomatoes",
+                "B": "Radio Times",
+                "C": "Russia Today"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "31%",
+                    "B": "67%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these would you buy to look up TV listings?",
+            "questionId": 51213,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Blue",
+                "B": "Orange",
+                "C": "Green"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "35%",
+                    "B": "27%",
+                    "C": "36%"
+                }
+            },
+            "question": "In a typical rainbow, which colour immediately follows red?",
+            "questionId": 51214,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Amsterdam",
+                "B": "Newcastle",
+                "C": "Reykjavik"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "93%",
+                    "B": "5%",
+                    "C": "0%"
+                }
+            },
+            "question": "The world's first “hangover bar” opened in which city?",
+            "questionId": 51215,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "The Beach Boys",
+                "B": "The Rolling Stones",
+                "C": "Michael Jackson"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "“You're a vegetable” and “You're just a buffet” are lines from a hit single by which act?",
+            "questionId": 51216,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Sweden",
+                "B": "Israel",
+                "C": "Germany"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "74%",
+                    "C": "12%"
+                }
+            },
+            "question": "The TV series “Homeland” was originally based on a show from which country?",
+            "questionId": 51217,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "The Peter Principle",
+                "B": "Murphy's Law",
+                "C": "Parkinson's Law"
+            },
+            "category": "Science",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "21%",
+                    "B": "14%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which of these theories suggests that work expands to fill the time available?",
+            "questionId": 51218,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Anchorman",
+                "B": "Enemy of the State",
+                "C": "Land of the Lost"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "9%",
+                    "B": "12%",
+                    "C": "78%"
+                }
+            },
+            "question": "Which of these movies does NOT feature Jack Black?",
+            "questionId": 51219,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Mantle",
+                "B": "Inner core",
+                "C": "Outer core"
+            },
+            "category": "Science",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "53%",
+                    "B": "22%",
+                    "C": "23%"
+                }
+            },
+            "question": "Which of these layers of the earth is the thinnest?",
+            "questionId": 51220,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "India",
+                "B": "Nigeria",
+                "C": "Japan"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "79%",
+                    "B": "7%",
+                    "C": "12%"
+                }
+            },
+            "question": "Of these three countries' embassies, which owes the most in unpaid London congestion charges?",
+            "questionId": 51221,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Luis Suarez",
+                "B": "Cristiano Ronaldo",
+                "C": "Lionel Messi"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "6%",
+                    "B": "64%",
+                    "C": "29%"
+                }
+            },
+            "question": "Which of the following has NOT scored in an Olympic football tournament?",
+            "questionId": 51222,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Malaysia / Singapore",
+                "B": "Jordan / Saudi Arabia",
+                "C": "Namibia / South Africa"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "A section of which border is nicknamed after a supposedly “hiccupping” world leader?",
+            "questionId": 51223,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6082,
+    "ts": "2018-07-15T20:03:48.366Z"
+}

@@ -5,28 +5,70 @@ import utils
 
 
 @pytest.fixture
-def question_api_response():
+def api_response():
     """ question/answers example set """
-    question = "What did Yankee Doodle stick in his cap?"
-    answers = {
-        'A': 'Feather',
-        'B': 'Noodle soup',
-        'C': 'Duck'
+    return {
+        "answers": {
+            "A": "Badger",
+            "B": "Cheetah",
+            "C": "Giraffe"
+        },
+        "category": "Nature",
+        "is_replay": True,
+        "question": "What is the world's fastest land animal?",
+        "questionId": 28482,
+        "questionNumber": 1
     }
-    return question, answers
 
 
-@patch('utils.grequests.get')
-def test_find_answer_words_google(mock_grequests_get, question_api_response):  # pylint: disable=redefined-outer-name
-    """ testing basic behaviour in find_answer_words_google """
+def mock_cache_get(_url):
+    """ mocked get response """
     mock_response = Mock()
-    mock_grequests_get.return_value = mock_response
     mock_response.url = "/"
     mock_response.text = "Example Response"
 
-    question, answers = question_api_response
-    google_responses = utils.build_google_queries(question, answers)
+    mock_get = Mock()
+    mock_get.result.return_value = mock_response
+    return mock_get
 
-    confidence = utils.find_answer_words_google(question, answers, {'A': 0, 'B': 0, 'C': 0}, google_responses[:1])
+
+@patch('utils.CachedSession.get', side_effect=mock_cache_get)
+def test_predict_answers(_mock_session_get, api_response):  # pylint: disable=redefined-outer-name
+    """ testing predict_answers """
+
+    (prediction, confidence) = utils.predict_answers(
+        api_response, api_response.get('answers')
+    )
+
+    assert prediction == 'A'
+    assert confidence == {'A': '0%', 'B': '0%', 'C': '0%'}
+
+
+def test_answer_words_google(api_response):  # pylint: disable=redefined-outer-name
+    """ testing basic behaviour in find_answer_words_google """
+
+    mock_response = Mock()
+    mock_response.url = "/"
+    mock_response.text = "Example Response"
+
+    confidence = utils.find_answer_words_google(
+        api_response.get('question'), api_response.get('answers'), \
+        {'A': 0, 'B': 0, 'C': 0}, [mock_response]
+    )
+
+    assert confidence == {'A': 0, 'B': 0, 'C': 0}
+
+
+def test_results_number_google(api_response):  # pylint: disable=redefined-outer-name
+    """ testing basic behaviour in count_results_number_google """
+
+    mock_response = Mock()
+    mock_response.url = "/"
+    mock_response.text = "Example Response"
+
+    confidence = utils.count_results_number_google(
+        api_response.get('question'), api_response.get('answers'), \
+        {'A': 0, 'B': 0, 'C': 0}, [mock_response]
+    )
 
     assert confidence == {'A': 0, 'B': 0, 'C': 0}
