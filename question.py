@@ -1,3 +1,4 @@
+""" Module for representing a question """
 from glob import glob
 import os
 from json import load, dump
@@ -45,7 +46,9 @@ class Question(object):
         If present, updates. If not, appends itself. File path used depends on
         whether is_replay is True or False
         """
-        output_key = -1 if self.is_replay else 'questions' # last list in replay games or 'questions' key in live saved games
+
+        # last list in replay games or 'questions' key in live saved games
+        output_key = -1 if self.is_replay else 'questions' 
 
         with open(self.game_path) as file:
             output = load(file)
@@ -70,6 +73,7 @@ class Question(object):
             dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
     def display_summary(self):
+        """ Display summary """
         pass
 
     def add_prediction(self, prediction, confidence):
