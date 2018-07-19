@@ -1,6 +1,6 @@
 """ unit tests for solvers """
 import pytest
-from mock import Mock, PropertyMock
+from mock import Mock
 from solvers import GoogleAnswerWordsSolver, GoogleResultsCountSolver
 
 @pytest.fixture
