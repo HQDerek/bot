@@ -5,11 +5,7 @@ from json import load, dump
 class Question(object):
     """ An instance of a HQ Trivia question """
 
-<<<<<<< HEAD
     def __init__(self, is_replay=False, load_id=None, **kwargs):
-=======
-    def __init__(self, is_replay=True, **kwargs):
->>>>>>> parent of cf8eeef... rm replay code
         self.id = kwargs.get('questionId', None)
         self.number = kwargs.get('questionNumber', None)
         self.text = kwargs.get('question', None)

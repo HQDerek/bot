@@ -11,6 +11,7 @@ import grequests
 from requests import get, post
 from utils import Colours, build_answers, predict_answers
 from question import Question
+from replay import Replayer
 
 
 class HqTriviaBot(object):
@@ -260,5 +261,8 @@ if __name__ == "__main__":
         BOT.run()
     elif len(argv) > 1 and argv[1] == "replay":
         BOT.replay(argv)
+    elif len(argv) > 1 and argv[1] == "replaynew":
+        replayer = Replayer()
+        import pdb; pdb.set_trace()
     else:
         print('Error: Syntax is ./hqtrivia-bot.py [replay] [<game-id>]')
