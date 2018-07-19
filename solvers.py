@@ -129,3 +129,30 @@ class GoogleResultsCountSolver(BaseSolver):
             chr(65 + index), Colours.BOLD.value, matches[chr(65 + index)], Colours.ENDC.value
         ))
         return matches
+
+
+class WolframAlphaAnswerWordsSolver(BaseSolver):
+    """ Solver that searches question on Wolfram Alpha and looks for answer words """
+
+    weight = 100
+    service_url = 'http://api.wolframalpha.com/v1/result?appid=4H762W-PQ7735Q7T6&timeout=2&i={}'
+
+    @staticmethod
+    def build_queries(question_text, answers):
+        """ build queries with question text and answers """
+        return ['{} {}'.format(question_text, ', '.join(answers.values()))]
+
+    @staticmethod
+    def get_answer_matches(response, _index, answers, matches):
+        """ get answer occurences for response """
+        result = BeautifulSoup(response.text, "html5lib").text
+        print(response.url)
+        print('Response: {}'.format(result))
+        if result != 'Wolfram|Alpha did not understand your input':
+            results_words = get_raw_words(result)
+            for index, answer in answers.items():
+                answer_words = get_raw_words(answer)
+                matches[index] += results_words.count(answer_words)
+            for index, count in matches.items():
+                print('{}: {}'.format(index, Colours.BOLD.value + str(count) + Colours.ENDC.value))
+        return matches

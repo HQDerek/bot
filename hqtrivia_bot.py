@@ -12,7 +12,7 @@ from requests import get, post, Request
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
-from solvers import GoogleAnswerWordsSolver, GoogleResultsCountSolver
+from solvers import GoogleAnswerWordsSolver, WolframAlphaAnswerWordsSolver, GoogleResultsCountSolver
 from utils import Colours
 
 
@@ -25,7 +25,8 @@ class HqTriviaBot(object):
         self.current_game = ''
         self.solvers = [
             GoogleAnswerWordsSolver(),
-            GoogleResultsCountSolver()
+            GoogleResultsCountSolver(),
+            WolframAlphaAnswerWordsSolver()
         ]
         self.headers = {
             'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
@@ -360,7 +361,8 @@ class HqTriviaBot(object):
         session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
         solvers = [
             GoogleAnswerWordsSolver(),
-            GoogleResultsCountSolver()
+            GoogleResultsCountSolver(),
+            WolframAlphaAnswerWordsSolver()
         ]
         print('Running cache %s' % command)
         if command == 'prune':
