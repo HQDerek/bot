@@ -100,18 +100,16 @@ class HqTriviaBot(object):
     def prediction_time(self, data):
         """ build up answers and make predictions """
         if isinstance(data.get('answers'), list):
-            answers = {
+            data['answers'] = {
                 'A': data.get('answers')[0]['text'],
                 'B': data.get('answers')[1]['text'],
                 'C': data.get('answers')[2]['text']
             }
-        else:
-            answers = data.get('answers')
 
         print('\n\n\n------------ QUESTION %s | %s ------------' %
               (data.get('questionNumber'), data.get('category')))
         print('%s\n\n------------ ANSWERS ------------\n%s\n------------------------' %
-              ((Colours.BOLD.value + data.get('question') + Colours.ENDC.value), answers))
+              ((Colours.BOLD.value + data.get('question') + Colours.ENDC.value), data.get('answers')))
 
         # Create session and open browser
         if not data.get('is_replay', False):
@@ -121,15 +119,15 @@ class HqTriviaBot(object):
             session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
 
         # Run solvers
+        responses = {}
         confidence = {'A': 0, 'B': 0, 'C': 0}
-        solver_responses = {}
         for solver in self.solvers:
-            urls = solver.build_urls(data.get('question'), answers)
-            solver_responses[solver] = solver.fetch_responses(urls, session)
-
-        for solver, responses in solver_responses.items():
+            responses[solver] = solver.fetch_responses(
+                solver.build_urls(data.get('question'), data.get('answers')), session
+            )
+        for solver, responses in responses.items():
             (prediction, confidence) = solver.run(
-                data.get('question'), answers, responses, confidence
+                data.get('question'), data.get('answers'), responses, confidence
             )
 
         # Show prediction in console
@@ -139,7 +137,7 @@ class HqTriviaBot(object):
             likelihood = int(count/total_confidence * 100) if total_confidence else 0
             confidence[index] = '%d%%' % likelihood
             result = '%sAnswer %s: %s - %s%%' % \
-                ('-> ' if index == prediction else '   ', index, answers[index], likelihood)
+                ('-> ' if index == prediction else '   ', index, data.get('answers').get(index), likelihood)
             print(Colours.OKBLUE.value + Colours.BOLD.value + result + Colours.ENDC.value \
                 if index == prediction else result)
 
@@ -152,7 +150,7 @@ class HqTriviaBot(object):
                 'category': data.get('category'),
                 'questionId': data.get('questionId'),
                 'questionNumber': data.get('questionNumber'),
-                'answers': answers,
+                'answers': data.get('answers'),
                 'prediction': {
                     'answer': prediction,
                     'confidence': confidence
