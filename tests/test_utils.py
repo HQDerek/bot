@@ -1,6 +1,7 @@
 """ unit tests for the hqtrivia_bot.py """
 import pytest
 from mock import Mock, patch
+from question import Question
 import utils
 
 
@@ -14,7 +15,6 @@ def api_response():
             "C": "Giraffe"
         },
         "category": "Nature",
-        "is_replay": True,
         "question": "What is the world's fastest land animal?",
         "questionId": 28482,
         "questionNumber": 1
@@ -36,9 +36,9 @@ def mock_cache_get(_url):
 def test_predict_answers(_mock_session_get, api_response):  # pylint: disable=redefined-outer-name
     """ testing predict_answers """
 
-    (prediction, confidence) = utils.predict_answers(
-        api_response, api_response.get('answers')
-    )
+    question = Question(is_replay=True, **api_response)
+
+    (prediction, confidence) = utils.predict_answers(question)
 
     assert prediction == 'A'
     assert confidence == {'A': '0%', 'B': '0%', 'C': '0%'}
