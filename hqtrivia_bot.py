@@ -110,7 +110,7 @@ class HqTriviaBot(object):
 
         print('\n\n\n------------ QUESTION %s | %s ------------' %
               (data.get('questionNumber'), data.get('category')))
-        print('%s\n\n------------ ANSWERS ------------\n%s\n------------------------\n' %
+        print('%s\n\n------------ ANSWERS ------------\n%s\n------------------------' %
               ((Colours.BOLD.value + data.get('question') + Colours.ENDC.value), answers))
 
         # Create session and open browser
@@ -128,12 +128,15 @@ class HqTriviaBot(object):
             )
 
         # Show prediction in console
+        print('\nPrediction:')
         total_confidence = sum(confidence.values())
         for index, count in confidence.items():
             likelihood = int(count/total_confidence * 100) if total_confidence else 0
             confidence[index] = '%d%%' % likelihood
-            result = 'Answer %s: %s - %s%%' % (index, answers[index], likelihood)
-            print(Colours.BOLD.value + result + Colours.ENDC.value if index == prediction else result)
+            result = '%sAnswer %s: %s - %s%%' % \
+                ('-> ' if index == prediction else '   ', index, answers[index], likelihood)
+            print(Colours.OKBLUE.value + Colours.BOLD.value + result + Colours.ENDC.value \
+                if index == prediction else result)
 
         # Load save game file and append question
         if not data.get('is_replay', False):
@@ -172,7 +175,7 @@ class HqTriviaBot(object):
         correct = output['questions'][question_index]['prediction']['answer'] == chr(65 + correct_index)
 
         # Print results to console
-        correct_string = Colours.BOLD.value + 'Correct Answer: {} - {}' + Colours.ENDC.value
+        correct_string = Colours.BOLD.value + '\n\nCorrect Answer: {} - {}' + Colours.ENDC.value
         print(correct_string.format(chr(65 + correct_index),
                                     output['questions'][question_index]['answers'][chr(65 + correct_index)]))
         if correct:
@@ -311,29 +314,35 @@ class HqTriviaBot(object):
         total = 0
         total_correct = 0
         orig_total_correct = 0
+
         for filename in sorted(glob('games/*.json')):
             if len(arguments) == 2 or (len(arguments) == 3 and filename[22:26] in arguments[2].split(',')):
                 game = load(open(filename))
                 print("Replaying Round %s" % game.get('showId'))
                 num = 0
                 num_correct = 0
+
                 for data in game.get('questions'):
                     data['is_replay'] = True
                     prediction = self.prediction_time(data)
                     correct = prediction == data.get('correct')
-                    print('Predicted: %s, Correct: %s' % (prediction, data.get('correct')))
-
-                    if correct:
-                        print(Colours.BOLD.value + Colours.OKGREEN.value + "Correct? Yes" + Colours.ENDC.value)
-                    else:
-                        print(Colours.BOLD.value + Colours.FAIL.value + "Correct? No" + Colours.ENDC.value)
                     num += 1
                     num_correct += 1 if correct else 0
+
+                    # Print results to console
+                    correct_string = Colours.BOLD.value + '\n\nCorrect Answer: {} - {}' + Colours.ENDC.value
+                    print(correct_string.format(data.get('correct'), data.get('answers').get(data.get('correct'))))
+                    if correct:
+                        print(Colours.BOLD.value + Colours.OKGREEN.value + "Prediction Correct? Yes" + Colours.ENDC.value)
+                    else:
+                        print(Colours.BOLD.value + Colours.FAIL.value + "Prediction Correct? No" + Colours.ENDC.value)
+
                 total += num
                 total_correct += num_correct
                 orig_total_correct += game.get('numCorrect')
                 print("[ORIG] Correct: %s/%s" % (game.get('numCorrect'), len(game.get('questions'))))
                 print("Number Correct: %s/%s" % (num_correct, num))
+
         print(Colours.BOLD.value + "Replay Complete" + Colours.ENDC.value)
         print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))

@@ -3,7 +3,7 @@ import re
 import sys
 from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
-from utils import get_raw_words
+from utils import Colours, get_raw_words
 
 
 class BaseSolver(object):
@@ -12,7 +12,8 @@ class BaseSolver(object):
     weight = 0
     service_url = None
 
-    def build_queries(self, question_text, answers):
+    @staticmethod
+    def build_queries(question_text, answers):
         """ build queries with question text and answers """
         raise NotImplementedError()
 
@@ -21,11 +22,13 @@ class BaseSolver(object):
         queries = self.build_queries(question_text, answers)
         return [self.service_url.format(quote_plus(query)) for query in queries]
 
-    def fetch_responses(self, urls, session):
+    @staticmethod
+    def fetch_responses(urls, session):
         """ fetch responses for solver URLs """
-        return [(resp.result() if hasattr(resp, 'result') else resp) for resp in map(session.get, urls)]
+        return list(map(session.get, urls))
 
-    def get_answer_matches(self, response, answers, matches):
+    @staticmethod
+    def get_answer_matches(response, index, answers, matches):
         """ get answer occurences for response """
         raise NotImplementedError()
 
@@ -37,7 +40,8 @@ class BaseSolver(object):
                 confidence[index] += int(((count / total_matches) * 100) * self.weight)
         return confidence
 
-    def choose_answer(self, question_text, confidence):
+    @staticmethod
+    def choose_answer(question_text, confidence):
         """ Choose an answer using confidence """
         comparison = min if 'NOT' in question_text or 'NEVER' in question_text else max
         return comparison(confidence, key=confidence.get)
@@ -45,16 +49,20 @@ class BaseSolver(object):
     def run(self, question_text, answers, session, confidence):
         """ Run solver and return confidence """
 
+        print('\n%s: ' % (re.sub(r'(\w)([A-Z])', r'\1 \2', self.__class__.__name__)[:-7]))
+
         matches = {'A': 0, 'B': 0, 'C': 0}
         urls = self.build_urls(question_text, answers)
 
-        for response in self.fetch_responses(urls, session):
+        for index, response in enumerate(self.fetch_responses(urls, session)):
+            response = response.result() if hasattr(response, 'result') else response
             if '/sorry/index?continue=' in response.url:
                 sys.exit('ERROR: Google rate limiting detected.')
-            matches = self.get_answer_matches(response, answers, matches)
+            matches = self.get_answer_matches(response, index, answers, matches)
 
         confidence = self.compute_confidence(matches, confidence)
         prediction = self.choose_answer(question_text, confidence)
+
         return prediction, confidence
 
 
@@ -64,11 +72,13 @@ class GoogleAnswerWordsSolver(BaseSolver):
     weight = 200
     service_url = 'https://www.google.co.uk/search?pws=0&q={}'
 
-    def build_queries(self, question_text, answers):
+    @staticmethod
+    def build_queries(question_text, answers):
         """ build queries with question text and answers """
         return [question_text]
 
-    def get_answer_matches(self, response, answers, matches):
+    @staticmethod
+    def get_answer_matches(response, index,answers, matches):
         """ get answer occurences for response """
         results = ''
         document = BeautifulSoup(response.text, "html5lib")
@@ -84,6 +94,8 @@ class GoogleAnswerWordsSolver(BaseSolver):
         for index, answer in answers.items():
             answer_words = get_raw_words(answer)
             matches[index] += results_words.count(answer_words)
+        for index, count in matches.items():
+            print('{}: {}'.format(index, Colours.BOLD.value + str(count) + Colours.ENDC.value))
         return matches
 
 
@@ -93,23 +105,22 @@ class GoogleResultsCountSolver(BaseSolver):
     weight = 100
     service_url = 'https://www.google.co.uk/search?pws=0&q={}'
 
-    def build_queries(self, question_text, answers):
+    @staticmethod
+    def build_queries(question_text, answers):
         """ build queries with question text and answers """
         return ['%s "%s"' % (question_text, answer) for answer in answers.values()]
 
-    def fetch_responses(self, urls, session):
-        """ fetch responses for solver URLs and add answer indexes """
-        responses = super().fetch_responses(urls, session)
-        for index, response in enumerate(responses):
-            response.index = index
-        return responses
-
-    def get_answer_matches(self, response, answers, matches):
+    @staticmethod
+    def get_answer_matches(response, index, answers, matches):
         """ get answer occurences for response """
         document = BeautifulSoup(response.text, "html5lib")
-        if document.find(id='resultStats'):
-            results_count_text = document.find(id='resultStats').text.replace(',', '')
-            results_count = re.findall(r'\d+', results_count_text)
-            if results_count:
-                matches[chr(65 + response.index)] += int(results_count[0])
+        if not getattr(document.find(id='topstuff'), 'text', '')[:16] == 'No results found':
+            if document.find(id='resultStats'):
+                results_count_text = document.find(id='resultStats').text.replace(',', '')
+                results_count = re.findall(r'\d+', results_count_text)
+                if results_count:
+                    matches[chr(65 + index)] += int(results_count[0])
+        print('{}: {}{:,}{}'.format(
+            chr(65 + index), Colours.BOLD.value, matches[chr(65 + index)], Colours.ENDC.value
+        ))
         return matches
