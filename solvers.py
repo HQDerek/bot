@@ -12,8 +12,7 @@ class BaseSolver(object):
     weight = 0
     service_url = None
 
-    @staticmethod
-    def build_queries(question_text, answers):
+    def build_queries(self, question_text, answers):
         """ build queries with question text and answers """
         raise NotImplementedError()
 
@@ -22,13 +21,11 @@ class BaseSolver(object):
         queries = self.build_queries(question_text, answers)
         return [self.service_url.format(quote_plus(query)) for query in queries]
 
-    @staticmethod
-    def fetch_responses(urls, session):
+    def fetch_responses(self, urls, session):
         """ fetch responses for solver URLs """
         return [(resp.result() if hasattr(resp, 'result') else resp) for resp in map(session.get, urls)]
 
-    @staticmethod
-    def get_answer_matches(response, answers, matches):
+    def get_answer_matches(self, response, answers, matches):
         """ get answer occurences for response """
         raise NotImplementedError()
 
@@ -40,8 +37,7 @@ class BaseSolver(object):
                 confidence[index] += int(((count / total_matches) * 100) * self.weight)
         return confidence
 
-    @staticmethod
-    def choose_answer(question_text, confidence):
+    def choose_answer(self, question_text, confidence):
         """ Choose an answer using confidence """
         comparison = min if 'NOT' in question_text or 'NEVER' in question_text else max
         return comparison(confidence, key=confidence.get)
@@ -66,15 +62,13 @@ class GoogleAnswerWordsSolver(BaseSolver):
     """ Solver that searches question on Google and counts answers in results """
 
     weight = 200
-    service_url = 'https://www.google.co.uk/search?pws=0&q='
+    service_url = 'https://www.google.co.uk/search?pws=0&q={}'
 
-    @staticmethod
-    def build_queries(question_text, answers):
+    def build_queries(self, question_text, answers):
         """ build queries with question text and answers """
         return [question_text]
 
-    @staticmethod
-    def get_answer_matches(response, answers, matches):
+    def get_answer_matches(self, response, answers, matches):
         """ get answer occurences for response """
         results = ''
         document = BeautifulSoup(response.text, "html5lib")
@@ -97,28 +91,25 @@ class GoogleResultsCountSolver(BaseSolver):
     """ Solver that searches question with quoted answer on Google and compares the number of results """
 
     weight = 100
-    service_url = 'https://www.google.co.uk/search?pws=0&q='
+    service_url = 'https://www.google.co.uk/search?pws=0&q={}'
 
-    @staticmethod
-    def build_queries(question_text, answers):
+    def build_queries(self, question_text, answers):
         """ build queries with question text and answers """
         return ['%s "%s"' % (question_text, answer) for answer in answers.values()]
 
-    @staticmethod
-    def fetch_responses(urls, session):
+    def fetch_responses(self, urls, session):
         """ fetch responses for solver URLs and add answer indexes """
         responses = super().fetch_responses(urls, session)
         for index, response in enumerate(responses):
             response.index = index
         return responses
 
-    @staticmethod
-    def get_answer_matches(response, answers, matches):
+    def get_answer_matches(self, response, answers, matches):
         """ get answer occurences for response """
         document = BeautifulSoup(response.text, "html5lib")
         if document.find(id='resultStats'):
             results_count_text = document.find(id='resultStats').text.replace(',', '')
             results_count = re.findall(r'\d+', results_count_text)
             if results_count:
-                matches[chr(65 + response.answer_index)] += int(results_count[0])
+                matches[chr(65 + response.index)] += int(results_count[0])
         return matches

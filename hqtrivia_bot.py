@@ -99,16 +99,19 @@ class HqTriviaBot(object):
 
     def prediction_time(self, data):
         """ build up answers and make predictions """
-        answers = {
-            'A': data.get('answers')[0]['text'],
-            'B': data.get('answers')[1]['text'],
-            'C': data.get('answers')[2]['text']
-        }
+        if isinstance(data.get('answers'), list):
+            answers = {
+                'A': data.get('answers')[0]['text'],
+                'B': data.get('answers')[1]['text'],
+                'C': data.get('answers')[2]['text']
+            }
+        else:
+            answers = data.get('answers')
 
-        print(('\n\n\n\n\n------------ %s %s | %s ------------\n' + \
-            '%s------------ ANSWERS ------------\n%s------------------------\n') % \
-            'QUESTION', data.get('questionNumber'), data.get('category'),
-              (Colours.BOLD.value + data.get('question') + Colours.ENDC.value), answers)
+        print('\n\n\n------------ QUESTION %s | %s ------------' %
+              (data.get('questionNumber'), data.get('category')))
+        print('%s\n\n------------ ANSWERS ------------\n%s\n------------------------\n' %
+              ((Colours.BOLD.value + data.get('question') + Colours.ENDC.value), answers))
 
         # Create session and open browser
         if not data.get('is_replay', False):
