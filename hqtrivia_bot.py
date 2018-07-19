@@ -1,5 +1,6 @@
 #!/usr/bin/python
 """ Implementing a bot for HQ Trivia """
+import webbrowser
 from os import path
 from sys import argv
 from glob import glob
@@ -9,9 +10,10 @@ from configparser import ConfigParser
 from json import load, loads, dump, JSONDecodeError
 from requests import get, post, Request
 from requests_cache import CachedSession
+from requests_futures.sessions import FuturesSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
-from utils import Colours, build_answers, predict_answers, \
-    answer_words_queries, count_results_queries
+from solvers import GoogleAnswerWordsSolver, GoogleResultsCountSolver
+from utils import Colours
 
 
 class HqTriviaBot(object):
@@ -21,6 +23,10 @@ class HqTriviaBot(object):
         self.config.read('config.ini')
         self.broadcast_ended = False
         self.current_game = ''
+        self.solvers = [
+            GoogleAnswerWordsSolver(),
+            GoogleResultsCountSolver()
+        ]
         self.headers = {
             'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
             'x-hq-stk': '',
@@ -93,27 +99,60 @@ class HqTriviaBot(object):
 
     def prediction_time(self, data):
         """ build up answers and make predictions """
-        parsed_answers = build_answers(data.get('answers'))
-        (prediction, confidence) = predict_answers(data, parsed_answers)
+        answers = {
+            'A': data.get('answers')[0]['text'],
+            'B': data.get('answers')[1]['text'],
+            'C': data.get('answers')[2]['text']
+        }
+
+        print(('\n\n\n\n\n------------ %s %s | %s ------------\n' + \
+            '%s------------ ANSWERS ------------\n%s------------------------\n') % \
+            'QUESTION', data.get('questionNumber'), data.get('category'),
+              (Colours.BOLD.value + data.get('question') + Colours.ENDC.value), answers)
+
+        # Create session and open browser
+        if not data.get('is_replay', False):
+            session = FuturesSession()
+            webbrowser.open('https://www.google.co.uk/search?pws=0&q=' + data.get('question'))
+        else:
+            session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
+
+        # Run solvers
+        confidence = {'A': 0, 'B': 0, 'C': 0}
+        for solver in self.solvers:
+            (prediction, confidence) = solver.run(
+                data.get('question'), answers, session, confidence
+            )
+
+        # Show prediction in console
+        total_confidence = sum(confidence.values())
+        for index, count in confidence.items():
+            likelihood = int(count/total_confidence * 100) if total_confidence else 0
+            confidence[index] = '%d%%' % likelihood
+            result = 'Answer %s: %s - %s%%' % (index, answers[index], likelihood)
+            print(Colours.BOLD.value + result + Colours.ENDC.value if index == prediction else result)
 
         # Load save game file and append question
-        with open('./games/%s.json' % self.current_game) as file:
-            output = load(file)
-        output.get('questions').append({
-            'question': data.get('question'),
-            'category': data.get('category'),
-            'questionId': data.get('questionId'),
-            'questionNumber': data.get('questionNumber'),
-            'answers': parsed_answers,
-            'prediction': {
-                'answer': prediction,
-                'confidence': confidence
-            }
-        })
+        if not data.get('is_replay', False):
+            with open('./games/%s.json' % self.current_game) as file:
+                output = load(file)
+            output.get('questions').append({
+                'question': data.get('question'),
+                'category': data.get('category'),
+                'questionId': data.get('questionId'),
+                'questionNumber': data.get('questionNumber'),
+                'answers': answers,
+                'prediction': {
+                    'answer': prediction,
+                    'confidence': confidence
+                }
+            })
 
-        # Update save game file
-        with open('./games/%s.json' % self.current_game, 'w') as file:
-            dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
+            # Update save game file
+            with open('./games/%s.json' % self.current_game, 'w') as file:
+                dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
+
+        return prediction
 
     def question_summary(self, data):
         """" display the summary of a question """
@@ -263,8 +302,7 @@ class HqTriviaBot(object):
         except JSONDecodeError:
             pass
 
-    @staticmethod
-    def replay(arguments):
+    def replay(self, arguments):
         """ replay mode """
         print("Running in Replay Mode")
         total = 0
@@ -276,12 +314,11 @@ class HqTriviaBot(object):
                 print("Replaying Round %s" % game.get('showId'))
                 num = 0
                 num_correct = 0
-                for question in game.get('questions'):
-                    question['is_replay'] = True
-
-                    (prediction, _confidence) = predict_answers(question, question.get('answers'))
-                    correct = prediction == question.get('correct')
-                    print('Predicted: %s, Correct: %s' % (prediction, question.get('correct')))
+                for data in game.get('questions'):
+                    data['is_replay'] = True
+                    prediction = self.prediction_time(data)
+                    correct = prediction == data.get('correct')
+                    print('Predicted: %s, Correct: %s' % (prediction, data.get('correct')))
 
                     if correct:
                         print(Colours.BOLD.value + Colours.OKGREEN.value + "Correct? Yes" + Colours.ENDC.value)
@@ -301,37 +338,31 @@ class HqTriviaBot(object):
     def cache(self, command):
         """ cache mode """
         session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
-        methods = [
-            {
-                'name': 'answer_words_google',
-                'queries': answer_words_queries
-            },
-            {
-                'name': 'count_results_google',
-                'queries': count_results_queries
-            }
+        solvers = [
+            GoogleAnswerWordsSolver(),
+            GoogleResultsCountSolver()
         ]
         print('Running cache %s' % command)
         if command == 'prune':
-            self.cache_prune(session, methods)
+            self.cache_prune(session, solvers)
         elif command == 'refresh':
-            self.cache_refresh(session, methods)
+            self.cache_refresh(session, solvers)
         elif command == 'vacuum':
-            self.cache_vacuum(session, methods)
+            self.cache_vacuum(session, solvers)
         elif command == 'import':
-            self.cache_import(session, methods)
+            self.cache_import(session, solvers)
         elif command == 'export':
-            self.cache_export(session, methods)
+            self.cache_export(session, solvers)
 
     @staticmethod
-    def cache_prune(session, methods):
+    def cache_prune(session, solvers):
         """ cache prune mode """
         urls = []
-        for method in methods:
+        for solver in solvers:
             for filename in sorted(glob('games/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
-                    urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
+                    urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')))
         stale_entries = []
         for key, (resp, _) in session.cache.responses.items():
             if resp.url not in urls and not any(step.url in urls for step in resp.history):
@@ -342,14 +373,14 @@ class HqTriviaBot(object):
             session.cache.delete(key)
 
     @staticmethod
-    def cache_refresh(session, methods):
+    def cache_refresh(session, solvers):
         """ cache refresh mode """
         urls = []
-        for method in methods:
+        for solver in solvers:
             for filename in sorted(glob('games/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
-                    urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
+                    urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')))
         cache_misses = [
             url for url in urls if not session.cache.create_key(
                 session.prepare_request(Request('GET', url))
@@ -363,14 +394,14 @@ class HqTriviaBot(object):
                 exit('ERROR: Google rate limiting detected. Cached %s pages.' % idx)
 
     @staticmethod
-    def cache_vacuum(_session, _methods):
+    def cache_vacuum(_session, _solvers):
         """ cache vacuum mode """
         conn = connect("db/cache.sqlite")
         conn.execute("VACUUM")
         conn.close()
 
     @staticmethod
-    def cache_import(_session, _methods):
+    def cache_import(_session, _solvers):
         """ cache import mode """
         conn = connect("db/cache.sqlite")
         for filename in sorted(glob('db/*.sql')):
@@ -381,7 +412,7 @@ class HqTriviaBot(object):
         conn.close()
 
     @staticmethod
-    def cache_export(session, methods):
+    def cache_export(session, solvers):
         """ cache export mode """
         for filename in sorted(glob('games/*.json')):
             game = load(open(filename))
@@ -389,9 +420,9 @@ class HqTriviaBot(object):
             if not path.isfile('./db/%s.sql' % show_id):
                 print('Exporting SQL %s' % show_id)
                 urls = []
-                for method in methods:
+                for solver in solvers:
                     for turn in game.get('questions'):
-                        urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
+                        urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')))
                 url_keys = [session.cache.create_key(session.prepare_request(Request('GET', url))) for url in urls]
                 conn = connect(':memory:')
                 cur = conn.cursor()
