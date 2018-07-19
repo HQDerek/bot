@@ -229,19 +229,19 @@ class HqTriviaBot(object):
                 print("Replaying Round %s" % game.get('showId'))
                 num = 0
                 num_correct = 0
-                for question in game.get('questions'):
-                    question['is_replay'] = True
+                for question_data in game.get('questions'):
+                    question = Question(is_replay=True, **question_data)
 
-                    (prediction, _confidence) = predict_answers(question, question.get('answers'))
-                    correct = prediction == question.get('correct')
-                    print('Predicted: %s, Correct: %s' % (prediction, question.get('correct')))
+                    (prediction, _confidence) = predict_answers(question)
+                    is_correct = prediction == question.correct
+                    print('Predicted: %s, Correct: %s' % (prediction, question.correct))
 
-                    if correct:
+                    if is_correct:
                         print(Colours.BOLD.value + Colours.OKGREEN.value + "Correct? Yes" + Colours.ENDC.value)
                     else:
                         print(Colours.BOLD.value + Colours.FAIL.value + "Correct? No" + Colours.ENDC.value)
                     num += 1
-                    num_correct += 1 if correct else 0
+                    num_correct += 1 if is_correct else 0
                 total += num
                 total_correct += num_correct
                 orig_total_correct += game.get('numCorrect')
@@ -250,6 +250,8 @@ class HqTriviaBot(object):
         print(Colours.BOLD.value + "Replay Complete" + Colours.ENDC.value)
         print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
         print("Total Correct: %s/%s" % (total_correct, total))
+
+
 
 
 if __name__ == "__main__":

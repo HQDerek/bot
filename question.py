@@ -5,7 +5,11 @@ from json import load, dump
 class Question(object):
     """ An instance of a HQ Trivia question """
 
+<<<<<<< HEAD
     def __init__(self, is_replay=False, load_id=None, **kwargs):
+=======
+    def __init__(self, is_replay=True, **kwargs):
+>>>>>>> parent of cf8eeef... rm replay code
         self.id = kwargs.get('questionId', None)
         self.number = kwargs.get('questionNumber', None)
         self.text = kwargs.get('question', None)
@@ -39,7 +43,8 @@ class Question(object):
     def save(self):
         """
         Checks most recently created results file, checks it for question with same id.
-        If present, updates. If not, appends itself.
+        If present, updates. If not, appends itself. File path used depends on
+        whether is_replay is True or False
         """
         output_key = -1 if self.is_replay else 'questions' # last list in replay games or 'questions' key in live saved games
 
