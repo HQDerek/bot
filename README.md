@@ -1,4 +1,4 @@
-# hqtrivia-bot
+# hqtrivia_bot
 
 Welcome to HQ Trivia Bot! Thanks for contributing. Here are the steps to get started.
 

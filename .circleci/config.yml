@@ -3,7 +3,7 @@ version: 2 # use CircleCI 2.0
 jobs:
   build:
 
-    working_directory: ~/hqtrivia-bot
+    working_directory: ~/hqtrivia_bot
 
     docker:
       - image: circleci/python:3.6-stretch

@@ -477,8 +477,8 @@ if __name__ == "__main__":
         BOT.generate_token(argv[2])
     else:
         print('Error: Invalid syntax. Valid commands:')
-        print('hqtrivia-bot.py run')
-        print('hqtrivia-bot.py get-wins <username>')
-        print('hqtrivia-bot.py generate-token <phone>')
-        print('hqtrivia-bot.py replay <game-id>[,<game-id>]')
-        print('hqtrivia-bot.py cache <refresh|prune|vacuum>')
+        print('hqtrivia_bot.py run')
+        print('hqtrivia_bot.py get-wins <username>')
+        print('hqtrivia_bot.py generate-token <phone>')
+        print('hqtrivia_bot.py replay <game-id>[,<game-id>]')
+        print('hqtrivia_bot.py cache <refresh|prune|vacuum>')
