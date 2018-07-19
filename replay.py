@@ -17,14 +17,14 @@ class Replayer(object):
         for game_path in game_paths:
             game_data = load(open(game_path))
             for question in game_data['questions']:
-                questions.append(Question(**question))
+                questions.append(Question(is_replay=True, **question))
         return questions
 
     def play(self):
         self.setup_output_file()
         for question in self.questions:
-            result = predict_answers(question)
-            print(result)
+            (prediction, confidence) = predict_answers(question)
+            question.add_prediction(prediction, confidence)
 
     def setup_output_file(self, mode='r+'):
         try:
