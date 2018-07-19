@@ -333,9 +333,11 @@ class HqTriviaBot(object):
                     correct_string = Colours.BOLD.value + '\n\nCorrect Answer: {} - {}' + Colours.ENDC.value
                     print(correct_string.format(data.get('correct'), data.get('answers').get(data.get('correct'))))
                     if correct:
-                        print(Colours.BOLD.value + Colours.OKGREEN.value + "Prediction Correct? Yes" + Colours.ENDC.value)
+                        print(Colours.BOLD.value + Colours.OKGREEN.value + \
+                            "Prediction Correct? Yes" + Colours.ENDC.value)
                     else:
-                        print(Colours.BOLD.value + Colours.FAIL.value + "Prediction Correct? No" + Colours.ENDC.value)
+                        print(Colours.BOLD.value + Colours.FAIL.value + \
+                            "Prediction Correct? No" + Colours.ENDC.value)
 
                 total += num
                 total_correct += num_correct
