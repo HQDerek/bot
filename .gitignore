@@ -8,3 +8,4 @@ __pycache__/
 hqtrivia-bot/
 .idea/
 /test-reports/
+replay_results.json
