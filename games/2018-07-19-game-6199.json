@@ -1,0 +1,229 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Here We Go Again",
+                "B": "Resident Evil 4",
+                "C": "Infinity War"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "88%",
+                    "B": "3%",
+                    "C": "7%"
+                }
+            },
+            "question": "What is the subtitle of the “Mamma Mia!” sequel?",
+            "questionId": 52314,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Tim Allen",
+                "B": "Lily Allen",
+                "C": "Alan Partridge"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "12%",
+                    "C": "5%"
+                }
+            },
+            "question": "Who voices Buzz Lightyear in the ‘‘Toy Story’’ movies?",
+            "questionId": 52315,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Say the wrong winner",
+                "B": "Fall off the stage",
+                "C": "Sing a terrible song"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "45%",
+                    "B": "0%",
+                    "C": "54%"
+                }
+            },
+            "question": "What did Warren Beatty and Faye Dunaway notoriously do at the 2017 Oscars?",
+            "questionId": 52328,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Choose a job",
+                "B": "Choose a family",
+                "C": "Choose a car"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "50%",
+                    "B": "49%",
+                    "C": "0%"
+                }
+            },
+            "question": "What immediately follows “Choose life” in Ewan McGregor's opening speech from “Trainspotting”?",
+            "questionId": 52330,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "The Red Shoes",
+                "B": "The Life of Brian",
+                "C": "Brief Encounter"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "71%",
+                    "B": "16%",
+                    "C": "12%"
+                }
+            },
+            "question": "Which of these movies is in the Top Ten of Time Out's 100 Best British Films list?",
+            "questionId": 52331,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "George Lucas",
+                "B": "Martin Scorsese",
+                "C": "Steven Spielberg"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "4%",
+                    "B": "41%",
+                    "C": "53%"
+                }
+            },
+            "question": "Which of these directors was turned down when he applied to film school as a young man?",
+            "questionId": 52332,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Kate Winslet",
+                "B": "Cate Blanchett",
+                "C": "Amy Adams"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "47%",
+                    "B": "15%",
+                    "C": "36%"
+                }
+            },
+            "question": "Which of these actresses has received the most acting Oscar nominations?",
+            "questionId": 52333,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Octopussy",
+                "B": "Moonraker",
+                "C": "The Spy Who Loved Me"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "46%",
+                    "B": "31%",
+                    "C": "21%"
+                }
+            },
+            "question": "The theme song for which of these Bond movies FAILED to reach the top 100 of the UK singles chart?",
+            "questionId": 52334,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Armageddon",
+                "B": "Independence Day",
+                "C": "World War Z"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "6%",
+                    "B": "93%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which movie's tagline told us to take a good look at earth because “it could be your last”?",
+            "questionId": 52335,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Roman Holiday",
+                "B": "La Strada",
+                "C": "La Dolce Vita"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "4%",
+                    "C": "87%"
+                }
+            },
+            "question": "In which noted movie did a Swedish actress walk into Rome's Trevi fountain?",
+            "questionId": 52336,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Black Mass",
+                "B": "The Other Boleyn Girl",
+                "C": "The Fifth Estate"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "56%",
+                    "B": "9%",
+                    "C": "34%"
+                }
+            },
+            "question": "Which of these movies featuring Benedict Cumberbatch is “Certified Fresh” on Rotten Tomatoes?",
+            "questionId": 52337,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6199,
+    "ts": "2018-07-19T20:05:53.623Z"
+}
