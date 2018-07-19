@@ -21,18 +21,18 @@ def api_response():
     }
 
 
-def mock_future_get(_url):
+def mock_cache_get(_url):
     """ mocked get response """
     mock_response = Mock()
     mock_response.url = "/"
     mock_response.text = "Example Response"
 
-    mock_future = Mock()
-    mock_future.result.return_value = mock_response
-    return mock_future
+    mock_get = Mock()
+    mock_get.result.return_value = mock_response
+    return mock_get
 
 
-@patch('utils.FuturesSession.get', side_effect=mock_future_get)
+@patch('utils.CachedSession.get', side_effect=mock_cache_get)
 def test_predict_answers(_mock_session_get, api_response):  # pylint: disable=redefined-outer-name
     """ testing predict_answers """
 
