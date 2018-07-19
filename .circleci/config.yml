@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/hqtrivia-bot
 
     docker:
-      - image: circleci/python:3.6.6-stretch
+      - image: circleci/python:3.6-stretch
 
     steps:
       - checkout # check out source code to the working directory
@@ -19,6 +19,7 @@ jobs:
           command: |
             sudo pip install pipenv --upgrade
             pipenv install --dev
+            pipenv run python -m nltk.downloader stopwords
 
       - save_cache: # save dependency cache
           key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -29,7 +30,8 @@ jobs:
           name: Run Tests
           command: |
             mkdir test-reports
-            pipenv run test --junitxml=test-reports/junit.xml
+            pipenv run cache import
+            pipenv run test -s --junitxml=test-reports/junit.xml
 
       - run: # run lint
           name: Run Lint

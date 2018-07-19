@@ -1,13 +1,13 @@
 """ utilities for the HQ Trivia bot project """
 import re
 import sys
-from enum import Enum
-import urllib.parse
 import webbrowser
-import grequests
-from requests_cache import CachedSession
-from nltk.corpus import stopwords
+import urllib.parse
+from enum import Enum
 from bs4 import BeautifulSoup
+from nltk.corpus import stopwords
+from requests_cache import CachedSession
+from requests_futures.sessions import FuturesSession
 
 
 class Colours(Enum):
@@ -26,7 +26,6 @@ class Weights(Enum):
     """ weights for each algorithm """
     GOOGLE_SUMMARY_ANSWER_COUNT = 200
     GOOGLE_RESULTS_NUMBER = 100
-    WIKIPEDIA_PAGE_QUESTION_COUNT = 100
 
 
 def build_answers(raw_answers):
@@ -39,19 +38,18 @@ def build_answers(raw_answers):
     return answers
 
 
-def build_google_queries(question, answers, session=None):
+def answer_words_queries(question, _answers):
     """" Build google query set from data and options """
     queries = [question]
-    queries += ['%s "%s"' % (question, answer) for answer in answers.values()]
-    return [grequests.get('https://www.google.co.uk/search?q=' + urllib.parse.quote_plus(q),
-                          session=session) for q in queries]
+    return ['https://www.google.co.uk/search?pws=0&q=' \
+        + urllib.parse.quote_plus(question) for q in queries]
 
 
-def build_wikipedia_queries(_question, answers, session=None):
-    """ Build wikipedia query set from data and options """
-    queries = list(answers.values())
-    return [grequests.get('https://en.wikipedia.org/wiki/Special:Search?search=' + urllib.parse.quote_plus(q),
-                          session=session) for q in queries]
+def count_results_queries(question, answers):
+    """" Build google query set from data and options """
+    queries = ['%s "%s"' % (question, answer) for answer in answers.values()]
+    return ['https://www.google.co.uk/search?pws=0&q=' \
+        + urllib.parse.quote_plus(q) for q in queries]
 
 
 def predict_answers(question):
@@ -73,13 +71,22 @@ def predict_answers(question):
     print('------------------------')
     print('\n')
 
-    session = CachedSession('query_cache') if question.is_replay else None
-    google_responses = grequests.map(build_google_queries(question.text, question.answers, session))
-    wikipedia_responses = grequests.map(build_wikipedia_queries(question.text, question.answers, session))
+    if not question.is_replay:
+        session = FuturesSession()
+    else:
+        session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
 
-    confidence = find_answer_words_google(question.text, question.answers, confidence, google_responses[:1])
-    confidence = count_results_number_google(question.text, question.answers, confidence, google_responses[1:])
-    confidence = find_question_words_wikipedia(question.text, question.answers, confidence, wikipedia_responses)
+    answer_words_resp = [
+        (resp.result() if hasattr(resp, 'result') else resp) \
+        for resp in map(session.get, answer_words_queries(question.text, question.answers))
+    ]
+    count_results_resp = [
+        (resp.result() if hasattr(resp, 'result') else resp) \
+        for resp in map(session.get, count_results_queries(question.text, question.answers))
+    ]
+
+    confidence = find_answer_words_google(question.text, question.answers, confidence, answer_words_resp)
+    confidence = count_results_number_google(question.text, question.answers, confidence, count_results_resp)
 
     # Calculate prediction
     if 'NOT' in question.text or 'NEVER' in question.text:
@@ -101,6 +108,7 @@ def find_answer_words_google(_question, answers, confidence, responses):
     """ METHOD 1: Find answer in Google search result descriptions """
     occurrences = {'A': 0, 'B': 0, 'C': 0}
     response = responses[0]
+
     soup = BeautifulSoup(response.text, "html5lib")
 
     # Check for rate limiting page
@@ -120,14 +128,14 @@ def find_answer_words_google(_question, answers, confidence, responses):
     # Get related search results card
     for element in soup.find_all(class_='brs_col'):
         results += " " + element.text
-    cleaned_results = results.strip().replace('\n', '')
-    results_words = get_raw_words(cleaned_results)
+    results_words = get_raw_words(results)
 
     # Find answer words in search descriptions
     for index, answer in answers.items():
         answer_words = get_raw_words(answer)
         occurrences[index] += results_words.count(answer_words)
 
+    print("\nMETHOD 1")
     print("Count: %s%s%s" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
 
     # Calculate confidence
@@ -136,7 +144,6 @@ def find_answer_words_google(_question, answers, confidence, responses):
         if total_occurrences:
             confidence[index] += int(count / total_occurrences * Weights.GOOGLE_SUMMARY_ANSWER_COUNT.value)
 
-    print("METHOD 1 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -149,10 +156,12 @@ def count_results_number_google(_question, _answers, confidence, responses):
         soup = BeautifulSoup(response.text, "html5lib")
         if soup.find(id='resultStats'):
             results_count_text = soup.find(id='resultStats').text.replace(',', '')
-            results_count = re.findall(r'\d+', results_count_text)[0]
-            occurrences[chr(65 + index)] += int(results_count)
+            results_count = re.findall(r'\d+', results_count_text)
+            if results_count:
+                occurrences[chr(65 + index)] += int(results_count[0])
 
-    print("Search Results: %s%s%s" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
+    print("\nMETHOD 2")
+    print("Search Results: %s%s%s\n" % (Colours.BOLD.value, occurrences, Colours.ENDC.value))
 
     # Calculate confidence
     total_occurrences = sum(occurrences.values())
@@ -160,45 +169,6 @@ def count_results_number_google(_question, _answers, confidence, responses):
         if total_occurrences:
             confidence[index] += int(count / total_occurrences * Weights.GOOGLE_RESULTS_NUMBER.value)
 
-    print("METHOD 1 + 2 - Confidence: %s\n" % confidence)
-    return confidence
-
-
-def find_question_words_wikipedia(question, _answers, confidence, responses):
-    """ METHOD 3: Find question words in wikipedia pages """
-    occurrences = {'A': 0, 'B': 0, 'C': 0}
-
-    # Get nouns from question words
-
-    question_nouns = get_significant_words(get_raw_words(question))
-
-    # Loop through wikipedia results
-    for index, response in enumerate(responses):
-
-        # Check for unresolved Wikipedia link
-        if 'Special:Search' in response.url:
-            print('METHOD 3 - SKIPPED: Unresolved Wikipedia link\n')
-            return confidence
-
-        # Get wikipedia page text elements
-        results = ''
-        soup = BeautifulSoup(response.text, "html5lib")
-        for element in soup.find_all('p'):
-            results += " " + element.text
-        cleaned_results = results.strip().replace('\n', '')
-        results_words = get_raw_words(cleaned_results)
-
-        # Find question words on wikipedia page
-        occurrences_list = find_keywords(question_nouns, results_words)
-        occurrences[chr(65 + index)] += sum(occurrences_list)
-
-    # Calculate confidence
-    total_occurrences = sum(occurrences.values())
-    for index, count in occurrences.items():
-        if total_occurrences:
-            confidence[index] += int(count / total_occurrences * Weights.WIKIPEDIA_PAGE_QUESTION_COUNT.value)
-
-    print("METHOD 1 + 2 + 3 - Confidence: %s\n" % confidence)
     return confidence
 
 
@@ -220,6 +190,6 @@ def get_significant_words(question_words):
 
 def get_raw_words(data):
     """ Extract raw words from data """
-    data = re.sub(r'[^\w ]', '', data).replace(' and ', ' ')
+    data = re.sub(r'[^\w ]', '', data).replace(' and ', ' ').strip()
     words = data.replace('  ', ' ').lower()
     return words

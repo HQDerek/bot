@@ -1,11 +1,10 @@
 __pycache__/
 .cache/
 .pytest_cache/
-*.sqlite
+test-reports/
 *.pyc
 *.ini
 *.log
-hqtrivia-bot/
+*.sqlite
 .idea/
-/test-reports/
 replay_results.json

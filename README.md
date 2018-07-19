@@ -3,11 +3,17 @@
 ### Install Bot
  * Install Pipenv `sudo pip install pipenv`
  * Install NLTK corpora `python3 -m nltk.downloader stopwords`
- * Create Pipenv virtual environment `pipenv --three install`
+ * Create Pipenv virtual environment `pipenv --three install --dev`
 
 
 ### Run HQ Trivia Bot
  * Run bot `pipenv run bot`
+
+
+### Add a Round to Cache
+ * Run cache refresh `pipenv run cache refresh`
+ * Run cache prune `pipenv run cache prune`
+ * Run cache export `pipenv run cache export`
 
 
 ### Replay HQ Trivia Round
