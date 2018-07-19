@@ -1,15 +1,16 @@
+""" Module for replaying a given game """
 from glob import glob
-from json import load, loads, dump, JSONDecodeError
+from json import load, dump
 from question import Question
 from utils import predict_answers
 
-
 class Replayer(object):
     """ One instance of the game Replayer """
-    def __init__(self, game_paths=[]):
+    def __init__(self, game_paths=None):
         self.questions = self.load_questions(game_paths)
 
-    def load_questions(self, game_paths=[]):
+    @staticmethod
+    def load_questions(game_paths=None):
         """ Create a list of Question objects to replay """
         questions = []
         if not game_paths:
@@ -21,12 +22,14 @@ class Replayer(object):
         return questions
 
     def play(self):
+        """ Play all questions loaded from saved games """
         self.setup_output_file()
         for question in self.questions:
             (prediction, confidence) = predict_answers(question)
             question.add_prediction(prediction, confidence)
 
     def setup_output_file(self, mode='r+'):
+        """ Create or load replayer output file """
         try:
             with open('replay_results.json', mode) as file:
                 output = load(file) if mode == 'r+' else []
