@@ -6,14 +6,7 @@ class Question(object):
     """ An instance of a HQ Trivia question """
 
     def __init__(self, is_replay=False, load_id=None, **kwargs):
-        self.id = kwargs.get('questionId', None)
-        self.number = kwargs.get('questionNumber', None)
-        self.text = kwargs.get('question', None)
-        self.answers = kwargs.get('answers', None)
-        self.correct = kwargs.get("correct", None)
-        self.category = kwargs.get("category", None)
-        self.prediction = kwargs.get("prediction", {})
-        self.correct = kwargs.get("correct", None)
+
         self.is_replay = is_replay
 
         if load_id is not None:
@@ -23,6 +16,16 @@ class Question(object):
             questions = output[output_key]
             kwarg_vals = next((q for q in questions if q["questionId"] == load_id), None)
             self.__init__(is_replay=is_replay, **kwarg_vals)
+
+        self.id = kwargs.get('questionId', None)
+        self.number = kwargs.get('questionNumber', None)
+        self.text = kwargs.get('question', None)
+        self.answers = kwargs.get('answers', None)
+        self.correct = kwargs.get("correct", None)
+        self.category = kwargs.get("category", None)
+        self.prediction = kwargs.get("prediction", {})
+        self.correct = kwargs.get("correct", None)
+
 
     @property
     def game_path(self):
