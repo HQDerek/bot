@@ -144,8 +144,8 @@ class HqTriviaBot(object):
                     self.prediction_time(data)
                 # Check for question summary
                 elif data.get('type') == 'questionSummary':
-                    # make question from data
-                    # call Question().summary()
+                    # load question using load_id=data.get(questionId)
+                    # add correct answer to question
                     # call Question().save()
                     self.question_summary(data)
                 # Check for question summary
