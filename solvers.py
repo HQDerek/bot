@@ -46,15 +46,14 @@ class BaseSolver(object):
         comparison = min if 'NOT' in question_text or 'NEVER' in question_text else max
         return comparison(confidence, key=confidence.get)
 
-    def run(self, question_text, answers, session, confidence):
+    def run(self, question_text, answers, responses, confidence):
         """ Run solver and return confidence """
 
         print('\n%s: ' % (re.sub(r'(\w)([A-Z])', r'\1 \2', self.__class__.__name__)[:-7]))
 
         matches = {'A': 0, 'B': 0, 'C': 0}
-        urls = self.build_urls(question_text, answers)
 
-        for index, response in enumerate(self.fetch_responses(urls, session)):
+        for index, response in enumerate(responses):
             response = response.result() if hasattr(response, 'result') else response
             if '/sorry/index?continue=' in response.url:
                 sys.exit('ERROR: Google rate limiting detected.')

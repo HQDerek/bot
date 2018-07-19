@@ -115,16 +115,21 @@ class HqTriviaBot(object):
 
         # Create session and open browser
         if not data.get('is_replay', False):
-            session = FuturesSession()
+            session = FuturesSession(max_workers=10)
             webbrowser.open('https://www.google.co.uk/search?pws=0&q=' + data.get('question'))
         else:
             session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
 
         # Run solvers
         confidence = {'A': 0, 'B': 0, 'C': 0}
+        solver_responses = {}
         for solver in self.solvers:
+            urls = solver.build_urls(data.get('question'), answers)
+            solver_responses[solver] = solver.fetch_responses(urls, session)
+
+        for solver, responses in solver_responses.items():
             (prediction, confidence) = solver.run(
-                data.get('question'), answers, session, confidence
+                data.get('question'), answers, responses, confidence
             )
 
         # Show prediction in console
