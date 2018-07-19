@@ -78,7 +78,7 @@ class GoogleAnswerWordsSolver(BaseSolver):
         return [question_text]
 
     @staticmethod
-    def get_answer_matches(response, index,answers, matches):
+    def get_answer_matches(response, _index, answers, matches):
         """ get answer occurences for response """
         results = ''
         document = BeautifulSoup(response.text, "html5lib")
@@ -114,7 +114,7 @@ class GoogleResultsCountSolver(BaseSolver):
     def get_answer_matches(response, index, answers, matches):
         """ get answer occurences for response """
         document = BeautifulSoup(response.text, "html5lib")
-        if not getattr(document.find(id='topstuff'), 'text', '')[:16] == 'No results found':
+        if getattr(document.find(id='topstuff'), 'text', '')[:16] != 'No results found':
             if document.find(id='resultStats'):
                 results_count_text = document.find(id='resultStats').text.replace(',', '')
                 results_count = re.findall(r'\d+', results_count_text)
