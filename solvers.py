@@ -19,7 +19,7 @@ class BaseSolver(object):
 
     def build_urls(self, question_text, answers):
         """ build URLs with search queries """
-        queries = self.build_queries(question_text, answers)
+        queries = self.build_queries(question_text.replace(' NOT ', ' ').replace(' NEVER ', ' '), answers)
         return [self.service_url.format(quote_plus(query)) for query in queries]
 
     @staticmethod
@@ -43,7 +43,7 @@ class BaseSolver(object):
     @staticmethod
     def choose_answer(question_text, confidence):
         """ Choose an answer using confidence """
-        comparison = min if 'NOT' in question_text or 'NEVER' in question_text else max
+        comparison = min if ' NOT ' in question_text or ' NEVER ' in question_text else max
         return comparison(confidence, key=confidence.get)
 
     def run(self, question_text, answers, responses, confidence):
