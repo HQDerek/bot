@@ -70,6 +70,11 @@ class GoogleQuestionHeuristicSolver(BaseSolver):
     weight = 1000
     service_url = 'https://www.google.co.uk/search?pws=0&q={}{}'
 
+    @staticmethod
+    def build_queries(question_text, answers):
+        """ skip query builder for heuristics """
+        return []
+
     def build_urls(self, question_text, answers):
         """ build URLs with search queries """
         queries = []
