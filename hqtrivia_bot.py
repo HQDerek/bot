@@ -101,37 +101,6 @@ class HqTriviaBot(object):
         question.add_prediction(prediction, confidence)
 
 
-    def question_summary(self, data):
-        """" display the summary of a question """
-        # Load save game file and update correct answer
-        with open('./games/%s.json' % self.current_game) as file:
-            output = load(file)
-        questions_output = output.get('questions')
-        question_index = next((n for (n, val)
-                               in enumerate(questions_output)
-                               if val["questionId"] == data.get('questionId')))
-        correct_index = next((n for (n, val)
-                              in enumerate(data.get('answerCounts'))
-                              if val["correct"]))
-        correct = output['questions'][question_index]['prediction']['answer'] == chr(65 + correct_index)
-
-        # Print results to console
-        correct_string = Colours.BOLD.value + 'Correct Answer: {} - {}' + Colours.ENDC.value
-        print(correct_string.format(chr(65 + correct_index),
-                                    output['questions'][question_index]['answers'][chr(65 + correct_index)]))
-        if correct:
-            print(Colours.BOLD.value + Colours.OKGREEN.value + "Prediction Correct? Yes" + Colours.ENDC.value)
-        else:
-            print(Colours.BOLD.value + Colours.FAIL.value + "Prediction Correct? No" + Colours.ENDC.value)
-
-        # Set correct answer in question object
-        output['questions'][question_index]['correct'] = chr(65 + correct_index)
-        output['numCorrect'] += 1 if correct else 0
-
-        # Update save game file
-        with open('./games/%s.json' % self.current_game, 'w') as file:
-            dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
-
     @staticmethod
     def game_summary(data):
         """" display the summary of a game """
@@ -158,10 +127,13 @@ class HqTriviaBot(object):
                     self.prediction_time(data)
                 # Check for question summary
                 elif data.get('type') == 'questionSummary':
-                    # load question using load_id=data.get(questionId)
-                    # add correct answer to question
-                    # call Question().save()
-                    self.question_summary(data)
+                    correct_index = next((n for (n, val)
+                                          in enumerate(data.get('answerCounts'))
+                                          if val["correct"]))
+                    correct_choice = chr(65 + correct_index) # A, B or C
+                    question = Question(is_replay=False, load_id=data.get('questionId'))
+                    question.add_correct(correct_choice)
+                    question.display_summary()
                 # Check for question summary
                 elif data.get('type') == 'gameSummary':
                     self.game_summary(data)
@@ -252,40 +224,6 @@ class HqTriviaBot(object):
         except JSONDecodeError:
             pass
 
-    @staticmethod
-    def replay(arguments):
-        """ replay mode """
-        print("Running in Replay Mode")
-        total = 0
-        total_correct = 0
-        orig_total_correct = 0
-        for filename in sorted(glob('games/*.json')):
-            if len(arguments) == 2 or (len(arguments) == 3 and filename[22:26] in arguments[2].split(',')):
-                game = load(open(filename))
-                print("Replaying Round %s" % game.get('showId'))
-                num = 0
-                num_correct = 0
-                for question_data in game.get('questions'):
-                    question = Question(is_replay=True, **question_data)
-
-                    (prediction, _confidence) = predict_answers(question)
-                    is_correct = prediction == question.correct
-                    print('Predicted: %s, Correct: %s' % (prediction, question.correct))
-
-                    if is_correct:
-                        print(Colours.BOLD.value + Colours.OKGREEN.value + "Correct? Yes" + Colours.ENDC.value)
-                    else:
-                        print(Colours.BOLD.value + Colours.FAIL.value + "Correct? No" + Colours.ENDC.value)
-                    num += 1
-                    num_correct += 1 if is_correct else 0
-                total += num
-                total_correct += num_correct
-                orig_total_correct += game.get('numCorrect')
-                print("[ORIG] Correct: %s/%s" % (game.get('numCorrect'), len(game.get('questions'))))
-                print("Number Correct: %s/%s" % (num_correct, num))
-        print(Colours.BOLD.value + "Replay Complete" + Colours.ENDC.value)
-        print("[ORIG] Correct: %s/%s" % (orig_total_correct, total))
-        print("Total Correct: %s/%s" % (total_correct, total))
 
     def cache(self, command):
         """ cache mode """
@@ -413,10 +351,9 @@ if __name__ == "__main__":
     elif len(argv) == 3 and argv[1] == "cache":
         BOT.cache(argv[2])
     elif len(argv) >= 2 and argv[1] == "replay":
-        BOT.replay(argv)
-    elif len(argv) > 1 and argv[1] == "replaynew":
         replayer = Replayer()
-        import pdb; pdb.set_trace()
+        #replayer.play()
+        replayer.gen_report()
     elif len(argv) == 2 and argv[1] == "get-wins":
         BOT.get_wins(argv[2])
     elif len(argv) == 3 and argv[1] == "generate-token":

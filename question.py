@@ -2,6 +2,7 @@
 from glob import glob
 import os
 from json import load, dump
+from utils import Colours
 
 class Question(object):
     """ An instance of a HQ Trivia question """
@@ -27,6 +28,12 @@ class Question(object):
         self.prediction = kwargs.get("prediction", {})
         self.correct = kwargs.get("correct", None)
 
+    @property
+    def answered_correctly(self):
+        """ Return True if answered correctly, return False if incorrect or no answer """
+        if self.correct is not None:
+            return self.correct == self.prediction['answer']
+        return False
 
     @property
     def game_path(self):
@@ -48,7 +55,7 @@ class Question(object):
         """
 
         # last list in replay games or 'questions' key in live saved games
-        output_key = -1 if self.is_replay else 'questions' 
+        output_key = -1 if self.is_replay else 'questions'
 
         with open(self.game_path) as file:
             output = load(file)
@@ -72,9 +79,17 @@ class Question(object):
         with open(self.game_path, 'w') as file:
             dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
+
+
     def display_summary(self):
         """ Display summary """
-        pass
+        correct_string = Colours.BOLD.value + 'Correct Answer: {} - {}' + Colours.ENDC.value
+        print(correct_string.format(self.correct, self.answers['self.correct']))
+        if self.answered_correctly:
+            print(Colours.BOLD.value + Colours.OKGREEN.value + "Prediction Correct? Yes" + Colours.ENDC.value)
+        else:
+            print(Colours.BOLD.value + Colours.FAIL.value + "Prediction Correct? No" + Colours.ENDC.value)
+
 
     def add_prediction(self, prediction, confidence):
         """ Add the prediction dict to the Question """
@@ -85,9 +100,10 @@ class Question(object):
         self.save()
 
     def add_correct(self, correct):
-        """ Add correct answer to question and save """
-        self.correct = correct
-        self.save()
+        """ Add correct answer to question and save if on live game """
+        if not self.is_replay:
+            self.correct = correct
+            self.save()
 
     def _dict_for_json(self):
         """ Convert instance to dict with correct keys in preparation for saving to JSON """
