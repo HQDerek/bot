@@ -19,10 +19,9 @@ class BaseSolver(object):
 
     def build_urls(self, question_text, answers):
         """ build URLs with search queries """
-        parsed_question_text = get_raw_words(
-            question_text.replace(' NOT ', ' ').replace(' NEVER ', ' ')
-        , lowercase=False)
-        queries = self.build_queries('{}?'.format(parsed_question_text), answers)
+        parsed_question_text = question_text.replace(' NOT ', ' ').replace(' NEVER ', ' ')
+        parsed_question_text = re.sub(r'[^A-Za-z0-9\“\”\? ]', '', parsed_question_text).replace('  ', ' ')
+        queries = self.build_queries(parsed_question_text, answers)
         return [self.service_url.format(quote_plus(query)) for query in queries]
 
     @staticmethod
