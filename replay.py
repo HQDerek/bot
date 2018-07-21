@@ -43,13 +43,12 @@ class Replayer(object):
             self.setup_output_file(mode='w+')
 
     def gen_report(self):
-        try:
-            with open('replay_results.json', 'r') as file:
-                replays = load(file)
-                max_q_index = len(replays[0]) - 1
-                trimmed_replays = [replay[:max_q_index] if len(replay) > (max_q_index + 1) else replay for replay in replays]
-        except FileNotFoundError:
-            raise Exception("No game results to generate replay report")
+
+        with open('replay_results.json', 'r') as file:
+            replays = load(file)
+            max_q_index = len(replays[0]) - 1
+            trimmed_replays = [replay[:max_q_index] if len(replay) > (max_q_index + 1) else replay for replay in replays]
+
         headers = ['Q{}'. format(i + 1) for i in range(max_q_index + 1)]
         run_results = []
         for index, replay in enumerate(trimmed_replays):
@@ -72,7 +71,9 @@ class Replayer(object):
 
             run_results.append(run_result)
         df = DataFrame(columns=headers, data=run_results)
-        html = '<html>{}</html>'.format(df.to_html())
+        with open('report_template.html', 'r') as file:
+            template_string=file.read().replace('\n', '')
+        html = template_string % df.to_html(classes='replay-table')
         path = os.path.abspath('replay_report.html')
         url = 'file://' + path
 
