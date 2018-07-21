@@ -8,3 +8,4 @@ test-reports/
 *.sqlite
 .idea/
 replay_results.json
+replay_report.html
