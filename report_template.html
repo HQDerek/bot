@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Replay Report</title>
+    <style media="screen">
+      th, td {
+        font-size: 0.45em;
+        font-weight: normal;
+        width: 15px;
+        height: 15px;
+      }
+    </style>
   </head>
   <body>
     %s
@@ -14,7 +22,7 @@
         console.log(table);
         for (var i = 0, row; row = table.rows[i]; i++) {
           for (var j = 0, cell; cell = row.cells[j]; j++) {
-            if (cell.innerHTML !== 'NaN' && i > 1 && j > 0){
+            if (cell.innerHTML !== 'NaN' && i > 0 && j > 0){
               cellVal = parseInt(cell.innerHTML);
               console.log(cellVal);
               if (cellVal == 0){

@@ -50,16 +50,17 @@ class Replayer(object):
             max_q_index = len(replays[0]) - 1
             trimmed_replays = [replay[:max_q_index] if len(replay) > (max_q_index + 1) else replay for replay in replays]
 
-        headers = ['Q{}'. format(i + 1) for i in range(max_q_index + 1)]
+        col_names = []
         run_results = []
-        for index, replay in enumerate(trimmed_replays):
+        for replay_index, replay in enumerate(trimmed_replays):
             run_result = []
-            if index == 0:
-                # is first 'master' game - no comparison needed
-                run_result = [0] * len(replay)
-            else:
-                for q_idx, question_kwargs in enumerate(replay):
-                    question = Question(is_replay=True, **question_kwargs)
+            for q_idx, question_kwargs in enumerate(replay):
+                question = Question(is_replay=True, **question_kwargs)
+
+                if replay_index == 0:
+                    run_result.append(1 if question.answered_correctly else -1);
+                    col_names.append("#{} \n {}".format(question.number, question.id))
+                else:
                     try:
                         if question.prediction['answer'] == trimmed_replays[0][q_idx]['prediction']['answer']:
                             run_result.append(0)
@@ -71,10 +72,11 @@ class Replayer(object):
                             run_result.append(0)
 
             run_results.append(run_result)
-        df = DataFrame(columns=headers, data=run_results)
+        print(run_results)
+        df = DataFrame(columns=col_names, data=run_results)
         with open('report_template.html', 'r') as file:
             template_string=file.read().replace('\n', '')
-        html = template_string % df.to_html(classes='replay-table')
+        html = template_string % df.to_html(classes='replay-table').replace('border="1"','border="0"')
         path = os.path.abspath('replay_report.html')
         url = 'file://' + path
 
