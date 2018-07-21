@@ -32,8 +32,8 @@ def get_significant_words(question_words):
     return list(filter(lambda word: word not in our_stopwords, question_words.split(' ')))
 
 
-def get_raw_words(data):
+def get_raw_words(data, lowercase=True):
     """ Extract raw words from data """
-    data = re.sub(r'[^\w ]', '', data).replace(' and ', ' ').strip()
-    words = data.replace('  ', ' ').lower()
-    return words
+    data = re.sub(r'[^A-Za-z0-9 ]', '', data).replace(' and ', ' ').strip()
+    words = data.replace('  ', ' ')
+    return words.lower() if lowercase else words
