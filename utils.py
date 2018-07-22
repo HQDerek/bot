@@ -80,6 +80,7 @@ def predict_answers(question):
         (resp.result() if hasattr(resp, 'result') else resp) \
         for resp in map(session.get, answer_words_queries(question.text, question.answers))
     ]
+
     count_results_resp = [
         (resp.result() if hasattr(resp, 'result') else resp) \
         for resp in map(session.get, count_results_queries(question.text, question.answers))
@@ -87,12 +88,17 @@ def predict_answers(question):
 
     confidence = find_answer_words_google(question.text, question.answers, confidence, answer_words_resp)
     confidence = count_results_number_google(question.text, question.answers, confidence, count_results_resp)
-
     # Calculate prediction
-    if 'NOT' in question.text or 'NEVER' in question.text:
-        prediction = min(confidence, key=confidence.get)
+    # TODO: QUICK FIX for all zero donfidence dict returning random predictions due to
+    # dicts being non-deterministic. Need to change how we pick the prediciton from
+    # confidence dics where  values are equal eg. 0, 0, 0 or 50, 50, 0 etc...
+    if sum(confidence.values()) == 0:
+        prediction = 'A'
     else:
-        prediction = max(confidence, key=confidence.get)
+        if 'NOT' in question.text or 'NEVER' in question.text:
+            prediction = min(confidence, key=confidence.get)
+        else:
+            prediction = max(confidence, key=lambda key: confidence[key])
     total_occurrences = sum(confidence.values())
     for index, count in confidence.items():
         likelihood = int(count/total_occurrences * 100) if total_occurrences else 0
@@ -101,7 +107,7 @@ def predict_answers(question):
         print(Colours.BOLD.value + result + Colours.ENDC.value if index == prediction else result)
 
     print('\n')
-    return prediction if confidence[prediction] else None, confidence
+    return prediction, confidence
 
 
 def find_answer_words_google(_question, answers, confidence, responses):
