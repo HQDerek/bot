@@ -353,7 +353,7 @@ if __name__ == "__main__":
         BOT.cache(argv[2])
     elif len(argv) >= 2 and argv[1] == "replay":
         REPLAYER = Replayer()
-        #REPLAYER.play()
+        REPLAYER.play()
         REPLAYER.gen_report()
     elif len(argv) == 2 and argv[1] == "get-wins":
         BOT.get_wins(argv[2])
