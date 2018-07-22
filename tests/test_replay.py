@@ -3,7 +3,7 @@ import pytest
 from tests.utils import generate_game, generate_question
 import replay
 from unittest.mock import mock_open, patch, ANY
-from json import loads
+from json import loads, dumps
 
 
 @pytest.mark.parametrize("globbed_paths, game_json", [
@@ -69,7 +69,50 @@ def test_setup_output_file_read_mode(mock_dump, monkeypatch):
         """ Mock previous replay lists """
         return [[],[]]
     monkeypatch.setattr(replay, "load", mock_load)
-    monkeypatch.setattr('builtins.open', mock_open(read_data='')) # existing game data
+    monkeypatch.setattr('builtins.open', mock_open(read_data=''))
     replay.Replayer.setup_output_file()
     assert mock_dump.called
     mock_dump.assert_called_with([[], [], []], ANY, ensure_ascii=False, sort_keys=True, indent=4)
+
+@patch('replay.DataFrame')
+@patch('replay.webbrowser')
+def test_gen_report_six_replays(mock_webbrowser, mock_data_frame, monkeypatch):
+    """
+    Ensure correct values are passed to the pandas dataframe. Six games will get
+    progressively more 'correct'. Also ensure html file is generated.
+    """
+    monkeypatch.setattr('builtins.open', mock_open(read_data='%s'))
+
+    def mock_load(file):
+        """ Mock replay data. Makes 6 replays over 10 games. Progressively bumps
+        up number of correct. Eg. replay1 - 0 correct, replay2 - 1 correct,
+        ... replay6 - 5 correct
+        """
+        replays = []
+        for i in range(6):
+            replay = []
+            for j in range(10):
+                for q in generate_game(num_correct=i, correct='A')['questions']:
+                    replay.append(q)
+            replay = sorted(replay, key=lambda q: q['questionNumber'])
+            replays.append(replay)
+        return replays
+
+    monkeypatch.setattr(replay, "load", mock_load)
+    replay.Replayer.gen_report()
+    assert mock_webbrowser.open.called
+    # ensure correct number of columns, one for each question over 10 games - 120
+    assert len(mock_data_frame.call_args[1]['columns'][0])
+    # ensure dataframe column titles orderd correctly
+    assert '#1 \n' in mock_data_frame.call_args[1]['columns'][0]
+    assert '#12 \n' in mock_data_frame.call_args[1]['columns'][-1]
+    # ensure inital 'master' row in dataframe all incorrect
+    assert mock_data_frame.call_args[1]['data'][0].count(-1) == 120
+    # ensure first real comparison replay has improved by 10 (1 right per game)
+    assert mock_data_frame.call_args[1]['data'][1].count(1) == 10
+    assert mock_data_frame.call_args[1]['data'][1].count(0) == 110
+    # ensure 6th real comparison replay has improved by 50 (5 right per game)
+    assert mock_data_frame.call_args[1]['data'][5].count(1) == 50
+    assert mock_data_frame.call_args[1]['data'][5].count(0) == 70
+    # ensure dataframe converted to table
+    assert  mock_data_frame.return_value.to_html.called

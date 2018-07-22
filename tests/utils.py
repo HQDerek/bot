@@ -2,11 +2,13 @@ from random import choice
 from json import dumps
 from question import Question
 
-def generate_game(show_id=12345, num_correct=6, as_JSON=False):
+def generate_game(show_id=12, num_correct=6, as_JSON=False, correct=None):
     """ Generate a completed games saved json """
 
     choices = ['A', 'B', 'C']
-    correct = choice(choices)
+
+    if correct is None:
+        correct = choice(choices)
 
     game_data = {
         "numCorrect": num_correct,
@@ -28,9 +30,9 @@ def generate_game(show_id=12345, num_correct=6, as_JSON=False):
             "prediction": {
                 "answer": correct if i < num_correct else choices[choices.index(correct) - 1],
                 "confidence": {
-                    "A": "75%" if correct == "A" else "25%",
-                    "B": "75%" if correct == "B" else "25%",
-                    "C": "75%" if correct == "C" else "25%"
+                    "A": "75%" if correct == "A" and i < num_correct else "25%" if i < num_correct else '33%',
+                    "B": "75%" if correct == "B" and i < num_correct else "25%" if i < num_correct else '33%',
+                    "C": "75%" if correct == "C" and i < num_correct else "25%" if i < num_correct else '33%'
                 }
             }
         } for i in range(12)]

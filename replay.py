@@ -45,7 +45,8 @@ class Replayer(object):
         except FileNotFoundError:
             cls.setup_output_file(mode='w+')
 
-    def gen_report(self):
+    @staticmethod
+    def gen_report():
 
         with open('replay_results.json', 'r') as file:
             replays = load(file)
@@ -74,7 +75,7 @@ class Replayer(object):
                             run_result.append(0)
 
             run_results.append(run_result)
-        print(run_results)
+
         df = DataFrame(columns=col_names, data=run_results)
         with open('report_template.html', 'r') as file:
             template_string=file.read().replace('\n', '')
