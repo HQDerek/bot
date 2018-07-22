@@ -39,8 +39,8 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
 
 @pytest.mark.parametrize("loaded_questions", [
     [], # no questions loaded
-    [generate_question(is_replay=True) for _ in range(1)],
-    [generate_question(is_replay=True) for _ in range(7)]
+    [generate_question(is_replay=True) for _ in range(1)], # single question
+    [generate_question(is_replay=True) for _ in range(24)] # two games worth
 ])
 @patch('replay.Replayer.load_questions')
 @patch('question.Question.add_prediction')
