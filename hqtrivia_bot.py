@@ -93,7 +93,8 @@ class HqTriviaBot(object):
                     'questions': [],
                 }, file, ensure_ascii=False, sort_keys=True, indent=4)
 
-    def prediction_time(self, data):
+    @staticmethod
+    def prediction_time(data):
         """ build up answers and make predictions """
         data['answers'] = build_answers(data.get('answers'))
         question = Question(is_replay=False, **data)
@@ -351,9 +352,9 @@ if __name__ == "__main__":
     elif len(argv) == 3 and argv[1] == "cache":
         BOT.cache(argv[2])
     elif len(argv) >= 2 and argv[1] == "replay":
-        replayer = Replayer()
-        #replayer.play()
-        replayer.gen_report()
+        REPLAYER = Replayer()
+        #REPLAYER.play()
+        REPLAYER.gen_report()
     elif len(argv) == 2 and argv[1] == "get-wins":
         BOT.get_wins(argv[2])
     elif len(argv) == 3 and argv[1] == "generate-token":
