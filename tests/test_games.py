@@ -3,6 +3,7 @@ from glob import glob
 from json import load
 from mock import patch
 import utils
+from question import Question
 
 
 def test_games():
@@ -14,15 +15,15 @@ def test_games():
         game = load(open(filename))
         count_correct = 0
         for turn in game.get('questions'):
-            turn['is_replay'] = True
-            number = turn.get('questionNumber')
+            question = Question(is_replay=True, **turn)
+            number = question.number
             with patch('builtins.print'):
-                (prediction, _confidence) = utils.predict_answers(turn, turn.get('answers'))
-            count_correct += (1 if prediction == turn.get('correct') else 0)
+                (prediction, _confidence) = utils.predict_answers(question)
+            count_correct += (1 if prediction == question.correct else 0)
             correct[number] = correct.get(number, 0) + \
-                (1 if prediction == turn.get('correct') else 0)
+                (1 if prediction == question.correct else 0)
             orig_correct[number] = orig_correct.get(number, 0) + \
-                (1 if turn.get('correct') == turn.get('prediction').get('answer') else 0)
+                (1 if question.correct == question.prediction.get('answer') else 0)
             num_questions[number] = num_questions.get(number, 0) + 1
         print('Game %d: %d correct: %s' % \
             (game.get('showId'), count_correct, correct))
