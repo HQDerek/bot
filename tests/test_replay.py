@@ -27,7 +27,6 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
     monkeypatch.setattr('builtins.open', mock_open(read_data=''))
     # call load_questions without instantiating (because init also calls load_questions)
     questions = replay.Replayer.load_questions()
-    print("RUNNING")
     # make sure correct number of q's loaded
     assert len(questions) == len(globbed_paths) * 12
     # ensure q's ordered by numbers 1-12
