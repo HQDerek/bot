@@ -1,8 +1,8 @@
 """ Tests for the Replayer class and its methods """
 import pytest
-from tests.utils import generate_game
+from tests.utils import generate_game, generate_question
 import replay
-from unittest.mock import mock_open
+from unittest.mock import mock_open, patch
 from json import loads
 
 
@@ -35,3 +35,24 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
             assert q.number == 1
         else:
             assert q.number >= questions[idx-1].number
+
+
+@pytest.mark.parametrize("loaded_questions", [
+    [], # no questions loaded
+    [generate_question(is_replay=True) for _ in range(1)],
+    [generate_question(is_replay=True) for _ in range(7)]
+])
+@patch('replay.Replayer.load_questions')
+@patch('question.Question.add_prediction')
+@patch('replay.predict_answers')
+@patch('replay.Replayer.setup_output_file')
+def test_play(mock_setup_file, mock_predict, mock_add_prediction, mock_load_question, loaded_questions):
+    mock_load_question.return_value = loaded_questions
+    mock_predict.return_value = ('A', {'A': '75%', 'B': '25%', 'C': '25%'})
+    replayer = replay.Replayer()
+    replayer.play()
+    # ensure output setup function called every time replay is used
+    assert mock_setup_file.called
+    # ensure predict and add_prediction called for each loaded question
+    assert mock_predict.call_count == len(loaded_questions)
+    assert mock_add_prediction.call_count == len(loaded_questions)
