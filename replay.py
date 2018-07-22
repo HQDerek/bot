@@ -9,15 +9,14 @@ import webbrowser
 
 class Replayer(object):
     """ One instance of the game Replayer """
-    def __init__(self, game_paths=None):
-        self.questions = self.load_questions(game_paths)
+    def __init__(self):
+        self.questions = self.load_questions()
 
     @staticmethod
-    def load_questions(game_paths=None):
+    def load_questions():
         """ Create a list of Question objects to replay """
         questions = []
-        if not game_paths:
-            game_paths = [filename for filename in glob('games/*.json')]
+        game_paths = [filename for filename in glob('games/*.json')]
         for game_path in game_paths:
             game_data = load(open(game_path))
             for question in game_data['questions']:
