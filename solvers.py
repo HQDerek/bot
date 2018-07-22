@@ -3,7 +3,7 @@ import re
 import sys
 from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
-from utils import Colours, get_raw_words
+from utils import Colours, get_raw_words, get_significant_words
 
 
 class BaseSolver(object):
@@ -27,8 +27,7 @@ class BaseSolver(object):
         """ fetch responses for solver URLs """
         return list(map(session.get, urls))
 
-    @staticmethod
-    def get_answer_matches(response, index, answers, matches):
+    def get_answer_matches(self, response, index, answers, matches):
         """ get answer occurences for response """
         raise NotImplementedError()
 
@@ -69,6 +68,8 @@ class GoogleAnswerWordsSolver(BaseSolver):
     """ Solver that searches question on Google and counts answers in results """
 
     weight = 200
+    full_answer_weight = 1000
+    partial_answer_weight = 100
     service_url = 'https://www.google.co.uk/search?pws=0&q={}'
 
     @staticmethod
@@ -76,8 +77,7 @@ class GoogleAnswerWordsSolver(BaseSolver):
         """ build queries with question text and answers """
         return [question_text]
 
-    @staticmethod
-    def get_answer_matches(response, _index, answers, matches):
+    def get_answer_matches(self, response, _index, answers, matches):
         """ get answer occurences for response """
         results = ''
         document = BeautifulSoup(response.text, "html5lib")
@@ -90,10 +90,17 @@ class GoogleAnswerWordsSolver(BaseSolver):
         for element in document.find_all(class_='brs_col'):
             results += " " + element.text # Related searches
         results_words = get_raw_words(results)
+        print('Exact matches: ')
         for index, answer in answers.items():
-            answer_words = get_raw_words(answer)
-            matches[index] += results_words.count(answer_words)
-        for index, count in matches.items():
+            count = results_words.count(' {} '.format(get_raw_words(answer)))
+            matches[index] += self.full_answer_weight * count
+            print('{}: {}'.format(index, Colours.BOLD.value + str(count) + Colours.ENDC.value))
+        print('\nPartial matches: ')
+        for index, answer in answers.items():
+            count = 0
+            for word in get_significant_words(get_raw_words(answer)):
+                count += results_words.count(' {} '.format(word))
+            matches[index] += self.partial_answer_weight * count
             print('{}: {}'.format(index, Colours.BOLD.value + str(count) + Colours.ENDC.value))
         return matches
 
@@ -109,8 +116,7 @@ class GoogleResultsCountSolver(BaseSolver):
         """ build queries with question text and answers """
         return ['%s "%s"' % (question_text, answer) for answer in answers.values()]
 
-    @staticmethod
-    def get_answer_matches(response, index, answers, matches):
+    def get_answer_matches(self, response, index, answers, matches):
         """ get answer occurences for response """
         document = BeautifulSoup(response.text, "html5lib")
         if getattr(document.find(id='topstuff'), 'text', '')[:16] != 'No results found':
