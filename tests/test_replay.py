@@ -2,7 +2,7 @@
 import pytest
 from tests.utils import generate_game, generate_question
 import replay
-from unittest.mock import mock_open, patch
+from unittest.mock import mock_open, patch, ANY
 from json import loads
 
 
@@ -47,6 +47,9 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
 @patch('replay.predict_answers')
 @patch('replay.Replayer.setup_output_file')
 def test_play(mock_setup_file, mock_predict, mock_add_prediction, mock_load_question, loaded_questions):
+    """ Ensure running play on Replayer will call its own setup_output_file methos,
+    call predict_answers + add_predictionfor each loaded question.
+    """
     mock_load_question.return_value = loaded_questions
     mock_predict.return_value = ('A', {'A': '75%', 'B': '25%', 'C': '25%'})
     replayer = replay.Replayer()
@@ -56,3 +59,17 @@ def test_play(mock_setup_file, mock_predict, mock_add_prediction, mock_load_ques
     # ensure predict and add_prediction called for each loaded question
     assert mock_predict.call_count == len(loaded_questions)
     assert mock_add_prediction.call_count == len(loaded_questions)
+
+@patch('replay.dump')
+def test_setup_output_file_read_mode(mock_dump, monkeypatch):
+    """ Ensure when setup_output_file called in r+ mode it will read local
+    replay file and append an empty list to it
+    """
+    def mock_load(file):
+        """ Mock previous replay lists """
+        return [[],[]]
+    monkeypatch.setattr(replay, "load", mock_load)
+    monkeypatch.setattr('builtins.open', mock_open(read_data='')) # existing game data
+    replay.Replayer.setup_output_file()
+    assert mock_dump.called
+    mock_dump.assert_called_with([[], [], []], ANY, ensure_ascii=False, sort_keys=True, indent=4)

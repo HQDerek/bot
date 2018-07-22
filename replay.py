@@ -31,8 +31,11 @@ class Replayer(object):
             (prediction, confidence) = predict_answers(question)
             question.add_prediction(prediction, confidence)
 
-    def setup_output_file(self, mode='r+'):
-        """ Create or load replayer output file """
+    @classmethod
+    def setup_output_file(cls, mode='r+'):
+        """ Create or load replayer output file. Is class method so it can be
+        tested without instantiating class (calls load_questions) but still needs
+        access to class to call itself recursively to handle exception """
         try:
             with open('replay_results.json', mode) as file:
                 output = load(file) if mode == 'r+' else []
@@ -40,7 +43,7 @@ class Replayer(object):
                 file.seek(0)
                 dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
         except FileNotFoundError:
-            self.setup_output_file(mode='w+')
+            cls.setup_output_file(mode='w+')
 
     def gen_report(self):
 
