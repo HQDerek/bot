@@ -12,7 +12,7 @@ Welcome to HQ Trivia Bot! Thanks for contributing. Here are the steps to get sta
 
 ### Run HQ Trivia Bot
 To play a live game of HQ Trivia, you first need to generate a login token.
- * Generate token with `pipenv run generate-token <phone-number>`
+ * Generate token with `pipenv run generate-token <phone-number>` (in the format `+353861234567`)  
 Ensure that this file is named `config.ini`, then you can connect to a live game.
  * Run bot `pipenv run bot`
 
