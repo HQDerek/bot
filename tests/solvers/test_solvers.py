@@ -3,7 +3,7 @@ import pytest
 from mock import Mock
 from solvers import GoogleAnswerWordsSolver, GoogleResultsCountSolver
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def api_response():
     """ question/answers example set """
     return {
@@ -20,11 +20,13 @@ def api_response():
     }
 
 def test_google_answer_words_run(api_response): # pylint: disable=redefined-outer-name
-    """ testing run """
+    """
+    Run GoogleAnswerWords Solver with empty response and ensure confidence is zero.
+    """
 
     mock_response = Mock()
     mock_response.url = "/"
-    mock_response.text = "Example Response"
+    mock_response.text = ""
 
     mock_future = Mock()
     mock_future.result.return_value = mock_response
@@ -38,11 +40,13 @@ def test_google_answer_words_run(api_response): # pylint: disable=redefined-oute
 
 
 def test_google_results_count_run(api_response): # pylint: disable=redefined-outer-name
-    """ testing run """
+    """
+    Run GoogleResultsCount Solver with empty response and ensure confidence is zero.
+    """
 
     mock_response = Mock()
     mock_response.url = "/"
-    mock_response.text = "Example Response"
+    mock_response.text = ""
 
     mock_future = Mock()
     mock_future.result.return_value = mock_response
