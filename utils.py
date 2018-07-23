@@ -4,7 +4,7 @@ from enum import Enum
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-Lemmatizer = WordNetLemmatizer()
+WORDNET = WordNetLemmatizer()
 
 class Colours(Enum):
     """ console colours """
@@ -40,5 +40,5 @@ def get_raw_words(data):
     """ Extract raw words from data """
     data = re.sub(r'[^\w ]', '', data).lower().replace(' and ', ' ')
     words_list = data.replace('  ', ' ').strip().split(' ')
-    words = ' '.join([Lemmatizer.lemmatize(word) for word in words_list])
+    words = ' '.join([WORDNET.lemmatize(word) for word in words_list])
     return words
