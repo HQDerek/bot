@@ -215,7 +215,10 @@ class HqTriviaBot(object):
                 sleep(120)
 
     def generate_token(self, phone):
-        """ generate a JWT for a particular phone """
+        """
+        generate a JWT for a particular phone
+        phone should be in a format such as '+353861234567'
+        """
         unauth_headers = self.headers.copy()
         unauth_headers.pop('Authorization', None)
         phone_resp = post('https://api-quiz.hype.space/verifications', headers=unauth_headers, data={
