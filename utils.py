@@ -2,7 +2,9 @@
 import re
 from enum import Enum
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
+Lemmatizer = WordNetLemmatizer()
 
 class Colours(Enum):
     """ console colours """
@@ -32,8 +34,11 @@ def get_significant_words(question_words):
     return list(filter(lambda word: word not in our_stopwords, question_words.split(' ')))
 
 
+
+
 def get_raw_words(data):
     """ Extract raw words from data """
-    data = re.sub(r'[^\w ]', '', data).replace(' and ', ' ').strip()
-    words = data.replace('  ', ' ').lower()
+    data = re.sub(r'[^\w ]', '', data).lower().replace(' and ', ' ')
+    words_list = data.replace('  ', ' ').strip().split(' ')
+    words = ' '.join([Lemmatizer.lemmatize(word) for word in words_list])
     return words
