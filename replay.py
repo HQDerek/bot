@@ -2,10 +2,10 @@
 from glob import glob
 from json import load, dump
 from question import Question
-from utils import predict_answers
 from pandas import DataFrame
 import os
 import webbrowser
+from bot import HqTriviaBot
 
 class Replayer(object):
     """ One instance of the game Replayer """
@@ -26,10 +26,12 @@ class Replayer(object):
 
     def play(self):
         """ Play all questions loaded from saved games """
+        BOT = HqTriviaBot()
         self.setup_output_file()
         for question in self.questions:
-            (prediction, confidence) = predict_answers(question)
-            question.add_prediction(prediction, confidence)
+            BOT.prediction_time(question)
+            #(prediction, confidence) = predict_answers(question)
+            #question.add_prediction(prediction, confidence)
 
     @classmethod
     def setup_output_file(cls, mode='r+'):

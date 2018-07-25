@@ -2,7 +2,7 @@
 from glob import glob
 from json import load
 from mock import patch
-from hqtrivia_bot.hqtrivia_bot import HqTriviaBot
+from bot import HqTriviaBot
 
 BOT = HqTriviaBot()
 
