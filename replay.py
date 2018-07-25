@@ -50,7 +50,6 @@ class Replayer(object):
         """ Generate HTML report for replays """
         with open('replay_results.json', 'r') as file:
             replays = load(file)
-            max_q_index = len(replays[0]) - 1
             replays = [replay[:len(replays[0]) - 1] for replay in replays] # trim
 
         col_names = []
