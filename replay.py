@@ -51,12 +51,11 @@ class Replayer(object):
         with open('replay_results.json', 'r') as file:
             replays = load(file)
             max_q_index = len(replays[0]) - 1
-            trimmed_replays = [replay[:max_q_index] if len(replay) > (max_q_index + 1) \
-                                else replay for replay in replays]
+            replays = [replay[:len(replays[0]) - 1] for replay in replays] # trim
 
         col_names = []
         run_results = []
-        for replay_index, replay in enumerate(trimmed_replays):
+        for replay_index, replay in enumerate(replays):
             run_result = []
             for q_idx, question_kwargs in enumerate(replay):
                 question = Question(is_replay=True, **question_kwargs)
@@ -66,7 +65,7 @@ class Replayer(object):
                     col_names.append("#{} \n {}".format(question.number, question.id))
                 else:
                     try:
-                        if question.prediction['answer'] == trimmed_replays[0][q_idx]['prediction']['answer']:
+                        if question.prediction['answer'] == replays[0][q_idx]['prediction']['answer']:
                             run_result.append(0)
                         elif question.answered_correctly:
                             run_result.append(1)
@@ -82,8 +81,7 @@ class Replayer(object):
             template_string = file.read().replace('\n', '')
         html = template_string % data_frame.to_html(classes='replay-table').replace('border="1"', 'border="0"')
         path = os.path.abspath('replay_report.html')
-        url = 'file://' + path
 
         with open(path, 'w') as file:
             file.write(html)
-        webbrowser.open(url)
+        webbrowser.open('file://' + path)
