@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Richard Madeley",
+                "B": "Art Garfunkel",
+                "C": "R2-D2"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "100%"
+                }
+            },
+            "question": "Who would you be most likely to see alongside C-3PO?",
+            "questionId": 52164,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Dr Dre",
+                "B": "Dr Livingstone",
+                "C": "Dr Pepper"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "86%",
+                    "C": "5%"
+                }
+            },
+            "question": "Who did Henry Stanley “presume” he was meeting in Africa in the 19th century?",
+            "questionId": 52165,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Sting",
+                "B": "Evangeline Lily",
+                "C": "A Beeee Gee"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "94%",
+                    "B": "5%",
+                    "C": "0%"
+                }
+            },
+            "question": "Who plays the Wasp in “Ant-Man and the Wasp”?",
+            "questionId": 52171,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Creaky door",
+                "B": "Footsteps",
+                "C": "Thunder"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "32%",
+                    "C": "67%"
+                }
+            },
+            "question": "Which of these sounds is heard first on the Michael Jackson track “Thriller”?",
+            "questionId": 52172,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Gucci Mane",
+                "B": "Post Malone",
+                "C": "Chance the Rapper"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "68%",
+                    "B": "30%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these rappers does NOT have face tattoos?",
+            "questionId": 52173,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "The Prime Minister",
+                "B": "The Chancellor",
+                "C": "The Queen"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "45%",
+                    "B": "38%",
+                    "C": "15%"
+                }
+            },
+            "question": "Which of these also has the title of First Lord of the Treasury?",
+            "questionId": 52174,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Nottingham",
+                "B": "Durham",
+                "C": "Plymouth"
+            },
+            "category": "Culture",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "28%",
+                    "B": "41%",
+                    "C": "29%"
+                }
+            },
+            "question": "Which university has NEVER won a Guardian University Award?",
+            "questionId": 52175,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Bob Dylan",
+                "B": "Bruce Springsteen",
+                "C": "Elton John"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "19%",
+                    "B": "40%",
+                    "C": "39%"
+                }
+            },
+            "question": "Which singer has a fabled “MIB” team at his concerts who offer free upgraded seats to fans?",
+            "questionId": 52176,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Venezuela",
+                "B": "Uruguay",
+                "C": "Ecuador"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "50%",
+                    "B": "16%",
+                    "C": "33%"
+                }
+            },
+            "question": "Which of these countries has the shortest coastline?",
+            "questionId": 52177,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Madame Tussauds",
+                "B": "Natural History Museum",
+                "C": "The Shard"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "8%",
+                    "B": "84%",
+                    "C": "7%"
+                }
+            },
+            "question": "Which of these London attractions falls inside the Congestion Charge zone?",
+            "questionId": 52178,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Switzerland",
+                "B": "Austria",
+                "C": "Denmark"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "80%",
+                    "B": "10%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which of these countries has the highest priced McDonald's Big Mac?",
+            "questionId": 52189,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Michael Fassbender",
+                "B": "Christopher Lee",
+                "C": "Peter Sellers"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "83%",
+                    "C": "9%"
+                }
+            },
+            "question": "Which of these actors had to get permission from the King of Sweden to get married?",
+            "questionId": 52190,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6180,
+    "ts": "2018-07-19T14:01:22.313Z"
+}

@@ -1,0 +1,249 @@
+{
+    "numCorrect": 6,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Giraffes",
+                "B": "Meerkats",
+                "C": "Snakes"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "3%",
+                    "B": "1%",
+                    "C": "95%"
+                }
+            },
+            "question": "Which of these creatures are released on a plane in a 2006 Samuel L. Jackson movie?",
+            "questionId": 53426,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Tofu",
+                "B": "Sushi",
+                "C": "Honey"
+            },
+            "category": "Literature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "7%",
+                    "C": "91%"
+                }
+            },
+            "question": "Winnie-the-Pooh is very fond of which of these foods?",
+            "questionId": 53427,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Cement cap",
+                "B": "Mortarboard",
+                "C": "Brick beret"
+            },
+            "category": "Culture",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "19%",
+                    "B": "80%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these hats is typically worn by students at a graduation ceremony?",
+            "questionId": 53425,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Shave his moustache",
+                "B": "His own stunts",
+                "C": "Speak"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "66%",
+                    "B": "0%",
+                    "C": "32%"
+                }
+            },
+            "question": "Henry Cavill was NOT allowed to do what during the reshoots for “Justice League”?",
+            "questionId": 53428,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Natasha Kaplinsky",
+                "B": "Carol Smillie",
+                "C": "Fiona Phillips"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "72%",
+                    "B": "0%",
+                    "C": "27%"
+                }
+            },
+            "question": "Which presenter won the inaugural “Strictly Come Dancing”?",
+            "questionId": 53429,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Hungary",
+                "B": "Chile",
+                "C": "Sweden"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "22%",
+                    "B": "29%",
+                    "C": "48%"
+                }
+            },
+            "question": "Which of these countries has NEVER reached the World Cup final?",
+            "questionId": 53430,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Clog",
+                "B": "Slipper",
+                "C": "Sock"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "4%",
+                    "B": "34%",
+                    "C": "61%"
+                }
+            },
+            "question": "Which of these items of footwear gives its name to a type of flower?",
+            "questionId": 53439,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Europe",
+                "B": "North America",
+                "C": "Africa"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "46%",
+                    "B": "20%",
+                    "C": "33%"
+                }
+            },
+            "question": "Which of these landmasses is the largest?",
+            "questionId": 53440,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "John Major",
+                "B": "Margaret Thatcher",
+                "C": "Tony Blair"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "45%",
+                    "C": "42%"
+                }
+            },
+            "question": "Who was Prime Minister when the UK last won the Eurovision Song Contest?",
+            "questionId": 53442,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Brazil",
+                "B": "Samoa",
+                "C": "Senegal"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "75%",
+                    "B": "11%",
+                    "C": "13%"
+                }
+            },
+            "question": "Which of these countries' flags features stars that individually represent its states?",
+            "questionId": 53445,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Mike's New Car",
+                "B": "Geri's Game",
+                "C": "Day & Night"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "61%",
+                    "C": "15%"
+                }
+            },
+            "question": "What was the first Pixar short film to have dialogue?",
+            "questionId": 53471,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "The Last Supper",
+                "B": "No. 5, 1948",
+                "C": "The Starry Night"
+            },
+            "category": "Fine Arts",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "70%",
+                    "B": "1%",
+                    "C": "28%"
+                }
+            },
+            "question": "Which of these paintings had a section removed from it after its completion?",
+            "questionId": 53472,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6301,
+    "ts": "2018-07-24T14:02:22.580Z"
+}
