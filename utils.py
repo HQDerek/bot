@@ -2,11 +2,8 @@
 import re
 from enum import Enum
 from nltk.corpus import stopwords
-<<<<<<< HEAD
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
-=======
->>>>>>> @{-1}
 
 
 class Colours(Enum):
