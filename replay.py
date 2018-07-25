@@ -21,7 +21,7 @@ class Replayer(object):
             game_data = load(open(game_path))
             for question in game_data['questions']:
                 questions.append(Question(is_replay=True, **question))
-        questions.sort(key=lambda q:q.number)
+        questions.sort(key=lambda q: q.number)
         return questions
 
     def play(self):
@@ -73,7 +73,7 @@ class Replayer(object):
                         else:
                             run_result.append(-1)
                     except IndexError:
-                            run_result.append(0)
+                        run_result.append(0)
 
             run_results.append(run_result)
 

@@ -17,10 +17,10 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
     question number
     """
     # monkey patch the glob and json.load functions for values we want in the test
-    def mock_glob(path):
+    def mock_glob(path): # pylint: disable=unused-argument
         """ Mock builtin glob function """
         return globbed_paths
-    def mock_load(file):
+    def mock_load(file): # pylint: disable=unused-argument
         """ Mock JSON loaded from game file """
         return loads(game_json)
     monkeypatch.setattr(replay, "glob", mock_glob)
@@ -59,11 +59,11 @@ def test_play(mock_setup_file, mock_prediction_time, mock_load_question, loaded_
     assert mock_prediction_time.call_count == len(loaded_questions)
 
 @patch('replay.dump')
-def test_setup_output_file_read_mode(mock_dump, monkeypatch):
+def test_setup_file_read(mock_dump, monkeypatch):
     """ Ensure when setup_output_file called in r+ mode it will read local
     replay file and append an empty list to it
     """
-    def mock_load(file):
+    def mock_load(file): # pylint: disable=unused-argument
         """ Mock previous replay lists """
         return [[], []]
     monkeypatch.setattr(replay, "load", mock_load)
@@ -81,20 +81,20 @@ def test_gen_report_six_replays(mock_webbrowser, mock_data_frame, monkeypatch):
     """
     monkeypatch.setattr('builtins.open', mock_open(read_data='%s'))
 
-    def mock_load(file):
+    def mock_load(file): # pylint: disable=unused-argument
         """ Mock replay data. Makes 6 replays over 10 games. Progressively bumps
         up number of correct. Eg. replay1 - 0 correct, replay2 - 1 correct,
         ... replay6 - 5 correct
         """
-        replays = []
+        mock_replays = []
         for i in range(6):
-            replay = []
+            mock_replay = []
             for _ in range(10):
-                for q in generate_game(num_correct=i, correct='A')['questions']:
-                    replay.append(q)
-            replay = sorted(replay, key=lambda q: q['questionNumber'])
-            replays.append(replay)
-        return replays
+                for question in generate_game(num_correct=i, correct='A')['questions']:
+                    mock_replay.append(question)
+            mock_replay = sorted(mock_replay, key=lambda q: q['questionNumber'])
+            mock_replays.append(mock_replay)
+        return mock_replays
 
     monkeypatch.setattr(replay, "load", mock_load)
     replay.Replayer.gen_report()
