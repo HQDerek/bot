@@ -43,22 +43,19 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
     [generate_question(is_replay=True) for _ in range(24)] # two games worth
 ])
 @patch('replay.Replayer.load_questions')
-@patch('question.Question.add_prediction')
-@patch('replay.predict_answers')
+@patch('replay.HqTriviaBot.prediction_time')
 @patch('replay.Replayer.setup_output_file')
-def test_play(mock_setup_file, mock_predict, mock_add_prediction, mock_load_question, loaded_questions):
+def test_play(mock_setup_file, mock_prediction_time, mock_load_question, loaded_questions):
     """ Ensure running play on Replayer will call its own setup_output_file methos,
-    call predict_answers + add_predictionfor each loaded question.
+    call HqTriviaBot.prediction_time
     """
     mock_load_question.return_value = loaded_questions
-    mock_predict.return_value = ('A', {'A': '75%', 'B': '25%', 'C': '25%'})
     replayer = replay.Replayer()
     replayer.play()
     # ensure output setup function called every time replay is used
     assert mock_setup_file.called
-    # ensure predict and add_prediction called for each loaded question
-    assert mock_predict.call_count == len(loaded_questions)
-    assert mock_add_prediction.call_count == len(loaded_questions)
+    # ensure prediction_time called for each loaded question
+    assert mock_prediction_time.call_count == len(loaded_questions)
 
 @patch('replay.dump')
 def test_setup_output_file_read_mode(mock_dump, monkeypatch):
