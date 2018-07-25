@@ -1,10 +1,10 @@
 """ Module for replaying a given game """
 from glob import glob
 from json import load, dump
-from question import Question
-from pandas import DataFrame
 import os
 import webbrowser
+from pandas import DataFrame
+from question import Question
 from bot import HqTriviaBot
 
 class Replayer(object):
@@ -26,12 +26,10 @@ class Replayer(object):
 
     def play(self):
         """ Play all questions loaded from saved games """
-        BOT = HqTriviaBot()
+        bot = HqTriviaBot()
         self.setup_output_file()
         for question in self.questions:
-            BOT.prediction_time(question)
-            #(prediction, confidence) = predict_answers(question)
-            #question.add_prediction(prediction, confidence)
+            bot.prediction_time(question)
 
     @classmethod
     def setup_output_file(cls, mode='r+'):
@@ -49,11 +47,12 @@ class Replayer(object):
 
     @staticmethod
     def gen_report():
-
+        """ Generate HTML report for replays """
         with open('replay_results.json', 'r') as file:
             replays = load(file)
             max_q_index = len(replays[0]) - 1
-            trimmed_replays = [replay[:max_q_index] if len(replay) > (max_q_index + 1) else replay for replay in replays]
+            trimmed_replays = [replay[:max_q_index] if len(replay) > (max_q_index + 1) \
+                                else replay for replay in replays]
 
         col_names = []
         run_results = []
@@ -63,7 +62,7 @@ class Replayer(object):
                 question = Question(is_replay=True, **question_kwargs)
 
                 if replay_index == 0:
-                    run_result.append(1 if question.answered_correctly else -1);
+                    run_result.append(1 if question.answered_correctly else -1)
                     col_names.append("#{} \n {}".format(question.number, question.id))
                 else:
                     try:
@@ -78,13 +77,13 @@ class Replayer(object):
 
             run_results.append(run_result)
 
-        df = DataFrame(columns=col_names, data=run_results)
+        data_frame = DataFrame(columns=col_names, data=run_results)
         with open('report_template.html', 'r') as file:
-            template_string=file.read().replace('\n', '')
-        html = template_string % df.to_html(classes='replay-table').replace('border="1"','border="0"')
+            template_string = file.read().replace('\n', '')
+        html = template_string % data_frame.to_html(classes='replay-table').replace('border="1"', 'border="0"')
         path = os.path.abspath('replay_report.html')
         url = 'file://' + path
 
-        with open(path, 'w') as f:
-            f.write(html)
+        with open(path, 'w') as file:
+            file.write(html)
         webbrowser.open(url)

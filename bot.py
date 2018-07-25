@@ -1,3 +1,4 @@
+""" Bot module where main game actions are performed """
 import webbrowser
 from os import path
 from glob import glob
@@ -105,7 +106,7 @@ class HqTriviaBot(object):
         # Create session and open browser
         if not question.is_replay:
             session = FuturesSession(max_workers=10)
-            webbrowser.open('https://www.google.co.uk/search?pws=0&q=' + data.get('question'))
+            webbrowser.open('https://www.google.co.uk/search?pws=0&q=' + question.text)
         else:
             session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
 
@@ -132,7 +133,7 @@ class HqTriviaBot(object):
         print('\nPrediction:')
         for answer_key, percentage in confidence.items():
             result = '%sAnswer %s: %s - %s%%' % \
-                ('-> ' if answer_key == prediction else '   ', answer_key, question.answers.get(answer_key), likelihood)
+                ('-> ' if answer_key == prediction else '   ', answer_key, question.answers.get(answer_key), percentage)
             print(Colours.OKBLUE.value + Colours.BOLD.value + result + Colours.ENDC.value \
                 if answer_key == prediction else result)
 
@@ -271,123 +272,6 @@ class HqTriviaBot(object):
                 print('%s is not a user.' % username)
         except JSONDecodeError:
             pass
-
-
-    def cache(self, command):
-        """ cache mode """
-        session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
-        methods = [
-            {
-                'name': 'answer_words_google',
-                'queries': answer_words_queries
-            },
-            {
-                'name': 'count_results_google',
-                'queries': count_results_queries
-            }
-        ]
-        print('Running cache %s' % command)
-        if command == 'prune':
-            self.cache_prune(session, methods)
-        elif command == 'refresh':
-            self.cache_refresh(session, methods)
-        elif command == 'vacuum':
-            self.cache_vacuum(session, methods)
-        elif command == 'import':
-            self.cache_import(session, methods)
-        elif command == 'export':
-            self.cache_export(session, methods)
-
-    @staticmethod
-    def cache_prune(session, methods):
-        """ cache prune mode """
-        urls = []
-        for method in methods:
-            for filename in sorted(glob('games/*.json')):
-                game = load(open(filename))
-                for turn in game.get('questions'):
-                    urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
-        stale_entries = []
-        for key, (resp, _) in session.cache.responses.items():
-            if resp.url not in urls and not any(step.url in urls for step in resp.history):
-                stale_entries.append((key, resp))
-        print('Found %s/%s stale entries' % (len(stale_entries), len(session.cache.responses.keys())))
-        for key, resp in stale_entries:
-            print('Deleting stale entry: %s' % resp.url)
-            session.cache.delete(key)
-
-    @staticmethod
-    def cache_refresh(session, methods):
-        """ cache refresh mode """
-        urls = []
-        for method in methods:
-            for filename in sorted(glob('games/*.json')):
-                game = load(open(filename))
-                for turn in game.get('questions'):
-                    urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
-        cache_misses = [
-            url for url in urls if not session.cache.create_key(
-                session.prepare_request(Request('GET', url))
-            ) in session.cache.responses
-        ]
-        print('Found %s/%s URLs not in cache' % (len(cache_misses), len(urls)))
-        for idx, url in enumerate(cache_misses):
-            print('Adding cached entry: %s' % url)
-            response = session.get(url)
-            if '/sorry/index?continue=' in response.url:
-                exit('ERROR: Google rate limiting detected. Cached %s pages.' % idx)
-
-    @staticmethod
-    def cache_vacuum(_session, _methods):
-        """ cache vacuum mode """
-        conn = connect("db/cache.sqlite")
-        conn.execute("VACUUM")
-        conn.close()
-
-    @staticmethod
-    def cache_import(_session, _methods):
-        """ cache import mode """
-        conn = connect("db/cache.sqlite")
-        for filename in sorted(glob('db/*.sql')):
-            print('Importing SQL %s' % filename)
-            sql = open(filename, 'r').read()
-            cur = conn.cursor()
-            cur.executescript(sql)
-        conn.close()
-
-    @staticmethod
-    def cache_export(session, methods):
-        """ cache export mode """
-        for filename in sorted(glob('games/*.json')):
-            game = load(open(filename))
-            show_id = path.basename(filename).split('.')[0]
-            if not path.isfile('./db/%s.sql' % show_id):
-                print('Exporting SQL %s' % show_id)
-                urls = []
-                for method in methods:
-                    for turn in game.get('questions'):
-                        urls.extend(method['queries'](turn.get('question'), turn.get('answers')))
-                url_keys = [session.cache.create_key(session.prepare_request(Request('GET', url))) for url in urls]
-                conn = connect(':memory:')
-                cur = conn.cursor()
-                cur.execute("attach database 'db/cache.sqlite' as cache")
-                cur.execute("select sql from cache.sqlite_master where type='table' and name='urls'")
-                cur.execute(cur.fetchone()[0])
-                cur.execute("select sql from cache.sqlite_master where type='table' and name='responses'")
-                cur.execute(cur.fetchone()[0])
-                for key in list(set(url_keys)):
-                    cur.execute("insert into urls select * from cache.urls where key = '%s'" % key)
-                    cur.execute("insert into responses select * from cache.responses where key = '%s'" % key)
-                conn.commit()
-                cur.execute("detach database cache")
-                with open('db/%s.sql' % show_id, 'w') as file:
-                    for line in conn.iterdump():
-                        file.write('%s\n' % line.replace(
-                            'TABLE', 'TABLE IF NOT EXISTS'
-                        ).replace(
-                            'INSERT', 'INSERT OR IGNORE'
-                        ))
-                conn.close()
 
 
 

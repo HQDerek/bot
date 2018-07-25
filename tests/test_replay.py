@@ -1,15 +1,15 @@
 """ Tests for the Replayer class and its methods """
+from unittest.mock import mock_open, patch, ANY
+from json import loads
 import pytest
 from tests.utils import generate_game, generate_question
 import replay
-from unittest.mock import mock_open, patch, ANY
-from json import loads, dumps
 
 
 @pytest.mark.parametrize("globbed_paths, game_json", [
     ([], None), # no game in game folder, no json to return
-    (['games/2018-02-25-game-3701'], generate_game(as_JSON=True)), # one game file, mock json
-    (['games/2018-02-25-game-3701', 'games/2018-02-26-game-3702'], generate_game(as_JSON=True)), # two games, mock json
+    (['games/2018-02-25-game-3701'], generate_game(as_json=True)), # one game file, mock json
+    (['games/2018-02-25-game-3701', 'games/2018-02-26-game-3702'], generate_game(as_json=True)), # two games, mock json
 ])
 def test_load_questions(globbed_paths, game_json, monkeypatch):
     """ Ensure a Replay.load_question method will read correctly from the
@@ -18,6 +18,7 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
     """
     # monkey patch the glob and json.load functions for values we want in the test
     def mock_glob(path):
+        """ Mock builtin glob function """
         return globbed_paths
     def mock_load(file):
         """ Mock JSON loaded from game file """
@@ -30,11 +31,11 @@ def test_load_questions(globbed_paths, game_json, monkeypatch):
     # make sure correct number of q's loaded
     assert len(questions) == len(globbed_paths) * 12
     # ensure q's ordered by numbers 1-12
-    for idx, q in enumerate(questions):
+    for idx, question in enumerate(questions):
         if idx == 0:
-            assert q.number == 1
+            assert question.number == 1
         else:
-            assert q.number >= questions[idx-1].number
+            assert question.number >= questions[idx-1].number
 
 
 @pytest.mark.parametrize("loaded_questions", [
@@ -64,7 +65,7 @@ def test_setup_output_file_read_mode(mock_dump, monkeypatch):
     """
     def mock_load(file):
         """ Mock previous replay lists """
-        return [[],[]]
+        return [[], []]
     monkeypatch.setattr(replay, "load", mock_load)
     monkeypatch.setattr('builtins.open', mock_open(read_data=''))
     replay.Replayer.setup_output_file()
@@ -88,7 +89,7 @@ def test_gen_report_six_replays(mock_webbrowser, mock_data_frame, monkeypatch):
         replays = []
         for i in range(6):
             replay = []
-            for j in range(10):
+            for _ in range(10):
                 for q in generate_game(num_correct=i, correct='A')['questions']:
                     replay.append(q)
             replay = sorted(replay, key=lambda q: q['questionNumber'])
@@ -99,7 +100,7 @@ def test_gen_report_six_replays(mock_webbrowser, mock_data_frame, monkeypatch):
     replay.Replayer.gen_report()
     assert mock_webbrowser.open.called
     # ensure correct number of columns, one for each question over 10 games - 120
-    assert len(mock_data_frame.call_args[1]['columns'][0])
+    assert len(mock_data_frame.call_args[1]['columns'][0]) == 120
     # ensure dataframe column titles orderd correctly
     assert '#1 \n' in mock_data_frame.call_args[1]['columns'][0]
     assert '#12 \n' in mock_data_frame.call_args[1]['columns'][-1]

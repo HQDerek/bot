@@ -1,8 +1,10 @@
+""" Util functions for use in generating test data """
+
 from random import choice
 from json import dumps
 from question import Question
 
-def generate_game(show_id=12, num_correct=6, as_JSON=False, correct=None):
+def generate_game(show_id=12, num_correct=6, as_json=False, correct=None):
     """ Generate a completed games saved json """
 
     choices = ['A', 'B', 'C']
@@ -25,7 +27,7 @@ def generate_game(show_id=12, num_correct=6, as_JSON=False, correct=None):
                 "B": "Second Answer",
                 "C": "Third Answer"
             },
-            "category": choice(['Educational', 'Sport', 'TV & Film', 'Politics', 'Geography']) ,
+            "category": choice(['Educational', 'Sport', 'TV & Film', 'Politics', 'Geography']),
             "correct": correct,
             "prediction": {
                 "answer": correct if i < num_correct else choices[choices.index(correct) - 1],
@@ -38,7 +40,7 @@ def generate_game(show_id=12, num_correct=6, as_JSON=False, correct=None):
         } for i in range(12)]
     }
 
-    return game_data if as_JSON is False else dumps(game_data)
+    return game_data if as_json is False else dumps(game_data)
 
 def generate_question(is_replay=False, correct=False):
     """ Return a single instance of a Question """
@@ -58,7 +60,7 @@ def generate_question(is_replay=False, correct=False):
             "confidence": {
                 "A": "0%",
                 "B": "75%" if correct else "25%",
-                "C": "75%" if not correct == "C" else "25%"
+                "C": "75%" if correct != "C" else "25%"
             }
         }
     }
