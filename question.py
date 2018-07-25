@@ -1,4 +1,5 @@
 """ Module for representing a question """
+# pylint: disable=invalid-name, too-many-instance-attributes, non-parent-init-called
 from glob import glob
 import os
 from json import load, dump
