@@ -42,6 +42,8 @@ class BaseSolver(object):
     @staticmethod
     def choose_answer(question_text, confidence):
         """ Choose an answer using confidence """
+        if sum(confidence.values()) == 0:
+            return 'A'
         comparison = min if ' NOT ' in question_text or ' NEVER ' in question_text else max
         return comparison(confidence, key=confidence.get)
 
