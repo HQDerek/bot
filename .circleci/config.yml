@@ -3,7 +3,7 @@ version: 2 # use CircleCI 2.0
 jobs:
   build:
 
-    working_directory: ~/hqtrivia-bot
+    working_directory: ~/hqtrivia_bot
 
     docker:
       - image: circleci/python:3.6-stretch
@@ -26,17 +26,21 @@ jobs:
           paths:
             - ".venv"
 
-      - run: # run tests
-          name: Run Tests
-          command: |
-            mkdir test-reports
-            pipenv run cache import
-            pipenv run test -s --junitxml=test-reports/junit.xml
-
       - run: # run lint
           name: Run Lint
           command: |
             pipenv run lint
+
+      - run: # import database
+          name: Import Database
+          command: |
+            pipenv run cache import
+
+      - run: # run tests
+          name: Run Tests
+          command: |
+            mkdir test-reports
+            pipenv run test -s --junitxml=test-reports/junit.xml
 
       - store_test_results: # store test reports
           path: test-reports
