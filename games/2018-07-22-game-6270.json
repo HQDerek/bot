@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£8,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Next year",
+                "B": "June",
+                "C": "4.5 billion years ago"
+            },
+            "category": "Science",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "5%",
+                    "B": "27%",
+                    "C": "66%"
+                }
+            },
+            "question": "According to widely held scientific theory, when was the Earth created?",
+            "questionId": 53088,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Brussels",
+                "B": "Paris",
+                "C": "Los Angeles"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "38%",
+                    "B": "55%",
+                    "C": "6%"
+                }
+            },
+            "question": "Which of these is NOT a destination for a Eurostar service from London?",
+            "questionId": 53089,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Savage Sunday",
+                "B": "Time's Up Tuesday",
+                "C": "Manic Monday"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "99%"
+                }
+            },
+            "question": "Which of these was a hit for The Bangles in the 80s?",
+            "questionId": 53090,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Your Grace",
+                "B": "Your Excellency",
+                "C": "Your Majesty"
+            },
+            "category": "Culture",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "39%",
+                    "B": "7%",
+                    "C": "53%"
+                }
+            },
+            "question": "Which of these is an accepted way to address a duke when meeting for the first time?",
+            "questionId": 53091,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Snoop Dogg",
+                "B": "Coolio",
+                "C": "Ice Cube"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "15%",
+                    "B": "72%",
+                    "C": "11%"
+                }
+            },
+            "question": "Which of these rappers appears in the director's cut of “Daredevil”?",
+            "questionId": 53092,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "McIntyre's Cold War",
+                "B": "McFadden's Cold War",
+                "C": "Morgan's Cold War"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "99%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is a popular spoof Twitter account?",
+            "questionId": 53093,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Donald Duck",
+                "B": "Mickey Mouse",
+                "C": "Bugs Bunny"
+            },
+            "category": "Entertainment",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "10%",
+                    "B": "82%",
+                    "C": "7%"
+                }
+            },
+            "question": "Due to rights issues, which Disney character was created to replace Oswald the Lucky Rabbit?",
+            "questionId": 53094,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Isaac Newton",
+                "B": "Christopher Wren",
+                "C": "Thomas Telford"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "25%",
+                    "B": "5%",
+                    "C": "68%"
+                }
+            },
+            "question": "Which of these historical figures did NOT serve as a Member of Parliament?",
+            "questionId": 53095,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Antoine Griezmann",
+                "B": "Paul Pogba",
+                "C": "Luka Modrić"
+            },
+            "category": "Tech",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "83%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which of these footballers has the most Instagram followers?",
+            "questionId": 53096,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Scientific intelligence",
+                "B": "Aerial photography",
+                "C": "Military censorship"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "45%",
+                    "B": "18%",
+                    "C": "36%"
+                }
+            },
+            "question": "In World War II, the Military Intelligence department MI12 was originally set up to look after what?",
+            "questionId": 53098,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "A-Rod",
+                "B": "The Scud",
+                "C": "Pistol Pete"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "96%",
+                    "B": "0%",
+                    "C": "3%"
+                }
+            },
+            "question": "What is the nickname of the first player Roger Federer defeated in a Grand Slam singles final?",
+            "questionId": 53099,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Herons",
+                "B": "Storks",
+                "C": "Flamingos"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "37%",
+                    "B": "27%",
+                    "C": "35%"
+                }
+            },
+            "question": "Symbols of which bird can be seen around the city that is home to the International Court of Justice?",
+            "questionId": 53100,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6270,
+    "ts": "2018-07-22T20:03:27.157Z"
+}
