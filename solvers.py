@@ -17,11 +17,6 @@ class BaseSolver(object):
         """ build queries with question text and answers """
         raise NotImplementedError()
 
-        queries = {}
-        for answer_key, answer_value in answer.values():
-            queries[answer_key] = '%s "%s"' % (question_text, answer_key)
-        return queries
-
 
     def build_urls(self, question_text, answers):
         """ build URLs with search queries """
@@ -36,7 +31,6 @@ class BaseSolver(object):
     @staticmethod
     def fetch_responses(urls, session):
         """ fetch responses for solver URLs """
-        import pdb; pdb.set_trace()
         responses = {}
         for answer_key, url in urls.items():
             responses[answer_key] = session.get(url)
@@ -91,10 +85,15 @@ class GoogleAnswerWordsSolver(BaseSolver):
 
     @staticmethod
     def build_queries(question_text, answers):
-        """ build queries with question text and answers """
+        """ Built a single query for all answers. _ notation is used to show a
+        universal query for all keys
+       :param question_text: string of the question
+       :param answers: dict of possible answer values keyed A, B or C
+       :returns: dict with one universal query for all answers
+        """
         return {'_': question_text}
 
-    def get_answer_matches(self, response, _, answers, matches):
+    def get_answer_matches(self, response, _answer_key, answers, matches):
         """ get answer occurences for response """
         results = ''
         document = BeautifulSoup(response.text, "html5lib")
@@ -133,7 +132,7 @@ class GoogleResultsCountSolver(BaseSolver):
         """ build queries dict with question text and answers """
         queries = {}
         for answer_key, answer_value in answers.items():
-            queries[answer_key] = '%s "%s"' % (question_text, answer_key)
+            queries[answer_key] = '%s "%s"' % (question_text, answer_value)
         return queries
 
     def get_answer_matches(self, response, answer_key, answers, matches):
