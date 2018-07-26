@@ -100,7 +100,7 @@ def test_gen_report_six_replays(mock_webbrowser, mock_data_frame, monkeypatch):
     replay.Replayer.gen_report()
     assert mock_webbrowser.open.called
     # ensure correct number of columns, one for each question over 10 games - 120
-    assert len(mock_data_frame.call_args[1]['columns'][0]) == 120
+    assert len(mock_data_frame.call_args[1]['columns']) == 120
     # ensure dataframe column titles orderd correctly
     assert '#1 \n' in mock_data_frame.call_args[1]['columns'][0]
     assert '#12 \n' in mock_data_frame.call_args[1]['columns'][-1]
