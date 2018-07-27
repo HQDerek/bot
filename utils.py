@@ -34,6 +34,6 @@ def get_significant_words(question_words):
 
 def get_raw_words(data):
     """ Extract raw words from data """
-    data = re.sub(r'[^\w ]', '', data).replace(' and ', ' ').strip()
+    data = re.sub(r'[^A-Za-z0-9 ]', '', data).replace(' and ', ' ').strip()
     words = data.replace('  ', ' ').lower()
     return words
