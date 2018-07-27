@@ -1,7 +1,7 @@
 """ Solvers for the HQ Trivia bot project """
 import re
 import sys
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, unquote_plus
 from bs4 import BeautifulSoup
 from utils import Colours, get_raw_words, get_significant_words
 
@@ -62,6 +62,64 @@ class BaseSolver(object):
         prediction = self.choose_answer(question_text, confidence)
 
         return prediction, confidence
+
+
+class GoogleQuestionHeuristicSolver(BaseSolver):
+    """ Solver that uses heuristics to search specific questions on Google """
+
+    weight = 1000
+    service_url = 'https://www.google.co.uk/search?pws=0&q={}{}'
+
+    @staticmethod
+    def build_queries(question_text, answers):
+        """ skip query builder for heuristics """
+        return []
+
+    def build_urls(self, question_text, answers):
+        """ build URLs with search queries """
+        queries = []
+        comparison = ''
+
+        # Search for where a specific person was born
+        if all(piece in question_text for piece in ['Which ', ' born in ']):
+            place = re.search(r'born in ([^ \?]+)\?', question_text)
+            if place and place.group(1):
+                comparison = place.group(1)
+                queries = ['Where was {} born?'.format(answer) for answer in answers.values()]
+
+        return [self.service_url.format(
+            quote_plus(query),
+            '#comparison={}'.format(quote_plus(comparison)) if comparison else ''
+        ) for query in queries]
+
+
+    @staticmethod
+    def get_answer_matches(response, index, answers, matches):
+        """ get answer occurences for response """
+        results = ''
+        document = BeautifulSoup(response.text, "html5lib")
+        for element in document.find_all(class_='st'):
+            results += " " + element.text # Search result descriptions
+        for element in document.find_all(class_='r'):
+            results += " " + element.text # Search result titles
+        for element in document.find_all(class_='mod'):
+            results += " " + element.text # Quick answer card
+        for element in document.find_all(class_='brs_col'):
+            results += " " + element.text # Related searches
+        results_words = get_raw_words(results)
+
+        # Get comparison from URL
+        if '#comparison=' in response.url:
+            comparison = unquote_plus(response.url.split('#comparison=')[1])
+            answer_words = get_raw_words(comparison)
+        else:
+            answer_words = get_raw_words(answers[chr(65 + index)])
+        matches[chr(65 + index)] += results_words.count(answer_words)
+
+        print('{}: {}{:,}{}'.format(
+            chr(65 + index), Colours.BOLD.value, matches[chr(65 + index)], Colours.ENDC.value
+        ))
+        return matches
 
 
 class GoogleAnswerWordsSolver(BaseSolver):

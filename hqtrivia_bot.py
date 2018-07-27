@@ -12,7 +12,7 @@ from requests import get, post, Request
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
-from solvers import GoogleAnswerWordsSolver, GoogleResultsCountSolver
+from solvers import GoogleAnswerWordsSolver, GoogleResultsCountSolver, GoogleQuestionHeuristicSolver
 from utils import Colours
 
 
@@ -24,6 +24,7 @@ class HqTriviaBot(object):
         self.broadcast_ended = False
         self.current_game = ''
         self.solvers = [
+            GoogleQuestionHeuristicSolver(),
             GoogleAnswerWordsSolver(),
             GoogleResultsCountSolver()
         ]
@@ -359,6 +360,7 @@ class HqTriviaBot(object):
         """ cache mode """
         session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
         solvers = [
+            GoogleQuestionHeuristicSolver(),
             GoogleAnswerWordsSolver(),
             GoogleResultsCountSolver()
         ]
