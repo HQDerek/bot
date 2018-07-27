@@ -1,7 +1,7 @@
 """ Solvers for the HQ Trivia bot project """
 import re
 import sys
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, unquote_plus
 from bs4 import BeautifulSoup
 from utils import Colours, get_raw_words, get_significant_words
 
@@ -13,13 +13,13 @@ class BaseSolver(object):
     service_url = None
 
     @staticmethod
-    def build_queries(question_text, answers):
+    def build_queries(question_text, answers, category):
         """ build queries with question text and answers """
         raise NotImplementedError()
 
-    def build_urls(self, question_text, answers):
+    def build_urls(self, question_text, answers, category):
         """ build URLs with search queries """
-        queries = self.build_queries(question_text.replace(' NOT ', ' ').replace(' NEVER ', ' '), answers)
+        queries = self.build_queries(question_text.replace(' NOT ', ' ').replace(' NEVER ', ' '), answers, category)
         return [self.service_url.format(quote_plus(query)) for query in queries]
 
     @staticmethod
@@ -73,7 +73,7 @@ class GoogleAnswerWordsSolver(BaseSolver):
     service_url = 'https://www.google.co.uk/search?pws=0&q={}'
 
     @staticmethod
-    def build_queries(question_text, answers):
+    def build_queries(question_text, answers, category):
         """ build queries with question text and answers """
         return [question_text]
 
@@ -112,7 +112,7 @@ class GoogleResultsCountSolver(BaseSolver):
     service_url = 'https://www.google.co.uk/search?pws=0&q={}'
 
     @staticmethod
-    def build_queries(question_text, answers):
+    def build_queries(question_text, answers, category):
         """ build queries with question text and answers """
         return ['%s "%s"' % (question_text, answer) for answer in answers.values()]
 
@@ -128,4 +128,35 @@ class GoogleResultsCountSolver(BaseSolver):
         print('{}: {}{:,}{}'.format(
             chr(65 + index), Colours.BOLD.value, matches[chr(65 + index)], Colours.ENDC.value
         ))
+        return matches
+
+
+class WolframAlphaAnswerWordsSolver(BaseSolver):
+    """ Solver that searches question on Wolfram Alpha and looks for answer words """
+
+    weight = 100
+    service_url = 'http://api.wolframalpha.com/v1/result?appid=4H762W-PQ7735Q7T6&timeout=2&i={}'
+
+    @staticmethod
+    def build_queries(question_text, answers, category):
+        """ build queries with question text and answers """
+        if 'Which of these' in question_text and category in ['Geography', 'Literature ']:
+            question_text = re.sub(r'Which of these( [^ ]*)( is)?( NOT)?', r'Is {}\1', question_text)
+            return [question_text.format(answer) for answer in answers.values()]
+        return []
+
+    @staticmethod
+    def get_answer_matches(response, _index, answers, matches):
+        """ get answer occurences for response """
+        result = BeautifulSoup(response.text, "html5lib").text
+        print('{}: {}{}{}'.format(unquote_plus(response.url.split('&i=')[1]), \
+            Colours.BOLD.value, result, Colours.ENDC.value))
+        if result != 'Wolfram|Alpha did not understand your input':
+            results_words = get_raw_words(result)
+            for index, answer in answers.items():
+                answer_words = get_raw_words(answer)
+                matches[index] += results_words.count(answer_words)
+            for index, count in matches.items():
+                print('{}: {} '.format(index, Colours.BOLD.value + str(count) + Colours.ENDC.value), end='', flush=True)
+            print('\n')
         return matches

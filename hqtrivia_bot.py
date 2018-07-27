@@ -12,7 +12,7 @@ from requests import get, post, Request
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
-from solvers import GoogleAnswerWordsSolver, GoogleResultsCountSolver
+from solvers import GoogleAnswerWordsSolver, WolframAlphaAnswerWordsSolver, GoogleResultsCountSolver
 from utils import Colours
 
 
@@ -25,7 +25,8 @@ class HqTriviaBot(object):
         self.current_game = ''
         self.solvers = [
             GoogleAnswerWordsSolver(),
-            GoogleResultsCountSolver()
+            GoogleResultsCountSolver(),
+            WolframAlphaAnswerWordsSolver()
         ]
         self.headers = {
             'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
@@ -123,7 +124,7 @@ class HqTriviaBot(object):
         confidence = {'A': 0, 'B': 0, 'C': 0}
         for solver in self.solvers:
             responses[solver] = solver.fetch_responses(
-                solver.build_urls(data.get('question'), data.get('answers')), session
+                solver.build_urls(data.get('question'), data.get('answers'), data.get('category')), session
             )
         for solver, responses in responses.items():
             (prediction, confidence) = solver.run(
@@ -360,7 +361,8 @@ class HqTriviaBot(object):
         session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
         solvers = [
             GoogleAnswerWordsSolver(),
-            GoogleResultsCountSolver()
+            GoogleResultsCountSolver(),
+            WolframAlphaAnswerWordsSolver()
         ]
         print('Running cache %s' % command)
         if command == 'prune':
@@ -382,7 +384,7 @@ class HqTriviaBot(object):
             for filename in sorted(glob('games/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
-                    urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')))
+                    urls.extend(solver.build_urls(turn.get('question'), turn.get('answers'), turn.get('category')))
         stale_entries = []
         for key, (resp, _) in session.cache.responses.items():
             if resp.url not in urls and not any(step.url in urls for step in resp.history):
@@ -400,7 +402,7 @@ class HqTriviaBot(object):
             for filename in sorted(glob('games/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
-                    urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')))
+                    urls.extend(solver.build_urls(turn.get('question'), turn.get('answers'), turn.get('category')))
         cache_misses = [
             url for url in urls if not session.cache.create_key(
                 session.prepare_request(Request('GET', url))
@@ -442,7 +444,7 @@ class HqTriviaBot(object):
                 urls = []
                 for solver in solvers:
                     for turn in game.get('questions'):
-                        urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')))
+                        urls.extend(solver.build_urls(turn.get('question'), turn.get('answers'), turn.get('category')))
                 url_keys = [session.cache.create_key(session.prepare_request(Request('GET', url))) for url in urls]
                 conn = connect(':memory:')
                 cur = conn.cursor()
