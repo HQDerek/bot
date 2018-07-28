@@ -131,9 +131,11 @@ class HqTriviaBot(object):
 
         # Show prediction in console
         print('\nPrediction:')
-        for answer_key, percentage in confidence.items():
-            result = '%sAnswer %s: %s - %s%%' % \
-                ('-> ' if answer_key == prediction else '   ', answer_key, question.answers.get(answer_key), percentage)
+        for answer_key in sorted(confidence.iterkeys()):
+            result = '%sAnswer %s: %s - %s%%' % ('-> ' if answer_key == prediction else '   ',
+                                                 answer_key,
+                                                 question.answers.get(answer_key),
+                                                 confidence[answer_key])
             print(Colours.OKBLUE.value + Colours.BOLD.value + result + Colours.ENDC.value \
                 if answer_key == prediction else result)
 
