@@ -108,7 +108,7 @@ class HqTriviaBot(object):
             session = FuturesSession(max_workers=10)
             webbrowser.open('https://www.google.co.uk/search?pws=0&q=' + question.text)
         else:
-            session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
+            session = CachedSession('file::memory:?cache=shared', extension='', allowable_codes=(200, 302, 304))
 
         # Run solvers
         responses = {}
@@ -277,7 +277,7 @@ class HqTriviaBot(object):
 
     def cache(self, command):
         """ cache mode """
-        session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
+        session = CachedSession('file::memory:?cache=shared', extension='', allowable_codes=(200, 302, 304))
         solvers = [
             GoogleAnswerWordsSolver(),
             GoogleResultsCountSolver()
@@ -336,14 +336,14 @@ class HqTriviaBot(object):
     @staticmethod
     def cache_vacuum(_session, _solvers):
         """ cache vacuum mode """
-        conn = connect("db/cache.sqlite")
+        conn = connect('file::memory:?cache=shared', uri=True)
         conn.execute("VACUUM")
         conn.close()
 
     @staticmethod
     def cache_import(_session, _solvers):
         """ cache import mode """
-        conn = connect("db/cache.sqlite")
+        conn = connect('file::memory:?cache=shared', uri=True)
         for filename in sorted(glob('db/*.sql')):
             print('Importing SQL %s' % filename)
             sql = open(filename, 'r').read()

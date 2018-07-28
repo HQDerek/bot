@@ -1,6 +1,7 @@
 #!/usr/bin/python
 """ Main module """
 from sys import argv
+from sqlite3 import connect
 from bot import HqTriviaBot
 from replay import Replayer
 
@@ -11,8 +12,11 @@ if __name__ == "__main__":
     elif len(argv) == 3 and argv[1] == "cache":
         BOT.cache(argv[2])
     elif len(argv) >= 2 and argv[1] == "replay":
+        conn = connect('file::memory:?cache=shared', uri=True)
+        BOT.cache('import')
         REPLAYER = Replayer()
         REPLAYER.play()
+        conn.close()
         REPLAYER.gen_report()
     elif len(argv) == 2 and argv[1] == "get-wins":
         BOT.get_wins(argv[2])
