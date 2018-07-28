@@ -36,7 +36,7 @@ class BaseSolver(object):
             responses[answer_key] = session.get(url)
         return responses
 
-    def get_answer_matches(self, response, index, answers, matches):
+    def get_answer_matches(self, response, answer_key, answers, matches):
         """ get answer occurences for response """
         raise NotImplementedError()
 
