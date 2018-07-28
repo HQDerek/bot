@@ -17,8 +17,7 @@ class Question(object):
             with open(self.game_path) as file:
                 output = load(file)
             questions = output[output_key]
-            kwarg_vals = next((q for q in questions if q["questionId"] == load_id), None)
-            self.__init__(is_replay=is_replay, **kwarg_vals)
+            kwargs = next((q for q in questions if q["questionId"] == load_id), None)
 
         self.id = kwargs.get('questionId', None)
         self.number = kwargs.get('questionNumber', None)
