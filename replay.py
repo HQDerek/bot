@@ -45,9 +45,22 @@ class Replayer(object):
         except FileNotFoundError:
             cls.setup_output_file(mode='w+')
 
-    @staticmethod
-    def gen_report():
+    def gen_report(self):
         """ Generate HTML report for replays """
+        data_frame = self._gen_data_frame()
+        perc_correct = data_frame.iloc[0].value_counts()[1]/data_frame.shape[1]
+        import pdb; pdb.set_trace()
+        with open('report_template.html', 'r') as file:
+            template_string = file.read().replace('\n', '')
+        html = template_string % data_frame.to_html(classes='replay-table').replace('border="1"', 'border="0"')
+        path = os.path.abspath('replay_report.html')
+
+        with open(path, 'w') as file:
+            file.write(html)
+        webbrowser.open('file://' + path)
+
+    @staticmethod
+    def _gen_data_frame():
         with open('replay_results.json', 'r') as file:
             replays = load(file)
             replays = [replay[:len(replays[0])] for replay in replays] # trim
@@ -75,12 +88,4 @@ class Replayer(object):
 
             run_results.append(run_result)
 
-        data_frame = DataFrame(columns=col_names, data=run_results)
-        with open('report_template.html', 'r') as file:
-            template_string = file.read().replace('\n', '')
-        html = template_string % data_frame.to_html(classes='replay-table').replace('border="1"', 'border="0"')
-        path = os.path.abspath('replay_report.html')
-
-        with open(path, 'w') as file:
-            file.write(html)
-        webbrowser.open('file://' + path)
+        return DataFrame(columns=col_names, data=run_results)
