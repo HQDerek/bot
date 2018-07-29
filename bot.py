@@ -131,7 +131,7 @@ class HqTriviaBot(object):
 
         # Show prediction in console
         print('\nPrediction:')
-        for answer_key in sorted(confidence.iterkeys()):
+        for answer_key in sorted(confidence.keys()):
             result = '%sAnswer %s: %s - %s%%' % ('-> ' if answer_key == prediction else '   ',
                                                  answer_key,
                                                  question.answers.get(answer_key),

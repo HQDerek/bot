@@ -1,8 +1,7 @@
-from unittest.mock import mock_open, patch, ANY
+from unittest.mock import mock_open, patch
 import pytest
 from tests.utils import generate_game, generate_question
 import question
-
 
 
 @pytest.fixture(scope="module")
@@ -18,6 +17,7 @@ def question_kwargs():
         "questionNumber": 3
     }
 
+
 @patch('builtins.open')
 def test_question_init_kwargs(mock_open):
     """ Ensure passing a dictionary of values to the init method
@@ -25,6 +25,7 @@ def test_question_init_kwargs(mock_open):
     """
     qs = question.Question(is_replay=True, **question_kwargs())
     mock_open.assert_not_called()
+
 
 def test_question_init_load_id(monkeypatch):
     """
@@ -47,34 +48,40 @@ def test_answered_correctly_no_answer_yet():
     """ Ensure that if the Question instance has no correct answer value
     the correct property method returns False
     """
-    pass
+    question = generate_question()
+    question.correct = None
+    assert question.answered_correctly is False
 
 
 def test_answered_correctly_has_correct_answer():
     """ Ensure a Question's answered_correctly property method returns True
      if the Question's prediction matches its correct answer value
     """
-    pass
+    question = generate_question(correct=True)
+    assert question.answered_correctly is True
 
 
 def test_answered_correctly_has_incorrect_answer():
     """ Ensure a Questions answered_correctly property returns False if
     the Questions prediction values doesn't match the correct answer value
     """
-    pass
+    question = generate_question(correct=False)
+    assert question.answered_correctly is False
 
 
 def test_game_path_is_replay_true():
     """ Ensure that a Question's game_path method while in replay mode
     will return replay_results.json
     """
-    pass
+    question = generate_question(is_replay=True)
+    assert question.game_path == 'replay_results.json'
 
 
 def test_game_path_is_replay_false():
     """ Ensure that a Question's game_path method while not in replay mode
     returns the most recently created file """
-    pass
+    question = generate_question(is_replay=False)
+    assert question.game_path == 'replay_results.json'
 
 
 # params (in_replay, file_val, expected_save)
