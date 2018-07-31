@@ -1,6 +1,6 @@
 from unittest.mock import mock_open, patch
 import pytest
-from tests.utils import generate_game, generate_question
+from tests.utils import generate_question
 import question
 
 
@@ -23,7 +23,7 @@ def test_question_init_kwargs(mock_open):
     """ Ensure passing a dictionary of values to the init method
     will instantiate a full Question without loading from JSON file
     """
-    qs = question.Question(is_replay=True, **question_kwargs())
+    test_q = question.Question(is_replay=True, **question_kwargs())
     mock_open.assert_not_called()
 
 
@@ -37,77 +37,92 @@ def test_question_init_load_id(monkeypatch):
         return [[], [question_kwargs()]]
     monkeypatch.setattr(question, "load", mock_load)
     monkeypatch.setattr('builtins.open', mock_open(read_data=b''))
-    qs = question.Question(is_replay=True, load_id=question_kwargs().get('questionId'))
+    test_q = question.Question(is_replay=True, load_id=question_kwargs().get('questionId'))
     expected = question_kwargs()
-    assert qs.id == expected.get('questionId')
-    assert qs.text == expected.get('question')
-    assert qs.prediction == expected.get('prediction')
+    assert test_q.id == expected.get('questionId')
+    assert test_q.text == expected.get('question')
+    assert test_q.prediction == expected.get('prediction')
 
 
 def test_answered_correctly_no_answer_yet():
     """ Ensure that if the Question instance has no correct answer value
     the correct property method returns False
     """
-    question = generate_question()
-    question.correct = None
-    assert question.answered_correctly is False
+    test_q = generate_question()
+    test_q.correct = None
+    assert test_q.answered_correctly is False
 
 
 def test_answered_correctly_has_correct_answer():
     """ Ensure a Question's answered_correctly property method returns True
      if the Question's prediction matches its correct answer value
     """
-    question = generate_question(correct=True)
-    assert question.answered_correctly is True
+    test_q = generate_question(correct=True)
+    assert test_q.answered_correctly is True
 
 
 def test_answered_correctly_has_incorrect_answer():
     """ Ensure a Questions answered_correctly property returns False if
     the Questions prediction values doesn't match the correct answer value
     """
-    question = generate_question(correct=False)
-    assert question.answered_correctly is False
+    test_q = generate_question(correct=False)
+    assert test_q.answered_correctly is False
 
 
 def test_game_path_is_replay_true():
     """ Ensure that a Question's game_path method while in replay mode
     will return replay_results.json
     """
-    question = generate_question(is_replay=True)
-    assert question.game_path == 'replay_results.json'
+    test_q = generate_question(is_replay=True)
+    assert test_q.game_path == 'replay_results.json'
 
 
-def test_game_path_is_replay_false():
+@patch('question.glob')
+@patch('os.path.getctime')
+def test_game_path_is_replay_false(mock_getctime, mock_glob):
     """ Ensure that a Question's game_path method while not in replay mode
     returns the most recently created file """
-    question = generate_question(is_replay=False)
-    assert question.game_path == 'replay_results.json'
+    mock_getctime.return_value = 1
+    mock_glob.return_value = ['games/mock_game_file.json']
+    test_q = generate_question(is_replay=False)
+    assert test_q.game_path == 'games/mock_game_file.json'
 
 
-# params (in_replay, file_val, expected_save)
-def test_save():
-    """ Ensure a Question saves itself in the correct location depending on its
-     replay mode and whether it has been previously saved
-     """
-    pass
-
-
-def test_prediction():
+def test_add_prediction():
     """ Ensure Question has its prediction dictionary updated and save is called """
-    pass
+    prediction = "B"
+    confidence = {
+        "A": "0%",
+        "B": "100%",
+        "C": "0%"
+    }
+    expected = {
+        "answer": prediction,
+        "confidence": confidence
+    }
+    test_q = generate_question(correct=True)
+    test_q.prediction = None
+    assert test_q.prediction is None
+    test_q.add_prediction(prediction, confidence)
+    assert test_q.prediction == expected
 
 
-def test_add_correct_is_replay_false():
+@patch('question.Question.save')
+def test_add_correct_is_replay_false(mock_save):
     """
     Ensure a Question that is not in replay mode will update its correct answer
     and call its save method
     """
-    pass
+    test_q = generate_question(is_replay=False)
+    test_q.add_correct('B')
+    assert mock_save.called
 
-
-def test_add_correct_is_replay_true():
+@patch('question.Question.save')
+def test_add_correct_is_replay_true(mock_save):
     """
     Ensure a Question that is in replay mode will not update its correct answer
     or call save
     """
-    pass
+    test_q = generate_question(is_replay=True)
+    test_q.add_correct('B')
+    assert mock_save.called is False
