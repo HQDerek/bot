@@ -5,6 +5,7 @@ import os
 from json import load, dump
 from utils import Colours
 
+
 class Question(object):
     """ An instance of a HQ Trivia question """
 
@@ -46,7 +47,6 @@ class Question(object):
 
         return path
 
-
     def save(self):
         """
         Checks most recently created results file, checks it for question with same id.
@@ -79,8 +79,6 @@ class Question(object):
         with open(self.game_path, 'w') as file:
             dump(output, file, ensure_ascii=False, sort_keys=True, indent=4)
 
-
-
     def display_summary(self):
         """ Display summary """
         correct_string = Colours.BOLD.value + 'Correct Answer: {} - {}' + Colours.ENDC.value
@@ -89,7 +87,6 @@ class Question(object):
             print(Colours.BOLD.value + Colours.OKGREEN.value + "Prediction Correct? Yes" + Colours.ENDC.value)
         else:
             print(Colours.BOLD.value + Colours.FAIL.value + "Prediction Correct? No" + Colours.ENDC.value)
-
 
     def add_prediction(self, prediction, confidence):
         """ Add the prediction dict to the Question """
