@@ -1,3 +1,4 @@
+""" Question class unit tests """
 from unittest.mock import mock_open, patch
 import pytest
 from tests.utils import generate_question
@@ -19,12 +20,12 @@ def question_kwargs():
 
 
 @patch('builtins.open')
-def test_question_init_kwargs(mock_open):
+def test_question_init_kwargs(mock_builtin_open):
     """ Ensure passing a dictionary of values to the init method
     will instantiate a full Question without loading from JSON file
     """
-    test_q = question.Question(is_replay=True, **question_kwargs())
-    mock_open.assert_not_called()
+    question.Question(is_replay=True, **question_kwargs())
+    mock_builtin_open.assert_not_called()
 
 
 def test_question_init_load_id(monkeypatch):
@@ -44,7 +45,7 @@ def test_question_init_load_id(monkeypatch):
     assert test_q.prediction == expected.get('prediction')
 
 
-def test_answered_correctly_no_answer_yet():
+def test_ans_correct_no_ans():
     """ Ensure that if the Question instance has no correct answer value
     the correct property method returns False
     """
@@ -53,7 +54,7 @@ def test_answered_correctly_no_answer_yet():
     assert test_q.answered_correctly is False
 
 
-def test_answered_correctly_has_correct_answer():
+def test_ans_correct_has_ans():
     """ Ensure a Question's answered_correctly property method returns True
      if the Question's prediction matches its correct answer value
     """
@@ -61,7 +62,7 @@ def test_answered_correctly_has_correct_answer():
     assert test_q.answered_correctly is True
 
 
-def test_answered_correctly_has_incorrect_answer():
+def test_ans_correct_wrong_ans():
     """ Ensure a Questions answered_correctly property returns False if
     the Questions prediction values doesn't match the correct answer value
     """
@@ -69,7 +70,7 @@ def test_answered_correctly_has_incorrect_answer():
     assert test_q.answered_correctly is False
 
 
-def test_game_path_is_replay_true():
+def test_game_path_is_replay():
     """ Ensure that a Question's game_path method while in replay mode
     will return replay_results.json
     """
@@ -79,7 +80,7 @@ def test_game_path_is_replay_true():
 
 @patch('question.glob')
 @patch('os.path.getctime')
-def test_game_path_is_replay_false(mock_getctime, mock_glob):
+def test_game_path_not_replay(mock_getctime, mock_glob):
     """ Ensure that a Question's game_path method while not in replay mode
     returns the most recently created file """
     mock_getctime.return_value = 1
@@ -116,6 +117,7 @@ def test_add_correct_is_replay_false(mock_save):
     test_q = generate_question(is_replay=False)
     test_q.add_correct('B')
     assert mock_save.called
+
 
 @patch('question.Question.save')
 def test_add_correct_is_replay_true(mock_save):
