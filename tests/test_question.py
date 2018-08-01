@@ -109,7 +109,7 @@ def test_add_prediction():
 
 
 @patch('question.Question.save')
-def test_add_correct_is_replay_false(mock_save):
+def test_add_correct_not_replay(mock_save):
     """
     Ensure a Question that is not in replay mode will update its correct answer
     and call its save method
