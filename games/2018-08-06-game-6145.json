@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "$5,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Maybe",
+                "B": "HQtie",
+                "C": "Ishmael"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "99%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "In a 2012 song of the summer, Carly Rae Jepsen sang “Call Me” what?",
+            "questionId": 51878,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Beauty",
+                "B": "Velocity",
+                "C": "Transparency"
+            },
+            "category": "Science",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "8%",
+                    "B": "87%",
+                    "C": "4%"
+                }
+            },
+            "question": "How much momentum an object has is based on its mass and its what?",
+            "questionId": 51879,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Bear wrestling",
+                "B": "Ostrich farming",
+                "C": "Falconry"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "67%",
+                    "B": "0%",
+                    "C": "32%"
+                }
+            },
+            "question": "Legendary Alabama coach Bear Bryant got his nickname from doing what activity?",
+            "questionId": 51880,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Vermont",
+                "B": "New Jersey",
+                "C": "New Hampshire"
+            },
+            "category": "Culture",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "5%",
+                    "B": "57%",
+                    "C": "37%"
+                }
+            },
+            "question": "Which of these states does NOT contain an Ivy League school?",
+            "questionId": 51881,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "England",
+                "B": "India",
+                "C": "USA"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "37%",
+                    "B": "31%",
+                    "C": "30%"
+                }
+            },
+            "question": "What nation is responsible for reading the original “riot act”?",
+            "questionId": 51882,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Gerald Ford",
+                "B": "Bill Clinton",
+                "C": "Jimmy Carter"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "29%",
+                    "C": "69%"
+                }
+            },
+            "question": "What former US president has helped to nearly eradicate guinea worm disease?",
+            "questionId": 51883,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "NFL",
+                "B": "MLB",
+                "C": "NHL"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "41%",
+                    "B": "51%",
+                    "C": "7%"
+                }
+            },
+            "question": "Which of these leagues lets teams have the greatest number of players on an active roster?",
+            "questionId": 51884,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Plantains",
+                "B": "Rice",
+                "C": "Sugar cane"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "4%",
+                    "B": "20%",
+                    "C": "75%"
+                }
+            },
+            "question": "Panama’s national drink seco is an alcohol distilled from what?",
+            "questionId": 51885,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Flying a plane",
+                "B": "Political bribery",
+                "C": "Business accounting"
+            },
+            "category": "Language",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "33%",
+                    "B": "1%",
+                    "C": "65%"
+                }
+            },
+            "question": "The phrase “pushing the envelope” has its roots in what activity?",
+            "questionId": 51886,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "California",
+                "B": "Michigan",
+                "C": "Minnesota"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "54%",
+                    "B": "40%",
+                    "C": "4%"
+                }
+            },
+            "question": "Of these three states, which has more water area?",
+            "questionId": 51887,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "The same",
+                "B": "Shorter",
+                "C": "Longer"
+            },
+            "category": "Fine Arts",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "33%",
+                    "B": "30%",
+                    "C": "36%"
+                }
+            },
+            "question": "How does the maximum height of the St. Louis Gateway Arch compare to its maximum width?",
+            "questionId": 51888,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Europe / Asia",
+                "B": "Asia / Australia",
+                "C": "Australia / Europe"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "80%",
+                    "B": "12%",
+                    "C": "6%"
+                }
+            },
+            "question": "In the only multi-continental Summer Olympics, what two continents shared hosting duties?",
+            "questionId": 51889,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6145,
+    "ts": "2018-08-06T19:02:46.212Z"
+}
