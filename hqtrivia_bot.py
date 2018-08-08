@@ -474,7 +474,7 @@ if __name__ == "__main__":
         BOT.cache(argv[2])
     elif len(argv) >= 2 and argv[1] == "replay":
         BOT.replay(argv)
-    elif len(argv) == 2 and argv[1] == "get-wins":
+    elif len(argv) == 3 and argv[1] == "get-wins":
         BOT.get_wins(argv[2])
     elif len(argv) == 3 and argv[1] == "generate-token":
         BOT.generate_token(argv[2])
