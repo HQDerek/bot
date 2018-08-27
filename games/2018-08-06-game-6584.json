@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Wales",
+                "B": "Scotland",
+                "C": "Ireland"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "5%",
+                    "B": "7%",
+                    "C": "86%"
+                }
+            },
+            "question": "A “Dubliner” is someone from a city in which country?",
+            "questionId": 56542,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Ebenezer Scrooge",
+                "B": "Ed Sheeran",
+                "C": "Edward Scissorhands"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "83%",
+                    "B": "0%",
+                    "C": "16%"
+                }
+            },
+            "question": "Which character did Michael Caine play in “The Muppet Christmas Carol”?",
+            "questionId": 56543,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Pick",
+                "B": "Puck",
+                "C": "Pack"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "16%",
+                    "B": "68%",
+                    "C": "15%"
+                }
+            },
+            "question": "In ice hockey, what is the name of the object that players strike?",
+            "questionId": 56544,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Bus",
+                "B": "Board",
+                "C": "Boat"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "76%",
+                    "B": "18%",
+                    "C": "4%"
+                }
+            },
+            "question": "In computing, what does the “B” stand for in “USB” flash drive?",
+            "questionId": 56545,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Horses",
+                "B": "Owls",
+                "C": "Spiders"
+            },
+            "category": "Fine Arts",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "57%",
+                    "B": "12%",
+                    "C": "29%"
+                }
+            },
+            "question": "Sculptor Louise Bourgeois was noted for her representations of which animals?",
+            "questionId": 56546,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Keir Starmer",
+                "B": "Tom Watson",
+                "C": "Barry Gardiner"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "62%",
+                    "C": "23%"
+                }
+            },
+            "question": "Which of these Labour politicians shares his first name with his party's founder?",
+            "questionId": 56547,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Escalators",
+                "B": "Automatic doors",
+                "C": "Ticket machines"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "9%",
+                    "C": "7%"
+                }
+            },
+            "question": "Which of these first started operating in 1911 on the London Underground?",
+            "questionId": 56548,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Damage Control",
+                "B": "Stark Construction",
+                "C": "Kingpin Restoration"
+            },
+            "category": "Games",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "96%",
+                    "B": "3%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which company in the Marvel universe cleans up after hero and villain battles?",
+            "questionId": 56549,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Punt",
+                "B": "Saddle",
+                "C": "Harp"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "71%",
+                    "B": "15%",
+                    "C": "12%"
+                }
+            },
+            "question": "What is the name of the indentation often found in the bottom of a wine bottle?",
+            "questionId": 56550,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Emoji stickers",
+                "B": "Pokémon cards",
+                "C": "Panini stickers"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "98%",
+                    "C": "0%"
+                }
+            },
+            "question": "A robbery in 2014 in Brazil led to fears of a shortage in which of the following?",
+            "questionId": 56551,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Bulgaria",
+                "B": "Switzerland",
+                "C": "Austria"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "19%",
+                    "B": "54%",
+                    "C": "26%"
+                }
+            },
+            "question": "Which of these countries does NOT have a TV licence fee?",
+            "questionId": 56552,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Air Aurigny",
+                "B": "KLM",
+                "C": "Alaska Airlines"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "19%",
+                    "B": "23%",
+                    "C": "57%"
+                }
+            },
+            "question": "Which airline claims that it was the first in the world to ban smoking on all its flights?",
+            "questionId": 56553,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6584,
+    "ts": "2018-08-06T20:03:28.286Z"
+}

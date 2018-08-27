@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Nightclub owner",
+                "B": "Driving instructor",
+                "C": "Sailor"
+            },
+            "category": "Literature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "99%"
+                }
+            },
+            "question": "What is Sinbad's profession in “The Thousand and One Nights” stories?",
+            "questionId": 56953,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Don't Know",
+                "B": "Donna Karan",
+                "C": "Doner Kebab"
+            },
+            "category": "Fashion & Design",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "18%",
+                    "B": "77%",
+                    "C": "3%"
+                }
+            },
+            "question": "What is the founder's name of the fashion brand DKNY?",
+            "questionId": 56954,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Doctor Who",
+                "B": "Sonic the Hedgehog",
+                "C": "Ford Prefect"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "85%",
+                    "B": "13%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these characters is most often associated with a “sonic screwdriver”?",
+            "questionId": 56955,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Horse racing",
+                "B": "Golf",
+                "C": "Polo"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "3%",
+                    "B": "91%",
+                    "C": "5%"
+                }
+            },
+            "question": "The Royal and Ancient is the name of the body that oversees which sport?",
+            "questionId": 56956,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Pillars of Eternity",
+                "B": "Fortnite",
+                "C": "Rocket League"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "99%",
+                    "C": "0%"
+                }
+            },
+            "question": "First made famous by the Backpack Kid, the “floss dance” soon became a sensation on which game?",
+            "questionId": 56957,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "City of Film",
+                "B": "City of Sustainability",
+                "C": "City of Culture"
+            },
+            "category": "Culture",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "33%",
+                    "B": "21%",
+                    "C": "44%"
+                }
+            },
+            "question": "Bradford became the first ever city to receive which of these honours?",
+            "questionId": 56958,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Reebok",
+                "B": "Umbro",
+                "C": "Puma"
+            },
+            "category": "Business",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "46%",
+                    "B": "5%",
+                    "C": "47%"
+                }
+            },
+            "question": "Which of these sportswear companies was NOT founded in the UK?",
+            "questionId": 56964,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Cast Away",
+                "B": "Hard Candy",
+                "C": "10 Cloverfield Lane"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "49%",
+                    "B": "13%",
+                    "C": "36%"
+                }
+            },
+            "question": "Which of these movies features more than 10 characters in its cast?",
+            "questionId": 56965,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Rats",
+                "B": "Monkeys",
+                "C": "Bats"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "13%",
+                    "B": "9%",
+                    "C": "76%"
+                }
+            },
+            "question": "Which of these carries the highest number of viruses that could be transmitted to humans?",
+            "questionId": 56966,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Munich",
+                "B": "Montreal",
+                "C": "Minneapolis"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "30%",
+                    "B": "37%",
+                    "C": "32%"
+                }
+            },
+            "question": "Which of these cities is the furthest north?",
+            "questionId": 56967,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Move Over, Darling",
+                "B": "Viva Las Vegas",
+                "C": "Breakfast at Tiffany's"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "25%",
+                    "B": "25%",
+                    "C": "48%"
+                }
+            },
+            "question": "Marilyn Monroe's final, unfinished movie was later remade into which of these?",
+            "questionId": 56968,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "France",
+                "B": "Poland",
+                "C": "Luxembourg"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "63%",
+                    "B": "25%",
+                    "C": "10%"
+                }
+            },
+            "question": "Residents of which of these three countries are most likely to travel by coach?",
+            "questionId": 56969,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6628,
+    "ts": "2018-08-08T14:01:19.314Z"
+}

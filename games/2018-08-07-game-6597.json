@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Netball",
+                "B": "Tennis",
+                "C": "Boxing"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "89%",
+                    "C": "9%"
+                }
+            },
+            "question": "In which of these sports do players commonly compete in mixed doubles competitions?",
+            "questionId": 56674,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Sabretooth",
+                "B": "Lightsaber",
+                "C": "Müllerlight"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "92%",
+                    "C": "0%"
+                }
+            },
+            "question": "What is the name of the energy sword featured in the Star Wars franchise?",
+            "questionId": 56675,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Noel's House Party",
+                "B": "Takeshi's Castle",
+                "C": "Gardeners' World"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "15%",
+                    "B": "34%",
+                    "C": "49%"
+                }
+            },
+            "question": "Which of the following is the name of an 80s Japanese television programme?",
+            "questionId": 56676,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Carrot",
+                "B": "Okra",
+                "C": "Cucumber"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "52%",
+                    "B": "5%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which of these foods shares its name with a type of marine animal?",
+            "questionId": 56677,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Goodfellas",
+                "B": "The Godfather",
+                "C": "Apocalypse Now"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "6%",
+                    "B": "52%",
+                    "C": "41%"
+                }
+            },
+            "question": "Which of these movies did NOT feature Marlon Brando?",
+            "questionId": 56678,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Michel Foucault",
+                "B": "Bertrand Russell",
+                "C": "Antonio Gramsci"
+            },
+            "category": "Literature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "12%",
+                    "B": "2%",
+                    "C": "85%"
+                }
+            },
+            "question": "\"The Prison Notebooks\" is the title of a work by which 20th century philosopher?",
+            "questionId": 56679,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Female Prime Minister",
+                "B": "Buddhist president",
+                "C": "Child Emperor"
+            },
+            "category": "History",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "96%",
+                    "B": "0%",
+                    "C": "3%"
+                }
+            },
+            "question": "Sri Lanka was the first country to have which of the following?",
+            "questionId": 56680,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "An American pilot",
+                "B": "A Venezuelan doctor",
+                "C": "A Catholic missionary"
+            },
+            "category": "Nature",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "42%",
+                    "B": "0%",
+                    "C": "56%"
+                }
+            },
+            "question": "Which of these inspired the name of the Angel Falls?",
+            "questionId": 56681,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Soap tax",
+                "B": "Beard tax",
+                "C": "Spectacles tax"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "4%",
+                    "B": "95%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of the following was imposed on Russian society in the late 17th century?",
+            "questionId": 56682,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Ella",
+                "B": "Emily",
+                "C": "Evie"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "5%",
+                    "B": "93%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of the following failed to make the top ten most popular girls' names in England and Wales in 2017?",
+            "questionId": 56685,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Beer and wine",
+                "B": "Maggots and mites",
+                "C": "Hair and feathers"
+            },
+            "category": "Food & Drink",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "30%",
+                    "B": "0%",
+                    "C": "69%"
+                }
+            },
+            "question": "The softening agent L-Cysteine in bread is often derived from which of these?",
+            "questionId": 56684,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Tarchia",
+                "B": "Minmi",
+                "C": "Gastonia"
+            },
+            "category": "Science",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "57%",
+                    "B": "36%",
+                    "C": "6%"
+                }
+            },
+            "question": "Which of these armoured dinosaurs was named most recently?",
+            "questionId": 56683,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6597,
+    "ts": "2018-08-07T14:00:18.049Z"
+}

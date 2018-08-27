@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Clowns",
+                "B": "Cooks",
+                "C": "Civil engineers"
+            },
+            "category": "Language",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "98%",
+                    "C": "0%"
+                }
+            },
+            "question": "According to the saying, too many of what “spoil the broth”?",
+            "questionId": 56977,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Derek the Demon",
+                "B": "Tony the Tiger",
+                "C": "Simon the Snake"
+            },
+            "category": "Food & Drink",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "99%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these is the name of a cereal mascot?",
+            "questionId": 56978,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Reduction",
+                "B": "Expansion",
+                "C": "Compression"
+            },
+            "category": "Language",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "40%",
+                    "B": "56%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of the following means the opposite of the word “contraction”?",
+            "questionId": 56979,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Shilton's sideburns",
+                "B": "The people’s elbow",
+                "C": "The hand of God"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "99%"
+                }
+            },
+            "question": "Maradona claimed that which of these helped him score a World Cup goal against England?",
+            "questionId": 56980,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Karachi",
+                "B": "Jeddah",
+                "C": "Abu Dhabi"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "25%",
+                    "B": "11%",
+                    "C": "62%"
+                }
+            },
+            "question": "Which of the following is a capital city?",
+            "questionId": 56981,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Rotameter",
+                "B": "Stadimeter",
+                "C": "Tachometer"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "2%",
+                    "B": "0%",
+                    "C": "97%"
+                }
+            },
+            "question": "Which of these instruments is used to calculate revolutions per minute?",
+            "questionId": 56982,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Agatha Christie",
+                "B": "Arthur Conan Doyle",
+                "C": "HG Wells"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "63%",
+                    "B": "18%",
+                    "C": "17%"
+                }
+            },
+            "question": "The first Hollywood feature movie shown on a flight was an adaptation of whose work?",
+            "questionId": 56983,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Neville Chamberlain",
+                "B": "Stanley Baldwin",
+                "C": "Ramsay MacDonald"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "23%",
+                    "B": "69%",
+                    "C": "6%"
+                }
+            },
+            "question": "Who was British Prime Minister during the Abdication crisis?",
+            "questionId": 56984,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "India",
+                "B": "Russia",
+                "C": "China"
+            },
+            "category": "Business",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "36%",
+                    "B": "8%",
+                    "C": "54%"
+                }
+            },
+            "question": "The world's wealthiest sports owner is from which of these countries?",
+            "questionId": 56985,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Greece",
+                "B": "UK",
+                "C": "Austria"
+            },
+            "category": "",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "19%",
+                    "B": "64%",
+                    "C": "16%"
+                }
+            },
+            "question": "Which of these three countries is the LEAST likely to agree that protecting the environment is “important”?",
+            "questionId": 56986,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Fatal Attraction",
+                "B": "Basic Instinct",
+                "C": "Indecent Proposal"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "76%",
+                    "B": "14%",
+                    "C": "9%"
+                }
+            },
+            "question": "Which of these movies is based on a British short film starring Cherie Lunghi?",
+            "questionId": 56987,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Band Aid",
+                "B": "a-ha",
+                "C": "Dead or Alive"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "10%",
+                    "B": "40%",
+                    "C": "50%"
+                }
+            },
+            "question": "Which of these acts featured in the Top 20 in ITV's “Nation's Favourite 80s Number Ones”?",
+            "questionId": 56988,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6631,
+    "ts": "2018-08-08T20:01:52.245Z"
+}

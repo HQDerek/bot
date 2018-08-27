@@ -14,7 +14,7 @@ if __name__ == "__main__":
         REPLAYER = Replayer()
         REPLAYER.play()
         REPLAYER.gen_report()
-    elif len(argv) == 2 and argv[1] == "get-wins":
+    elif len(argv) == 3 and argv[1] == "get-wins":
         BOT.get_wins(argv[2])
     elif len(argv) == 3 and argv[1] == "generate-token":
         BOT.generate_token(argv[2])

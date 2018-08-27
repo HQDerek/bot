@@ -1,0 +1,249 @@
+{
+    "numCorrect": 8,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Brussels",
+                "B": "London",
+                "C": "Vienna"
+            },
+            "category": "Food & Drink",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "70%",
+                    "B": "27%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which European capital shares its name with a type of sprout?",
+            "questionId": 57349,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "xXx",
+                "B": "hHh",
+                "C": "aAa"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "58%",
+                    "B": "3%",
+                    "C": "38%"
+                }
+            },
+            "question": "Which of these is a popular Vin Diesel action franchise?",
+            "questionId": 57350,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Banana",
+                "B": "Broccoli",
+                "C": "Anchovy"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "92%",
+                    "B": "5%",
+                    "C": "2%"
+                }
+            },
+            "question": "What kind of pancakes did Jack Johnson sing about in a 2005 hit?",
+            "questionId": 57351,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Countryfile",
+                "B": "Countdown",
+                "C": "Antiques Roadshow"
+            },
+            "category": "TV",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "2%",
+                    "B": "94%",
+                    "C": "3%"
+                }
+            },
+            "question": "Channel 4’s “8 Out of 10 Cats” has a regular comedy crossover with which of these?",
+            "questionId": 57352,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Hedgehog",
+                "B": "Lemming",
+                "C": "Badger"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "40%",
+                    "B": "7%",
+                    "C": "52%"
+                }
+            },
+            "question": "Which of the following is classed as a rodent?",
+            "questionId": 57353,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "A tourism brochure",
+                "B": "A type of biscuit",
+                "C": "A Frank Sinatra lyric"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "5%",
+                    "B": "87%",
+                    "C": "6%"
+                }
+            },
+            "question": "Scooby-Doo was named after which of these?",
+            "questionId": 57354,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Eden's Bridge",
+                "B": "Eve's Bridge",
+                "C": "Adam's Bridge"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "10%",
+                    "C": "78%"
+                }
+            },
+            "question": "Which of these is the name of a supposed former land connection between India and Sri Lanka?",
+            "questionId": 57355,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Kojak",
+                "B": "The Wire",
+                "C": "Starsky & Hutch"
+            },
+            "category": "Games",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "100%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which TV-based board game required players to “make arrests in the Manhattan South precinct”?",
+            "questionId": 57356,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Russia",
+                "B": "Turkmenistan",
+                "C": "Kazakhstan"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "57%",
+                    "B": "0%",
+                    "C": "41%"
+                }
+            },
+            "question": "What was the last Soviet state to leave the USSR?",
+            "questionId": 57357,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Pity Me",
+                "B": "Great Snoring",
+                "C": "Matching Tye"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "32%",
+                    "B": "60%",
+                    "C": "7%"
+                }
+            },
+            "question": "Which of these is a village near the English city of Durham?",
+            "questionId": 57358,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Lights",
+                "B": "Flashlight",
+                "C": "Firework"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "12%",
+                    "B": "78%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which of these songs features on the “Pitch Perfect 2” soundtrack?",
+            "questionId": 57359,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Rossi",
+                "B": "Russo",
+                "C": "Rizzi"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "60%",
+                    "B": "38%",
+                    "C": "1%"
+                }
+            },
+            "question": "Which of these is NOT one of the Top 10 most common Italian surnames?",
+            "questionId": 57360,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6664,
+    "ts": "2018-08-10T13:59:10.793Z"
+}
