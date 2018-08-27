@@ -72,14 +72,15 @@ def test_setup_file_read(mock_dump, monkeypatch):
     assert mock_dump.called
     mock_dump.assert_called_with([[], [], []], ANY, ensure_ascii=False, sort_keys=True, indent=4)
 
+
 @patch('replay.DataFrame')
-@patch('replay.webbrowser')
+@patch('webbrowser.open')
 def test_gen_report_six_replays(mock_webbrowser, mock_data_frame, monkeypatch):
     """
     Ensure correct values are passed to the pandas dataframe. Six games will get
     progressively more 'correct'. Also ensure html file is generated.
     """
-    monkeypatch.setattr('builtins.open', mock_open(read_data='%s'))
+    monkeypatch.setattr('builtins.open', mock_open(read_data='%s %s %s'))
 
     def mock_load(file): # pylint: disable=unused-argument
         """ Mock replay data. Makes 6 replays over 10 games. Progressively bumps
@@ -98,7 +99,7 @@ def test_gen_report_six_replays(mock_webbrowser, mock_data_frame, monkeypatch):
 
     monkeypatch.setattr(replay, "load", mock_load)
     replay.Replayer.gen_report()
-    assert mock_webbrowser.open.called
+    assert mock_webbrowser.called
     # ensure correct number of columns, one for each question over 10 games - 120
     assert len(mock_data_frame.call_args[1]['columns']) == 120
     # ensure dataframe column titles orderd correctly
