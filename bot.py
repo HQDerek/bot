@@ -4,8 +4,11 @@ from os import path
 from glob import glob
 from time import sleep
 from sqlite3 import connect
+from datetime import datetime
 from configparser import ConfigParser
 from json import load, loads, dump, JSONDecodeError
+from pytz import utc
+from dateutil import parser
 from requests import get, post, Request
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
@@ -17,6 +20,9 @@ from question import Question
 
 class HqTriviaBot(object):
     """ one instance of the HQ Trivia bot"""
+
+    api_url = 'https://api-quiz.hype.space'
+
     def __init__(self):
         self.config = ConfigParser()
         self.config.read('config.ini')
@@ -26,6 +32,8 @@ class HqTriviaBot(object):
             GoogleAnswerWordsSolver(),
             GoogleResultsCountSolver()
         ]
+        self.next_show_time = None
+        self.next_show_prize = None
         self.headers = {
             'User-Agent': 'hq-viewer/1.2.4 (iPhone; iOS 11.1.1; Scale/3.00)',
             'x-hq-stk': '',
@@ -39,23 +47,21 @@ class HqTriviaBot(object):
 
     def get_socket_url(self, headers):
         """ Get broadcast socket URL """
-        user_id = self.config['Auth']['user_id']
-        resp = get('https://api-quiz.hype.space/shows/now?type=hq&userId=%s' % user_id, headers=headers)
+        resp = get(self.api_url + '/shows/now?type=hq&userId=%s' % self.config['Auth']['user_id'], headers=headers)
         try:
             initial_json = resp.json()
         except JSONDecodeError:
             return None
 
         # Get next show time and prize
-        next_show_time = initial_json.get('nextShowTime')
-        next_show_prize = initial_json.get('nextShowPrize')
+        self.next_show_time = initial_json.get('nextShowTime')
+        self.next_show_prize = initial_json.get('nextShowPrize')
 
         # Check if broadcast socket URL exists
         if not initial_json.get('broadcast') or not initial_json.get('broadcast').get('socketUrl'):
-            print('Error: Next %s show on %s for %s.' % ('UK' if headers else 'US', next_show_time, next_show_prize))
+            print('Error: Next UK show on %s for %s.' % (self.next_show_time, self.next_show_prize))
             return None
 
-        # Return socket URL for websocket connection
         return initial_json.get('broadcast').get('socketUrl').replace('https', 'wss')
 
     @staticmethod
@@ -203,11 +209,9 @@ class HqTriviaBot(object):
         while True:
             self.current_game = ''
             self.broadcast_ended = False
-            socket_url_uk = self.get_socket_url(self.headers)
-            socket_url = socket_url_uk if socket_url_uk else self.get_socket_url({})
+            socket_url = self.get_socket_url(self.headers)
             if socket_url:
-                self.make_it_rain_for_all(self.headers)
-                print('CONNECTING TO %s SHOW: %s' % ('UK' if socket_url_uk else 'US', socket_url))
+                print('CONNECTING TO UK SHOW: %s' % socket_url)
                 web_socket = WebSocketApp(socket_url,
                                           on_open=lambda _ws: print('CONNECTION SUCCESSFUL'),
                                           on_message=self.on_message,
@@ -220,8 +224,14 @@ class HqTriviaBot(object):
                     except (WebSocketException, WebSocketTimeoutException):
                         print('CONNECTION LOST. RECONNECTING...')
             else:
-                print('Sleeping for 2 minutes')
-                sleep(120)
+                next_show_time = parser.parse(self.next_show_time)
+                seconds_until_show = (next_show_time - datetime.now(utc)).total_seconds()
+                if seconds_until_show < 0:
+                    print('\nGame should have started. Sleeping for 10 seconds.')
+                    sleep(10)
+                else:
+                    print('\nSleeping until {} ({} seconds)'.format(next_show_time.strftime('%c'), seconds_until_show))
+                    sleep(seconds_until_show)
 
     def generate_token(self, phone):
         """
