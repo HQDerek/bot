@@ -1,0 +1,249 @@
+{
+    "numCorrect": 7,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Their fingers",
+                "B": "Their eyes",
+                "C": "The road"
+            },
+            "category": "Culture",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "71%",
+                    "B": "8%",
+                    "C": "20%"
+                }
+            },
+            "question": "What do people usually cross to wish for good luck?",
+            "questionId": 59743,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "American football",
+                "B": "Hiding behind sofas",
+                "C": "Tequila drinking"
+            },
+            "category": "Sports",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "99%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "In the United States, the Super Bowl is an event in which sport?",
+            "questionId": 59744,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Drei",
+                "B": "Three",
+                "C": "Trois"
+            },
+            "category": "Language",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "39%",
+                    "B": "60%",
+                    "C": "0%"
+                }
+            },
+            "question": "How do you say the number three in German?",
+            "questionId": 59745,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Postman Pat",
+                "B": "Peppa Pig",
+                "C": "Thomas the Tank Engine"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "86%",
+                    "B": "9%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which of these popular children's characters has the surname Clifton?",
+            "questionId": 59746,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "EL James",
+                "B": "Stephenie Meyer",
+                "C": "Dan Brown"
+            },
+            "category": "Literature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "10%",
+                    "B": "27%",
+                    "C": "62%"
+                }
+            },
+            "question": "Which of these authors is NOT American?",
+            "questionId": 59747,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Brazil",
+                "B": "Mongolia",
+                "C": "US"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "3%",
+                    "B": "33%",
+                    "C": "62%"
+                }
+            },
+            "question": "The oldest national park in the world is located in which country?",
+            "questionId": 59748,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "American Beauty",
+                "B": "The Shape of Water",
+                "C": "Birdman"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "78%",
+                    "B": "1%",
+                    "C": "19%"
+                }
+            },
+            "question": "The script for which of these Oscar-winning movies was inspired by a floating plastic bag?",
+            "questionId": 59750,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Despacito / Luis Fonsi",
+                "B": "Humble / Kendrick Lamar",
+                "C": "Perfect / Ed Sheeran"
+            },
+            "category": "Music",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "6%",
+                    "B": "16%",
+                    "C": "77%"
+                }
+            },
+            "question": "On Christmas Day in 2017, what was the most downloaded song in the United States?",
+            "questionId": 59754,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Plumbers' strike",
+                "B": "Cold weather",
+                "C": "Power cuts"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "91%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which of these had a negative impact on the opening press day of the first Disney theme park?",
+            "questionId": 59751,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Motherwell",
+                "B": "Blackpool",
+                "C": "Bournemouth"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "7%",
+                    "B": "46%",
+                    "C": "46%"
+                }
+            },
+            "question": "Football icon George Best played for which of these clubs in the 1980s?",
+            "questionId": 59752,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Facebook",
+                "B": "Oracle",
+                "C": "Google"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "34%",
+                    "C": "49%"
+                }
+            },
+            "question": "In ''Terminator: Genisys\", the offices of the Cyberdyne organisation were based on those of which real company?",
+            "questionId": 59753,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "European rail timetable",
+                "B": "Waterslide",
+                "C": "Tennis court"
+            },
+            "category": "Entertainment",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "55%",
+                    "B": "5%",
+                    "C": "38%"
+                }
+            },
+            "question": "What did Miranda Hart choose as her luxury item when she appeared on ''Desert Island Discs\"?",
+            "questionId": 59749,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6900,
+    "ts": "2018-08-23T14:01:22.857Z"
+}
