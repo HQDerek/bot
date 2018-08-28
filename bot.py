@@ -138,7 +138,7 @@ class HqTriviaBot(object):
         # Show prediction in console
         print('\nPrediction:')
         for answer_key in sorted(confidence.keys()):
-            result = '%sAnswer %s: %s - %s%%' % ('-> ' if answer_key == prediction else '   ',
+            result = '%sAnswer %s: %s - %s' % ('-> ' if answer_key == prediction else '   ',
                                                  answer_key,
                                                  question.answers.get(answer_key),
                                                  confidence[answer_key])
@@ -222,7 +222,7 @@ class HqTriviaBot(object):
                         web_socket.run_forever(ping_interval=5)
                     except (WebSocketException, WebSocketTimeoutException):
                         print('CONNECTION LOST. RECONNECTING...')
-            else:
+            elif self.next_show_time:
                 next_show_time = parser.parse(self.next_show_time)
                 seconds_until_show = (next_show_time - datetime.now(utc)).total_seconds()
                 if seconds_until_show < 0:
@@ -231,6 +231,9 @@ class HqTriviaBot(object):
                 else:
                     print('\nSleeping until {} ({} seconds)'.format(next_show_time.strftime('%c'), seconds_until_show))
                     sleep(seconds_until_show)
+            else:
+                print('Could not connect to API. Sleeping for 10 seconds.')
+                sleep(10)
 
     def generate_token(self, number):
         """ Generate an auth token for number """
