@@ -12,7 +12,6 @@ class Question(object):
     def __init__(self, is_replay=False, load_id=None, **kwargs):
 
         self.is_replay = is_replay
-
         if load_id is not None:
             output_key = -1 if self.is_replay else 'questions'
             with open(self.game_path) as file:
@@ -82,7 +81,7 @@ class Question(object):
     def display_summary(self):
         """ Display summary """
         correct_string = Colours.BOLD.value + 'Correct Answer: {} - {}' + Colours.ENDC.value
-        print(correct_string.format(self.correct, self.answers['self.correct']))
+        print(correct_string.format(self.correct, self.answers[self.correct]))
         if self.answered_correctly:
             print(Colours.BOLD.value + Colours.OKGREEN.value + "Prediction Correct? Yes" + Colours.ENDC.value)
         else:
