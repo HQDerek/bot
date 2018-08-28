@@ -5,6 +5,7 @@ from sys import argv
 from bot import HqTriviaBot
 import replay
 import cache
+import server
 
 
 class Main(object):
@@ -19,6 +20,7 @@ Valid commands are:
    bot       {self.bot.run.__doc__}
    cache     {cache.__doc__}
    replay    {replay.__doc__}
+   server    {server.__doc__}
    stats     {self.bot.get_stats.__doc__}
    token     {self.bot.generate_token.__doc__}''',
             prog='pipenv run'
@@ -62,6 +64,12 @@ Valid cache commands are:
             parser.print_help()
             exit(1)
         getattr(cacher, args.operation)()
+
+    @staticmethod
+    def server():
+        """ Replay a game and generate report """
+        game = server.Server()
+        game.run()
 
     @staticmethod
     def replay():
