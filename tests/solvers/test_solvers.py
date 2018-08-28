@@ -32,7 +32,7 @@ def test_google_answer_words_run(api_response): # pylint: disable=redefined-oute
     mock_future.result.return_value = mock_response
 
     (prediction, confidence) = GoogleAnswerWordsSolver().run(
-        api_response.get('question'), api_response.get('answers'), [mock_future], {'A': 0, 'B': 0, 'C': 0}
+        api_response.get('question'), api_response.get('answers'), {'_': mock_future}, {'A': 0, 'B': 0, 'C': 0}
     )
 
     assert prediction == 'A'
@@ -52,7 +52,10 @@ def test_google_results_count_run(api_response): # pylint: disable=redefined-out
     mock_future.result.return_value = mock_response
 
     (prediction, confidence) = GoogleResultsCountSolver().run(
-        api_response.get('question'), api_response.get('answers'), [mock_future], {'A': 0, 'B': 0, 'C': 0}
+        api_response.get('question'),
+        api_response.get('answers'),
+        {'A': mock_future, 'B': mock_future, 'C': mock_future},
+        {'A': 0, 'B': 0, 'C': 0}
     )
 
     assert prediction == 'A'

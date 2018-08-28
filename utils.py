@@ -15,7 +15,6 @@ class Colours(Enum):
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-
 def find_keywords(keywords, data):
     """ Find keywords in specified data """
     words_found = []

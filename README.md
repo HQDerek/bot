@@ -40,4 +40,3 @@ The bot can be tested by replaying a set of questions from saved games.
 
 ### Run Pylint PEP8 Linting
  * Run pylint `pipenv run lint`
-

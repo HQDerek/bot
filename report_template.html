@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Replay Report</title>
+    <style media="screen">
+      th, td {
+        font-size: 0.45em;
+        font-weight: normal;
+        width: 15px;
+        height: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    %s
+    <hr>
+    <p>Initial Run: %s </p>
+    <p>Final Run: %s </p>
+
+    <!-- JS-->
+      <script type="text/javascript">
+      function colorTable(){
+        var table = document.getElementsByClassName("dataframe replay-table")[0];
+        for (var i = 0, row; row = table.rows[i]; i++) {
+          for (var j = 0, cell; cell = row.cells[j]; j++) {
+            if (cell.innerHTML !== 'NaN' && i > 0 && j > 0){
+              cellVal = parseInt(cell.innerHTML);
+              if (cellVal == 0){
+                cell.bgColor = 'gray';
+              }
+              else if (cellVal == -1){
+                cell.bgColor = 'red';
+              }
+              else{
+                cell.bgColor = 'green';
+              }
+            }
+            if (i > 0 && j > 0){
+              cell.innerHTML = "";
+            }
+          }
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        colorTable();
+      }, false);
+
+      </script>
+  </body>
+</html>

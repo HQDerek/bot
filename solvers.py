@@ -17,17 +17,26 @@ class BaseSolver(object):
         """ build queries with question text and answers """
         raise NotImplementedError()
 
+
     def build_urls(self, question_text, answers):
         """ build URLs with search queries """
+        urls = {}
         queries = self.build_queries(question_text.replace(' NOT ', ' ').replace(' NEVER ', ' '), answers)
-        return [self.service_url.format(quote_plus(query)) for query in queries]
+
+        for answer_key, query_string in queries.items():
+            urls[answer_key] = self.service_url.format(quote_plus(query_string))
+
+        return urls
 
     @staticmethod
     def fetch_responses(urls, session):
         """ fetch responses for solver URLs """
-        return list(map(session.get, urls))
+        responses = {}
+        for answer_key, url in urls.items():
+            responses[answer_key] = session.get(url)
+        return responses
 
-    def get_answer_matches(self, response, index, answers, matches):
+    def get_answer_matches(self, response, answer_key, answers, matches):
         """ get answer occurences for response """
         raise NotImplementedError()
 
@@ -42,6 +51,8 @@ class BaseSolver(object):
     @staticmethod
     def choose_answer(question_text, confidence):
         """ Choose an answer using confidence """
+        if sum(confidence.values()) == 0:
+            return 'A'
         comparison = min if ' NOT ' in question_text or ' NEVER ' in question_text else max
         return comparison(confidence, key=confidence.get)
 
@@ -52,11 +63,11 @@ class BaseSolver(object):
 
         matches = {'A': 0, 'B': 0, 'C': 0}
 
-        for index, response in enumerate(responses):
+        for answer_key, response in responses.items():
             response = response.result() if hasattr(response, 'result') else response
             if '/sorry/index?continue=' in response.url:
                 sys.exit('ERROR: Google rate limiting detected.')
-            matches = self.get_answer_matches(response, index, answers, matches)
+            matches = self.get_answer_matches(response, answer_key, answers, matches)
 
         confidence = self.compute_confidence(matches, confidence)
         prediction = self.choose_answer(question_text, confidence)
@@ -74,10 +85,15 @@ class GoogleAnswerWordsSolver(BaseSolver):
 
     @staticmethod
     def build_queries(question_text, answers):
-        """ build queries with question text and answers """
-        return [question_text]
+        """ Built a single query for all answers. _ notation is used to show a
+        universal query for all keys
+       :param question_text: string of the question
+       :param answers: dict of possible answer values keyed A, B or C
+       :returns: dict with one universal query for all answers
+        """
+        return {'_': question_text}
 
-    def get_answer_matches(self, response, _index, answers, matches):
+    def get_answer_matches(self, response, _answer_key, answers, matches):
         """ get answer occurences for response """
         results = ''
         document = BeautifulSoup(response.text, "html5lib")
@@ -91,17 +107,17 @@ class GoogleAnswerWordsSolver(BaseSolver):
             results += " " + element.text # Related searches
         results_words = get_raw_words(results)
         print('Exact matches: ')
-        for index, answer in answers.items():
+        for answer_key, answer in answers.items():
             count = results_words.count(' {} '.format(get_raw_words(answer)))
-            matches[index] += self.full_answer_weight * count
-            print('{}: {}'.format(index, Colours.BOLD.value + str(count) + Colours.ENDC.value))
+            matches[answer_key] += self.full_answer_weight * count
+            print('{}: {}'.format(answer_key, Colours.BOLD.value + str(count) + Colours.ENDC.value))
         print('\nPartial matches: ')
-        for index, answer in answers.items():
+        for answer_key, answer in answers.items():
             count = 0
             for word in get_significant_words(get_raw_words(answer)):
                 count += results_words.count(' {} '.format(word))
-            matches[index] += self.partial_answer_weight * count
-            print('{}: {}'.format(index, Colours.BOLD.value + str(count) + Colours.ENDC.value))
+            matches[answer_key] += self.partial_answer_weight * count
+            print('{}: {}'.format(answer_key, Colours.BOLD.value + str(count) + Colours.ENDC.value))
         return matches
 
 
@@ -113,10 +129,13 @@ class GoogleResultsCountSolver(BaseSolver):
 
     @staticmethod
     def build_queries(question_text, answers):
-        """ build queries with question text and answers """
-        return ['%s "%s"' % (question_text, answer) for answer in answers.values()]
+        """ build queries dict with question text and answers """
+        queries = {}
+        for answer_key, answer_value in answers.items():
+            queries[answer_key] = '%s "%s"' % (question_text, answer_value)
+        return queries
 
-    def get_answer_matches(self, response, index, answers, matches):
+    def get_answer_matches(self, response, answer_key, answers, matches):
         """ get answer occurences for response """
         document = BeautifulSoup(response.text, "html5lib")
         if getattr(document.find(id='topstuff'), 'text', '')[:16] != 'No results found':
@@ -124,8 +143,8 @@ class GoogleResultsCountSolver(BaseSolver):
                 results_count_text = document.find(id='resultStats').text.replace(',', '')
                 results_count = re.findall(r'\d+', results_count_text)
                 if results_count:
-                    matches[chr(65 + index)] += int(results_count[0])
+                    matches[answer_key] += int(results_count[0])
         print('{}: {}{:,}{}'.format(
-            chr(65 + index), Colours.BOLD.value, matches[chr(65 + index)], Colours.ENDC.value
+            answer_key, Colours.BOLD.value, matches[answer_key], Colours.ENDC.value
         ))
         return matches
