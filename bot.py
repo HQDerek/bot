@@ -139,9 +139,9 @@ class HqTriviaBot(object):
         print('\nPrediction:')
         for answer_key in sorted(confidence.keys()):
             result = '%sAnswer %s: %s - %s' % ('-> ' if answer_key == prediction else '   ',
-                                                 answer_key,
-                                                 question.answers.get(answer_key),
-                                                 confidence[answer_key])
+                                               answer_key,
+                                               question.answers.get(answer_key),
+                                               confidence[answer_key])
             print(Colours.OKBLUE.value + Colours.BOLD.value + result + Colours.ENDC.value
                   if answer_key == prediction else result)
 

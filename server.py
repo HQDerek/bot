@@ -125,7 +125,6 @@ class GameServer:
                 await self._broadcast_event(summary_event)
                 await asyncio.sleep(3)
 
-
         print('Games finished')
         self.active = False
 
@@ -179,24 +178,21 @@ class WebServer:
         self._event_loop = asyncio.get_event_loop()
 
     @staticmethod
-    def get_ip():
-        return gethostbyname(gethostname())
-
-    @staticmethod
     def generate_next_game_info(next_show_time):
+        """ Return the next show time """
         return {"nextShowTime": next_show_time, "nextShowPrize": "£1,000,000"}
 
     @staticmethod
     def generate_broadcast_info():
-        return {"broadcast": {"socketUrl": f"ws://{WebServer.get_ip()}:{GameServer.PORT}"}}
+        """ Return the socket URL """
+        return {"broadcast": {"socketUrl": f"ws://{Server.get_ip()}:{GameServer.PORT}"}}
 
     async def _serve_game_info(self, _request):
         if self._game_server.active:
             return web.json_response(WebServer.generate_broadcast_info())
-        else:
-            return web.json_response(WebServer.generate_next_game_info(
-                self._next_game.strftime('%Y-%m-%dT%H:%M:%S.000Z')
-            ))
+        return web.json_response(WebServer.generate_next_game_info(
+            self._next_game.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+        ))
 
     async def run(self):
         """
@@ -215,6 +211,11 @@ class Server:
     """
     Server which manages the WebServer and GameServer loops
     """
+
+    @staticmethod
+    def get_ip():
+        """ Get IP address of the machine """
+        return gethostbyname(gethostname())
 
     @staticmethod
     def run(game_ids):
