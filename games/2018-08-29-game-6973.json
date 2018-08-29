@@ -1,0 +1,249 @@
+{
+    "numCorrect": 0,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Suits",
+                "B": "Sweatbands",
+                "C": "Socks"
+            },
+            "category": "TV",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "91%",
+                    "B": "0%",
+                    "C": "8%"
+                }
+            },
+            "question": "The Duchess of Sussex played the character Rachel Zane in which US drama?",
+            "questionId": 60481,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Think tank",
+                "B": "Think bunker",
+                "C": "Think tunnel"
+            },
+            "category": "Culture",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "87%",
+                    "B": "6%",
+                    "C": "6%"
+                }
+            },
+            "question": "What name is normally given to an organised research centre for policies?",
+            "questionId": 60482,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Superman",
+                "B": "Frozone",
+                "C": "Black Panther"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "8%",
+                    "B": "86%",
+                    "C": "4%"
+                }
+            },
+            "question": "“Where's my super suit” is a line spoken by which of these movie characters?",
+            "questionId": 60483,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Aberdeen",
+                "B": "Edinburgh",
+                "C": "Glasgow"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "4%",
+                    "B": "16%",
+                    "C": "78%"
+                }
+            },
+            "question": "In terms of capacity, the largest sports stadium in Scotland is in which city?",
+            "questionId": 60484,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Strongest tail",
+                "B": "Longest tongue",
+                "C": "Thickest fur"
+            },
+            "category": "Nature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "22%",
+                    "B": "19%",
+                    "C": "58%"
+                }
+            },
+            "question": "Which of these features does a sea otter have compared to all other animals?",
+            "questionId": 60485,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "The Green Dancer",
+                "B": "Two Dancers on Stage",
+                "C": "Dancers at the Barre"
+            },
+            "category": "Art & Design",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "29%",
+                    "B": "34%",
+                    "C": "35%"
+                }
+            },
+            "question": "Which of these Degas paintings contains the most dancers?",
+            "questionId": 60487,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Yellow baby",
+                "B": "Yellow doll",
+                "C": "Yellow maid"
+            },
+            "category": "Cuisine",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "81%",
+                    "B": "14%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which of these is NOT a type of watermelon?",
+            "questionId": 60486,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Nigel Lawson",
+                "B": "Norman Lamont",
+                "C": "John Major"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "6%",
+                    "B": "2%",
+                    "C": "91%"
+                }
+            },
+            "question": "Who delivered Britain's first live televised budget speech?",
+            "questionId": 60488,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "The Goonies",
+                "B": "Gremlins",
+                "C": "ET"
+            },
+            "category": "Movies",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "6%",
+                    "C": "93%"
+                }
+            },
+            "question": "Which of these movies was the first to be preceded by the Amblin Entertainment logo, the company founded by Steven Spielberg?",
+            "questionId": 60489,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Bangladesh",
+                "B": "Dominica",
+                "C": "Namibia"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "69%",
+                    "B": "6%",
+                    "C": "23%"
+                }
+            },
+            "question": "Of these countries, which has the most colours in its flag?",
+            "questionId": 60490,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Text message",
+                "B": "Social network",
+                "C": "Email"
+            },
+            "category": "Tech",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "5%",
+                    "B": "14%",
+                    "C": "79%"
+                }
+            },
+            "question": "Which of the following terms was copyrighted by a teenager in 1982?",
+            "questionId": 60491,
+            "questionNumber": 12
+        },
+        {
+            "answers": {
+                "A": "Its underwear",
+                "B": "Its Facebook settings",
+                "C": "Its spots"
+            },
+            "category": null,
+            "correct": null,
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "1%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "According to the phrase, what can a leopard NOT change?",
+            "questionId": null,
+            "questionNumber": 1
+        }
+    ],
+    "showId": 6973,
+    "ts": "2018-08-29T20:03:12.172Z"
+}
