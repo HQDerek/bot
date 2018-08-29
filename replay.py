@@ -1,4 +1,4 @@
-""" Module for replaying a given game """
+""" Replay a game and generate report """
 from glob import glob
 from json import load, dump
 import os
@@ -51,7 +51,7 @@ class Replayer(object):
         """ Generate HTML report for replays """
         with open('replay_results.json', 'r') as file:
             replays = load(file)
-            replays = [replay[:len(replays[0])] for replay in replays] # trim
+            replays = [replay[:len(replays[0])] for replay in replays]  # trim
 
         col_names = []
         run_results = []

@@ -17,7 +17,6 @@ class BaseSolver(object):
         """ build queries with question text and answers """
         raise NotImplementedError()
 
-
     def build_urls(self, question_text, answers):
         """ build URLs with search queries """
         urls = {}
