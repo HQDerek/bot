@@ -1,0 +1,249 @@
+{
+    "numCorrect": 0,
+    "prize": "$2,500",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Clouds",
+                "B": "Ranch dressing",
+                "C": "Water"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "13%",
+                    "B": "0%",
+                    "C": "86%"
+                }
+            },
+            "question": "By definition, what are islands surrounded by?",
+            "questionId": 57712,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Big top",
+                "B": "Sky sheet",
+                "C": "Freaky umbrella"
+            },
+            "category": "Language",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "99%",
+                    "B": "0%",
+                    "C": "0%"
+                }
+            },
+            "question": "What is a traditional nickname for a circus tent?",
+            "questionId": 57713,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Lead",
+                "B": "Fire",
+                "C": "Clay"
+            },
+            "category": "Language",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "11%",
+                    "C": "76%"
+                }
+            },
+            "question": "A person with a hidden character defect is said to have feet of what?",
+            "questionId": 57715,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "$10",
+                "B": "$100",
+                "C": "$2"
+            },
+            "category": "Civics",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "11%",
+                    "C": "72%"
+                }
+            },
+            "question": "What is the lowest value of US paper money with NO portrait of a US president?",
+            "questionId": 57714,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Romeo and Juliet",
+                "B": "Othello",
+                "C": "Macbeth"
+            },
+            "category": "Entertainment",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "3%",
+                    "C": "13%"
+                }
+            },
+            "question": "What Shakespeare play was the basis of the stage musical and film “West Side Story”?",
+            "questionId": 57716,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Cilantro",
+                "B": "Chives",
+                "C": "Caraway"
+            },
+            "category": "Cuisine",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "74%",
+                    "B": "23%",
+                    "C": "2%"
+                }
+            },
+            "question": "What is another word for coriander?",
+            "questionId": 57717,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Auxiliary",
+                "B": "Axial",
+                "C": "Appendicular"
+            },
+            "category": "Science",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "3%",
+                    "B": "75%",
+                    "C": "21%"
+                }
+            },
+            "question": "Which of these is NOT one of the two parts of the human skeleton?",
+            "questionId": 57718,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Cribbage",
+                "B": "Euchre",
+                "C": "Gin rummy"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "90%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which of these is an example of a trick-taking game?",
+            "questionId": 57719,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Pride and Prejudice",
+                "B": "Jane Eyre",
+                "C": "Wuthering Heights"
+            },
+            "category": "Literature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "4%",
+                    "B": "50%",
+                    "C": "45%"
+                }
+            },
+            "question": "Which novel is NOT by a Brontë sister?",
+            "questionId": 57720,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "I Wanna Be Your Man",
+                "B": "19th Nervous Breakdown",
+                "C": "Heart of Stone"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "2%",
+                    "B": "0%",
+                    "C": "97%"
+                }
+            },
+            "question": "What song released by the Rolling Stones was written by members of a rival band?",
+            "questionId": 57721,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Sleeveless shirts",
+                "B": "Soccer cleats",
+                "C": "Shorts"
+            },
+            "category": "Sports",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "3%",
+                    "B": "3%",
+                    "C": "92%"
+                }
+            },
+            "question": "In the ’70s, an MLB team experimented for a few games with wearing what clothing item?",
+            "questionId": 57722,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Nebraska",
+                "B": "Oklahoma",
+                "C": "Colorado"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "8%",
+                    "B": "26%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which of these states lies closest to the geographic center of the contiguous 48 states?",
+            "questionId": 57723,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6699,
+    "ts": "2018-08-29T19:03:03.335Z"
+}
