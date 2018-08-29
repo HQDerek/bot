@@ -1,7 +1,4 @@
-"""
-Websocket Server Simulator for playing against saved games.
-From https://github.com/freshollie/trivia-sim
-"""
+""" Websocket server that simulates live games """
 import asyncio
 from glob import glob
 from sys import stdout
@@ -10,6 +7,7 @@ from random import randint
 from socket import gethostname, gethostbyname
 from websockets import exceptions, serve
 from aiohttp import web
+from utils import Colours
 from question import Question
 
 SOCKET_PORT = 8765
@@ -20,10 +18,12 @@ class GameServer:
     """
     A representation of a HQTrivia Game socket server.
     Provides questions and answers to any client that connects to the socket.
+    From https://github.com/freshollie/trivia-sim
     """
     PORT = 8765
 
-    def __init__(self):
+    def __init__(self, game_ids):
+        self.game_ids = game_ids
         self.active = False
         self._players = set()
         self._socket = None
@@ -78,40 +78,55 @@ class GameServer:
         """
 
         self.active = True
-        game_path = sorted(glob('games/*.json'))[0]
-        quiz = load(open(game_path))
 
-        print(f"Loaded game {game_path}")
+        game_ids = self.game_ids.split(',')
+        game_files = [file for file in sorted(glob('games/*.json')) if file[22:-5] in game_ids]
 
-        print("Waiting for players to connect...")
-        while not self._players:
-            await asyncio.sleep(3)
+        if not game_files or set(game_ids) != set([file[22:-5] for file in game_files]):
+            print(f'Game ID {self.game_ids} not found.')
+            exit(1)
+        print(f'Playing Game IDs {game_ids}')
 
-        quiz_length = len(quiz['questions'])
+        for file in game_files:
 
-        for question_data in quiz['questions']:
-            question = Question(is_replay=True, **question_data)
-            print(f"\nRound {question.number}")
+            if not self._players:
+                print('Waiting for players to connect...')
+                while not self._players:
+                    await asyncio.sleep(2)
 
-            print(question.text)
-
-            # Provide a question and wait for it to be answered
-            question_event = self.generate_question_event(question, quiz_length)
-            await self._broadcast_event(question_event)
-            for count in reversed(range(10)):
-                await asyncio.sleep(1)
-                stdout.write("\r{} seconds".format(count))
-                stdout.flush()
-            stdout.write("\rRound Closed")
-            stdout.flush()
-
-            # And then broadcast the answers
-            print(f"\nAnswer {question.correct}: {question.answers[question.correct]}")
-            summary_event = GameServer.generate_round_summary_event(question)
-            await self._broadcast_event(summary_event)
+            print(f'Next game starting in 5 seconds')
             await asyncio.sleep(5)
 
-        print("Game finished")
+            quiz = load(open(file))
+
+            print(f'Loaded game {file[22:-5]}')
+
+            quiz_length = len(quiz['questions'])
+
+            for question_data in quiz['questions']:
+                question = Question(is_replay=True, **question_data)
+                print(f'\n  Round {question.number}\n-----------')
+
+                # Provide a question and wait for it to be answered
+                print('  Question: ' + Colours.BOLD.value + question.text + Colours.ENDC.value)
+                question_event = self.generate_question_event(question, quiz_length)
+                await self._broadcast_event(question_event)
+                for count in reversed(range(10)):
+                    await asyncio.sleep(1)
+                    stdout.write('\r  {} seconds'.format(count))
+                    stdout.flush()
+
+                # And then broadcast the answers
+                stdout.write('\r  Answer: ' + Colours.BOLD.value +
+                             f'{question.correct} - {question.answers[question.correct]}\n' +
+                             Colours.ENDC.value)
+                stdout.flush()
+                summary_event = GameServer.generate_round_summary_event(question)
+                await self._broadcast_event(summary_event)
+                await asyncio.sleep(3)
+
+
+        print('Games finished')
         self.active = False
 
     def _register_player(self, player):
@@ -124,7 +139,7 @@ class GameServer:
         """
         Handles players connecting to the socket and registers them for broadcasts
         """
-        print("Player connected")
+        print('* Player connected')
         self._register_player(socket)
         try:
             # Keep listen for answers, but ignore them as they are not used.
@@ -133,11 +148,11 @@ class GameServer:
         except exceptions.ConnectionClosed:
             pass
         finally:
-            print("Player disconnected")
+            print('* Player disconnected')
             self._unregister_player(socket)
 
     async def start(self):
-        """
+        """"
         Start the socket listening for player connections
         """
         self._socket = await serve(self._player_connection, "0.0.0.0", GameServer.PORT)
@@ -158,9 +173,9 @@ class WebServer:
 
     PORT = "8732"
 
-    def __init__(self):
+    def __init__(self, game_ids):
         self._next_game = None
-        self._game_server = GameServer()
+        self._game_server = GameServer(game_ids)
         self._event_loop = asyncio.get_event_loop()
 
     @staticmethod
@@ -169,7 +184,7 @@ class WebServer:
 
     @staticmethod
     def generate_next_game_info(next_show_time):
-        return {"nextShowTime": next_show_time, "nextShowPrize": "£400,000"}
+        return {"nextShowTime": next_show_time, "nextShowPrize": "£1,000,000"}
 
     @staticmethod
     def generate_broadcast_info():
@@ -185,18 +200,15 @@ class WebServer:
 
     async def run(self):
         """
-        Create a websever and host a HQTrivia game every minute. Broadcast when the game will begin on the API.
+        Create a websever and broadcast when the game will begin. Start the game when a player connects.
         """
 
         await self._event_loop.create_server(web.Server(self._serve_game_info), "0.0.0.0", WebServer.PORT)
-        print(f"Web server started on 0.0.0.0:{WebServer.PORT}")
+        print(f'Web server started on 0.0.0.0:{WebServer.PORT}')
 
-        while True:
-            await self._game_server.start()
-            await self._game_server.host_game()
-            await self._game_server.close()
-            print(f"Next game starting in 10 seconds")
-            await asyncio.sleep(10)
+        await self._game_server.start()
+        await self._game_server.host_game()
+        await self._game_server.close()
 
 
 class Server:
@@ -205,8 +217,8 @@ class Server:
     """
 
     @staticmethod
-    def run():
+    def run(game_ids):
         """
         Create a WebServer instance and run until completion
         """
-        asyncio.get_event_loop().run_until_complete(WebServer().run())
+        asyncio.get_event_loop().run_until_complete(WebServer(game_ids).run())

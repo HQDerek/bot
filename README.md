@@ -18,7 +18,7 @@ Ensure that this file is named `config.ini`, then you can connect to a live game
 
 
 ### Run against Simulated Websocket Server
- * Run the local websocket server `pipenv run server`
+ * Run the local websocket server `pipenv run server <game-id>[,<game-id>]`
  * Run the bot in test mode `pipenv run bot --test`
 
 
