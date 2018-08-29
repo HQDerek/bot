@@ -32,10 +32,11 @@ Valid commands are:
         getattr(self, args.command)()
 
     def run(self):
-        """ Run the bot against the live game """
+        """ Run the bot with a live game websocket """
         parser = argparse.ArgumentParser(description=self.bot.run.__doc__,
                                          prog=f'{self.parser.prog} bot')
-        parser.add_argument('--test-server', action='store_true')
+        parser.add_argument('--test-server', help="Use local test websocket",
+                            action='store_true')
         args = vars(parser.parse_args(argv[2:]))
         if args.get('test_server', '') is True:
             self.bot.api_url = 'http://localhost:8765'
