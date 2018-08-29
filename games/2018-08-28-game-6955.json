@@ -1,0 +1,229 @@
+{
+    "numCorrect": 0,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Impromptu day",
+                "B": "Christmas day",
+                "C": "Mufti day"
+            },
+            "category": "Language",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "13%",
+                    "B": "46%",
+                    "C": "39%"
+                }
+            },
+            "question": "Which of these is a term commonly used for a non-uniform day at school?",
+            "questionId": 60317,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "July",
+                "B": "December",
+                "C": "November"
+            },
+            "category": "Culture",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "5%",
+                    "B": "12%",
+                    "C": "81%"
+                }
+            },
+            "question": "In the United States, Thanksgiving takes place on the fourth Thursday of which month?",
+            "questionId": 60319,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Matilda",
+                "B": "Charlotte's Web",
+                "C": "The Witches"
+            },
+            "category": "Literature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "85%",
+                    "B": "5%",
+                    "C": "9%"
+                }
+            },
+            "question": "Miss Trunchbull is the name of the main antagonist in which of these children's books?",
+            "questionId": 60320,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Peru",
+                "B": "Ecuador",
+                "C": "Uruguay"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "43%",
+                    "B": "30%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which of these countries has a coastline on the South Atlantic Ocean?",
+            "questionId": 60323,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Nibble",
+                "B": "Peck",
+                "C": "Crumb"
+            },
+            "category": "Tech",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "75%",
+                    "B": "15%",
+                    "C": "8%"
+                }
+            },
+            "question": "Which of these terms is used to describe four bits of data?",
+            "questionId": 60321,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Shrewdness",
+                "B": "Troubling",
+                "C": "Destruction"
+            },
+            "category": "Nature",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "4%",
+                    "B": "72%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which of these collective nouns can be used for a group of goldfish?",
+            "questionId": 60322,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "All Around the World",
+                "B": "Tainted Love",
+                "C": "Don't Stop Believin"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "61%",
+                    "B": "36%",
+                    "C": "2%"
+                }
+            },
+            "question": "Which 80s song does Iggy Azalea sample in her single “Savior”?",
+            "questionId": 60324,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Pick-up sticks",
+                "B": "Apple bobbing",
+                "C": "Blind man's buff"
+            },
+            "category": "Games",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "44%",
+                    "B": "16%",
+                    "C": "38%"
+                }
+            },
+            "question": "Which of these party games was once a courting ritual for ladies and their potential partners?",
+            "questionId": 60325,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Comme des Garçons",
+                "B": "Levi's Jeans",
+                "C": "Alexander Wang"
+            },
+            "category": "Fashion",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "16%",
+                    "B": "18%",
+                    "C": "64%"
+                }
+            },
+            "question": "Which of these fashion labels had a collection in collaboration with artist Damien Hirst?",
+            "questionId": 60326,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "HMS Swiftsure",
+                "B": "HMS Golden Hind",
+                "C": "HMS Squirrel"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "82%",
+                    "B": "3%",
+                    "C": "13%"
+                }
+            },
+            "question": "Which ship sank on the return journey after claiming Newfoundland for Elizabeth I?",
+            "questionId": 60327,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Wear coloured underwear",
+                "B": "Jump off a chair",
+                "C": "Eat seven meals"
+            },
+            "category": "Culture",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "1%",
+                    "B": "38%",
+                    "C": "59%"
+                }
+            },
+            "question": "In Denmark, how do people traditionally welcome the New Year?",
+            "questionId": 60340,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6955,
+    "ts": "2018-08-28T20:03:40.644Z"
+}
