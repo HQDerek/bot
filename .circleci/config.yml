@@ -34,7 +34,7 @@ jobs:
       - run: # import database
           name: Import Database
           command: |
-            pipenv run cache import
+            pipenv run cache import_sql
 
       - run: # run tests
           name: Run Tests

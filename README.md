@@ -12,14 +12,19 @@ Welcome to HQ Trivia Bot! Thanks for contributing. Here are the steps to get sta
 
 ### Run HQ Trivia Bot
 To play a live game of HQ Trivia, you first need to generate a login token.
- * Generate token with `pipenv run generate-token <phone-number>` (in the format `+353861234567`)  
+ * Generate token with `pipenv run token <number>` (in the format `+353861230000`)
 Ensure that this file is named `config.ini`, then you can connect to a live game.
  * Run bot `pipenv run bot`
 
 
+### Run against Simulated Websocket Server
+ * Run the local websocket server `pipenv run server`
+ * Run the bot in test mode `pipenv run bot --test`
+
+
 ### Import Cached Games
 Before running tests or cache operations, ensure the local database has been imported.
- * Run cache import `pipenv run cache import`
+ * Run cache import `pipenv run cache import_sql`
 
 
 ### Add Game to Cache
