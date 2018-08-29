@@ -41,7 +41,7 @@ Valid commands are:
                             action='store_true')
         args = vars(parser.parse_args(argv[2:]))
         if args.get('test_server', '') is True:
-            self.bot.api_url = 'http://localhost:8765'
+            self.bot.api_url = 'http://localhost:8732'
         self.bot.run()
 
     def cache(self):
@@ -65,11 +65,16 @@ Valid cache commands are:
             exit(1)
         getattr(cacher, args.operation)()
 
-    @staticmethod
-    def server():
-        """ Replay a game and generate report """
+    def server(self):
+        """ Websocket server that simulates live games """
+        parser = argparse.ArgumentParser(
+            prog=f'{self.parser.prog} server',
+            usage=f'pipenv run server <game_id>[,<game_id>]'
+        )
+        parser.add_argument('game_ids', help="Comma separated list of game IDs")
+        args = vars(parser.parse_args(argv[2:]))
         game = server.Server()
-        game.run()
+        game.run(**args)
 
     @staticmethod
     def replay():
