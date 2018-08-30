@@ -1,0 +1,249 @@
+{
+    "numCorrect": 9,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Read the riot act",
+                "B": "Give up the ghost",
+                "C": "Clap your hands"
+            },
+            "category": "Language",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "99%"
+                }
+            },
+            "question": "According to the children's song, “if you're happy and you know it” what should you typically do?",
+            "questionId": 60227,
+            "questionNumber": 1
+        },
+        {
+            "answers": {
+                "A": "Hogwarts",
+                "B": "Thames Estuary",
+                "C": "Gulf of Mexico"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "2%",
+                    "B": "0%",
+                    "C": "96%"
+                }
+            },
+            "question": "The Gulf Stream takes its name from which of these places?",
+            "questionId": 60228,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Light year",
+                "B": "Gap year",
+                "C": "Golden year"
+            },
+            "category": "Language",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "22%",
+                    "B": "64%",
+                    "C": "13%"
+                }
+            },
+            "question": "What name is usually given to the year students often take out between school and university?",
+            "questionId": 60229,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Aristotle",
+                "B": "Galileo",
+                "C": "Copernicus"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "16%",
+                    "B": "83%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these scientists is named in Queen’s ‘‘Bohemian Rhapsody’’?",
+            "questionId": 60230,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Steven Spielberg",
+                "B": "Francis Ford Coppola",
+                "C": "George Lucas"
+            },
+            "category": "Movies",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "7%",
+                    "C": "81%"
+                }
+            },
+            "question": "Which of these directors owns the Skywalker Ranch in California?",
+            "questionId": 60231,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Stephen Hawking",
+                "B": "Robert Winston",
+                "C": "Brian Cox"
+            },
+            "category": "Literature",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "66%",
+                    "B": "0%",
+                    "C": "32%"
+                }
+            },
+            "question": "Which of these scientists co-authored a children’s book that features an organisation called “TOERAG”?",
+            "questionId": 60232,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Bar",
+                "B": "Jail",
+                "C": "Wagon"
+            },
+            "category": "Language",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "10%",
+                    "B": "81%",
+                    "C": "7%"
+                }
+            },
+            "question": "In the American Wild West, what was a “calaboose”?",
+            "questionId": 60233,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Curiosity Mars rover",
+                "B": "Cassini Saturn mission",
+                "C": "Juno Jupiter probe"
+            },
+            "category": "Science",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "91%",
+                    "B": "7%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of the following space exploration projects was the MOST expensive?",
+            "questionId": 60234,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "Harold Wilson",
+                "B": "Silvio Berlusconi",
+                "C": "Jacques Chirac"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "18%",
+                    "B": "56%",
+                    "C": "25%"
+                }
+            },
+            "question": "Which of these was NOT in power when their country won the men's football World Cup?",
+            "questionId": 60235,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Jackie Chan",
+                "B": "Adam Sandler",
+                "C": "Will Smith"
+            },
+            "category": "Movies",
+            "correct": "A",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "45%",
+                    "B": "40%",
+                    "C": "13%"
+                }
+            },
+            "question": "Of these three performers, who ranked highest on Forbes’ 2018 list of highest-paid actors?",
+            "questionId": 60236,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Tommy Cooper",
+                "B": "Jasper Maskelyne",
+                "C": "David Nixon"
+            },
+            "category": "History",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "11%",
+                    "B": "82%",
+                    "C": "6%"
+                }
+            },
+            "question": "Which of these magicians reportedly worked for the British military during World War II creating camouflage deceptions?",
+            "questionId": 60237,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "Talking Heads",
+                "B": "Travis",
+                "C": "Franz Ferdinand"
+            },
+            "category": "Music",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "98%",
+                    "C": "0%"
+                }
+            },
+            "question": "The lead singer of which of these bands was born in Scotland?",
+            "questionId": 60238,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6944,
+    "ts": "2018-08-28T14:02:02.219Z"
+}
