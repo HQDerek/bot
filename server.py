@@ -4,6 +4,7 @@ from glob import glob
 from sys import stdout
 from json import load, dumps
 from random import randint
+from datetime import datetime
 from socket import gethostname, gethostbyname
 from websockets import exceptions, serve
 from aiohttp import web
@@ -24,6 +25,8 @@ class GameServer:
 
     def __init__(self, game_ids):
         self.game_ids = game_ids
+        self.current_game = None
+        self.current_question = None
         self.active = False
         self._players = set()
         self._socket = None
@@ -39,7 +42,9 @@ class GameServer:
         :rtype: dict
         """
         return {"type": "question",
+                "questionId": question.id,
                 "question": question.text,
+                "category": question.category,
                 "answers": [{'text': answer} for key, answer in question.answers.items()],
                 "questionNumber": question.number,
                 "questionCount": count}
@@ -48,6 +53,10 @@ class GameServer:
     def generate_round_summary_event(question):
         """
         After round is over, generate a round summary using random player counts.
+
+        :param Question question: Question object for current round
+        :return: Object representing question summary event
+        :rtype: dict
         """
         answer_counts = [{
             'count': randint(0, 1000),
@@ -61,6 +70,27 @@ class GameServer:
             "advancingPlayersCount": randint(1, 10000),
             "eliminatedPlayersCount": randint(1, 10000),
             "answerCounts": answer_counts
+        }
+
+    @staticmethod
+    def generate_game_status_event(current_game, question):
+        """
+        When a player connects, send the game status event.
+
+        :param int current_game: Game ID currently in progress
+        :param Question question: Question object for current round
+        :return: Object representing game status event
+        :rtype: dict
+        """
+
+        return {
+            "type": "gameStatus",
+            "prize": "£1,000,000",
+            "ts": datetime.utcnow().isoformat(),
+            "showId": f"{current_game.get('showId')}.local",
+            "questionId": getattr(question, 'id', None),
+            "questionNumber": getattr(question, 'number', None),
+            "questionCount": current_game.get('questionCount')
         }
 
     async def _broadcast_event(self, event):
@@ -89,6 +119,9 @@ class GameServer:
 
         for file in game_files:
 
+            game = load(open(file))
+            self.current_game = game
+
             if not self._players:
                 print('Waiting for players to connect...\n')
                 while not self._players:
@@ -99,20 +132,18 @@ class GameServer:
                 stdout.flush()
                 await asyncio.sleep(1)
 
-            quiz = load(open(file))
-
-            stdout.write(f'\rStarting Game ID: {file[22:-5]}\n')
+            stdout.write(f"\rStarting Game ID: {self.current_game.get('showId')}\n")
             stdout.flush()
 
-            quiz_length = len(quiz['questions'])
+            game_length = len(game['questions'])
 
-            for question_data in quiz['questions']:
-                question = Question(is_replay=True, **question_data)
-                print(f'\n  Round {question.number}\n-----------')
+            for question_data in game['questions']:
+                self.current_question = Question(is_replay=True, **question_data)
+                print(f'\n  Round {self.current_question.number}\n-----------')
 
                 # Provide a question and wait for it to be answered
-                print('  Question: ' + Colours.BOLD.value + question.text + Colours.ENDC.value)
-                question_event = self.generate_question_event(question, quiz_length)
+                print('  Question: ' + Colours.BOLD.value + self.current_question.text + Colours.ENDC.value)
+                question_event = self.generate_question_event(self.current_question, game_length)
                 await self._broadcast_event(question_event)
                 for count in reversed(range(10)):
                     await asyncio.sleep(1)
@@ -121,15 +152,17 @@ class GameServer:
 
                 # And then broadcast the answers
                 stdout.write('\r  Answer: ' + Colours.BOLD.value +
-                             f'{question.correct} - {question.answers[question.correct]}\n' +
+                             f'{self.current_question.correct} - ' +
+                             f'{self.current_question.answers[self.current_question.correct]}\n' +
                              Colours.ENDC.value)
                 stdout.flush()
-                summary_event = GameServer.generate_round_summary_event(question)
+                summary_event = GameServer.generate_round_summary_event(self.current_question)
                 await self._broadcast_event(summary_event)
                 await asyncio.sleep(3)
 
         print('Games finished')
         self.active = False
+        self.current_game = None
 
     def _register_player(self, player):
         self._players.add(player)
@@ -143,6 +176,10 @@ class GameServer:
         """
         print('* Player connected')
         self._register_player(socket)
+
+        status_event = GameServer.generate_game_status_event(self.current_game, self.current_question)
+        await self._broadcast_event(status_event)
+
         try:
             # Keep listen for answers, but ignore them as they are not used.
             async for _ in socket:
