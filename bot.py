@@ -1,14 +1,13 @@
 """ Bot module where main game actions are performed """
 import webbrowser
 from os import path
-from glob import glob
 from time import sleep
 from datetime import datetime
 from configparser import ConfigParser
 from json import loads, dump, JSONDecodeError
 from pytz import utc
 from dateutil import parser
-from requests import get, post
+from requests import get
 from requests.exceptions import RequestException
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
@@ -66,28 +65,6 @@ class HqTriviaBot(object):
             return None
 
         return initial_json.get('broadcast').get('socketUrl').replace('https', 'wss')
-
-    @staticmethod
-    def make_it_rain(headers):
-        """ Make it rain """
-        resp = post('https://api-quiz.hype.space/easter-eggs/%s' % 'makeItRain', headers=headers)
-        try:
-            print('Make it rain: %s' % resp.json())
-        except ValueError:
-            pass
-
-    def make_it_rain_for_all(self, headers):
-        """ make it rain for me and then others"""
-        try:
-            for filename in sorted(glob('config*.ini')):
-                config = ConfigParser()
-                config.read(filename)
-                other_headers = headers.copy()
-                other_headers.update({'Authorization': 'Bearer %s' % config.get('Auth', 'bearer_token')})
-                print("Making it rain for %s:" % (filename.split('-')[1] if len(filename.split('-')) > 1 else 'me'))
-                self.make_it_rain(other_headers)
-        except TypeError:
-            pass
 
     def game_status(self, data):
         """ status of the game """
@@ -238,54 +215,3 @@ class HqTriviaBot(object):
             else:
                 print(f'Could not connect to API at {self.api_url}. Sleeping for 10 seconds.')
                 sleep(10)
-
-    def generate_token(self, number):
-        """ Generate an auth token for number """
-        unauth_headers = self.headers.copy()
-        unauth_headers.pop('Authorization', None)
-        phone_resp = post('https://api-quiz.hype.space/verifications', headers=unauth_headers, data={
-            'method': 'sms',
-            'phone': number
-        }).json()
-        verification_id = phone_resp.get('verificationId')
-        if not verification_id:
-            print('Something went wrong. %s' % phone_resp.get('error', ''))
-        else:
-            print('Verification sent to %s.' % number)
-            code = input("Please enter the code: ")
-            code_resp = post('https://api-quiz.hype.space/verifications/%s' % verification_id,
-                             headers=unauth_headers, data={'code': code}).json()
-            if not code_resp.get('auth'):
-                print('Something went wrong. %s' % code_resp.get('error', ''))
-            else:
-                verify_file = 'config-%s-%s.ini' % (code_resp.get('auth').get('username'), code)
-                with open(verify_file, 'w') as out:
-                    out.write('%s\n%s\n%s' % (
-                        '[Auth]',
-                        'user_id = %s' % code_resp.get('auth').get('userId'),
-                        'bearer_token = %s' % code_resp.get('auth').get('accessToken')
-                    ))
-                print('Verification successful. Details stored in %s' % verify_file)
-
-    def get_stats(self, username):
-        """ Query play stats for a given user """
-        resp = get(f'https://api-quiz.hype.space/users?q={username}', headers=self.headers)
-        try:
-            json = resp.json()
-            user_id = None
-            users = json.get('data', [])
-            if users is not None:
-                for user in users:
-                    if user.get('username') == username:
-                        user_id = user.get('userId')
-                        user = get('https://api-quiz.hype.space/users/{}'.format(user_id), headers=self.headers).json()
-                        print('User:\t\t{}'.format(user.get('username')))
-                        print('Total Earnings:\t{}'.format(user.get('leaderboard').get('total')))
-                        print('Games Played:\t{}'.format(user.get('gamesPlayed')))
-                        print('Wins:\t\t{}'.format(user.get('winCount')))
-                if not user_id:
-                    print('%s is not a user.' % username)
-            else:
-                print('%s is not a user.' % username)
-        except JSONDecodeError:
-            pass

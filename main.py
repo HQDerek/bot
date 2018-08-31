@@ -3,6 +3,7 @@
 import argparse
 from sys import argv
 from bot import HqTriviaBot
+from utils import get_stats, generate_token
 import replay
 import cache
 import server
@@ -21,8 +22,8 @@ Valid commands are:
    cache     {cache.__doc__}
    replay    {replay.__doc__}
    server    {server.__doc__}
-   stats     {self.bot.get_stats.__doc__}
-   token     {self.bot.generate_token.__doc__}''',
+   stats     {get_stats.__doc__}
+   token     {generate_token.__doc__}''',
             prog='pipenv run'
         )
         self.parser.add_argument('command', help=argparse.SUPPRESS)
@@ -85,19 +86,21 @@ Valid cache commands are:
 
     def stats(self):
         """ Query play stats for a given user """
-        parser = argparse.ArgumentParser(description=self.bot.get_stats.__doc__,
+        parser = argparse.ArgumentParser(description=get_stats.__doc__,
                                          prog=f'{self.parser.prog} stats')
         parser.add_argument('username', help="Username of the user to query")
         args = vars(parser.parse_args(argv[2:]))
-        self.bot.get_stats(**args)
+        args['headers'] = self.bot.headers
+        get_stats(**args)
 
     def token(self):
         """ Generate an auth token for number """
-        parser = argparse.ArgumentParser(description=self.bot.generate_token.__doc__,
+        parser = argparse.ArgumentParser(description=generate_token.__doc__,
                                          prog=f'{self.parser.prog} token')
         parser.add_argument('number', help='Number in international format e.g. +353861230000')
         args = vars(parser.parse_args(argv[2:]))
-        self.bot.generate_token(**args)
+        args['headers'] = self.bot.headers
+        generate_token(**args)
 
 
 if __name__ == '__main__':

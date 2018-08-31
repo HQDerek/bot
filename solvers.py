@@ -93,7 +93,7 @@ class GoogleAnswerWordsSolver(BaseSolver):
         return {'_': question_text}
 
     def get_answer_matches(self, response, _answer_key, answers, matches):
-        """ get answer occurences for response """
+        """ get answer occurrences for response """
         results = ''
         document = BeautifulSoup(response.text, "html5lib")
         for element in document.find_all(class_='st'):
