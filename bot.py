@@ -9,6 +9,7 @@ from json import loads, dump, JSONDecodeError
 from pytz import utc
 from dateutil import parser
 from requests import get, post
+from requests.exceptions import RequestException
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
@@ -46,7 +47,10 @@ class HqTriviaBot(object):
 
     def get_socket_url(self, headers):
         """ Get broadcast socket URL """
-        resp = get(self.api_url + '/shows/now?type=hq&userId=%s' % self.config['Auth']['user_id'], headers=headers)
+        try:
+            resp = get(self.api_url + '/shows/now?type=hq&userId=%s' % self.config['Auth']['user_id'], headers=headers)
+        except RequestException:
+            return None
         try:
             initial_json = resp.json()
         except JSONDecodeError:
@@ -232,7 +236,7 @@ class HqTriviaBot(object):
                     print('\nSleeping until {} ({} seconds)'.format(next_show_time.strftime('%c'), seconds_until_show))
                     sleep(seconds_until_show)
             else:
-                print('Could not connect to API. Sleeping for 10 seconds.')
+                print(f'Could not connect to API at {self.api_url}. Sleeping for 10 seconds.')
                 sleep(10)
 
     def generate_token(self, number):
