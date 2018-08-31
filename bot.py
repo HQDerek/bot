@@ -176,7 +176,7 @@ class HqTriviaBot(object):
                             'B': data.get('answers')[1]['text'],
                             'C': data.get('answers')[2]['text']
                         }
-                    question = Question(is_replay=False, **data)
+                    question = Question(**data)
                     self.prediction_time(question)
                 # Check for question summary
                 elif data.get('type') == 'questionSummary':
@@ -184,7 +184,7 @@ class HqTriviaBot(object):
                                           in enumerate(data.get('answerCounts'))
                                           if val["correct"]))
                     correct_choice = chr(65 + correct_index)  # A, B or C
-                    question = Question(is_replay=False, load_id=data.get('questionId'))
+                    question = Question(load_id=data.get('questionId'))
                     question.add_correct(correct_choice)
                     question.display_summary()
                 # Check for question summary
