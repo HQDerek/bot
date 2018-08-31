@@ -90,16 +90,19 @@ class GameServer:
         for file in game_files:
 
             if not self._players:
-                print('Waiting for players to connect...')
+                print('Waiting for players to connect...\n')
                 while not self._players:
                     await asyncio.sleep(2)
 
-            print(f'Next game starting in 5 seconds')
-            await asyncio.sleep(5)
+            for count in reversed(range(5)):
+                stdout.write(f'\rNext game in {count + 1} seconds')
+                stdout.flush()
+                await asyncio.sleep(1)
 
             quiz = load(open(file))
 
-            print(f'Loaded game {file[22:-5]}')
+            stdout.write(f'\rStarting Game ID: {file[22:-5]}\n')
+            stdout.flush()
 
             quiz_length = len(quiz['questions'])
 
