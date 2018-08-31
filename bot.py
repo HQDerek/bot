@@ -9,6 +9,7 @@ from json import loads, dump, JSONDecodeError
 from pytz import utc
 from dateutil import parser
 from requests import get, post
+from requests.exceptions import RequestException
 from requests_cache import CachedSession
 from requests_futures.sessions import FuturesSession
 from websocket import WebSocketApp, WebSocketException, WebSocketTimeoutException
@@ -46,7 +47,10 @@ class HqTriviaBot(object):
 
     def get_socket_url(self, headers):
         """ Get broadcast socket URL """
-        resp = get(self.api_url + '/shows/now?type=hq&userId=%s' % self.config['Auth']['user_id'], headers=headers)
+        try:
+            resp = get(self.api_url + '/shows/now?type=hq&userId=%s' % self.config['Auth']['user_id'], headers=headers)
+        except RequestException:
+            return None
         try:
             initial_json = resp.json()
         except JSONDecodeError:
@@ -138,10 +142,10 @@ class HqTriviaBot(object):
         # Show prediction in console
         print('\nPrediction:')
         for answer_key in sorted(confidence.keys()):
-            result = '%sAnswer %s: %s - %s%%' % ('-> ' if answer_key == prediction else '   ',
-                                                 answer_key,
-                                                 question.answers.get(answer_key),
-                                                 confidence[answer_key])
+            result = '%sAnswer %s: %s - %s' % ('-> ' if answer_key == prediction else '   ',
+                                               answer_key,
+                                               question.answers.get(answer_key),
+                                               confidence[answer_key])
             print(Colours.OKBLUE.value + Colours.BOLD.value + result + Colours.ENDC.value
                   if answer_key == prediction else result)
 
@@ -176,7 +180,7 @@ class HqTriviaBot(object):
                             'B': data.get('answers')[1]['text'],
                             'C': data.get('answers')[2]['text']
                         }
-                    question = Question(is_replay=False, **data)
+                    question = Question(**data)
                     self.prediction_time(question)
                 # Check for question summary
                 elif data.get('type') == 'questionSummary':
@@ -184,7 +188,7 @@ class HqTriviaBot(object):
                                           in enumerate(data.get('answerCounts'))
                                           if val["correct"]))
                     correct_choice = chr(65 + correct_index)  # A, B or C
-                    question = Question(is_replay=False, load_id=data.get('questionId'))
+                    question = Question(load_id=data.get('questionId'))
                     question.add_correct(correct_choice)
                     question.display_summary()
                 # Check for question summary
@@ -222,7 +226,7 @@ class HqTriviaBot(object):
                         web_socket.run_forever(ping_interval=5)
                     except (WebSocketException, WebSocketTimeoutException):
                         print('CONNECTION LOST. RECONNECTING...')
-            else:
+            elif self.next_show_time:
                 next_show_time = parser.parse(self.next_show_time)
                 seconds_until_show = (next_show_time - datetime.now(utc)).total_seconds()
                 if seconds_until_show < 0:
@@ -231,6 +235,9 @@ class HqTriviaBot(object):
                 else:
                     print('\nSleeping until {} ({} seconds)'.format(next_show_time.strftime('%c'), seconds_until_show))
                     sleep(seconds_until_show)
+            else:
+                print(f'Could not connect to API at {self.api_url}. Sleeping for 10 seconds.')
+                sleep(10)
 
     def generate_token(self, number):
         """ Generate an auth token for number """
