@@ -1,0 +1,229 @@
+{
+    "numCorrect": 0,
+    "prize": "£1,000",
+    "questionCount": 12,
+    "questions": [
+        {
+            "answers": {
+                "A": "Shed stenches",
+                "B": "Greenhouse gases",
+                "C": "Verandah vapours"
+            },
+            "category": "Science",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "0%",
+                    "B": "100%",
+                    "C": "0%"
+                }
+            },
+            "question": "Carbon dioxide and methane are examples of which type of gases?",
+            "questionId": 60671,
+            "questionNumber": 2
+        },
+        {
+            "answers": {
+                "A": "Green",
+                "B": "Orange",
+                "C": "White"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "11%",
+                    "B": "5%",
+                    "C": "82%"
+                }
+            },
+            "question": "Which of the following colours is also the surname of a former Take That member?",
+            "questionId": 60672,
+            "questionNumber": 3
+        },
+        {
+            "answers": {
+                "A": "Washington Monument",
+                "B": "Statue of Liberty",
+                "C": "Empire State Building"
+            },
+            "category": "Geography",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "2%",
+                    "B": "17%",
+                    "C": "80%"
+                }
+            },
+            "question": "Which of these landmarks is taller than the Eiffel Tower?",
+            "questionId": 60673,
+            "questionNumber": 4
+        },
+        {
+            "answers": {
+                "A": "Quaffle",
+                "B": "Bludger",
+                "C": "Snitcher"
+            },
+            "category": "Literature",
+            "correct": "C",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "68%",
+                    "B": "26%",
+                    "C": "4%"
+                }
+            },
+            "question": "Which of these is NOT the name of a ball used in the fictional sport played at Hogwarts?",
+            "questionId": 60675,
+            "questionNumber": 5
+        },
+        {
+            "answers": {
+                "A": "Mali",
+                "B": "Madagascar",
+                "C": "Mozambique"
+            },
+            "category": "Geography",
+            "correct": "B",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "7%",
+                    "B": "82%",
+                    "C": "10%"
+                }
+            },
+            "question": "The Malagasy people are native to which of these countries?",
+            "questionId": 60674,
+            "questionNumber": 6
+        },
+        {
+            "answers": {
+                "A": "Lewis Hamilton",
+                "B": "Valentino Rossi",
+                "C": "Stephen Hendry"
+            },
+            "category": "Sports",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "90%",
+                    "B": "9%",
+                    "C": "0%"
+                }
+            },
+            "question": "Which of these stars has won the MOST world championships in their respective sport?",
+            "questionId": 60677,
+            "questionNumber": 7
+        },
+        {
+            "answers": {
+                "A": "Ramsay MacDonald",
+                "B": "Gordon Brown",
+                "C": "David Cameron"
+            },
+            "category": "History",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "63%",
+                    "B": "15%",
+                    "C": "21%"
+                }
+            },
+            "question": "James is NOT the actual first name of which of these British Prime Ministers?",
+            "questionId": 60676,
+            "questionNumber": 8
+        },
+        {
+            "answers": {
+                "A": "The Handmaid's Tale",
+                "B": "The Girl on the Train",
+                "C": "The Couple Next Door"
+            },
+            "category": "Literature",
+            "correct": "C",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "33%",
+                    "B": "51%",
+                    "C": "15%"
+                }
+            },
+            "question": "Out of the following bestselling books, which sold the MOST copies in paperback in 2017 in the UK?",
+            "questionId": 60678,
+            "questionNumber": 9
+        },
+        {
+            "answers": {
+                "A": "Pringles",
+                "B": "New Balance",
+                "C": "Apple"
+            },
+            "category": "Art & Design",
+            "correct": "B",
+            "prediction": {
+                "answer": "C",
+                "confidence": {
+                    "A": "0%",
+                    "B": "0%",
+                    "C": "98%"
+                }
+            },
+            "question": "Starbucks logo designer Terry Heckler was also involved in the production of which of these logos?",
+            "questionId": 60679,
+            "questionNumber": 10
+        },
+        {
+            "answers": {
+                "A": "Australia",
+                "B": "Canada",
+                "C": "Ireland"
+            },
+            "category": "Geography",
+            "correct": "A",
+            "prediction": {
+                "answer": "B",
+                "confidence": {
+                    "A": "36%",
+                    "B": "47%",
+                    "C": "16%"
+                }
+            },
+            "question": "Which of these countries' capital cities has the lowest estimated population?",
+            "questionId": 60682,
+            "questionNumber": 11
+        },
+        {
+            "answers": {
+                "A": "George Michael",
+                "B": "Lonnie Donegan",
+                "C": "David Bowie"
+            },
+            "category": "Music",
+            "correct": "B",
+            "prediction": {
+                "answer": "A",
+                "confidence": {
+                    "A": "77%",
+                    "B": "0%",
+                    "C": "22%"
+                }
+            },
+            "question": "Which of these acts has had singles that have peaked at every position in the Top 10 on the UK charts?",
+            "questionId": 60684,
+            "questionNumber": 12
+        }
+    ],
+    "showId": 6989,
+    "ts": "2018-08-30T14:02:29.324Z"
+}
