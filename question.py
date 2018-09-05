@@ -41,7 +41,7 @@ class Question(object):
         path = 'replay_results.json'
 
         if self.is_replay is False:
-            game_files = glob('games/*.json')
+            game_files = glob('games/json/*.json')
             path = max(game_files, key=os.path.getctime)
 
         return path

@@ -110,9 +110,9 @@ class GameServer:
         self.active = True
 
         game_ids = self.game_ids.split(',')
-        game_files = [file for file in sorted(glob('games/*.json')) if file[22:-5] in game_ids]
+        game_files = [file for file in sorted(glob('games/json/*.json')) if file[27:-5] in game_ids]
 
-        if not game_files or set(game_ids) != set([file[22:-5] for file in game_files]):
+        if not game_files or set(game_ids) != set([file[27:-5] for file in game_files]):
             print(f'Game ID {self.game_ids} not found.')
             exit(1)
         print(f'Playing Game IDs {game_ids}')

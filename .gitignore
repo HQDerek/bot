@@ -4,9 +4,6 @@ __pycache__/
 test-reports/
 *.pyc
 *.ini
-*.log
-*.sqlite
 .idea/
-games/*.local.json
 replay_results.json
 replay_report.html

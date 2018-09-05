@@ -8,8 +8,8 @@ import replay
 
 @pytest.mark.parametrize("globbed_paths, game_json", [
     ([], None), # no game in game folder, no json to return
-    (['games/2018-02-25-game-3701'], generate_game(as_json=True)), # one game file, mock json
-    (['games/2018-02-25-game-3701', 'games/2018-02-26-game-3702'], generate_game(as_json=True)), # two games, mock json
+    (['games/json/2018-02-25-game-3701'], generate_game(as_json=True)), # one game file, mock json
+    (['games/json/2018-02-25-game-3701', 'games/json/2018-02-26-game-3702'], generate_game(as_json=True)), # two games, mock json
 ])
 def test_load_questions(globbed_paths, game_json, monkeypatch):
     """ Ensure a Replay.load_question method will read correctly from the

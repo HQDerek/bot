@@ -84,9 +84,9 @@ def test_game_path_not_replay(mock_getctime, mock_glob):
     """ Ensure that a Question's game_path method while not in replay mode
     returns the most recently created file """
     mock_getctime.return_value = 1
-    mock_glob.return_value = ['games/mock_game_file.json']
+    mock_glob.return_value = ['games/json/mock_game_file.json']
     test_q = generate_question(is_replay=False)
-    assert test_q.game_path == 'games/mock_game_file.json'
+    assert test_q.game_path == 'games/json/mock_game_file.json'
 
 
 def test_add_prediction():

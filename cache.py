@@ -12,7 +12,7 @@ class Cache:
     """ Cache class for operating on the local SQLite cache """
 
     def __init__(self):
-        self.session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
+        self.session = CachedSession('games/db/cache', allowable_codes=(200, 302, 304))
         self.solvers = [
             GoogleAnswerWordsSolver(),
             GoogleResultsCountSolver()
@@ -22,7 +22,7 @@ class Cache:
         """ Prune stale entries from the local cache """
         urls = []
         for solver in self.solvers:
-            for filename in sorted(glob('games/*.json')):
+            for filename in sorted(glob('games/json/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
                     urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')).values())
@@ -39,7 +39,7 @@ class Cache:
         """ Refresh the local cache with unsaved questions """
         urls = []
         for solver in self.solvers:
-            for filename in sorted(glob('games/*.json')):
+            for filename in sorted(glob('games/json/*.json')):
                 game = load(open(filename))
                 for turn in game.get('questions'):
                     urls.extend(solver.build_urls(turn.get('question'), turn.get('answers')).values())
@@ -58,15 +58,15 @@ class Cache:
     @staticmethod
     def vacuum():
         """ Perform an SQL vacuum on the local cache to save space """
-        conn = connect("db/cache.sqlite")
+        conn = connect("games/db/cache.sqlite")
         conn.execute("VACUUM")
         conn.close()
 
     @staticmethod
     def import_sql():
         """ Import saved SQL dumps into a local SQLite cache """
-        conn = connect("db/cache.sqlite")
-        for filename in sorted(glob('db/*.sql')):
+        conn = connect("games/db/cache.sqlite")
+        for filename in sorted(glob('games/db/*.sql')):
             print('Importing SQL %s' % filename)
             sql = open(filename, 'r').read()
             cur = conn.cursor()
@@ -75,10 +75,10 @@ class Cache:
 
     def export(self):
         """ Export the local cache to SQL dump files """
-        for filename in sorted(glob('games/*.json')):
+        for filename in sorted(glob('games/json/*.json')):
             game = load(open(filename))
             show_id = path.basename(filename).split('.')[0]
-            if not path.isfile('./db/%s.sql' % show_id):
+            if not path.isfile('./games/db/%s.sql' % show_id):
                 print('Exporting SQL %s' % show_id)
                 urls = []
                 for solver in self.solvers:
@@ -89,7 +89,7 @@ class Cache:
                 ) for url in urls]
                 conn = connect(':memory:')
                 cur = conn.cursor()
-                cur.execute("attach database 'db/cache.sqlite' as cache")
+                cur.execute("attach database 'games/db/cache.sqlite' as cache")
                 cur.execute("select sql from cache.sqlite_master where type='table' and name='urls'")
                 cur.execute(cur.fetchone()[0])
                 cur.execute("select sql from cache.sqlite_master where type='table' and name='responses'")
@@ -99,7 +99,7 @@ class Cache:
                     cur.execute("insert into responses select * from cache.responses where key = '%s'" % key)
                 conn.commit()
                 cur.execute("detach database cache")
-                with open('db/%s.sql' % show_id, 'w') as file:
+                with open('games/db/%s.sql' % show_id, 'w') as file:
                     for line in conn.iterdump():
                         file.write('%s\n' % line.replace(
                             'TABLE', 'TABLE IF NOT EXISTS'

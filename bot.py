@@ -71,8 +71,8 @@ class HqTriviaBot(object):
         self.current_game = '%s-game-%s' % (data.get('ts')[:10], data.get('showId'))
 
         # Create new save game file if not found
-        if not path.isfile('./games/%s.json' % self.current_game):
-            with open('./games/%s.json' % self.current_game, 'w') as file:
+        if not path.isfile('./games/json/%s.json' % self.current_game):
+            with open('./games/json/%s.json' % self.current_game, 'w') as file:
                 dump({
                     'showId': data.get('showId'),
                     'ts': data.get('ts'),
@@ -94,7 +94,7 @@ class HqTriviaBot(object):
             session = FuturesSession(max_workers=10)
             webbrowser.open('https://www.google.co.uk/search?pws=0&q=' + question.text)
         else:
-            session = CachedSession('db/cache', allowable_codes=(200, 302, 304))
+            session = CachedSession('games/db/cache', allowable_codes=(200, 302, 304))
 
         # Run solvers
         responses = {}

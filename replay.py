@@ -17,7 +17,7 @@ class Replayer(object):
     def load_questions():
         """ Create a list of Question objects to replay """
         questions = []
-        game_paths = [filename for filename in glob('games/*.json')]
+        game_paths = [filename for filename in glob('games/json/*.json')]
         for game_path in game_paths:
             game_data = load(open(game_path))
             for question in game_data['questions']:
