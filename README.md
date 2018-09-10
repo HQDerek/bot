@@ -7,7 +7,7 @@ Welcome to HQ Trivia Bot! Thanks for contributing. Here are the steps to get sta
  * Ensure you have Python 3 installed on your system.
  * Install Pipenv `sudo pip install pipenv`
  * Create Pipenv virtual environment `pipenv --three install --dev`
- * Install NLTK corpora `pipenv run python3 -m nltk.downloader stopwords`
+ * Install NLTK corpora `pipenv run python3 -m nltk.downloader stopwords wordnet`
 
 
 ### Run HQ Trivia Bot

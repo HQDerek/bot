@@ -19,7 +19,7 @@ jobs:
           command: |
             sudo pip install pipenv --upgrade
             pipenv install --dev
-            pipenv run python -m nltk.downloader stopwords
+            pipenv run python -m nltk.downloader stopwords wordnet
 
       - save_cache: # save dependency cache
           key: deps-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
